@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+
+    <RelativeLayout
+        android:id="@+id/layouttop"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/hederbackground"
+        android:gravity="center_horizontal" >
+
+        <TextView
+            android:id="@+id/textheader"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:gravity="center_horizontal"
+            android:padding="10dp"
+            android:text="Bank Details"
+            android:textColor="#ffffff"
+            android:textSize="18sp"
+            android:textStyle="normal|bold" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/mainlayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="left"
+        android:layout_below="@+id/layouttop"
+        android:orientation="vertical"
+        android:padding="5dp"
+        android:weightSum="100">
+
+        <ScrollView
+            android:id="@+id/scrollviewrightleft"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:gravity="center_vertical">
+
+            <RelativeLayout
+                android:id="@+id/scrolllayout"
+                android:layout_width="match_parent"
+                android:layout_height="fill_parent"
+                android:layout_gravity="center_horizontal"
+                android:gravity="center_vertical">
+
+                <LinearLayout
+                    android:id="@+id/mainlayout2"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="left"
+                    android:layout_weight="80"
+                    android:orientation="horizontal"
+                    android:padding="5dp"
+                    android:weightSum="100">
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="left"
+                        android:layout_weight="60"
+                        android:orientation="vertical">
+
+
+                        <TextView
+                            android:id="@+id/txtname"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="5dp"
+                            android:layout_marginTop="5dp"
+                            android:padding="10dp"
+                            android:text="Name:"
+                            android:textColor="@color/darkgraycolor"
+                            android:textSize="14dp" />
+
+                        <TextView
+                            android:id="@+id/txaddress"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="5dp"
+                            android:layout_marginTop="5dp"
+                            android:padding="10dp"
+                            android:text="Address:"
+                            android:textColor="@color/darkgraycolor"
+                            android:textSize="14dp" />
+
+
+                        <TextView
+                            android:id="@+id/txtbankname"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="5dp"
+                            android:layout_marginTop="5dp"
+                            android:padding="10dp"
+                            android:text="Bank:"
+                            android:textColor="@color/darkgraycolor"
+                            android:textSize="14dp" />
+
+                        <TextView
+                            android:id="@+id/txtbranch"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="5dp"
+                            android:layout_marginTop="5dp"
+                            android:padding="10dp"
+                            android:text="Branch:"
+                            android:textColor="@color/darkgraycolor"
+                            android:textSize="14dp" />
+
+                        <TextView
+                            android:id="@+id/txtifsc"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="5dp"
+                            android:layout_marginTop="5dp"
+                            android:padding="10dp"
+                            android:text="IFSC:"
+                            android:textColor="@color/darkgraycolor"
+                            android:textSize="14dp" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="left"
+                        android:layout_weight="40"
+                        android:orientation="vertical">
+
+
+
+                        <EditText
+                            android:id="@+id/txtname1"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="5dp"
+                            android:layout_marginTop="5dp"
+                            android:background="@drawable/edittextanimation"
+                            android:padding="10dp"
+                            android:text=""
+                            android:textColor="@color/mainTextColor"
+                            android:textSize="14dp" />
+
+
+                        <EditText
+                            android:id="@+id/txtaddress"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="5dp"
+                            android:layout_marginTop="5dp"
+                            android:background="@drawable/edittextanimation"
+                            android:padding="10dp"
+                            android:text=""
+                            android:textColor="@color/mainTextColor"
+                            android:textSize="14dp" />
+
+                        <EditText
+                            android:id="@+id/txtbank1"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="5dp"
+                            android:layout_marginTop="5dp"
+                            android:background="@drawable/edittextanimation"
+                            android:padding="10dp"
+                            android:text=""
+                            android:textColor="@color/mainTextColor"
+                            android:textSize="14dp" />
+
+                        <EditText
+                            android:id="@+id/txtbranch1"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="5dp"
+                            android:layout_marginTop="5dp"
+                            android:background="@drawable/edittextanimation"
+                            android:padding="10dp"
+                            android:text=""
+                            android:textColor="@color/mainTextColor"
+                            android:textSize="14dp" />
+
+
+                        <EditText
+                            android:id="@+id/txtifc"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="5dp"
+                            android:layout_marginTop="5dp"
+                            android:padding="10dp"
+                            android:text=""
+                            android:background="@drawable/edittextanimation"
+                            android:textColor="@color/mainTextColor"
+                            android:textSize="14dp" />
+
+
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/layoutbuttons"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/mainlayout2"
+                    android:layout_marginTop="20dp"
+                    android:layout_weight="15"
+                    android:gravity="bottom"
+                    android:weightSum="100">
+
+                    <Button
+                        android:id="@+id/buttonupdate"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="100"
+                        android:background="@color/btnRequest"
+                        android:text="Send Details"
+                        android:textColor="#ffffff"
+                        android:textSize="16sp"
+                        android:textStyle="normal|bold" />
+                </LinearLayout>
+
+            </RelativeLayout>
+        </ScrollView>
+
+    </LinearLayout>
+
+</RelativeLayout>

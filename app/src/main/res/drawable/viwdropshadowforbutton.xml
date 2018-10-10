@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <!-- Layer 0 -->
+    <!-- Layer 1 -->
+    <!-- Layer 2 -->
+    <!-- Layer 3 -->
+    <!-- Layer 4 (content background) -->
+
+
+    <!-- dropshadow -->
+   
+   
+    <item>
+        <shape>
+            <solid android:color="#c3c3c3" />
+
+            <padding
+                android:bottom="1dp"
+                android:left="1dp"
+                android:right="1dp"
+                android:top="1dp" />
+        </shape>
+    </item>
+    <item>
+        <shape>
+            <solid android:color="#60CCCCCC" />
+
+            <padding
+                android:bottom="0.5dp"
+                android:left="0.5dp"
+                android:right="0.5dp"
+                android:top="0.5dp"/>
+        </shape>
+    </item>
+
+    <!-- content background -->
+    <item>
+        <shape>
+            <solid android:color="#ffffff" />
+        </shape>
+    </item>
+
+</layer-list>

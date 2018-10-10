@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/hederbackground"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:padding="5dp"
+    android:theme="@style/ThemeOverlay.AppCompat.Dark">
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_marginTop="20dp"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:background="@drawable/imagelogo" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="AG 224433"
+        android:textSize="12dp"
+        android:textColor="@color/whiteheadercolor"
+       />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Pratik Patel"
+        android:textSize="18dp"
+        android:textColor="@color/whiteheadercolor"
+        android:textStyle="normal|bold"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Contact: 9567543456"
+        android:textSize="14dp"
+        android:textColor="@color/whiteheadercolor"
+
+        />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="pratikpatel@smartloan.com"
+        android:textSize="14dp"
+        android:layout_marginBottom="20dp"
+        android:textColor="@color/whiteheadercolor"
+        />
+</LinearLayout>

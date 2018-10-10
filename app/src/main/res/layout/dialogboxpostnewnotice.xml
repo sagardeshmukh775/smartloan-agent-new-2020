@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent" >
+
+    <RelativeLayout
+        android:id="@+id/layouttop"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/view_dropshadow2"
+        android:gravity="center_horizontal" >
+
+        <TextView
+            android:id="@+id/textheader"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginLeft="5sp"
+            android:gravity="center_horizontal"
+            android:paddingBottom="9dp"
+            android:paddingTop="9dp"
+            android:text="Post Notice"
+            android:textColor="#ffffff"
+            android:textSize="18sp"
+            android:textStyle="normal|bold" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/layoutdatetitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/layouttop"
+        android:layout_marginBottom="10sp"
+        android:layout_marginLeft="10sp"
+        android:layout_marginRight="10sp"
+        android:layout_marginTop="0sp" >
+
+        <EditText
+            android:id="@+id/edittextnotstitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10sp"
+            android:background="@drawable/edittext_bprder"
+            android:gravity="center_horizontal"
+            android:hint="Enter Notice Title"
+            android:maxLength="50"
+            android:paddingBottom="8sp"
+            android:paddingLeft="2sp"
+            android:paddingRight="2sp"
+            android:paddingTop="8sp"
+            android:textColor="@color/textcolor"
+            android:textSize="15sp" />
+
+        <EditText
+            android:id="@+id/edittextdescription"
+            android:layout_width="match_parent"
+            android:layout_height="100sp"
+            android:layout_below="@+id/edittextnotstitle"
+            android:layout_marginTop="2sp"
+            android:background="@drawable/edittext_bprder"
+            android:gravity="center_horizontal"
+            android:hint="Enter Notice Description"
+            android:paddingBottom="8sp"
+            android:paddingLeft="2sp"
+            android:paddingRight="2sp"
+            android:paddingTop="8sp"
+            android:textColor="@color/textcolor"
+            android:textSize="15sp" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/layoutbuttons"
+        android:layout_width="match_parent"
+        android:layout_height="40sp"
+        android:layout_below="@+id/layoutdatetitle"
+        android:gravity="center_horizontal"
+        android:weightSum="100" >
+
+        <Button
+            android:id="@+id/dialogButtonYes"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="50"
+            android:background="@drawable/view_dropshadow2"
+            android:text="POST"
+            android:textColor="#ffffff"
+            android:textSize="18sp"
+            android:textStyle="normal|bold" />
+
+        <Button
+            android:id="@+id/dialogButtonNo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="1sp"
+            android:layout_weight="50"
+            android:background="@drawable/view_dropshadow2"
+            android:text="CANCEL"
+            android:textColor="#ffffff"
+            android:textSize="18sp"
+            android:textStyle="normal|bold" />
+    </LinearLayout>
+
+</RelativeLayout>

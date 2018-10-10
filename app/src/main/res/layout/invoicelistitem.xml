@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="horizontal"
+    android:padding="10dp"
+    android:layout_margin="5dp"
+    android:layout_marginTop="15dp"
+    android:layout_marginBottom="15dp"
+    android:weightSum="100"
+    android:background="@drawable/view_dropshadow">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_gravity="left"
+        android:layout_weight="70">
+
+        <TextView
+            android:id="@+id/txtid"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Invoice Id:"
+            android:textColor="@color/darkgraycolor"
+            android:textSize="14dp"
+            />
+
+        <TextView
+            android:id="@+id/txtcname"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="C Name:"
+            android:textColor="@color/darkgraycolor"
+            android:textSize="14dp"
+            />
+
+        <TextView
+            android:id="@+id/txtbank"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Bank:"
+            android:textColor="@color/darkgraycolor"
+            android:textSize="14dp"/>
+
+
+
+        <TextView
+            android:id="@+id/txtcommision"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Commission:"
+            android:textColor="@color/darkgraycolor"
+            android:textSize="14dp"
+            />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_weight="30"
+        android:layout_gravity="left"
+        >
+
+        <TextView
+            android:id="@+id/txtidvalue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="I Id:"
+            android:textColor="@color/whitetextcolor"
+            android:textSize="14dp"
+            />
+        <TextView
+            android:id="@+id/txtcnamevalue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="C Name:"
+            android:textColor="@color/whitetextcolor"
+            android:textSize="14dp"
+            />
+
+        <TextView
+            android:id="@+id/txtbankvalue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Bank:"
+            android:textColor="@color/whitetextcolor"
+            android:textSize="14dp"/>
+
+
+
+        <TextView
+            android:id="@+id/txtcommisionvalue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="25000"
+            android:textColor="@color/whitetextcolor"
+            android:textSize="14dp"
+            />
+    </LinearLayout>
+
+
+</LinearLayout>

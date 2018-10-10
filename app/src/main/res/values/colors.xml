@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#000000</color>
+    <color name="colorPrimaryDark">#000000</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="bgBackSideColor">#f4f0ff</color>
+    <color name="bgTitleLeft">#000000</color>
+    <color name="bgTitleRight">#ffffff</color>
+    <color name="bgContentTop">#000000</color>
+    <color name="bgContent">#ffffff</color>
+    <color name="contentDividerLine">#e0e0e0</color>
+    <color name="contentBadgeTitle">#a9a9a9</color>
+    <color name="titleBadgeTitle">#adafb1</color>
+    <color name="titleBadgeText">#adafb1</color>
+    <color name="mainTextColor">#343d43</color>
+    <color name="btnRequest">#ffbf12</color>
+    <color name="black_overlay">#66000000</color>
+
+    <color name="darkgraycolor">#848484</color>
+    <color name="graycolor">#d3d3d3</color>
+    <item type="color" name="hederbackground">#594691</item>
+    <item type="color" name="whitetextcolor">#000000</item>
+    <item type="color" name="whiteheadercolor">#ffffff</item>
+    <item type="color" name="hinttextcolor">#c3c3c3</item>
+    <item type="color" name="drowertextcolor">#7e7e7e</item>
+    <item type="color" name="drowerbackgroundcolor">#e9e9e9</item>
+    <item type="color" name="textcolor">#7e7e7e</item>
+    <item type="color" name="edittexthintcolor">#7e7e7e</item>
+
+
+</resources>

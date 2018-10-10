@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent" >
+
+    <RelativeLayout
+        android:id="@+id/layouttop"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/view_dropshadow2"
+        android:gravity="center_horizontal" >
+
+        <TextView
+            android:id="@+id/textheader"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginLeft="5sp"
+            android:gravity="center_horizontal"
+            android:paddingBottom="9dp"
+            android:paddingTop="9dp"
+            android:text="Notice"
+            android:textColor="#ffffff"
+            android:textSize="18sp"
+            android:textStyle="normal|bold" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/layoutdatetitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/layouttop"
+        android:layout_margin="2sp"
+        android:background="@drawable/viewdropshadow3" >
+
+        <ImageView
+            android:id="@+id/imagedate"
+            android:layout_width="25sp"
+            android:layout_height="25sp"
+            android:layout_marginLeft="5sp"
+            android:background="@drawable/datetime" />
+
+        <TextView
+            android:id="@+id/textdate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textdescription"
+            android:layout_marginTop="5sp"
+            android:layout_toRightOf="@+id/imagedate"
+            android:paddingLeft="5sp"
+            android:text="11 jan AM 2018"
+            android:textColor="@color/hederbackground"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/edittextnotstitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textdate"
+            android:layout_marginTop="0sp"
+            android:padding="5sp"
+            android:text="BE 4 Year (Dept IT) Final Exam Time Table"
+            android:textColor="#323232"
+            android:textSize="15sp"
+            android:textStyle="normal|bold" />
+
+        <Button
+            android:id="@+id/buttonline"
+            android:layout_width="match_parent"
+            android:layout_height="1sp"
+            android:layout_below="@+id/edittextnotstitle"
+            android:gravity="center_horizontal"
+            android:padding="5sp" />
+
+        <TextView
+            android:id="@+id/edittextdescription"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/buttonline"
+            android:layout_marginTop="5sp"
+            android:padding="5sp"
+            android:layout_marginBottom="5sp"
+            android:text="The final time table is display The final time table is display The final time table is display The final time table is display"
+            android:textColor="@color/textcolor"
+            android:textSize="15sp" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/layoutbuttons"
+        android:layout_width="match_parent"
+        android:layout_height="40sp"
+        android:layout_below="@+id/layoutdatetitle"
+        android:gravity="center_horizontal"
+        android:weightSum="100" >
+
+        <Button
+            android:id="@+id/dialogButtonNo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="100"
+            android:background="@drawable/view_dropshadow2"
+            android:text="CLOSE"
+            android:textColor="#ffffff"
+            android:textSize="18sp"
+            android:textStyle="normal|bold" />
+    </LinearLayout>
+
+</RelativeLayout>
