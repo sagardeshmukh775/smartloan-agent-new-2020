@@ -26,6 +26,5 @@
     <item type="color" name="drowerbackgroundcolor">#e9e9e9</item>
     <item type="color" name="textcolor">#7e7e7e</item>
     <item type="color" name="edittexthintcolor">#7e7e7e</item>
-
-
+    <item type="color" name="white">#ffffff</item>
 </resources>

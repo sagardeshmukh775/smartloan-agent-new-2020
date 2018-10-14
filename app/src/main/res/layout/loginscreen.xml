@@ -61,22 +61,24 @@
                     android:layout_gravity="center_horizontal"
                     android:gravity="center_vertical">
 
-                    <RelativeLayout
+                    <LinearLayout
                         android:id="@+id/layoutlogin"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:orientation="vertical"
                         android:layout_gravity="center_horizontal"
                         android:gravity="center_horizontal">
 
                         <EditText
-                            android:id="@+id/edittextusername"
+                            android:id="@+id/edittext_mobile_number"
                             android:layout_width="250sp"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="0sp"
                             android:background="@drawable/edittext_bprder"
                             android:gravity="center_horizontal"
-                            android:hint="User Name"
-                            android:maxLength="30"
+                            android:hint="Mobile Number"
+                            android:maxLength="10"
+                            android:inputType="number"
                             android:padding="10sp"
                             android:textColorHint="@color/hinttextcolor"
                             android:paddingLeft="4dp"
@@ -100,7 +102,7 @@
                             android:textColorHint="@color/hinttextcolor"
                             android:textColor="@color/whitetextcolor"
                             android:textSize="15sp"/>
-                    </RelativeLayout>
+                    </LinearLayout>
 
 
 

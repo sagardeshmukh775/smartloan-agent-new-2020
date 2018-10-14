@@ -1,9 +1,10 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context="com.arjunsk.drawer_activity.Fragment1">
-
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <android.support.design.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fitsSystemWindows="true">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -50,7 +51,7 @@
                             android:text="Generate New Lead"
                             android:textColor="@color/darkgraycolor"
                             android:textSize="18sp"
-                            android:textStyle="normal|bold"/>
+                            android:textStyle="normal|bold" />
                     </RelativeLayout>
 
                     <RelativeLayout
@@ -58,9 +59,9 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/layouttextleeds"
+                        android:layout_gravity="center_horizontal"
                         android:layout_marginLeft="30sp"
                         android:layout_marginRight="30sp"
-                        android:layout_gravity="center_horizontal"
                         android:gravity="center_horizontal">
 
                         <EditText
@@ -68,6 +69,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="20sp"
+                            android:background="@drawable/edittextanimation"
                             android:gravity="center_horizontal"
                             android:hint="Client Name"
                             android:maxLength="30"
@@ -75,8 +77,7 @@
                             android:paddingLeft="4dp"
                             android:textColor="@color/whitetextcolor"
                             android:textColorHint="@color/edittexthintcolor"
-                            android:background="@drawable/edittextanimation"
-                            android:textSize="15sp"/>
+                            android:textSize="15sp" />
 
                         <EditText
                             android:id="@+id/edittextmobile"
@@ -84,6 +85,7 @@
                             android:layout_height="wrap_content"
                             android:layout_below="@+id/edittextname"
                             android:layout_marginTop="20sp"
+                            android:background="@drawable/edittextanimation"
                             android:gravity="center_horizontal"
                             android:hint="Mobile Number"
                             android:inputType="number"
@@ -92,8 +94,7 @@
                             android:paddingLeft="4dp"
                             android:textColor="@color/whitetextcolor"
                             android:textColorHint="@color/edittexthintcolor"
-                            android:background="@drawable/edittextanimation"
-                            android:textSize="15sp"/>
+                            android:textSize="15sp" />
 
                         <EditText
                             android:id="@+id/edittextaddress"
@@ -101,6 +102,7 @@
                             android:layout_height="wrap_content"
                             android:layout_below="@+id/edittextmobile"
                             android:layout_marginTop="20sp"
+                            android:background="@drawable/edittextanimation"
                             android:gravity="center_horizontal"
                             android:hint="Address"
                             android:maxLength="50"
@@ -108,7 +110,6 @@
                             android:paddingLeft="4dp"
                             android:textColor="@color/whitetextcolor"
                             android:textColorHint="@color/edittexthintcolor"
-                            android:background="@drawable/edittextanimation"
                             android:textSize="15sp" />
 
                         <EditText
@@ -117,6 +118,7 @@
                             android:layout_height="wrap_content"
                             android:layout_below="@+id/edittextaddress"
                             android:layout_marginTop="20sp"
+                            android:background="@drawable/edittextanimation"
                             android:gravity="center_horizontal"
                             android:hint="Email Id"
                             android:maxLength="25"
@@ -124,7 +126,6 @@
                             android:paddingLeft="4dp"
                             android:textColor="@color/whitetextcolor"
                             android:textColorHint="@color/edittexthintcolor"
-                            android:background="@drawable/edittextanimation"
                             android:textSize="15sp" />
 
                         <RadioGroup
@@ -167,12 +168,12 @@
                             android:layout_below="@+id/radiogender"
 
                             android:layout_marginTop="20sp"
-                            android:textColorHint="@color/edittexthintcolor"
                             android:background="@drawable/edittextanimation"
                             android:gravity="center_horizontal"
                             android:padding="10sp"
                             android:paddingLeft="4dp"
                             android:textColor="@color/whitetextcolor"
+                            android:textColorHint="@color/edittexthintcolor"
                             android:textSize="15sp" />
 
                         <EditText
@@ -181,7 +182,6 @@
                             android:layout_height="wrap_content"
                             android:layout_below="@+id/spinnerselectloantype"
                             android:layout_marginTop="20sp"
-                            android:textColorHint="@color/edittexthintcolor"
                             android:background="@drawable/edittextanimation"
                             android:gravity="center_horizontal"
                             android:hint="Pan Number"
@@ -189,6 +189,7 @@
                             android:padding="10sp"
                             android:paddingLeft="4dp"
                             android:textColor="@color/whitetextcolor"
+                            android:textColorHint="@color/edittexthintcolor"
                             android:textSize="15sp" />
 
                         <EditText
@@ -197,6 +198,7 @@
                             android:layout_height="wrap_content"
                             android:layout_below="@+id/edittextpannumber"
                             android:layout_marginTop="20sp"
+                            android:background="@drawable/edittextanimation"
                             android:gravity="center_horizontal"
                             android:hint="Date Of Birth"
                             android:maxLength="30"
@@ -204,9 +206,7 @@
                             android:paddingLeft="4dp"
                             android:textColor="@color/whitetextcolor"
                             android:textColorHint="@color/edittexthintcolor"
-                            android:background="@drawable/edittextanimation"
                             android:textSize="15sp" />
-
 
 
                         <EditText
@@ -215,6 +215,7 @@
                             android:layout_height="wrap_content"
                             android:layout_below="@+id/edittextdob"
                             android:layout_marginTop="20sp"
+                            android:background="@drawable/edittextanimation"
                             android:gravity="center_horizontal"
                             android:hint="Expected Loan Amount"
                             android:maxLength="20"
@@ -222,8 +223,7 @@
                             android:paddingLeft="4dp"
                             android:textColor="@color/whitetextcolor"
                             android:textColorHint="@color/edittexthintcolor"
-                            android:background="@drawable/edittextanimation"
-                            android:textSize="15sp"/>
+                            android:textSize="15sp" />
 
                         <Spinner
                             android:id="@+id/spinnerselecttypeofemployee"
@@ -231,13 +231,13 @@
                             android:layout_height="wrap_content"
                             android:layout_below="@+id/edittextexloanammount"
                             android:layout_marginTop="20sp"
-                            android:textColorHint="@color/edittexthintcolor"
                             android:background="@drawable/edittextanimation"
                             android:gravity="center_horizontal"
                             android:padding="10sp"
                             android:paddingLeft="4dp"
                             android:textColor="@color/whitetextcolor"
-                            android:textSize="15sp"/>
+                            android:textColorHint="@color/edittexthintcolor"
+                            android:textSize="15sp" />
 
                         <EditText
                             android:id="@+id/edittextincome"
@@ -245,20 +245,20 @@
                             android:layout_height="wrap_content"
                             android:layout_below="@+id/spinnerselecttypeofemployee"
                             android:layout_marginTop="20sp"
-                            android:textColorHint="@color/edittexthintcolor"
                             android:background="@drawable/edittextanimation"
                             android:gravity="center_horizontal"
                             android:padding="10sp"
                             android:paddingLeft="4dp"
                             android:textColor="@color/whitetextcolor"
-                            android:textSize="15sp"/>
+                            android:textColorHint="@color/edittexthintcolor"
+                            android:textSize="15sp" />
 
                         <RelativeLayout
                             android:id="@+id/layoutattachdocuments"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="20sp"
                             android:layout_below="@+id/edittextincome"
+                            android:layout_marginTop="20sp"
                             android:gravity="center_horizontal">
 
                             <TextView
@@ -268,8 +268,8 @@
                                 android:layout_below="@+id/layoutlogin"
                                 android:layout_gravity="center_vertical"
                                 android:gravity="center_horizontal"
-                                android:text="Attach doc"
                                 android:padding="5sp"
+                                android:text="Attach doc"
                                 android:textColor="@color/darkgraycolor"
                                 android:textSize="15dp" />
 
@@ -278,14 +278,13 @@
                                 android:id="@+id/buttonattachdocuments"
                                 android:layout_width="30dp"
                                 android:layout_height="30dp"
-                                android:background="@drawable/reportsimage"
-                                android:layout_toRightOf="@+id/txtattachdoc"
-                                android:gravity="center"
                                 android:layout_marginLeft="5dp"
+                                android:layout_toRightOf="@+id/txtattachdoc"
+                                android:background="@drawable/reportsimage"
+                                android:gravity="center"
                                 android:padding="5sp"
                                 android:textColor="@color/darkgraycolor"
-                                android:textSize="12sp"
-                                />
+                                android:textSize="12sp" />
                         </RelativeLayout>
                     </RelativeLayout>
 
@@ -314,5 +313,5 @@
             </RelativeLayout>
         </ScrollView>
     </LinearLayout>
-
-</FrameLayout>
+    </android.support.design.widget.CoordinatorLayout>
+</layout>

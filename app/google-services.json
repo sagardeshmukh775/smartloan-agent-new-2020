@@ -1,0 +1,73 @@
+{
+  "project_info": {
+    "project_number": "1061683255156",
+    "firebase_url": "https://smart-loan-2018-dev.firebaseio.com",
+    "project_id": "smart-loan-2018-dev",
+    "storage_bucket": "smart-loan-2018-dev.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1061683255156:android:74b9ad2984ed6504",
+        "android_client_info": {
+          "package_name": "com.smartloan.smtrick.smart_loan"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1061683255156-ski3acjc71hlc1jrh9ll47n1bfen6i2r.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDHkufqbEfAUNCuSHFNDrmfCQqMXWmsqJs"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1061683255156:android:40b3b46c655e1b68",
+        "android_client_info": {
+          "package_name": "com.smartloan.smtrick.smart_loan_admin"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1061683255156-ski3acjc71hlc1jrh9ll47n1bfen6i2r.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDHkufqbEfAUNCuSHFNDrmfCQqMXWmsqJs"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

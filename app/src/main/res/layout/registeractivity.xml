@@ -55,9 +55,10 @@
                             android:textStyle="normal|bold" />
                     </RelativeLayout>
 
-                    <RelativeLayout
+                    <LinearLayout
                         android:id="@+id/layoutlogin"
                         android:layout_width="match_parent"
+                        android:orientation="vertical"
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/layouttext"
                         android:layout_gravity="center_horizontal"
@@ -190,8 +191,8 @@
 
                         <EditText
                             android:id="@+id/edittextpassword"
-                            android:layout_width="0dp"
-                            android:layout_height="0dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
                             android:layout_below="@+id/edittextusername"
                             android:layout_marginLeft="30sp"
                             android:layout_marginRight="30sp"
@@ -209,8 +210,8 @@
 
                         <EditText
                             android:id="@+id/edittextreenterpassword"
-                            android:layout_width="0dp"
-                            android:layout_height="0dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
                             android:layout_below="@+id/edittextpassword"
                             android:layout_marginBottom="15sp"
                             android:layout_marginLeft="30sp"
@@ -220,6 +221,7 @@
                             android:hint="Re-Enter Password"
                             android:inputType="textPassword"
                             android:maxLength="20"
+                            android:visibility="gone"
                             android:padding="10sp"
                             android:paddingLeft="4dp"
                             android:background="@drawable/edittext_bprder"
@@ -268,7 +270,7 @@
                             android:textColorHint="@color/hinttextcolor"
                             android:textSize="15sp" />
 
-                    </RelativeLayout>
+                    </LinearLayout>
 
                     <TextView
                         android:id="@+id/txttermsandconditions"

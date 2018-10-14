@@ -9,7 +9,7 @@
         android:roundIcon="@drawable/applogo4"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".SplashScreen">
+        <activity android:name=".view.activites.SplashScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -17,28 +17,28 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".LoginScreen"
+            android:name=".view.activites.LoginScreen"
             android:windowSoftInputMode="stateHidden" />
         <activity
-            android:name=".Registeractivity"
+            android:name=".view.activites.Registeractivity"
             android:windowSoftInputMode="stateHidden" />
         <activity
-            android:name=".MainActivity"
+            android:name=".view.activites.MainActivity"
             android:windowSoftInputMode="stateHidden"
             android:theme="@style/AppTheme" />
 
         <activity
-            android:name=".BankDetails_Activity"
+            android:name=".view.activites.BankDetails_Activity"
             android:windowSoftInputMode="stateHidden"
             android:theme="@style/AppTheme" />
 
         <activity
-            android:name=".TermsCondition_Activity"
+            android:name=".view.activites.TermsCondition_Activity"
             android:windowSoftInputMode="stateHidden"
             android:theme="@style/AppTheme" />
 
         <activity
-            android:name=".GenerateLeads"
+            android:name=".view.activites.GenerateLeads"
             android:label="@string/title_activity_generate_leads"
             android:windowSoftInputMode="stateHidden">
         </activity>
