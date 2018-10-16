@@ -168,7 +168,7 @@ public class Registeractivity extends AppCompatActivity implements
             }
         } catch (Exception e) {
             isValid = false;
-            ExceptionUtil.logException("Method: validate", "Class: LoginScreen", e);
+            ExceptionUtil.logException( e);
         }
         return isValid;
     }

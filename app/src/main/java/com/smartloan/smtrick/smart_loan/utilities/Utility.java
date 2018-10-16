@@ -13,6 +13,8 @@ import com.smartloan.smtrick.smart_loan.R;
 import com.smartloan.smtrick.smart_loan.constants.Constant;
 import com.smartloan.smtrick.smart_loan.exception.ExceptionUtil;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Random;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -51,7 +53,7 @@ public class Utility {
             Matcher matcher = pattern.matcher(email);
             return matcher.matches();
         } catch (Exception e) {
-            ExceptionUtil.logException("Method: isValidEmail", "Class: Utility", e);
+            ExceptionUtil.logException(e);
         }
         return false;
     }
@@ -183,5 +185,26 @@ public class Utility {
         textView.setTextColor(ContextCompat.getColor(context, R.color.white));
         textView.setMaxLines(8);//this is your max line as your want
         snackbar.show();
+    }
+
+    public static String convertMilliSecondsToFormatedDate(long dateInMilliseconds, String dateFormat) {
+        try {
+            return android.text.format.DateFormat.format(dateFormat, dateInMilliseconds).toString();
+        } catch (Exception e) {
+            ExceptionUtil.logException(e);
+            return "";
+        }
+    }
+    public static long convertFormatedDateToMilliSeconds(String string_date, String dateFormat) {
+        try {
+            if (string_date == null || string_date.equalsIgnoreCase(""))
+                return 0;
+            SimpleDateFormat f = new SimpleDateFormat(dateFormat);
+            Date d = f.parse(string_date);
+            return d.getTime();
+        } catch (Exception e) {
+            ExceptionUtil.logException(e);
+            return 0;
+        }
     }
 }

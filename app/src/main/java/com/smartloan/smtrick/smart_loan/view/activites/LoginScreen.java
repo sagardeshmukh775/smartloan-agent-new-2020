@@ -88,7 +88,7 @@ public class LoginScreen extends AppCompatActivity {
                         }
                     }
                 } catch (Exception e) {
-                    ExceptionUtil.logException("Method: checkLoginState", "Class: LoginScreen", e);
+                    ExceptionUtil.logException( e);
                 }
             }
         });
@@ -183,7 +183,7 @@ public class LoginScreen extends AppCompatActivity {
             }
         } catch (Exception e) {
             isValid = false;
-            ExceptionUtil.logException("Method: validate", "Class: LoginScreen", e);
+            ExceptionUtil.logException( e);
         }
         return isValid;
     }

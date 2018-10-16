@@ -21,7 +21,7 @@
             android:layout_centerInParent="true"
             android:text="Lead Details"
             android:textColor="@android:color/white"
-            android:textSize="20sp"/>
+            android:textSize="20sp" />
 
     </RelativeLayout>
 
@@ -35,7 +35,7 @@
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:scaleType="centerCrop"
-            android:src="@drawable/head_image"/>
+            android:src="@drawable/head_image" />
 
         <TextView
             android:id="@+id/head_image_left_text"
@@ -48,7 +48,7 @@
             android:paddingBottom="10dp"
             android:paddingLeft="20dp"
             android:paddingStart="20dp"
-            android:text=""/>
+            android:text="" />
 
         <TextView
             style="@style/ContentImageBadgeTitle"
@@ -59,7 +59,7 @@
             android:layout_alignStart="@id/head_image_left_text"
             android:paddingLeft="20dp"
             android:paddingStart="20dp"
-            android:text=""/>
+            android:text="" />
 
         <TextView
             android:id="@+id/head_image_right_text"
@@ -72,7 +72,7 @@
             android:paddingBottom="10dp"
             android:paddingEnd="20dp"
             android:paddingRight="20dp"
-            android:text=""/>
+            android:text="" />
 
         <TextView
             style="@style/ContentImageBadgeTitle"
@@ -127,30 +127,30 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentLeft="true"
-                android:gravity="center_vertical"
                 android:layout_alignParentStart="true"
                 android:layout_marginBottom="5dp"
+                android:gravity="center_vertical"
                 android:text="CLIENT INFO" />
 
             <ImageView
-                android:id="@+id/content_avatar"
+                android:id="@+id/imageview_avatar"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/content_avatar_title"
                 android:scaleType="centerCrop"
-                android:src="@drawable/avatar"/>
+                android:src="@drawable/avatar" />
 
             <TextView
-                android:id="@+id/content_name_view"
+                android:id="@+id/textview_customer_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignTop="@id/content_avatar"
+                android:layout_alignTop="@id/imageview_avatar"
                 android:layout_marginBottom="2dp"
                 android:layout_marginLeft="10dp"
-                android:layout_marginTop="10dp"
                 android:layout_marginStart="10dp"
-                android:layout_toEndOf="@id/content_avatar"
-                android:layout_toRightOf="@id/content_avatar"
+                android:layout_marginTop="10dp"
+                android:layout_toEndOf="@id/imageview_avatar"
+                android:layout_toRightOf="@id/imageview_avatar"
                 android:text="Pratik Patel"
                 android:textColor="@color/mainTextColor"
                 android:textSize="18sp"
@@ -162,16 +162,36 @@
                 android:layout_height="0dp"
                 android:src="@drawable/stars" />
 
-            <TextView
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-               android:layout_toRightOf="@+id/content_avatar"
-                android:layout_below="@+id/content_name_view"
-                android:layout_marginLeft="10dp"
-                android:layout_marginTop="0dp"
-                android:text="Applied for Home Loan"
-                android:textColor="@color/mainTextColor"
-                android:textSize="14sp" />
+                android:layout_below="@+id/textview_customer_name"
+                android:layout_toRightOf="@+id/imageview_avatar">
+
+                <TextView
+                    android:id="@+id/textview_applied_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/textview_customer_name"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="0dp"
+                    android:layout_toRightOf="@+id/imageview_avatar"
+                    android:text="Applied for "
+                    android:textColor="@color/mainTextColor"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/textview_loan_type"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/textview_customer_name"
+                    android:layout_marginLeft="2dp"
+                    android:layout_marginTop="0dp"
+                    android:layout_toRightOf="@+id/imageview_avatar"
+                    android:text="Home Loan"
+                    android:textColor="@color/mainTextColor"
+                    android:textSize="14sp" />
+            </LinearLayout>
 
             <ImageView
                 android:layout_width="0dp"
@@ -213,45 +233,43 @@
                     android:text="@string/from_badge" />
 
                 <TextView
-                    android:id="@+id/content_from_address_1"
+                    android:id="@+id/textview_mobille_number"
                     android:layout_width="100dp"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/content_from_badge"
                     android:text="Mobile No:"
                     android:textColor="@color/mainTextColor"
-                    android:textSize="14sp"
-                   />
+                    android:textSize="14sp" />
 
                 <TextView
-                    android:id="@+id/content_from_address_2"
+                    android:id="@+id/textview_mobille_number_value"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/content_from_badge"
-                    android:layout_marginTop="1sp"
                     android:layout_marginLeft="10sp"
-                    android:layout_toRightOf="@+id/content_from_address_1"
+                    android:layout_marginTop="1sp"
+                    android:layout_toRightOf="@+id/textview_mobille_number"
                     android:text="@string/content_from2_mock"
                     android:textColor="@color/mainTextColor"
                     android:textSize="14sp" />
 
                 <TextView
-                    android:id="@+id/content_from_emailtext"
+                    android:id="@+id/textview_emailid"
                     android:layout_width="100dp"
                     android:layout_height="wrap_content"
-                    android:layout_below="@+id/content_from_address_2"
+                    android:layout_below="@+id/textview_mobille_number_value"
                     android:text="Email Id:"
                     android:textColor="@color/mainTextColor"
-                    android:textSize="14sp"
-                     />
+                    android:textSize="14sp" />
 
                 <TextView
-                    android:id="@+id/content_from_email"
+                    android:id="@+id/textview_emailid_value"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_below="@+id/content_from_address_2"
-                    android:layout_marginTop="1sp"
+                    android:layout_below="@+id/textview_mobille_number_value"
                     android:layout_marginLeft="10sp"
-                    android:layout_toRightOf="@+id/content_from_emailtext"
+                    android:layout_marginTop="1sp"
+                    android:layout_toRightOf="@+id/textview_emailid"
                     android:text="Pratikpatel@gmail.com"
                     android:textColor="@color/mainTextColor"
                     android:textSize="14sp" />
@@ -260,23 +278,22 @@
                     android:id="@+id/textaddress"
                     android:layout_width="100dp"
                     android:layout_height="wrap_content"
-                    android:layout_below="@+id/content_from_email"
+                    android:layout_below="@+id/textview_emailid_value"
                     android:text="Address:"
                     android:textColor="@color/mainTextColor"
-                    android:textSize="14sp"
-                    />
+                    android:textSize="14sp" />
 
                 <TextView
                     android:id="@+id/txtinfoaddress"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_toRightOf="@+id/textaddress"
-                    android:layout_below="@id/content_from_email"
-                    android:text="Andheri east mumbai,400001"
-                    android:layout_marginTop="1sp"
+                    android:layout_below="@id/textview_emailid_value"
                     android:layout_marginLeft="10sp"
+                    android:layout_marginTop="1sp"
+                    android:layout_toRightOf="@+id/textaddress"
+                    android:text="Andheri east mumbai,400001"
                     android:textColor="@color/mainTextColor"
-                    android:textSize="14sp"/>
+                    android:textSize="14sp" />
 
             </RelativeLayout>
 
@@ -304,7 +321,7 @@
                     android:text="@string/content_to1_mock"
                     android:textColor="@color/mainTextColor"
                     android:textSize="18sp"
-                    android:textStyle="bold"/>
+                    android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/content_to_address_2"
@@ -323,7 +340,7 @@
                     android:layout_alignParentEnd="true"
                     android:layout_alignParentRight="true"
                     android:layout_centerVertical="true"
-                    android:src="@drawable/arrow"/>
+                    android:src="@drawable/arrow" />
 
             </RelativeLayout>
 
@@ -335,7 +352,7 @@
             android:layout_height="1dp"
             android:layout_marginBottom="6dp"
             android:layout_marginTop="7dp"
-            android:src="@color/contentDividerLine"/>
+            android:src="@color/contentDividerLine" />
 
         <!-- dates part -->
         <LinearLayout
@@ -356,7 +373,7 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentLeft="true"
                     android:layout_alignParentStart="true"
-                    android:text="LEAD INFO"/>
+                    android:text="LEAD INFO" />
 
                 <TextView
                     android:id="@+id/txtloantype"
@@ -365,16 +382,15 @@
                     android:layout_below="@+id/content_delivery_date_badge"
                     android:text="Loan Type:"
                     android:textColor="@color/mainTextColor"
-                    android:textSize="14sp"
-                    />
+                    android:textSize="14sp" />
 
                 <TextView
                     android:id="@+id/txtloantypevalue"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="1sp"
-                    android:layout_marginLeft="10sp"
                     android:layout_below="@+id/content_delivery_date_badge"
+                    android:layout_marginLeft="10sp"
+                    android:layout_marginTop="1sp"
                     android:layout_toRightOf="@+id/txtloantype"
                     android:text="Home Loan"
                     android:textColor="@color/mainTextColor"
@@ -388,16 +404,15 @@
                     android:layout_below="@+id/txtloantype"
                     android:text="Bank Name:"
                     android:textColor="@color/mainTextColor"
-                    android:textSize="14sp"
-                    />
+                    android:textSize="14sp" />
 
                 <TextView
                     android:id="@+id/txtbankvalue"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/txtloantype"
-                    android:layout_marginTop="1sp"
                     android:layout_marginLeft="10sp"
+                    android:layout_marginTop="1sp"
                     android:layout_toRightOf="@+id/txtbank"
                     android:text="HDFC Bank"
                     android:textColor="@color/mainTextColor"
@@ -410,16 +425,15 @@
                     android:layout_below="@+id/txtbank"
                     android:text="Payout:"
                     android:textColor="@color/mainTextColor"
-                    android:textSize="14sp"
-                    />
+                    android:textSize="14sp" />
 
                 <TextView
                     android:id="@+id/txtpayoutvalue"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/txtbank"
-                    android:layout_marginTop="1sp"
                     android:layout_marginLeft="10sp"
+                    android:layout_marginTop="1sp"
                     android:layout_toRightOf="@+id/txtpayout"
                     android:text="Rs 110000"
                     android:textColor="@color/mainTextColor"
@@ -432,20 +446,19 @@
                     android:layout_below="@+id/txtpayout"
                     android:text="Agent Name:"
                     android:textColor="@color/mainTextColor"
-                    android:textSize="14sp"
-                    />
+                    android:textSize="14sp" />
 
                 <TextView
                     android:id="@+id/txtagentvalue"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/txtpayout"
-                    android:layout_marginTop="1sp"
                     android:layout_marginLeft="10sp"
+                    android:layout_marginTop="1sp"
                     android:layout_toRightOf="@+id/txtagent"
                     android:text="Vikram Kodag"
                     android:textColor="@color/mainTextColor"
-                    android:textSize="14sp"/>
+                    android:textSize="14sp" />
 
                 <TextView
                     android:id="@+id/txtapprovedloan"
@@ -454,104 +467,36 @@
                     android:layout_below="@+id/txtagent"
                     android:text="Approved Loan:"
                     android:textColor="@color/mainTextColor"
-                    android:textSize="14sp"
-                    />
+                    android:textSize="14sp" />
 
                 <TextView
                     android:id="@+id/txtapprovedloanvalue"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/txtagent"
-                    android:layout_marginTop="1sp"
                     android:layout_marginLeft="10sp"
+                    android:layout_marginTop="1sp"
                     android:layout_toRightOf="@+id/txtapprovedloan"
                     android:text="200000"
                     android:textColor="@color/mainTextColor"
-                    android:textSize="14sp"/>
-
+                    android:textSize="14sp" />
 
                 <TextView
                     android:id="@+id/title_request"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_below="@id/txtapprovedloan"
-                    android:background="@color/btnRequest"
                     android:layout_marginTop="10dp"
-                    android:padding="10dp"
+                    android:background="@color/btnRequest"
                     android:gravity="center_horizontal"
+                    android:padding="10dp"
+                    android:text="Request for Payout"
                     android:textColor="@color/mainTextColor"
-                    android:textSize="16sp"
-                    android:text="Request for Payout"/>
+                    android:textSize="16sp" />
 
-
-                <TextView
-                    android:id="@+id/content_delivery_time"
-                    android:layout_width="0dp"
-                    android:layout_height="0dp"
-                    android:layout_alignLeft="@id/content_delivery_date_badge"
-                    android:layout_alignStart="@id/content_delivery_date_badge"
-                    android:layout_below="@id/content_delivery_date_badge"
-                    android:text=""
-                    android:textColor="@color/mainTextColor"
-                    android:textSize="14sp"/>
-
-                <TextView
-                    android:id="@+id/content_delivery_date"
-                    android:layout_width="0dp"
-                    android:layout_height="0dp"
-                    android:layout_alignLeft="@id/content_delivery_time"
-                    android:layout_alignStart="@id/content_delivery_time"
-                    android:layout_below="@id/content_delivery_time"
-                    android:text="@string/delivery_date_mock"
-                    android:textColor="@color/mainTextColor"
-                    android:textSize="14sp" />
-
-
-
-            </RelativeLayout>
-
-            <RelativeLayout
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="0">
-
-                <TextView
-                    android:id="@+id/content_deadline_badge"
-                    style="@style/ContentMainBadgeTitle"
-                    android:layout_width="0dp"
-                    android:layout_height="0dp"
-                    android:layout_alignParentLeft="true"
-                    android:layout_alignParentStart="true"
-                    android:text="@string/deadline_badge" />
-
-                <TextView
-                    android:id="@+id/content_deadline_time"
-                    android:layout_width="0dp"
-                    android:layout_height="0dp"
-                    android:layout_alignLeft="@id/content_deadline_badge"
-                    android:layout_alignStart="@id/content_deadline_badge"
-                    android:layout_below="@id/content_deadline_badge"
-                    android:text="@string/deadline_time_mock"
-                    android:textColor="@color/mainTextColor"
-                    android:textSize="18sp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:id="@+id/content_deadline_date"
-                    android:layout_width="0dp"
-                    android:layout_height="0dp"
-                    android:layout_alignLeft="@id/content_deadline_time"
-                    android:layout_alignStart="@id/content_deadline_time"
-                    android:layout_below="@id/content_deadline_time"
-                    android:text=""
-                    android:textColor="@color/mainTextColor"
-                    android:textSize="14sp" />
             </RelativeLayout>
 
         </LinearLayout>
-
-
-
         <!-- dates part -->
         <LinearLayout
             android:layout_width="match_parent"
@@ -564,19 +509,19 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1">
 
-        <!-- request button -->
-        <TextView
-            android:id="@+id/content_request_btn"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_marginTop="16dp"
-            android:background="@color/btnRequest"
-            android:padding="10dp"
-            android:layout_marginRight="1dp"
-            android:text="@string/request_btn_text"
-            android:textAlignment="center"
-            android:textColor="@color/mainTextColor"
-            android:textSize="20sp" />
+                <!-- request button -->
+                <TextView
+                    android:id="@+id/content_request_btn"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_marginRight="1dp"
+                    android:layout_marginTop="16dp"
+                    android:background="@color/btnRequest"
+                    android:padding="10dp"
+                    android:text="@string/request_btn_text"
+                    android:textAlignment="center"
+                    android:textColor="@color/mainTextColor"
+                    android:textSize="20sp" />
 
             </RelativeLayout>
 
@@ -588,19 +533,19 @@
 
                 <TextView
                     android:id="@+id/btnrequest"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_marginTop="16dp"
-            android:text="@string/btn_annotation_mock"
-            android:textAlignment="center"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_marginLeft="1dp"
+                    android:layout_marginTop="16dp"
                     android:background="@color/btnRequest"
                     android:padding="10dp"
-                    android:layout_marginLeft="1dp"
-            android:textColor="@color/mainTextColor"
-            android:textSize="20sp" />
+                    android:text="@string/btn_annotation_mock"
+                    android:textAlignment="center"
+                    android:textColor="@color/mainTextColor"
+                    android:textSize="20sp" />
             </RelativeLayout>
 
-    </LinearLayout>
+        </LinearLayout>
     </LinearLayout>
 
 </LinearLayout>

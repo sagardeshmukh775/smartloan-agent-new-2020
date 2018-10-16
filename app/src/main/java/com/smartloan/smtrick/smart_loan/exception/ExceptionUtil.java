@@ -8,10 +8,10 @@ public class ExceptionUtil {
     //Generic dialog, takes in the method name and error message
     //*********************************************************
     public static void errorMessage(final String method, final String message, final Exception e) {
-        logException(method, message, e);
+        logException(e);
     }
 
-    public static void logException(final String tag, final String message, final Exception e) {
+    public static void logException( final Exception e) {
         Log.e(e.getClass().getName(), e.getMessage(), e.getCause());
     }
 

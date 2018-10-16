@@ -70,5 +70,7 @@
     <string name="loan_type_error">Select one of loan type.</string>
     <string name="lead_generated_success_message">Leed generated successfully.</string>
     <string name="lead_generated_fails_message">Leed generated failed, please try again.</string>
+    <string name="server_error">Faild to fetch data, please try again.</string>
     <string name="leed_In_loading">Generating Leed&#8230;</string>
+    <string name="na">NA</string>
 </resources>

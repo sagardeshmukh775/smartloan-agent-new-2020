@@ -29,5 +29,13 @@ public class Constant {
     public static final String EMAIL_POSTFIX = "@smartloan.com";
     //********************************************STATUS FLEADS*****************************
     public static final String STATUS_GENERATED = "GENERATED";
+    public static final String STATUS_APPROVED = "APPROVED";
+    public static final String STATUS_REJECTED = "REJECTED";
+    public static final String STATUS_IN_PROGRESS = "IN-PROGRESS";
+    public static final String GLOBAL_DATE_FORMATE = "dd MMM yyyy hh:mm a";
+    public static final String CALANDER_DATE_FORMATE = "dd/MM/yy";
+    public static final String LEED_DATE_FORMATE = "dd MMM, yyyy";
+    public static final String DAY_DATE_FORMATE = "EEEE";
+    public static final String TIME_DATE_FORMATE = "hh:mm a";
     //****************************************************************
 }

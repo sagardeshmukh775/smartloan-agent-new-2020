@@ -107,7 +107,7 @@ public class UserRepositoryImpl extends FirebaseTemplateRepository implements Us
                         callback.onSuccess(firstChild.getValue(User.class));
                     } catch (Exception e) {
                         callback.onError(e);
-                        ExceptionUtil.logException("readUser", "User Repository", e);
+                        ExceptionUtil.logException(e);
                     }
                 } else
                     callback.onError(null);
@@ -269,7 +269,7 @@ public class UserRepositoryImpl extends FirebaseTemplateRepository implements Us
                                 callBack.onError(null);
                             }
                         } catch (Exception e) {
-                            ExceptionUtil.logException("readUserByUserId", "UserRepositoryImpl", e);
+                            ExceptionUtil.logException(e);
                         }
                     } else
                         callBack.onError(null);

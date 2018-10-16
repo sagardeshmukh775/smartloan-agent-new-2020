@@ -152,7 +152,7 @@ public class Fragment_GenerateLeads extends Fragment implements AdapterView.OnIt
             }
         } catch (Exception e) {
             isValid = false;
-            ExceptionUtil.logException("Method: validate", "Class: Fragment_GenerateLeads", e);
+            ExceptionUtil.logException(e);
         }
         return isValid;
     }

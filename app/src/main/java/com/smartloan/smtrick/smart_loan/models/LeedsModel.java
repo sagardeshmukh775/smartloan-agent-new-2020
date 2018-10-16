@@ -1,9 +1,12 @@
 package com.smartloan.smtrick.smart_loan.models;
 
+import android.view.View;
+
 import com.google.firebase.database.Exclude;
 import com.google.firebase.database.ServerValue;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Map;
 
 public class LeedsModel implements Serializable {
@@ -29,8 +32,31 @@ public class LeedsModel implements Serializable {
     private String payout;
     private String createdBy;
     private Map<String, ImagesModel> documentImages;
+    private String approvedLoan;
+
+    private View.OnClickListener requestBtnClickListener;
 
     public LeedsModel() {
+    }
+
+    public LeedsModel(int id) {
+        this.customerName = "Prateek Patel";
+        this.mobileNumber = "84121211";
+        this.address = "Pune";
+        this.gender = "Male";
+        this.agentId = "Ag-56465";
+        this.loanType = "Home Loan";
+        this.panCardNumber = "jds45";
+        this.email = "kjsdj@jhjdf.sdf";
+        this.expectedLoanAmount = "2565656";
+        this.occupation = "vdvf";
+        this.agentName = "Aikk";
+        this.leedId = "dfgdfg";
+        this.status = "Generated";
+        this.leedNumber = "LD_56654";
+        this.bankName = "SBI";
+        this.payout = "325454";
+        this.approvedLoan = "3564545";
     }
 
     @Exclude
@@ -225,5 +251,30 @@ public class LeedsModel implements Serializable {
 
     public void setCreatedBy(String createdBy) {
         this.createdBy = createdBy;
+    }
+
+    public String getApprovedLoan() {
+        return approvedLoan;
+    }
+
+    public void setApprovedLoan(String approvedLoan) {
+        this.approvedLoan = approvedLoan;
+    }
+
+    public View.OnClickListener getRequestBtnClickListener() {
+        return requestBtnClickListener;
+    }
+
+    public void setRequestBtnClickListener(View.OnClickListener requestBtnClickListener) {
+        this.requestBtnClickListener = requestBtnClickListener;
+    }
+
+    public static ArrayList<LeedsModel> getLeeds() {
+        ArrayList<LeedsModel> leedsModelArrayList = new ArrayList<>();
+        for (int i = 0; i < 10; i++) {
+            LeedsModel leedsModel = new LeedsModel(i);
+            leedsModelArrayList.add(leedsModel);
+        }
+        return leedsModelArrayList;
     }
 }
