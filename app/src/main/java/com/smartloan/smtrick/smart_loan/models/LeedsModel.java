@@ -15,6 +15,7 @@ public class LeedsModel implements Serializable {
     private String address;
     private String gender;
     private String agentId;
+    private String agentUserId;
     private Long createdDateTime, updatedDateTime;
     private String loanType;
     private String panCardNumber;
@@ -267,6 +268,14 @@ public class LeedsModel implements Serializable {
 
     public void setRequestBtnClickListener(View.OnClickListener requestBtnClickListener) {
         this.requestBtnClickListener = requestBtnClickListener;
+    }
+
+    public String getAgentUserId() {
+        return agentUserId;
+    }
+
+    public void setAgentUserId(String agentUserId) {
+        this.agentUserId = agentUserId;
     }
 
     public static ArrayList<LeedsModel> getLeeds() {

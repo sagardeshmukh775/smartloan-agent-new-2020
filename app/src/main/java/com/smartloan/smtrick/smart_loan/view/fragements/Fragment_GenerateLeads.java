@@ -51,7 +51,7 @@ public class Fragment_GenerateLeads extends Fragment implements AdapterView.OnIt
         if (mListener != null) {
             mListener.onFragmentInteraction("New Lead");
         }
-        progressDialogClass=new ProgressDialogClass(getActivity());
+        progressDialogClass = new ProgressDialogClass(getActivity());
         appSingleton = AppSingleton.getInstance(getActivity());
         leedRepository = new LeedRepositoryImpl();
         appSharedPreference = new AppSharedPreference(getActivity());
@@ -136,18 +136,20 @@ public class Fragment_GenerateLeads extends Fragment implements AdapterView.OnIt
                 validationMessage = getString(R.string.customer_name_should_be_empty);
                 fragmentGenerateleadBinding.edittextname.setError(validationMessage);
                 isValid = false;
-            }  if (!Utility.isValidMobileNumber(leedsModel.getMobileNumber())) {
+            }
+            if (!Utility.isValidMobileNumber(leedsModel.getMobileNumber())) {
                 validationMessage = getString(R.string.INVALID_MOBILE_NUMBER);
                 fragmentGenerateleadBinding.edittextmobile.setError(validationMessage);
                 isValid = false;
-            }  if (!Utility.isEmptyOrNull(leedsModel.getEmail()) && !Utility.isValidEmail(leedsModel.getEmail())) {
+            }
+            if (!Utility.isEmptyOrNull(leedsModel.getEmail()) && !Utility.isValidEmail(leedsModel.getEmail())) {
                 validationMessage = getString(R.string.INVALID_EMAIL);
                 fragmentGenerateleadBinding.edittextemailid.setError(validationMessage);
                 isValid = false;
             }
             if (fragmentGenerateleadBinding.spinnerselectloantype.getSelectedItemPosition() == 0) {
                 validationMessage = getString(R.string.loan_type_error);
-                Utility.showSnackBar(getActivity(),fragmentGenerateleadBinding.edittextmobile, validationMessage);
+                Utility.showSnackBar(getActivity(), fragmentGenerateleadBinding.edittextmobile, validationMessage);
                 isValid = false;
             }
         } catch (Exception e) {
@@ -176,6 +178,7 @@ public class Fragment_GenerateLeads extends Fragment implements AdapterView.OnIt
             leedsModel.setGender(FEMALE);
         leedsModel.setLeedNumber(Utility.generateAgentId(LEED_PREFIX));
         leedsModel.setAgentId(appSharedPreference.getAgeniId());
+        leedsModel.setAgentUserId(appSharedPreference.getUserId());
         leedsModel.setAgentName(appSharedPreference.getUserName());
         leedsModel.setCreatedBy(appSharedPreference.getUserId());
         leedsModel.setStatus(STATUS_GENERATED);

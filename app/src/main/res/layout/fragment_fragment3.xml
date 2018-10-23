@@ -1,164 +1,164 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_gravity="center"
-    android:background="#ffffff"
-    >
+    android:background="#ffffff">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_vertical"
+            android:orientation="vertical"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:paddingTop="0dp">
 
-    <LinearLayout
-                android:layout_width="fill_parent"
-                android:layout_height="match_parent"
+            <EditText
+                android:layout_marginTop="65dp"
+                android:id="@+id/principal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/edittextanimation"
+                android:digits="0123456789."
+                android:hint="@string/hint_principal"
+                android:inputType="number"
+                android:padding="10dp"
+                android:singleLine="true"
+                android:textColor="@color/whitetextcolor"
+                android:textColorHint="@color/edittexthintcolor" />
+
+            <EditText
+                android:id="@+id/interest"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
-                android:orientation="vertical"
-                android:paddingLeft="20dp"
-                  android:layout_gravity="center_vertical"
-                android:paddingRight="20dp"
-                android:paddingTop="0dp">
+                android:background="@drawable/edittextanimation"
+                android:digits="0123456789."
+                android:hint="@string/hint_interest"
+                android:inputType="number"
+                android:padding="10dp"
+                android:singleLine="true"
+                android:textColor="@color/whitetextcolor"
+                android:textColorHint="@color/edittexthintcolor" />
 
-                    <EditText
-                        android:id="@+id/principal"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/edittextanimation"
-                        android:digits="0123456789."
-                        android:hint="@string/hint_principal"
-                        android:inputType="number"
-                        android:padding="10dp"
-                        android:singleLine="true"
-                        android:textColor="@color/whitetextcolor"
-                        android:textColorHint="@color/edittexthintcolor" />
+            <EditText
+                android:id="@+id/years"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/edittextanimation"
+                android:digits="0123456789."
+                android:hint="@string/hint_years"
+                android:inputType="number"
+                android:padding="10dp"
+                android:textColor="@color/whitetextcolor"
+                android:textColorHint="@color/edittexthintcolor" />
 
-                   <EditText
-                        android:id="@+id/interest"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/edittextanimation"
-                        android:digits="0123456789."
-                        android:hint="@string/hint_interest"
-                        android:inputType="number"
-                       android:layout_marginTop="10dp"
-                        android:padding="10dp"
-                        android:singleLine="true"
-                        android:textColor="@color/whitetextcolor"
-                        android:textColorHint="@color/edittexthintcolor" />
+            <Button
+                android:id="@+id/btn_calculate2"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/view_dropshadow2"
+                android:text="Calculate"
+                android:textColor="@color/darkgraycolor" />
 
-                   <EditText
-                        android:id="@+id/years"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/edittextanimation"
-                        android:digits="0123456789."
-                        android:hint="@string/hint_years"
-                        android:inputType="number"
-                       android:layout_marginTop="10dp"
-                       android:padding="10dp"
-                        android:textColor="@color/whitetextcolor"
-                        android:textColorHint="@color/edittexthintcolor" />
 
-                   <Button
-                    android:id="@+id/btn_calculate2"
-                    android:layout_width="fill_parent"
+            <EditText
+                android:id="@+id/emi"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/edittextanimation"
+                android:hint="@string/hint_emi"
+                android:inputType="number"
+                android:maxEms="0"
+                android:padding="10dp"
+                android:textColor="@color/whitetextcolor"
+                android:textColorHint="@color/edittexthintcolor" />
+
+
+            <EditText
+                android:id="@+id/interest_total"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/edittextanimation"
+                android:hint="@string/hint_interest_total"
+                android:inputType="number"
+                android:padding="10dp"
+                android:textColor="@color/whitetextcolor"
+                android:textColorHint="@color/edittexthintcolor" />
+
+            <EditText
+                android:id="@+id/totalloan"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/edittextanimation"
+                android:hint="Total loan Amount"
+                android:inputType="number"
+                android:padding="10dp"
+                android:textColor="@color/whitetextcolor"
+                android:textColorHint="@color/edittexthintcolor" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:orientation="horizontal"
+                android:weightSum="100">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="20dp"
-                    android:background="@drawable/view_dropshadow2"
-                    android:text="Calculate"
-                    android:textColor="@color/darkgraycolor" />
+                    android:layout_weight="50">
+
+                    <ProgressBar
+                        android:id="@+id/circularProgressBar"
+                        style="?android:attr/progressBarStyleHorizontal"
+                        android:layout_width="150dp"
+                        android:layout_height="150dp"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_gravity="center"
+                        android:indeterminate="false"
+                        android:max="100"
+                        android:progress="70"
+                        android:progressDrawable="@drawable/progressbardg" />
+                </RelativeLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="50"
+                    android:orientation="vertical">
 
 
-                   <EditText
-                        android:id="@+id/emi"
-                        android:layout_width="match_parent"
+                    <Button
+                        android:layout_width="150dp"
                         android:layout_height="wrap_content"
-                        android:background="@drawable/edittextanimation"
-                        android:hint="@string/hint_emi"
-                        android:inputType="number"
-                        android:maxEms="0"
-                       android:layout_marginTop="20dp"
-                        android:padding="10dp"
-                        android:textColor="@color/whitetextcolor"
-                        android:textColorHint="@color/edittexthintcolor" />
+                        android:layout_margin="10dp"
+                        android:background="@color/hederbackground"
+                        android:text="Principal Amount"
+                        android:textColor="#ffffff"
+                        android:textSize="14dp" />
 
 
-                    <EditText
-                        android:id="@+id/interest_total"
-                        android:layout_width="match_parent"
+                    <Button
+                        android:layout_width="150dp"
                         android:layout_height="wrap_content"
-                        android:background="@drawable/edittextanimation"
-                        android:hint="@string/hint_interest_total"
-                        android:inputType="number"
-                        android:layout_marginTop="10dp"
-                        android:padding="10dp"
-                        android:textColor="@color/whitetextcolor"
-                        android:textColorHint="@color/edittexthintcolor" />
-
-        <EditText
-            android:id="@+id/totalloan"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/edittextanimation"
-            android:hint="Total loan Amount"
-            android:inputType="number"
-            android:layout_marginTop="10dp"
-            android:padding="10dp"
-            android:textColor="@color/whitetextcolor"
-            android:textColorHint="@color/edittexthintcolor" />
-                   <LinearLayout
-                       android:layout_width="match_parent"
-                       android:layout_height="wrap_content"
-                       android:orientation="horizontal"
-                       android:weightSum="100"
-                       android:layout_marginTop="20dp">
-
-                       <RelativeLayout
-                          android:layout_width="match_parent"
-                          android:layout_height="wrap_content"
-                           android:layout_weight="50">
-
-                           <ProgressBar
-                            android:layout_width="150dp"
-                              android:layout_height="150dp"
-                              android:id="@+id/circularProgressBar"
-                              android:progressDrawable="@drawable/progressbardg"
-                              android:max="100"
-                              android:progress="70"
-                              android:layout_gravity="center"
-                              android:indeterminate="false"
-                              style="?android:attr/progressBarStyleHorizontal"
-                              android:layout_alignParentTop="true"
-                              android:layout_alignParentStart="true" />
-                        </RelativeLayout>
-
-                       <LinearLayout
-                           android:layout_width="match_parent"
-                           android:layout_height="wrap_content"
-                           android:layout_weight="50"
-                           android:layout_gravity="center"
-                           android:orientation="vertical">
+                        android:layout_margin="10dp"
+                        android:background="@color/btnRequest"
+                        android:text="Total Interest"
+                        android:textColor="#ffffff"
+                        android:textSize="14dp" />
 
 
-                             <Button
-                               android:layout_width="150dp"
-                               android:layout_height="wrap_content"
-                               android:layout_margin="10dp"
-                                 android:text="Principal Amount"
-                                 android:textSize="14dp"
-                                 android:textColor="#ffffff"
-                                android:background="@color/hederbackground"/>
-
-
-                               <Button
-                                   android:layout_width="150dp"
-                                   android:layout_height="wrap_content"
-                                   android:layout_margin="10dp"
-                                   android:text="Total Interest"
-                                   android:textSize="14dp"
-                                   android:textColor="#ffffff"
-                                   android:background="@color/btnRequest"/>
-
-
-                       </LinearLayout>
-                   </LinearLayout>
+                </LinearLayout>
             </LinearLayout>
-
+        </LinearLayout>
+    </ScrollView>
 </FrameLayout>

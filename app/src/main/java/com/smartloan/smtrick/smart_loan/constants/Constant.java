@@ -11,6 +11,7 @@ public class Constant {
     private static final FirebaseDatabase DATABASE = FirebaseDatabase.getInstance();
     public static final DatabaseReference USER_TABLE_REF = DATABASE.getReference("user");
     public static final DatabaseReference LEEDS_TABLE_REF = DATABASE.getReference("leeds");
+    public static final DatabaseReference INVOICE_TABLE_REF = DATABASE.getReference("invoice");
     /************************************** Firebase Authentication reference constants ***************************************************************************/
     public static final FirebaseAuth AUTH = FirebaseAuth.getInstance();
     /************************************** Calender Constatns ***************************************************************************/
@@ -32,6 +33,10 @@ public class Constant {
     public static final String STATUS_APPROVED = "APPROVED";
     public static final String STATUS_REJECTED = "REJECTED";
     public static final String STATUS_IN_PROGRESS = "IN-PROGRESS";
+    public static final String STATUS_SENT = "SENT";
+    public static final String STATUS_PAID = "PAID";
+
+    //***************************************************************************************
     public static final String GLOBAL_DATE_FORMATE = "dd MMM yyyy hh:mm a";
     public static final String CALANDER_DATE_FORMATE = "dd/MM/yy";
     public static final String LEED_DATE_FORMATE = "dd MMM, yyyy";

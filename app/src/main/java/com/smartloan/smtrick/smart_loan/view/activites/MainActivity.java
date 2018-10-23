@@ -10,7 +10,6 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
@@ -23,9 +22,9 @@ import com.smartloan.smtrick.smart_loan.interfaces.OnFragmentInteractionListener
 import com.smartloan.smtrick.smart_loan.preferences.AppSharedPreference;
 import com.smartloan.smtrick.smart_loan.view.fragements.Fragment_Calculator;
 import com.smartloan.smtrick.smart_loan.view.fragements.Fragment_GenerateLeads;
-import com.smartloan.smtrick.smart_loan.view.fragements.Fragment_Invices;
 import com.smartloan.smtrick.smart_loan.view.fragements.Fragment_LeadsActivity;
 import com.smartloan.smtrick.smart_loan.view.fragements.Fragment_Reports;
+import com.smartloan.smtrick.smart_loan.view.fragements.InvoicesTabFragment;
 
 public class MainActivity extends AppCompatActivity
         implements OnFragmentInteractionListener,
@@ -78,7 +77,7 @@ public class MainActivity extends AppCompatActivity
         } else if (id == R.id.Leads) {
             fragment = new Fragment_LeadsActivity();
         } else if (id == R.id.Invices) {
-            fragment = new Fragment_Invices();
+            fragment = new InvoicesTabFragment();
         } else if (id == R.id.Reports) {
             fragment = new Fragment_Reports();
         } else if (id == R.id.Calulator) {
