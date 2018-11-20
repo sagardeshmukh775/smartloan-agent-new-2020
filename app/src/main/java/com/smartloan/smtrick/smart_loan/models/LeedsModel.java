@@ -34,6 +34,8 @@ public class LeedsModel implements Serializable {
     private String createdBy;
     private Map<String, ImagesModel> documentImages;
     private String approvedLoan;
+    private int colorCode;
+    private Boolean isShowColor;
 
     private View.OnClickListener requestBtnClickListener;
 
@@ -276,6 +278,22 @@ public class LeedsModel implements Serializable {
 
     public void setAgentUserId(String agentUserId) {
         this.agentUserId = agentUserId;
+    }
+
+    public int getColorCode() {
+        return colorCode;
+    }
+
+    public void setColorCode(int colorCode) {
+        this.colorCode = colorCode;
+    }
+
+    public Boolean getShowColor() {
+        return isShowColor;
+    }
+
+    public void setShowColor(Boolean showColor) {
+        isShowColor = showColor;
     }
 
     public static ArrayList<LeedsModel> getLeeds() {

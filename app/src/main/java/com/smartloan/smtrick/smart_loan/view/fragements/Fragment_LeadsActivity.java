@@ -75,7 +75,7 @@ public class Fragment_LeadsActivity extends Fragment {
 
     private void getteLeed() {
         progressDialogClass.showDialog(this.getString(R.string.loading), this.getString(R.string.PLEASE_WAIT));
-        leedRepository.readLeedsByUserId(appSharedPreference.getUserId(), new CallBack() {
+        leedRepository.readLeedsByUserId(getActivity(),appSharedPreference.getUserId(), new CallBack() {
             @Override
             public void onSuccess(Object object) {
                 if (object != null) {

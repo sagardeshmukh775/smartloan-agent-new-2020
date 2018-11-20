@@ -7,6 +7,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.ramotion.foldingcell.FoldingCell;
@@ -47,7 +49,9 @@ public class LeedsAdapter extends ArrayAdapter<LeedsModel> {
             viewHolder = new ViewHolder();
             LayoutInflater vi = LayoutInflater.from(getContext());
             cell = (FoldingCell) vi.inflate(R.layout.cell, parent, false);
+            viewHolder.textViewAppliedLoan = cell.findViewById(R.id.text_view_applied_loan);
             viewHolder.textViewAppliedLoanValue = cell.findViewById(R.id.text_view_applied_loan_value);
+            viewHolder.textviewApproved = cell.findViewById(R.id.textview_approved);
             viewHolder.textviewApprovedValue = cell.findViewById(R.id.textview_approved_value);
             viewHolder.textviewDateLabel = cell.findViewById(R.id.textview_date_label);
             viewHolder.textviewTimeValue = cell.findViewById(R.id.textview_time_value);
@@ -56,7 +60,10 @@ public class LeedsAdapter extends ArrayAdapter<LeedsModel> {
             viewHolder.textloantype = cell.findViewById(R.id.textloantype);
             viewHolder.textbankname = cell.findViewById(R.id.textbankname);
             viewHolder.payoutammount = cell.findViewById(R.id.payoutammount);
+            viewHolder.topLeftLayout = cell.findViewById(R.id.topLeftLayout);
+            viewHolder.baseLeftLayout = cell.findViewById(R.id.baseLeftLayout);
             //detail views
+            viewHolder.rlDetailHeaderLayout = cell.findViewById(R.id.rlDetailHeaderLayout);
             viewHolder.textviewDetailCustomerName = cell.findViewById(R.id.textview_customer_name);
             viewHolder.textviewDetailLoanTypeStatus = cell.findViewById(R.id.textview_loan_type);
             viewHolder.textviewDetailMobilleNumberValue = cell.findViewById(R.id.textview_mobille_number_value);
@@ -159,14 +166,37 @@ public class LeedsAdapter extends ArrayAdapter<LeedsModel> {
             viewHolder.textviewDateLabel.setText(getString(R.string.na));
             viewHolder.textviewTimeValue.setText(getString(R.string.na));
         }
+        viewHolder.rlDetailHeaderLayout.setBackgroundColor(leedsModel.getColorCode());
+        viewHolder.baseLeftLayout.setBackgroundColor(leedsModel.getColorCode());
+        if (leedsModel.getShowColor() != null && leedsModel.getShowColor()) {
+            viewHolder.topLeftLayout.setBackgroundColor(leedsModel.getColorCode());
+            viewHolder.textViewAppliedLoan.setTextColor(context.getResources().getColor(R.color.white));
+            viewHolder.textviewApproved.setTextColor(context.getResources().getColor(R.color.white));
+            viewHolder.textviewDateLabel.setTextColor(context.getResources().getColor(R.color.white));
+            viewHolder.textViewAppliedLoanValue.setTextColor(context.getResources().getColor(R.color.white));
+            viewHolder.textviewApprovedValue.setTextColor(context.getResources().getColor(R.color.white));
+            viewHolder.textviewTimeValue.setTextColor(context.getResources().getColor(R.color.white));
+        } else {
+            viewHolder.topLeftLayout.setBackgroundColor(context.getResources().getColor(R.color.white));
+            viewHolder.textViewAppliedLoan.setTextColor(context.getResources().getColor(R.color.darkgraycolor));
+            viewHolder.textviewApproved.setTextColor(context.getResources().getColor(R.color.darkgraycolor));
+            viewHolder.textviewDateLabel.setTextColor(context.getResources().getColor(R.color.darkgraycolor));
+            viewHolder.textViewAppliedLoanValue.setTextColor(context.getResources().getColor(R.color.darkgraycolor));
+            viewHolder.textviewApprovedValue.setTextColor(context.getResources().getColor(R.color.darkgraycolor));
+            viewHolder.textviewTimeValue.setTextColor(context.getResources().getColor(R.color.darkgraycolor));
+        }
+
         return cell;
     }
 
     public void registerToggle(int position) {
-        if (unfoldedIndexes.contains(position))
+        if (unfoldedIndexes.contains(position)) {
             registerFold(position);
-        else
+        } else {
+            getModel(position).setShowColor(true);
+            notifyDataSetChanged();
             registerUnfold(position);
+        }
     }
 
     public void registerFold(int position) {
@@ -234,6 +264,9 @@ public class LeedsAdapter extends ArrayAdapter<LeedsModel> {
         TextView title_request;
         TextView textviewDetailLoanTypeStatus;
         ImageView imageviewAvatar;
+        LinearLayout topLeftLayout;
+        LinearLayout baseLeftLayout;
+        RelativeLayout rlDetailHeaderLayout;
     }
 
     public void reload(ArrayList<LeedsModel> leedsModels) {
