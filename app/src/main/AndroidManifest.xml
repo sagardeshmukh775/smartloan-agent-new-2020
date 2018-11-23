@@ -2,6 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.smartloan.smtrick.smart_loan">
 
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
     <application
         android:allowBackup="true"
         android:icon="@drawable/applogo4"
@@ -24,24 +27,29 @@
             android:windowSoftInputMode="stateHidden" />
         <activity
             android:name=".view.activites.MainActivity"
-            android:windowSoftInputMode="stateHidden"
-            android:theme="@style/AppTheme" />
-
+            android:theme="@style/AppTheme"
+            android:windowSoftInputMode="stateHidden" />
         <activity
             android:name=".view.activites.BankDetails_Activity"
-            android:windowSoftInputMode="stateHidden"
-            android:theme="@style/AppTheme" />
-
+            android:theme="@style/AppTheme"
+            android:windowSoftInputMode="stateHidden" />
         <activity
             android:name=".view.activites.TermsCondition_Activity"
-            android:windowSoftInputMode="stateHidden"
-            android:theme="@style/AppTheme" />
-
+            android:theme="@style/AppTheme"
+            android:windowSoftInputMode="stateHidden" />
         <activity
             android:name=".view.activites.GenerateLeads"
             android:label="@string/title_activity_generate_leads"
-            android:windowSoftInputMode="stateHidden">
-        </activity>
+            android:windowSoftInputMode="stateHidden" />
+
+        <service
+            android:name=".service.UploadImageService"
+            android:exported="false"
+            android:stopWithTask="false" />
+        <service
+            android:name=".service.ImageUploadIntentService"
+            android:exported="false"
+            android:stopWithTask="false" />
     </application>
 
 </manifest>

@@ -1,17 +1,27 @@
 package com.smartloan.smtrick.smart_loan.view.fragements;
 
+import android.content.BroadcastReceiver;
 import android.content.Context;
+import android.content.Intent;
+import android.content.IntentFilter;
 import android.databinding.DataBindingUtil;
+import android.graphics.Color;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.content.LocalBroadcastManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 
+import com.sangcomz.fishbun.FishBun;
+import com.sangcomz.fishbun.adapter.image.impl.GlideAdapter;
+import com.sangcomz.fishbun.define.Define;
 import com.smartloan.smtrick.smart_loan.R;
 import com.smartloan.smtrick.smart_loan.callback.CallBack;
+import com.smartloan.smtrick.smart_loan.constants.Constant;
 import com.smartloan.smtrick.smart_loan.databinding.FragmentGenerateleadBinding;
 import com.smartloan.smtrick.smart_loan.exception.ExceptionUtil;
 import com.smartloan.smtrick.smart_loan.interfaces.OnFragmentInteractionListener;
@@ -19,10 +29,14 @@ import com.smartloan.smtrick.smart_loan.models.LeedsModel;
 import com.smartloan.smtrick.smart_loan.preferences.AppSharedPreference;
 import com.smartloan.smtrick.smart_loan.repository.LeedRepository;
 import com.smartloan.smtrick.smart_loan.repository.impl.LeedRepositoryImpl;
+import com.smartloan.smtrick.smart_loan.service.ImageUploadIntentService;
 import com.smartloan.smtrick.smart_loan.singleton.AppSingleton;
 import com.smartloan.smtrick.smart_loan.utilities.Utility;
 import com.smartloan.smtrick.smart_loan.view.dialog.ProgressDialogClass;
 
+import java.util.ArrayList;
+
+import static android.app.Activity.RESULT_OK;
 import static com.smartloan.smtrick.smart_loan.constants.Constant.FEMALE;
 import static com.smartloan.smtrick.smart_loan.constants.Constant.LEEDS_TABLE_REF;
 import static com.smartloan.smtrick.smart_loan.constants.Constant.LEED_PREFIX;
@@ -36,6 +50,9 @@ public class Fragment_GenerateLeads extends Fragment implements AdapterView.OnIt
     LeedRepository leedRepository;
     AppSingleton appSingleton;
     ProgressDialogClass progressDialogClass;
+    ArrayList<Uri> imagesUriList;
+    Context context;
+    ImageUploadReceiver imageUploadReceiver;
 
     public Fragment_GenerateLeads() {
     }
@@ -47,29 +64,58 @@ public class Fragment_GenerateLeads extends Fragment implements AdapterView.OnIt
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        fragmentGenerateleadBinding = DataBindingUtil.inflate(inflater, R.layout.fragment_generatelead, container, false);
-        if (mListener != null) {
-            mListener.onFragmentInteraction("New Lead");
+        if (fragmentGenerateleadBinding == null) {
+            fragmentGenerateleadBinding = DataBindingUtil.inflate(inflater, R.layout.fragment_generatelead, container, false);
+            if (mListener != null) {
+                mListener.onFragmentInteraction("New Lead");
+            }
+            context = getActivity();
+            progressDialogClass = new ProgressDialogClass(getActivity());
+            appSingleton = AppSingleton.getInstance(getActivity());
+            leedRepository = new LeedRepositoryImpl();
+            appSharedPreference = new AppSharedPreference(getActivity());
+            String[] loanType = appSingleton.getLoanType();
+            String[] empType = appSingleton.getEmployeeType();
+            fragmentGenerateleadBinding.spinnerselectloantype.setOnItemSelectedListener(this);
+            fragmentGenerateleadBinding.spinnerselecttypeofemployee.setOnItemSelectedListener(this);
+            // ArrayAdapter<String> spinnerArrayAdapterloantype = new ArrayAdapter<String>(this, sppinner_layout_listitem,loanType);
+            ArrayAdapter<String> spinnerArrayAdapterloantype = new ArrayAdapter<String>(this.getActivity(), android.R.layout.simple_spinner_item, loanType);
+            spinnerArrayAdapterloantype.setDropDownViewResource(R.layout.support_simple_spinner_dropdown_item);
+            fragmentGenerateleadBinding.spinnerselectloantype.setAdapter(spinnerArrayAdapterloantype);
+            ArrayAdapter<String> spinnerArrayAdapteremptype = new ArrayAdapter<String>(this.getActivity(), android.R.layout.simple_spinner_item, empType);
+            spinnerArrayAdapteremptype.setDropDownViewResource(R.layout.support_simple_spinner_dropdown_item);
+            fragmentGenerateleadBinding.spinnerselecttypeofemployee.setAdapter(spinnerArrayAdapteremptype);
+            onClickGenerateLead();
+            onClickAttachDocuments();
         }
-        progressDialogClass = new ProgressDialogClass(getActivity());
-        appSingleton = AppSingleton.getInstance(getActivity());
-        leedRepository = new LeedRepositoryImpl();
-        appSharedPreference = new AppSharedPreference(getActivity());
-        String[] loanType = appSingleton.getLoanType();
-        String[] empType = appSingleton.getEmployeeType();
-        fragmentGenerateleadBinding.spinnerselectloantype.setOnItemSelectedListener(this);
-        fragmentGenerateleadBinding.spinnerselecttypeofemployee.setOnItemSelectedListener(this);
-        // ArrayAdapter<String> spinnerArrayAdapterloantype = new ArrayAdapter<String>(this, sppinner_layout_listitem,loanType);
-        ArrayAdapter<String> spinnerArrayAdapterloantype = new ArrayAdapter<String>(this.getActivity(), android.R.layout.simple_spinner_item, loanType);
-        spinnerArrayAdapterloantype.setDropDownViewResource(R.layout.support_simple_spinner_dropdown_item);
-        fragmentGenerateleadBinding.spinnerselectloantype.setAdapter(spinnerArrayAdapterloantype);
-        ArrayAdapter<String> spinnerArrayAdapteremptype = new ArrayAdapter<String>(this.getActivity(), android.R.layout.simple_spinner_item, empType);
-        spinnerArrayAdapteremptype.setDropDownViewResource(R.layout.support_simple_spinner_dropdown_item);
-        fragmentGenerateleadBinding.spinnerselecttypeofemployee.setAdapter(spinnerArrayAdapteremptype);
-        onClickGenerateLead();
         return fragmentGenerateleadBinding.getRoot();
-    }
+    }//end of onCreateView
 
+    private void onClickAttachDocuments() {
+        fragmentGenerateleadBinding.layoutattachdocuments.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                FishBun.with(Fragment_GenerateLeads.this)
+                        .setImageAdapter(new GlideAdapter())
+                        .setIsUseDetailView(false)
+                        .setPickerCount(5) //Deprecated
+                        .setMaxCount(30)
+                        .setMinCount(1)
+                        .setPickerSpanCount(6)
+                        .setActionBarColor(Color.parseColor("#594691"), Color.parseColor("#ffbf12"), false)
+                        .setActionBarTitleColor(Color.parseColor("#ffffff"))
+                        .setAlbumSpanCount(2, 4)
+                        .setButtonInAlbumActivity(false)
+                        .setCamera(true)
+                        .setReachLimitAutomaticClose(true)
+                        .setAllViewTitle("All")
+                        .setActionBarTitle("Image Library")
+                        .textOnImagesSelectionLimitReached("Limit Reached!")
+                        .textOnNothingSelected("Nothing Selected")
+                        .startAlbum();
+            }
+        });
+    }
 
     @Override
     public void onAttach(Context context) {
@@ -114,17 +160,44 @@ public class Fragment_GenerateLeads extends Fragment implements AdapterView.OnIt
             leedRepository.createLeed(leedsModel, new CallBack() {
                 @Override
                 public void onSuccess(Object object) {
-                    Utility.showLongMessage(getActivity(), getString(R.string.lead_generated_success_message));
-                    mListener.changeFragement(new Fragment_LeadsActivity());
-                    progressDialogClass.dismissDialog();
+                    // if (imagesUriList == null || imagesUriList.isEmpty())
+                    OnSuccessResult();
                 }
 
                 @Override
                 public void onError(Object object) {
+                    if (progressDialogClass != null)
                     progressDialogClass.dismissDialog();
                     Utility.showLongMessage(getActivity(), getString(R.string.lead_generated_fails_message));
                 }
             });
+            uploadImages(leedsModel.getLeedId());
+        }
+    }
+
+    private void OnSuccessResult() {
+        Utility.showLongMessage(getActivity(), getString(R.string.lead_generated_success_message));
+        mListener.changeFragement(new Fragment_LeadsActivity());
+        progressDialogClass.dismissDialog();
+    }
+
+    private void uploadImages(String leedId) {
+        try {
+            if (imagesUriList != null && !imagesUriList.isEmpty()) {
+                int count = 0;
+                for (Uri uri : imagesUriList) {
+                    count += 1;
+                    Intent intentToUpload = new Intent(getActivity(), ImageUploadIntentService.class);
+                    intentToUpload.putExtra(Constant.BITMAP_IMG, uri);
+                    intentToUpload.putExtra(Constant.STORAGE_PATH, Constant.DOCUMENTS_PATH);
+                    intentToUpload.putExtra(Constant.LEED_ID, leedId);
+                    intentToUpload.putExtra(Constant.IMAGE_COUNT, count);
+                    intentToUpload.putExtra(Constant.TOTAL_IMAGE_COUNT, imagesUriList.size());
+                    context.startService(intentToUpload);
+                }
+            }
+        } catch (Exception e) {
+            ExceptionUtil.logException(e);
         }
     }
 
@@ -183,5 +256,61 @@ public class Fragment_GenerateLeads extends Fragment implements AdapterView.OnIt
         leedsModel.setCreatedBy(appSharedPreference.getUserId());
         leedsModel.setStatus(STATUS_GENERATED);
         return leedsModel;
+    }
+
+    public void onActivityResult(int requestCode, int resultCode,
+                                 Intent imageData) {
+        super.onActivityResult(requestCode, resultCode, imageData);
+        switch (requestCode) {
+            case Define.ALBUM_REQUEST_CODE:
+                if (resultCode == RESULT_OK) {
+                    // path = imageData.getStringArrayListExtra(Define.INTENT_PATH);
+                    // you can get an image path(ArrayList<String>) on <0.6.2
+                    imagesUriList = imageData.getParcelableArrayListExtra(Define.INTENT_PATH);
+
+                    if (imagesUriList != null && !imagesUriList.isEmpty()) {
+                        fragmentGenerateleadBinding.textviewAttachedFileCount.setVisibility(View.VISIBLE);
+                        fragmentGenerateleadBinding.textviewAttachedFileCount.setText((context.getString(R.string.file_attached) + imagesUriList.size()));
+                    } else {
+                        fragmentGenerateleadBinding.textviewAttachedFileCount.setVisibility(View.GONE);
+                    }
+                    // you can get an image path(ArrayList<Uri>) on 0.6.2 and later
+                    break;
+                }
+        }
+    }
+
+    private void setReceiver() {
+        try {
+            IntentFilter filter = new IntentFilter(ImageUploadReceiver.PROCESS_RESPONSE);
+            imageUploadReceiver = new ImageUploadReceiver();
+            LocalBroadcastManager.getInstance(getActivity()).registerReceiver(imageUploadReceiver, filter);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Override
+    public void onStart() {
+        setReceiver();
+        super.onStart();
+    }
+
+    @Override
+    public void onStop() {
+        LocalBroadcastManager.getInstance(getActivity()).unregisterReceiver(imageUploadReceiver);
+        super.onStop();
+    }
+
+    public class ImageUploadReceiver extends BroadcastReceiver {
+        public static final String PROCESS_RESPONSE = "com.smartloan.smtrick.smart_loan.intent.action.UPLOADIMAGE";
+
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            int imageCount = intent.getIntExtra(Constant.IMAGE_COUNT, 0);
+            if (imageCount == imagesUriList.size() - 1) {
+                OnSuccessResult();
+            }
+        }
     }
 }

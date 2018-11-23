@@ -73,4 +73,9 @@
     <string name="server_error">Faild to fetch data, please try again.</string>
     <string name="leed_In_loading">Generating Leed&#8230;</string>
     <string name="na">NA</string>
+    <string name="file_uploading_progress">Uploading in progress</string>
+    <string name="file_uploading_complited">Uploading to server done </string>
+    <string name="file_uploading_complited_message">Total uploaded files :&#160; </string>
+    <string name="notification_message">Don\'t close the app.</string>
+    <string name="file_attached">Attachment Count :&#160;</string>
 </resources>

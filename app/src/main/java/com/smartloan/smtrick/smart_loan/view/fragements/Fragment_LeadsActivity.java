@@ -75,19 +75,21 @@ public class Fragment_LeadsActivity extends Fragment {
 
     private void getteLeed() {
         progressDialogClass.showDialog(this.getString(R.string.loading), this.getString(R.string.PLEASE_WAIT));
-        leedRepository.readLeedsByUserId(getActivity(),appSharedPreference.getUserId(), new CallBack() {
+        leedRepository.readLeedsByUserId(getActivity(), appSharedPreference.getUserId(), new CallBack() {
             @Override
             public void onSuccess(Object object) {
                 if (object != null) {
                     ArrayList<LeedsModel> leedsModelArrayList = (ArrayList<LeedsModel>) object;
                     serAdapter(leedsModelArrayList);
                 }
+                if (progressDialogClass != null)
                 progressDialogClass.dismissDialog();
             }
 
             @Override
             public void onError(Object object) {
-                progressDialogClass.dismissDialog();
+                if (progressDialogClass != null)
+                    progressDialogClass.dismissDialog();
                 Utility.showLongMessage(getActivity(), getString(R.string.server_error));
             }
         });

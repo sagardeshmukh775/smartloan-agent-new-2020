@@ -19,4 +19,6 @@ public interface LeedRepository {
     void updateLeed(final String leedId, final Map leedMap, final CallBack callback);
 
     void readLeedByLeedId(final String leedId, final CallBack callBack);
+
+    void updateLeedDocuments(final String leedId, final Map leedMap, final CallBack callback);
 }

@@ -1,6 +1,7 @@
 package com.smartloan.smtrick.smart_loan.utilities;
 
 import android.content.Context;
+import android.graphics.Bitmap;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.support.design.widget.Snackbar;
@@ -13,6 +14,9 @@ import com.smartloan.smtrick.smart_loan.R;
 import com.smartloan.smtrick.smart_loan.constants.Constant;
 import com.smartloan.smtrick.smart_loan.exception.ExceptionUtil;
 
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.InputStream;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Random;
@@ -24,6 +28,7 @@ import static com.smartloan.smtrick.smart_loan.constants.Constant.TWO_DIGIT_LIMI
 
 public class Utility {
     public static Snackbar snackbar;
+
     public static void showMessage(Context activity, String message) {
         Toast.makeText(activity, message, Toast.LENGTH_SHORT).show();
     }
@@ -155,7 +160,7 @@ public class Utility {
             return true;
     }
 
-    public static void showSnackBar(Context context,View coordinatorLayout, String string) {
+    public static void showSnackBar(Context context, View coordinatorLayout, String string) {
         snackbar = Snackbar.make(coordinatorLayout, string, Snackbar.LENGTH_INDEFINITE).
                 setAction(R.string.dismiss, new View.OnClickListener() {
                     @Override
@@ -171,7 +176,7 @@ public class Utility {
         snackbar.show();
     }
 
-    public static void showTimedSnackBar(Context context,View coordinatorLayout, String string) {
+    public static void showTimedSnackBar(Context context, View coordinatorLayout, String string) {
         snackbar = Snackbar.make(coordinatorLayout, string, Snackbar.LENGTH_LONG).
                 setAction(R.string.dismiss, new View.OnClickListener() {
                     @Override
@@ -195,6 +200,7 @@ public class Utility {
             return "";
         }
     }
+
     public static long convertFormatedDateToMilliSeconds(String string_date, String dateFormat) {
         try {
             if (string_date == null || string_date.equalsIgnoreCase(""))
@@ -206,5 +212,13 @@ public class Utility {
             ExceptionUtil.logException(e);
             return 0;
         }
+    }
+
+    public static InputStream returnInputStreamFromBitmap(Bitmap bitmap) {
+        ByteArrayOutputStream bos = new ByteArrayOutputStream();
+        bitmap.compress(Bitmap.CompressFormat.PNG, 0 /*ignored for PNG*/, bos);
+        byte[] bitmapdata = bos.toByteArray();
+        ByteArrayInputStream bs = new ByteArrayInputStream(bitmapdata);
+        return bs;
     }
 }
