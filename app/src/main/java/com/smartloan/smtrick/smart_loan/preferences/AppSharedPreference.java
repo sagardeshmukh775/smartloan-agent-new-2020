@@ -6,6 +6,8 @@ import android.preference.PreferenceManager;
 
 import com.smartloan.smtrick.smart_loan.models.User;
 
+import static com.smartloan.smtrick.smart_loan.constants.Constant.MALE;
+
 
 public class AppSharedPreference {
     private SharedPreferences sharedPref;
@@ -92,7 +94,7 @@ public class AppSharedPreference {
     }
 
     public String getGender() {
-        return (sharedPref.getString(GENDER, ""));
+        return (sharedPref.getString(GENDER, MALE));
     }
 
     public String getRegId() {
@@ -121,6 +123,15 @@ public class AppSharedPreference {
 
     public String getProfileLargeImage() {
         return (sharedPref.getString(PROFILE_LARGE_IMAGE, ""));
+    }
+
+    public void setUserProfileImages(String imagePath) {
+        editor = sharedPref.edit();
+        if (imagePath != null) {
+            editor.putString(PROFILE_SMALL_IMAGE, imagePath);
+            editor.putString(PROFILE_LARGE_IMAGE, imagePath);
+        }
+        editor.apply();
     }
 
     public String getUserId() {

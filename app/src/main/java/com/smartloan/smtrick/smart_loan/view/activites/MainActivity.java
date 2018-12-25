@@ -1,10 +1,14 @@
 package com.smartloan.smtrick.smart_loan.view.activites;
 
+import android.content.BroadcastReceiver;
+import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v4.content.LocalBroadcastManager;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -20,11 +24,16 @@ import com.smartloan.smtrick.smart_loan.R;
 import com.smartloan.smtrick.smart_loan.exception.ExceptionUtil;
 import com.smartloan.smtrick.smart_loan.interfaces.OnFragmentInteractionListener;
 import com.smartloan.smtrick.smart_loan.preferences.AppSharedPreference;
+import com.smartloan.smtrick.smart_loan.utilities.Utility;
 import com.smartloan.smtrick.smart_loan.view.fragements.Fragment_Calculator;
 import com.smartloan.smtrick.smart_loan.view.fragements.Fragment_GenerateLeads;
 import com.smartloan.smtrick.smart_loan.view.fragements.Fragment_LeadsActivity;
 import com.smartloan.smtrick.smart_loan.view.fragements.Fragment_Reports;
 import com.smartloan.smtrick.smart_loan.view.fragements.InvoicesTabFragment;
+import com.squareup.picasso.Picasso;
+
+import static com.smartloan.smtrick.smart_loan.constants.Constant.REQUEST_CODE;
+import static com.smartloan.smtrick.smart_loan.constants.Constant.RESULT_CODE;
 
 public class MainActivity extends AppCompatActivity
         implements OnFragmentInteractionListener,
@@ -32,6 +41,8 @@ public class MainActivity extends AppCompatActivity
 
     private AppSharedPreference appSharedPreference;
     private NavigationView navigationView;
+    private Fragment selectedFragement;
+    ImageUploadReceiver imageUploadReceiver;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,8 +62,9 @@ public class MainActivity extends AppCompatActivity
         navigationView.setCheckedItem(R.id.generateleads);
         updateNavigationHeader();
         //NOTE:  Open fragment1 initially.
+        selectedFragement = new Fragment_GenerateLeads();
         FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
-        ft.replace(R.id.mainFrame, new Fragment_GenerateLeads());
+        ft.replace(R.id.mainFrame, selectedFragement);
         ft.commit();
     }
 
@@ -86,6 +98,7 @@ public class MainActivity extends AppCompatActivity
             clearDataWithSignOut();
         }
         //NOTE: Fragment changing code
+        selectedFragement = fragment;
         if (fragment != null) {
             FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
             ft.replace(R.id.mainFrame, fragment);
@@ -129,6 +142,18 @@ public class MainActivity extends AppCompatActivity
             textViewEmailId.setText(appSharedPreference.getEmaiId());
             textViewAgentId.setText(appSharedPreference.getAgeniId());
             textViewMobileNumber.setText(appSharedPreference.getMobileNo());
+            if (!Utility.isEmptyOrNull(appSharedPreference.getProfileLargeImage())) {
+                Picasso.with(this).load(appSharedPreference.getProfileLargeImage()).resize(200, 200).centerCrop().placeholder(R.drawable.imagelogo).into(imageViewProfile);
+            } else
+                imageViewProfile.setImageResource(R.drawable.imagelogo);
+
+            imageViewProfile.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent intent = new Intent(MainActivity.this, UpdateProfileActivity.class);
+                    startActivityForResult(intent, REQUEST_CODE);
+                }
+            });
         } catch (Exception ex) {
             ExceptionUtil.logException(ex);
         }
@@ -140,6 +165,46 @@ public class MainActivity extends AppCompatActivity
             FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
             ft.replace(R.id.mainFrame, fragment);
             ft.commit();
+        }
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == REQUEST_CODE && resultCode == RESULT_CODE) {
+            updateNavigationHeader();
+        } else if (selectedFragement != null)
+            selectedFragement.onActivityResult(requestCode, resultCode, data);
+    }
+
+    private void setReceiver() {
+        try {
+            IntentFilter filter = new IntentFilter(ImageUploadReceiver.PROCESS_RESPONSE);
+            imageUploadReceiver = new ImageUploadReceiver();
+            LocalBroadcastManager.getInstance(this).registerReceiver(imageUploadReceiver, filter);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Override
+    public void onStart() {
+        setReceiver();
+        super.onStart();
+    }
+
+    @Override
+    public void onStop() {
+        LocalBroadcastManager.getInstance(this).unregisterReceiver(imageUploadReceiver);
+        super.onStop();
+    }
+
+    public class ImageUploadReceiver extends BroadcastReceiver {
+        public static final String PROCESS_RESPONSE = "com.smartloan.smtrick.smart_loan.intent.action.UPDATE_USER_DATA";
+
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            updateNavigationHeader();
         }
     }
 }

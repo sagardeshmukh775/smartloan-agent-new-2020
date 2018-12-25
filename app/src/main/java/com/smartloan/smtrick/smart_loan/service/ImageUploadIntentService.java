@@ -71,7 +71,10 @@ public class ImageUploadIntentService extends IntentService {
                     //  final Uri downloadUrlLarge= (Uri) object;
                     String downloadUrlLarge = (String) object;
                     serviceRequestModel.setImagePath(downloadUrlLarge);
-                    updateLeed(serviceRequestModel);
+                    if (serviceRequestModel.getStoragePath().equalsIgnoreCase(Constant.DOCUMENTS_PATH))
+                        updateLeedDocuments(serviceRequestModel);
+                    else if (serviceRequestModel.getStoragePath().equalsIgnoreCase(Constant.CUSROMER_PROFILE_PATH))
+                        updateLeed(serviceRequestModel);
                 }
 
                 public void onError(Object object) {
@@ -82,14 +85,39 @@ public class ImageUploadIntentService extends IntentService {
         }
     }
 
-    private void updateLeed(final ServiceRequestModel serviceRequestModel) {
+    private void updateLeedDocuments(final ServiceRequestModel serviceRequestModel) {
         LeedRepository leedRepository = new LeedRepositoryImpl();
+        Map<String, Object> map = new HashMap<>();
+        String key = Constant.LEEDS_TABLE_REF.push().getKey();
         ImagesModel imagesModel = new ImagesModel();
         imagesModel.setLargImage(serviceRequestModel.getImagePath());
-        String key = Constant.LEEDS_TABLE_REF.push().getKey();
-        Map<String, ImagesModel> map = new HashMap<>();
         map.put(key, imagesModel);
         leedRepository.updateLeedDocuments(serviceRequestModel.getLeedId(), map, new CallBack() {
+            @Override
+            public void onSuccess(Object object) {
+               /* Intent broadcastIntent = new Intent();
+                broadcastIntent.setAction(Fragment_GenerateLeads.ImageUploadReceiver.PROCESS_RESPONSE);
+                broadcastIntent.putExtra(IMAGE_COUNT, imageCount);
+                LocalBroadcastManager.getInstance(getApplicationContext()).sendBroadcast(broadcastIntent);
+                */
+                int progress = 0;
+                if (serviceRequestModel.getTotalCount() > 0)
+                    progress = (100 / serviceRequestModel.getTotalCount()) * serviceRequestModel.getImageCount();
+                AppSingleton.getInstance(ImageUploadIntentService.this).updateProgress(serviceRequestModel.getImageCount(), serviceRequestModel.getTotalCount(), progress);
+            }
+
+            @Override
+            public void onError(Object object) {
+            }
+        });
+    }
+
+    private void updateLeed(final ServiceRequestModel serviceRequestModel) {
+        LeedRepository leedRepository = new LeedRepositoryImpl();
+        Map<String, Object> map = new HashMap<>();
+        map.put("customerImagelarge", serviceRequestModel.getImagePath());
+        map.put("customerImageSmall", serviceRequestModel.getImagePath());
+        leedRepository.updateLeed(serviceRequestModel.getLeedId(), map, new CallBack() {
             @Override
             public void onSuccess(Object object) {
                /* Intent broadcastIntent = new Intent();

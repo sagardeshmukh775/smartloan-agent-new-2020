@@ -70,19 +70,23 @@ public class AppSingleton {
 
     public void updateProgress(int uploaded, int total, int percent) {
         try {
-            if (total == uploaded) {
-                mBuilder.setContentText(context.getString(R.string.file_uploading_complited))
-                        // Removes the progress bar
-                        .setProgress(0, 0, false)
-                        .setContentTitle(context.getString(R.string.file_uploading_complited_message) + " " + uploaded + "/" + total)
-                        .setOngoing(false);
-                mNotifyManager.notify(0, mBuilder.build());
-                mNotifyManager.cancel(notificationId);
-            } else {
-                mBuilder.setProgress(total, uploaded, false);
-                mBuilder.setContentTitle(context.getString(R.string.file_uploading_progress) + " (" + Integer.toString(percent) + "%)" + " " + uploaded + "/" + total);
-                // Issues the notification
-                mNotifyManager.notify(notificationId, mBuilder.build());
+            if(mNotifyManager!=null&&mBuilder!=null) {
+                if (total == uploaded) {
+                    mBuilder.setContentText(context.getString(R.string.file_uploading_complited))
+                            // Removes the progress bar
+                            .setProgress(0, 0, false)
+                            .setContentTitle(context.getString(R.string.file_uploading_complited_message) + " " + uploaded + "/" + total)
+                            .setOngoing(false);
+                    mNotifyManager.notify(0, mBuilder.build());
+                    mNotifyManager.cancel(notificationId);
+                    mNotifyManager=null;
+                    mBuilder=null;
+                } else {
+                    mBuilder.setProgress(total, uploaded, false);
+                    mBuilder.setContentTitle(context.getString(R.string.file_uploading_progress) + " (" + Integer.toString(percent) + "%)" + " " + uploaded + "/" + total);
+                    // Issues the notification
+                    mNotifyManager.notify(notificationId, mBuilder.build());
+                }
             }
         } catch (Exception e) {
             ExceptionUtil.logException(e);

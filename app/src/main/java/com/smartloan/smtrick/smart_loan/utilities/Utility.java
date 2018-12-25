@@ -13,12 +13,16 @@ import android.widget.Toast;
 import com.smartloan.smtrick.smart_loan.R;
 import com.smartloan.smtrick.smart_loan.constants.Constant;
 import com.smartloan.smtrick.smart_loan.exception.ExceptionUtil;
+import com.smartloan.smtrick.smart_loan.models.History;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.InputStream;
 import java.text.SimpleDateFormat;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.Date;
+import java.util.List;
 import java.util.Random;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -220,5 +224,30 @@ public class Utility {
         byte[] bitmapdata = bos.toByteArray();
         ByteArrayInputStream bs = new ByteArrayInputStream(bitmapdata);
         return bs;
+    }
+
+    public static void sortListByCreatedDate(List<History> dataSnapshotList) {
+        try {
+            Collections.sort(dataSnapshotList, new Comparator<History>() {
+                public int compare(History snapshot1, History snapshot2) {
+                    long createdDate1, createdDate2;
+                    try {
+                        createdDate1 = snapshot1.getUpdatedDateTimeLong();
+                        createdDate2 = snapshot2.getUpdatedDateTimeLong();
+                    } catch (Exception e) {
+                        createdDate1 = 0;
+                        createdDate2 = 0;
+                        ExceptionUtil.logException(e);
+                    }
+                    if (createdDate1 > createdDate2)
+                        return -1;
+                    else if (createdDate1 < createdDate2)
+                        return +1;
+                    return 0;
+                }
+            });
+        } catch (Exception e) {
+            ExceptionUtil.logException(e);
+        }
     }
 }

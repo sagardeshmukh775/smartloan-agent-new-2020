@@ -1,6 +1,7 @@
 package com.smartloan.smtrick.smart_loan.view.adapters;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,12 +16,16 @@ import com.ramotion.foldingcell.FoldingCell;
 import com.smartloan.smtrick.smart_loan.R;
 import com.smartloan.smtrick.smart_loan.models.LeedsModel;
 import com.smartloan.smtrick.smart_loan.utilities.Utility;
+import com.smartloan.smtrick.smart_loan.view.activites.LeedHistoryActivity;
+import com.smartloan.smtrick.smart_loan.view.activites.UpdateLeedActivity;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 import java.util.HashSet;
 
 import static com.smartloan.smtrick.smart_loan.constants.Constant.DAY_DATE_FORMATE;
 import static com.smartloan.smtrick.smart_loan.constants.Constant.LEED_DATE_FORMATE;
+import static com.smartloan.smtrick.smart_loan.constants.Constant.LEED_MODEL;
 
 @SuppressWarnings({"WeakerAccess", "unused"})
 public class LeedsAdapter extends ArrayAdapter<LeedsModel> {
@@ -42,9 +47,9 @@ public class LeedsAdapter extends ArrayAdapter<LeedsModel> {
     @NonNull
     @Override
     public View getView(int position, View convertView, @NonNull ViewGroup parent) {
-        LeedsModel leedsModel = getModel(position);
+        final LeedsModel leedsModel = getModel(position);
         FoldingCell cell = (FoldingCell) convertView;
-        ViewHolder viewHolder;
+        final ViewHolder viewHolder;
         if (cell == null) {
             viewHolder = new ViewHolder();
             LayoutInflater vi = LayoutInflater.from(getContext());
@@ -62,6 +67,7 @@ public class LeedsAdapter extends ArrayAdapter<LeedsModel> {
             viewHolder.payoutammount = cell.findViewById(R.id.payoutammount);
             viewHolder.topLeftLayout = cell.findViewById(R.id.topLeftLayout);
             viewHolder.baseLeftLayout = cell.findViewById(R.id.baseLeftLayout);
+            viewHolder.ivProfile = cell.findViewById(R.id.imageview_avatar);
             //detail views
             viewHolder.rlDetailHeaderLayout = cell.findViewById(R.id.rlDetailHeaderLayout);
             viewHolder.textviewDetailCustomerName = cell.findViewById(R.id.textview_customer_name);
@@ -75,6 +81,9 @@ public class LeedsAdapter extends ArrayAdapter<LeedsModel> {
             viewHolder.txtagentvalue = cell.findViewById(R.id.txtagentvalue);
             viewHolder.txtapprovedloanvalue = cell.findViewById(R.id.txtapprovedloanvalue);
             viewHolder.contentRequestBtn = cell.findViewById(R.id.title_request);
+            viewHolder.tvUpdateCtn = cell.findViewById(R.id.tvUpdate);
+            viewHolder.llUpdateLayout = cell.findViewById(R.id.ll_update_layout);
+            viewHolder.llHistoryLayout = cell.findViewById(R.id.ll_history_layout);
             cell.setTag(viewHolder);
         } else {
             // for existing cell set valid valid state(without animation)
@@ -85,7 +94,6 @@ public class LeedsAdapter extends ArrayAdapter<LeedsModel> {
             }
             viewHolder = (ViewHolder) cell.getTag();
         }
-
         if (null == leedsModel)
             return cell;
         if (!Utility.isEmptyOrNull(leedsModel.getExpectedLoanAmount()))
@@ -112,8 +120,8 @@ public class LeedsAdapter extends ArrayAdapter<LeedsModel> {
             viewHolder.textViewStatusValue.setText(getString(R.string.na));
         if (!Utility.isEmptyOrNull(leedsModel.getLoanType())) {
             viewHolder.textloantype.setText(leedsModel.getLoanType());
-            viewHolder.textviewDetailLoanTypeStatus.setText(leedsModel.getLoanType());
-            viewHolder.txtDetailloantypevalue.setText(leedsModel.getLoanType());
+            viewHolder.textviewDetailLoanTypeStatus.setText(getLoanType(leedsModel.getLoanType()));
+            viewHolder.txtDetailloantypevalue.setText(getLoanType(leedsModel.getLoanType()));
         } else {
             viewHolder.textloantype.setText(getString(R.string.na));
             viewHolder.textviewDetailLoanTypeStatus.setText(getString(R.string.na));
@@ -137,28 +145,25 @@ public class LeedsAdapter extends ArrayAdapter<LeedsModel> {
             viewHolder.textviewDetailMobilleNumberValue.setText(leedsModel.getMobileNumber());
         else
             viewHolder.textviewDetailMobilleNumberValue.setText(getString(R.string.na));
-
+        if (!Utility.isEmptyOrNull(leedsModel.getAlternetMobileNumber()))
+            viewHolder.textviewDetailMobilleNumberValue.setText(leedsModel.getMobileNumber() + ", " + leedsModel.getAlternetMobileNumber());
         if (!Utility.isEmptyOrNull(leedsModel.getEmail()))
             viewHolder.textviewDetailEmailidValue.setText(leedsModel.getEmail());
         else
             viewHolder.textviewDetailEmailidValue.setText(getString(R.string.na));
-
         if (!Utility.isEmptyOrNull(leedsModel.getAddress()))
             viewHolder.txtinfoaddress.setText(leedsModel.getAddress());
         else
             viewHolder.txtinfoaddress.setText(getString(R.string.na));
-
         if (!Utility.isEmptyOrNull(leedsModel.getAgentName()))
             viewHolder.txtagentvalue.setText(leedsModel.getAgentName());
         else
             viewHolder.txtagentvalue.setText(getString(R.string.na));
-
         if (leedsModel.getRequestBtnClickListener() != null) {
             viewHolder.contentRequestBtn.setOnClickListener(leedsModel.getRequestBtnClickListener());
         } else {
             viewHolder.contentRequestBtn.setOnClickListener(defaultRequestBtnClickListener);
         }
-
         if (leedsModel.getCreatedDateTimeLong() > 0) {
             viewHolder.textviewDateLabel.setText(Utility.convertMilliSecondsToFormatedDate(leedsModel.getCreatedDateTimeLong(), DAY_DATE_FORMATE));
             viewHolder.textviewTimeValue.setText(Utility.convertMilliSecondsToFormatedDate(leedsModel.getCreatedDateTimeLong(), LEED_DATE_FORMATE));
@@ -166,8 +171,13 @@ public class LeedsAdapter extends ArrayAdapter<LeedsModel> {
             viewHolder.textviewDateLabel.setText(getString(R.string.na));
             viewHolder.textviewTimeValue.setText(getString(R.string.na));
         }
+        if (!Utility.isEmptyOrNull(leedsModel.getCustomerImagelarge())) {
+            Picasso.with(context).load(leedsModel.getCustomerImagelarge()).resize(200, 200).centerCrop().placeholder(R.drawable.dummy_user_profile).into(viewHolder.ivProfile);
+        } else
+            viewHolder.ivProfile.setImageResource(R.drawable.dummy_user_profile);
         viewHolder.rlDetailHeaderLayout.setBackgroundColor(leedsModel.getColorCode());
         viewHolder.baseLeftLayout.setBackgroundColor(leedsModel.getColorCode());
+        viewHolder.contentRequestBtn.setBackgroundColor(leedsModel.getColorCode());
         if (leedsModel.getShowColor() != null && leedsModel.getShowColor()) {
             viewHolder.topLeftLayout.setBackgroundColor(leedsModel.getColorCode());
             viewHolder.textViewAppliedLoan.setTextColor(context.getResources().getColor(R.color.white));
@@ -185,17 +195,50 @@ public class LeedsAdapter extends ArrayAdapter<LeedsModel> {
             viewHolder.textviewApprovedValue.setTextColor(context.getResources().getColor(R.color.darkgraycolor));
             viewHolder.textviewTimeValue.setTextColor(context.getResources().getColor(R.color.darkgraycolor));
         }
-
+        viewHolder.llUpdateLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(context, UpdateLeedActivity.class);
+                intent.putExtra(LEED_MODEL, leedsModel);
+                context.startActivity(intent);
+            }
+        });
+        viewHolder.llHistoryLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(context, LeedHistoryActivity.class);
+                intent.putExtra(LEED_MODEL, leedsModel);
+                context.startActivity(intent);
+            }
+        });
         return cell;
+    }
+
+    private String getLoanType(String type) {
+        switch (type) {
+            case "HL":
+                return "Home Loan";
+            case "LAP":
+                return "Loan Against Property";
+            default:
+                return type;
+        }
     }
 
     public void registerToggle(int position) {
         if (unfoldedIndexes.contains(position)) {
             registerFold(position);
         } else {
+            changeSeenStatus();
             getModel(position).setShowColor(true);
             notifyDataSetChanged();
             registerUnfold(position);
+        }
+    }
+
+    private void changeSeenStatus() {
+        for (LeedsModel leedsModel : leedsModelList) {
+            leedsModel.setShowColor(false);
         }
     }
 
@@ -224,6 +267,7 @@ public class LeedsAdapter extends ArrayAdapter<LeedsModel> {
         TextView textViewAppliedLoan;
         TextView textViewAppliedLoanValue;
         TextView contentRequestBtn;
+        TextView tvUpdateCtn;
         TextView textviewApproved;
         TextView textviewApprovedValue;
 
@@ -267,6 +311,9 @@ public class LeedsAdapter extends ArrayAdapter<LeedsModel> {
         LinearLayout topLeftLayout;
         LinearLayout baseLeftLayout;
         RelativeLayout rlDetailHeaderLayout;
+        ImageView ivProfile;
+        public LinearLayout llUpdateLayout;
+        public LinearLayout llHistoryLayout;
     }
 
     public void reload(ArrayList<LeedsModel> leedsModels) {
@@ -274,4 +321,6 @@ public class LeedsAdapter extends ArrayAdapter<LeedsModel> {
         leedsModelList.addAll(leedsModels);
         notifyDataSetChanged();
     }
+
+
 }

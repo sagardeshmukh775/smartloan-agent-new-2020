@@ -7,11 +7,13 @@ import com.google.firebase.database.ServerValue;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Map;
 
 public class LeedsModel implements Serializable {
     private String customerName;
     private String mobileNumber;
+    private String alternetMobileNumber;
     private String address;
     private String gender;
     private String agentId;
@@ -27,7 +29,7 @@ public class LeedsModel implements Serializable {
     private String leedId;
     private String status;
     private String customerImageSmall;
-    private String customerImagelarg;
+    private String customerImagelarge;
     private String leedNumber;
     private String bankName;
     private String payout;
@@ -36,7 +38,7 @@ public class LeedsModel implements Serializable {
     private String approvedLoan;
     private int colorCode;
     private Boolean isShowColor;
-
+    private Map<String, History> history;
     private View.OnClickListener requestBtnClickListener;
 
     public LeedsModel() {
@@ -200,12 +202,12 @@ public class LeedsModel implements Serializable {
         this.customerImageSmall = customerImageSmall;
     }
 
-    public String getCustomerImagelarg() {
-        return customerImagelarg;
+    public String getCustomerImagelarge() {
+        return customerImagelarge;
     }
 
-    public void setCustomerImagelarg(String customerImagelarg) {
-        this.customerImagelarg = customerImagelarg;
+    public void setCustomerImagelarge(String customerImagelarge) {
+        this.customerImagelarge = customerImagelarge;
     }
 
     public String getLeedId() {
@@ -294,6 +296,41 @@ public class LeedsModel implements Serializable {
 
     public void setShowColor(Boolean showColor) {
         isShowColor = showColor;
+    }
+
+    public String getAlternetMobileNumber() {
+        return alternetMobileNumber;
+    }
+
+    public void setAlternetMobileNumber(String alternetMobileNumber) {
+        this.alternetMobileNumber = alternetMobileNumber;
+    }
+
+    public Map<String, History> getHistory() {
+        return history;
+    }
+
+    public void setHistory(Map<String, History> history) {
+        this.history = history;
+    }
+
+    @Exclude
+    public Map<String, Object> getUpdateLeedMap() {
+        Map<String, Object> objectMap = new HashMap<>();
+        objectMap.put("customerName", customerName);
+        objectMap.put("mobileNumber", mobileNumber);
+        objectMap.put("address", address);
+        objectMap.put("gender", gender);
+        objectMap.put("loanType", loanType);
+        objectMap.put("panCardNumber", panCardNumber);
+        objectMap.put("email", email);
+        objectMap.put("expectedLoanAmount", expectedLoanAmount);
+        objectMap.put("occupation", occupation);
+        objectMap.put("alternetMobileNumber", alternetMobileNumber);
+        objectMap.put("dateOfBirth", dateOfBirth);
+        objectMap.put("customerImageSmall", customerImageSmall);
+        objectMap.put("customerImagelarge", customerImagelarge);
+        return objectMap;
     }
 
     public static ArrayList<LeedsModel> getLeeds() {

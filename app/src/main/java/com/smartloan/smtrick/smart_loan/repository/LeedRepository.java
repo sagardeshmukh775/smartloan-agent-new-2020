@@ -10,7 +10,7 @@ import java.util.Map;
 public interface LeedRepository {
     void readAllLeeds(final CallBack callback);
 
-    void readLeedsByUserId(final Context context,final String userId, final CallBack callBack);
+    void readLeedsByUserId(final Context context, final String userId, final CallBack callBack);
 
     void createLeed(final LeedsModel leedsModel, final CallBack callback);
 
@@ -21,4 +21,6 @@ public interface LeedRepository {
     void readLeedByLeedId(final String leedId, final CallBack callBack);
 
     void updateLeedDocuments(final String leedId, final Map leedMap, final CallBack callback);
+
+    void updateLeedHistory(final String leedId, final Map leedMap, final CallBack callback);
 }

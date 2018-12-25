@@ -72,6 +72,7 @@
                             android:layout_marginTop="30sp"
                             android:gravity="center_horizontal"
                             android:hint="Name"
+                            android:inputType="textCapWords"
                             android:maxLength="30"
                             android:padding="10sp"
                             android:paddingLeft="4dp"

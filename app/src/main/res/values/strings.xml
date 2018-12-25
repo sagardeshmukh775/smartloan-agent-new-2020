@@ -69,13 +69,16 @@
     <string name="customer_name_should_be_empty">Customer name should not be empty.</string>
     <string name="loan_type_error">Select one of loan type.</string>
     <string name="lead_generated_success_message">Leed generated successfully.</string>
+    <string name="lead_updated_success_message">Leed updated successfully.</string>
     <string name="lead_generated_fails_message">Leed generated failed, please try again.</string>
+    <string name="data_updation_fails_message">Data updation failed, please try again.</string>
     <string name="server_error">Faild to fetch data, please try again.</string>
     <string name="leed_In_loading">Generating Leed&#8230;</string>
+    <string name="updating_leed">Updating Leed&#8230;</string>
     <string name="na">NA</string>
     <string name="file_uploading_progress">Uploading in progress</string>
     <string name="file_uploading_complited">Uploading to server done </string>
     <string name="file_uploading_complited_message">Total uploaded files :&#160; </string>
     <string name="notification_message">Don\'t close the app.</string>
-    <string name="file_attached">Attachment Count :&#160;</string>
+    <string name="file_attached">Total Count :&#160;</string>
 </resources>

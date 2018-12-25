@@ -49,8 +49,11 @@ public class StorageService {
         }).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
             @Override
             public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-               // Task<Uri> u = taskSnapshot.getMetadata().getReference().getDownloadUrl();
-                callback.onSuccess(imageName);
+                //Task<Uri> u = taskSnapshot.getMetadata().getReference().getDownloadUrl();
+                Task<Uri> urlTask = taskSnapshot.getStorage().getDownloadUrl();
+                while (!urlTask.isSuccessful());
+                Uri downloadUrl = urlTask.getResult();
+                callback.onSuccess(downloadUrl.toString());
             }
         });
     }

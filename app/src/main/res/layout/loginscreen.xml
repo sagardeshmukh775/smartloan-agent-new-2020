@@ -1,5 +1,4 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_gravity="center_vertical"
@@ -25,10 +24,10 @@
                 android:layout_width="230dp"
                 android:layout_height="90dp"
                 android:layout_centerHorizontal="true"
-                android:layout_marginTop="20sp"
                 android:layout_gravity="center_vertical"
+                android:layout_marginTop="20sp"
                 android:background="@drawable/applogo"
-                android:gravity="bottom"/>
+                android:gravity="bottom" />
 
         </RelativeLayout>
     </LinearLayout>
@@ -65,9 +64,9 @@
                         android:id="@+id/layoutlogin"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="vertical"
                         android:layout_gravity="center_horizontal"
-                        android:gravity="center_horizontal">
+                        android:gravity="center_horizontal"
+                        android:orientation="vertical">
 
                         <EditText
                             android:id="@+id/edittext_mobile_number"
@@ -77,12 +76,12 @@
                             android:background="@drawable/edittext_bprder"
                             android:gravity="center_horizontal"
                             android:hint="Mobile Number"
-                            android:maxLength="10"
                             android:inputType="number"
+                            android:maxLength="10"
                             android:padding="10sp"
-                            android:textColorHint="@color/hinttextcolor"
                             android:paddingLeft="4dp"
                             android:textColor="@color/whitetextcolor"
+                            android:textColorHint="@color/hinttextcolor"
                             android:textSize="15sp" />
 
                         <EditText
@@ -90,8 +89,8 @@
                             android:layout_width="250sp"
                             android:layout_height="wrap_content"
                             android:layout_below="@+id/edittextusername"
-                            android:layout_marginTop="20sp"
                             android:layout_marginBottom="20sp"
+                            android:layout_marginTop="20sp"
                             android:background="@drawable/edittext_bprder"
                             android:gravity="center_horizontal"
                             android:hint="Password"
@@ -99,33 +98,21 @@
                             android:maxLength="20"
                             android:padding="10sp"
                             android:paddingLeft="4dp"
-                            android:textColorHint="@color/hinttextcolor"
                             android:textColor="@color/whitetextcolor"
-                            android:textSize="15sp"/>
+                            android:textColorHint="@color/hinttextcolor"
+                            android:textSize="15sp" />
                     </LinearLayout>
 
 
-
-                    <RelativeLayout
+                    <LinearLayout
                         android:id="@+id/layoutbutton"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/layoutlogin"
-                        android:layout_marginTop="20sp"
                         android:layout_marginBottom="20sp"
-                        android:gravity="center_horizontal">
-
-                        <Button
-                            android:id="@+id/buttonRegister"
-                            android:layout_width="150sp"
-                            android:layout_height="wrap_content"
-                            android:background="@drawable/view_dropshadow2"
-                            android:gravity="center"
-                            android:padding="5sp"
-                            android:text="Register"
-                            android:textColor="@color/darkgraycolor"
-                            android:textSize="15sp"
-                            android:textStyle="normal|bold"/>
+                        android:layout_marginTop="20sp"
+                        android:gravity="center_horizontal"
+                        android:orientation="vertical">
 
                         <Button
                             android:id="@+id/buttonlogin"
@@ -133,14 +120,26 @@
                             android:layout_height="wrap_content"
                             android:background="@drawable/view_dropshadow2"
                             android:gravity="center"
-                            android:layout_marginTop="10sp"
                             android:padding="5sp"
-                            android:layout_below="@+id/buttonRegister"
                             android:text="Login"
                             android:textColor="@color/darkgraycolor"
                             android:textSize="15sp"
-                            android:textStyle="normal|bold"/>
-                    </RelativeLayout>
+                            android:textStyle="normal|bold" />
+
+                        <Button
+                            android:id="@+id/buttonRegister"
+                            android:layout_width="150sp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10sp"
+                            android:background="@drawable/view_dropshadow2"
+                            android:gravity="center"
+                            android:padding="5sp"
+                            android:text="Register"
+                            android:textColor="@color/darkgraycolor"
+                            android:textSize="15sp"
+                            android:textStyle="normal|bold" />
+
+                    </LinearLayout>
                 </RelativeLayout>
             </RelativeLayout>
         </ScrollView>

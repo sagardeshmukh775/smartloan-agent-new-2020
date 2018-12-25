@@ -32,7 +32,7 @@ public class Fragment_LeadsActivity extends Fragment {
     AppSharedPreference appSharedPreference;
     ListView leedsListView;
     LeedsAdapter adapter;
-
+    Context context;
     public Fragment_LeadsActivity() {
     }
 
@@ -47,6 +47,7 @@ public class Fragment_LeadsActivity extends Fragment {
         if (mListener != null) {
             mListener.onFragmentInteraction("Leads");
         }
+        context=getActivity();
         progressDialogClass = new ProgressDialogClass(getActivity());
         appSingleton = AppSingleton.getInstance(getActivity());
         leedRepository = new LeedRepositoryImpl();
@@ -90,7 +91,7 @@ public class Fragment_LeadsActivity extends Fragment {
             public void onError(Object object) {
                 if (progressDialogClass != null)
                     progressDialogClass.dismissDialog();
-                Utility.showLongMessage(getActivity(), getString(R.string.server_error));
+                Utility.showLongMessage(context, getString(R.string.server_error));
             }
         });
     }
@@ -99,7 +100,7 @@ public class Fragment_LeadsActivity extends Fragment {
     private void serAdapter(ArrayList<LeedsModel> leedsModels) {
         if (leedsModels != null) {
             if (adapter == null) {
-                adapter = new LeedsAdapter(this.getActivity(), leedsModels);
+                adapter = new LeedsAdapter(context, leedsModels);
                 adapter.setDefaultRequestBtnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {

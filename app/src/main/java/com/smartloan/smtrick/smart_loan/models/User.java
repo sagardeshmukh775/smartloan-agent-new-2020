@@ -8,7 +8,7 @@ import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Map;
 
-public class User  implements Serializable {
+public class User implements Serializable {
     private String regId;
     private String userName;
     private String password;
@@ -45,6 +45,7 @@ public class User  implements Serializable {
     public void setCreatedDateTime(Long createdDateTime) {
         this.createdDateTime = (Long) createdDateTime;
     }
+
     @Exclude
     public Long getUpdatedDateTimeLong() {
         return updatedDateTime;
@@ -229,4 +230,17 @@ public class User  implements Serializable {
         return result;
     }
 
+    @Exclude
+    public Map<String, Object> getUpdateUserMap() {
+        HashMap<String, Object> result = new HashMap<>();
+        result.put("userName", userName);
+        result.put("email", email);
+        result.put("mobileNumber", mobileNumber);
+        result.put("updatedDateTime", getUpdatedDateTime());
+        result.put("address", address);
+        result.put("gender", gender);
+        result.put("userProfileImageLarge", userProfileImageLarge);
+        result.put("userProfileImageSmall", userProfileImageSmall);
+        return result;
+    }
 }

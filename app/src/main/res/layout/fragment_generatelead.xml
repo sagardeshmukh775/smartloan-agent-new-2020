@@ -1,4 +1,5 @@
-<layout xmlns:android="http://schemas.android.com/apk/res/android">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <android.support.design.widget.CoordinatorLayout
         android:layout_width="match_parent"
@@ -59,11 +60,38 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_below="@+id/layouttextleeds"
+                            android:layout_centerHorizontal="true"
                             android:layout_gravity="center_horizontal"
-                            android:layout_marginLeft="30sp"
-                            android:layout_marginRight="30sp"
+                            android:layout_marginEnd="10dp"
+                            android:layout_marginStart="10dp"
                             android:gravity="center_horizontal"
                             android:orientation="vertical">
+
+                            <RelativeLayout
+                                android:layout_width="125dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="5dp">
+
+                                <de.hdodenhof.circleimageview.CircleImageView
+                                    android:id="@+id/iv_profile"
+                                    android:layout_width="100dp"
+                                    android:layout_height="100dp"
+                                    android:layout_marginTop="15dp"
+                                    android:src="@drawable/dummy_user_profile"
+                                    app:civ_border_color="@color/hederbackground"
+                                    app:civ_border_width="3dp" />
+
+                                <ImageView
+                                    android:id="@+id/iv_cancel_profile"
+                                    android:layout_width="50dp"
+                                    android:layout_height="50dp"
+                                    android:layout_alignParentEnd="true"
+                                    android:contentDescription="@string/app_name"
+                                    android:padding="15dp"
+                                    android:src="@drawable/cancel_gray_icon"
+                                    android:visibility="gone" />
+
+                            </RelativeLayout>
 
                             <EditText
                                 android:id="@+id/edittextname"
@@ -73,6 +101,7 @@
                                 android:background="@drawable/edittextanimation"
                                 android:gravity="center_horizontal"
                                 android:hint="Client Name"
+                                android:inputType="textCapWords"
                                 android:maxLength="30"
                                 android:padding="10sp"
                                 android:paddingLeft="4dp"
@@ -89,6 +118,23 @@
                                 android:background="@drawable/edittextanimation"
                                 android:gravity="center_horizontal"
                                 android:hint="Mobile Number"
+                                android:inputType="number"
+                                android:maxLength="10"
+                                android:padding="10sp"
+                                android:paddingLeft="4dp"
+                                android:textColor="@color/whitetextcolor"
+                                android:textColorHint="@color/edittexthintcolor"
+                                android:textSize="15sp" />
+
+                            <EditText
+                                android:id="@+id/et_alternet_mobile"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@+id/edittextname"
+                                android:layout_marginTop="20sp"
+                                android:background="@drawable/edittextanimation"
+                                android:gravity="center_horizontal"
+                                android:hint="Alternet Mobile Number"
                                 android:inputType="number"
                                 android:maxLength="10"
                                 android:padding="10sp"
@@ -282,6 +328,8 @@
                                     android:layout_height="30dp"
                                     android:layout_marginLeft="5dp"
                                     android:background="@drawable/reportsimage"
+                                    android:clickable="false"
+                                    android:enabled="false"
                                     android:gravity="center"
                                     android:padding="5sp"
                                     android:textColor="@color/darkgraycolor"
@@ -297,9 +345,17 @@
                                 android:textColor="@color/red"
                                 android:textSize="14dp"
                                 android:visibility="gone" />
+
+                            <android.support.v7.widget.RecyclerView
+                                android:id="@+id/rv_document_images"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:scrollbars="horizontal"
+                                android:visibility="gone"
+                                app:layout_behavior="@string/appbar_scrolling_view_behavior" />
                         </LinearLayout>
 
-                        <RelativeLayout
+                        <LinearLayout
                             android:id="@+id/layoutbutton"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -309,9 +365,23 @@
                             android:gravity="center_horizontal">
 
                             <Button
+                                android:id="@+id/buttonCallExpart"
+                                android:layout_width="150sp"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="5dp"
+                                android:background="@drawable/view_dropshadow2"
+                                android:gravity="center"
+                                android:padding="5sp"
+                                android:text="Call Expart"
+                                android:textColor="@color/darkgraycolor"
+                                android:textSize="15sp"
+                                android:textStyle="normal|bold" />
+
+                            <Button
                                 android:id="@+id/buttonsubmit"
                                 android:layout_width="150sp"
                                 android:layout_height="wrap_content"
+                                android:layout_margin="5dp"
                                 android:background="@drawable/view_dropshadow2"
                                 android:gravity="center"
                                 android:padding="5sp"
@@ -319,7 +389,8 @@
                                 android:textColor="@color/darkgraycolor"
                                 android:textSize="15sp"
                                 android:textStyle="normal|bold" />
-                        </RelativeLayout>
+
+                        </LinearLayout>
                     </RelativeLayout>
                 </RelativeLayout>
             </ScrollView>

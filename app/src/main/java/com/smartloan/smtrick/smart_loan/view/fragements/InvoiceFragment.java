@@ -138,7 +138,6 @@ public class InvoiceFragment extends Fragment {
         invoicedialogBinding = DataBindingUtil.inflate(LayoutInflater.from(getActivity()), R.layout.invoicedialog, null, false);
         dialog.setContentView(invoicedialogBinding.getRoot());
         dialog.setTitle("Title...");
-
         invoicedialogBinding.txtidvalue.setText(invoice.getLeedId());
         invoicedialogBinding.txtcnamevalue.setText(invoice.getCustomerName());
         invoicedialogBinding.txtbankvalue.setText(invoice.getBankName());
