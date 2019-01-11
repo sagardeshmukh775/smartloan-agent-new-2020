@@ -1,6 +1,5 @@
 package com.smartloan.smtrick.smart_loan.view.activites;
 
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
@@ -10,6 +9,7 @@ import android.view.View;
 import com.smartloan.smtrick.smart_loan.R;
 import com.smartloan.smtrick.smart_loan.constants.Constant;
 import com.smartloan.smtrick.smart_loan.exception.ExceptionUtil;
+import com.smartloan.smtrick.smart_loan.models.ViewImageModel;
 import com.smartloan.smtrick.smart_loan.view.adapters.ImageSwipZoomAdapter;
 
 import java.util.ArrayList;
@@ -19,7 +19,7 @@ public class ImageSwipZoomActivity extends AppCompatActivity {
     private int currentPage = 0;
     private int NUM_PAGES = 0;
     Toolbar toolbar;
-    private ArrayList<Uri> imagesList;
+    private ArrayList<ViewImageModel> imagesList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,8 +41,8 @@ public class ImageSwipZoomActivity extends AppCompatActivity {
                 }
             });
             Bundle extras = getIntent().getExtras();
-            if (extras != null) {
-                imagesList = (ArrayList<Uri>) extras.getSerializable(Constant.IMAGE_URI_LIST);
+            if (getIntent() != null && extras != null) {
+                imagesList = getIntent().getParcelableArrayListExtra(Constant.IMAGE_URI_LIST);
                 currentPage = extras.getInt(Constant.CURRENT_PAGE, 0);
             }
             if (imagesList != null)
@@ -52,7 +52,7 @@ public class ImageSwipZoomActivity extends AppCompatActivity {
         }
     }//end of oncreate
 
-    private void init(ArrayList<Uri> imagesList, int pos) {
+    private void init(ArrayList<ViewImageModel> imagesList, int pos) {
         try {
             currentPage = pos;
             mPager = (ViewPager) findViewById(R.id.pager);

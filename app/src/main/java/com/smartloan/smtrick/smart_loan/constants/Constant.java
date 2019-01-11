@@ -56,6 +56,7 @@ public class Constant {
     //***************************************************************************************
     public static final String GLOBAL_DATE_FORMATE = "dd MMM yyyy hh:mm a";
     public static final String CALANDER_DATE_FORMATE = "dd/MM/yy";
+    public static final String CALANDER_DATE_OF_BIRTH_FORMATE = "dd/MM/yyyy";
     public static final String LEED_DATE_FORMATE = "dd MMM, yyyy";
     public static final String DAY_DATE_FORMATE = "EEEE";
     public static final String TIME_DATE_FORMATE = "hh:mm a";

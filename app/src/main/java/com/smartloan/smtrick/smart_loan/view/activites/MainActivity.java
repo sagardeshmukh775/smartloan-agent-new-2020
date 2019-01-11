@@ -4,7 +4,10 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
@@ -30,6 +33,7 @@ import com.smartloan.smtrick.smart_loan.view.fragements.Fragment_GenerateLeads;
 import com.smartloan.smtrick.smart_loan.view.fragements.Fragment_LeadsActivity;
 import com.smartloan.smtrick.smart_loan.view.fragements.Fragment_Reports;
 import com.smartloan.smtrick.smart_loan.view.fragements.InvoicesTabFragment;
+import com.squareup.picasso.Callback;
 import com.squareup.picasso.Picasso;
 
 import static com.smartloan.smtrick.smart_loan.constants.Constant.REQUEST_CODE;
@@ -133,20 +137,40 @@ public class MainActivity extends AppCompatActivity
     public void updateNavigationHeader() {
         try {
             View header = navigationView.getHeaderView(0);
-            TextView textViewAgentId = (TextView) header.findViewById(R.id.textView_agent_id);
-            TextView textViewUserName = (TextView) header.findViewById(R.id.textView_user_name);
-            TextView textViewEmailId = (TextView) header.findViewById(R.id.text_view_email);
-            TextView textViewMobileNumber = (TextView) header.findViewById(R.id.textView_contact);
-            ImageView imageViewProfile = (ImageView) header.findViewById(R.id.image_view_profile);
+            TextView textViewAgentId = header.findViewById(R.id.textView_agent_id);
+            TextView textViewUserName = header.findViewById(R.id.textView_user_name);
+            TextView textViewEmailId = header.findViewById(R.id.text_view_email);
+            TextView textViewMobileNumber = header.findViewById(R.id.textView_contact);
+           final ImageView imageViewProfile = header.findViewById(R.id.image_view_profile);
+            final ImageView ivProfileLayout = header.findViewById(R.id.ivProfileLayout);
             textViewUserName.setText(appSharedPreference.getUserName());
             textViewEmailId.setText(appSharedPreference.getEmaiId());
             textViewAgentId.setText(appSharedPreference.getAgeniId());
             textViewMobileNumber.setText(appSharedPreference.getMobileNo());
             if (!Utility.isEmptyOrNull(appSharedPreference.getProfileLargeImage())) {
                 Picasso.with(this).load(appSharedPreference.getProfileLargeImage()).resize(200, 200).centerCrop().placeholder(R.drawable.imagelogo).into(imageViewProfile);
-            } else
-                imageViewProfile.setImageResource(R.drawable.imagelogo);
+                Picasso.with(this)
+                        .load(appSharedPreference.getProfileLargeImage())
+                        .into(imageViewProfile, new Callback() {
+                            @Override
+                            public void onSuccess() {
+                                new Handler().postDelayed(new Runnable() {
+                                    @Override
+                                    public void run() {
+                                        Bitmap innerBitmap = ((BitmapDrawable) imageViewProfile.getDrawable()).getBitmap();
+                                        ivProfileLayout.setImageBitmap(Utility.blur(MainActivity.this,innerBitmap));
+                                    }
+                                }, 100);
+                            }
 
+                            @Override
+                            public void onError() {
+                            }
+                        });
+            } else {
+                imageViewProfile.setImageResource(R.drawable.imagelogo);
+                ivProfileLayout.setImageResource(0);
+            }
             imageViewProfile.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {

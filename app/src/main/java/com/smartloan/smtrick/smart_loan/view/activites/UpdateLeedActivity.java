@@ -1,5 +1,6 @@
 package com.smartloan.smtrick.smart_loan.view.activites;
 
+import android.app.DatePickerDialog;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
@@ -18,9 +19,12 @@ import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.DatePicker;
 
 import com.sangcomz.fishbun.FishBun;
 import com.sangcomz.fishbun.adapter.image.impl.GlideAdapter;
@@ -30,9 +34,11 @@ import com.smartloan.smtrick.smart_loan.callback.CallBack;
 import com.smartloan.smtrick.smart_loan.constants.Constant;
 import com.smartloan.smtrick.smart_loan.databinding.ActivityUpdateLeedBinding;
 import com.smartloan.smtrick.smart_loan.exception.ExceptionUtil;
+import com.smartloan.smtrick.smart_loan.interfaces.ItemRemoveListner;
 import com.smartloan.smtrick.smart_loan.models.History;
 import com.smartloan.smtrick.smart_loan.models.ImagesModel;
 import com.smartloan.smtrick.smart_loan.models.LeedsModel;
+import com.smartloan.smtrick.smart_loan.models.ViewImageModel;
 import com.smartloan.smtrick.smart_loan.preferences.AppSharedPreference;
 import com.smartloan.smtrick.smart_loan.repository.LeedRepository;
 import com.smartloan.smtrick.smart_loan.repository.impl.LeedRepositoryImpl;
@@ -45,27 +51,35 @@ import com.squareup.picasso.Picasso;
 import com.theartofdev.edmodo.cropper.CropImage;
 import com.theartofdev.edmodo.cropper.CropImageView;
 
+import java.text.DecimalFormat;
+import java.text.NumberFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.HashMap;
+import java.util.Locale;
 import java.util.Map;
 
+import static com.smartloan.smtrick.smart_loan.constants.Constant.CALANDER_DATE_OF_BIRTH_FORMATE;
 import static com.smartloan.smtrick.smart_loan.constants.Constant.FEMALE;
 import static com.smartloan.smtrick.smart_loan.constants.Constant.LEEDS_TABLE_REF;
 import static com.smartloan.smtrick.smart_loan.constants.Constant.MALE;
 import static com.smartloan.smtrick.smart_loan.constants.Constant.STATUS_UPDATED;
 
-public class UpdateLeedActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
+public class UpdateLeedActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener, ItemRemoveListner {
     ActivityUpdateLeedBinding activityUpdateLeedBinding;
     AppSharedPreference appSharedPreference;
     LeedRepository leedRepository;
     AppSingleton appSingleton;
     ProgressDialogClass progressDialogClass;
-    ArrayList<Uri> imagesUriList;
+    ArrayList<ViewImageModel> imagesUriList;
     Context context;
     ImageUploadReceiver imageUploadReceiver;
     ViewImageAdapter viewImageAdapter, preViewImageAdapter;
     private Uri profileUri;
     private LeedsModel leedsModel;
+    int fromYear, fromMonth, fromDay;
+    private long fromDate;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -101,8 +115,42 @@ public class UpdateLeedActivity extends AppCompatActivity implements AdapterView
         onClickAttachDocuments();
         onClickSelectProfile();
         onClickCancelProfile();
+        setFromDateClickListner();
+        formatNumber();
         setLeedData(leedsModel);
     }//end of activity
+
+    private void formatNumber() {
+        activityUpdateLeedBinding.edittextexloanammount.addTextChangedListener(new TextWatcher() {
+            boolean isEdiging;
+
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+            }
+
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+            }
+
+            public void afterTextChanged(Editable s) {
+                if (isEdiging) return;
+                isEdiging = true;
+                String str = s.toString().replaceAll("[^\\d]", "");
+                double s1 = 0;
+                try {
+                    s1 = Double.parseDouble(str);
+                } catch (NumberFormatException e) {
+                    e.printStackTrace();
+                }
+                NumberFormat nf2 = NumberFormat.getInstance(Locale.ENGLISH);
+                ((DecimalFormat) nf2).applyPattern("###,###.###");
+                s.replace(0, s.length(), nf2.format(s1));
+
+                if (s.toString().equals("0")) {
+                    activityUpdateLeedBinding.edittextexloanammount.setText("");
+                }
+                isEdiging = false;
+            }
+        });
+    }
 
     public void setToolBar() {
         Toolbar tb = activityUpdateLeedBinding.toolbar;
@@ -180,24 +228,23 @@ public class UpdateLeedActivity extends AppCompatActivity implements AdapterView
                 }
             }
             if (leedsModel.getDocumentImages() != null) {
-                ArrayList<Uri> imagesUriList = new ArrayList<>();
+                ArrayList<ViewImageModel> imagesUriList = new ArrayList<>();
                 for (Map.Entry<String, ImagesModel> entry : leedsModel.getDocumentImages().entrySet()) {
-                    System.out.println(entry.getKey() + "/" + entry.getValue());
-                    imagesUriList.add(Uri.parse(entry.getValue().getLargImage()));
+                    imagesUriList.add(new ViewImageModel(Uri.parse(entry.getValue().getLargImage()), leedsModel.getLeedId(), entry.getKey()));
                 }
                 setPreviewImageAdapter(imagesUriList);
             }
         }
     }//end of setleed model
 
-    private void setPreviewImageAdapter(ArrayList<Uri> imagesUriList) {
+    private void setPreviewImageAdapter(ArrayList<ViewImageModel> imagesUriList) {
 
         if (imagesUriList == null || imagesUriList.isEmpty()) {
             activityUpdateLeedBinding.rvPreDocumentImages.setVisibility(View.GONE);
         } else {
             activityUpdateLeedBinding.rvPreDocumentImages.setVisibility(View.VISIBLE);
             if (preViewImageAdapter == null) {
-                preViewImageAdapter = new ViewImageAdapter(context, imagesUriList);
+                preViewImageAdapter = new ViewImageAdapter(context, imagesUriList, this, true);
                 activityUpdateLeedBinding.rvPreDocumentImages.setAdapter(preViewImageAdapter);
             } else {
                 preViewImageAdapter.reload(imagesUriList);
@@ -205,13 +252,52 @@ public class UpdateLeedActivity extends AppCompatActivity implements AdapterView
         }
     }
 
-    private void setImageViewAdapter(ArrayList<Uri> imagesUriList) {
+    @Override
+    public void itemRemoved(int postion) {
+        setImageCount();
+    }
+
+    @Override
+    public void itemRemoveFromDatabase(String leedId, String documentId) {
+        removeLeedDocumentImage(leedId, documentId);
+    }
+
+    private void setImageCount() {
+        if (imagesUriList != null && !imagesUriList.isEmpty()) {
+            activityUpdateLeedBinding.rvDocumentImages.setVisibility(View.VISIBLE);
+            activityUpdateLeedBinding.textviewAttachedFileCount.setVisibility(View.VISIBLE);
+            activityUpdateLeedBinding.textviewAttachedFileCount.setText((context.getString(R.string.file_attached) + imagesUriList.size()));
+        } else {
+            activityUpdateLeedBinding.rvDocumentImages.setVisibility(View.GONE);
+            activityUpdateLeedBinding.textviewAttachedFileCount.setVisibility(View.GONE);
+        }
+    }
+
+    private void removeLeedDocumentImage(String leedId, String documentId) {
+        if (!Utility.isEmptyOrNull(leedId) && !Utility.isEmptyOrNull(documentId)) {
+            Map<String, String> map = new HashMap<>();
+            map.put(documentId, null);
+            leedRepository.updateLeedDocuments(leedId, map, new CallBack() {
+                @Override
+                public void onSuccess(Object object) {
+
+                }
+
+                @Override
+                public void onError(Object object) {
+
+                }
+            });
+        }
+    }
+
+    private void setImageViewAdapter(ArrayList<ViewImageModel> imagesUriList) {
         if (imagesUriList == null || imagesUriList.isEmpty()) {
             activityUpdateLeedBinding.rvDocumentImages.setVisibility(View.GONE);
         } else {
             activityUpdateLeedBinding.rvDocumentImages.setVisibility(View.VISIBLE);
             if (viewImageAdapter == null) {
-                viewImageAdapter = new ViewImageAdapter(context, imagesUriList);
+                viewImageAdapter = new ViewImageAdapter(context, imagesUriList, this, false);
                 activityUpdateLeedBinding.rvDocumentImages.setAdapter(viewImageAdapter);
             } else {
                 viewImageAdapter.reload(imagesUriList);
@@ -325,14 +411,14 @@ public class UpdateLeedActivity extends AppCompatActivity implements AdapterView
             if (profileUri != null) {
                 if (imagesUriList == null)
                     imagesUriList = new ArrayList<>();
-                imagesUriList.add(profileUri);
+                imagesUriList.add(new ViewImageModel(profileUri));
             }
             if (imagesUriList != null && !imagesUriList.isEmpty()) {
                 int count = 0;
-                for (Uri uri : imagesUriList) {
+                for (ViewImageModel imageModel : imagesUriList) {
                     count += 1;
                     Intent intentToUpload = new Intent(context, ImageUploadIntentService.class);
-                    intentToUpload.putExtra(Constant.BITMAP_IMG, uri);
+                    intentToUpload.putExtra(Constant.BITMAP_IMG, imageModel.getImageUri());
                     if (profileUri != null && imagesUriList.size() == count)
                         intentToUpload.putExtra(Constant.STORAGE_PATH, Constant.CUSROMER_PROFILE_PATH);
                     else
@@ -423,15 +509,17 @@ public class UpdateLeedActivity extends AppCompatActivity implements AdapterView
                     if (resultCode == RESULT_OK) {
                         // path = imageData.getStringArrayListExtra(Define.INTENT_PATH);
                         // you can get an image path(ArrayList<String>) on <0.6.2
-                        imagesUriList = imageData.getParcelableArrayListExtra(Define.INTENT_PATH);
-                        setImageViewAdapter(imagesUriList);
-                        if (imagesUriList != null && !imagesUriList.isEmpty()) {
-                            activityUpdateLeedBinding.textviewAttachedFileCount.setVisibility(View.VISIBLE);
-                            activityUpdateLeedBinding.textviewAttachedFileCount.setText((context.getString(R.string.file_attached) + imagesUriList.size()));
-                        } else {
-                            activityUpdateLeedBinding.textviewAttachedFileCount.setVisibility(View.GONE);
+                        ArrayList<Uri> uriList = imageData.getParcelableArrayListExtra(Define.INTENT_PATH);
+                        if (imagesUriList == null)
+                            imagesUriList = new ArrayList<>();
+                        imagesUriList.clear();
+                        if (uriList != null && !uriList.isEmpty()) {
+                            for (Uri uri : uriList) {
+                                imagesUriList.add(new ViewImageModel(uri));
+                            }
                         }
-                        // you can get an image path(ArrayList<Uri>) on 0.6.2 and later
+                        setImageViewAdapter(imagesUriList);
+                        setImageCount();                        // you can get an image path(ArrayList<Uri>) on 0.6.2 and later
                         break;
                     }
                 case CropImage.CROP_IMAGE_ACTIVITY_REQUEST_CODE:
@@ -502,5 +590,36 @@ public class UpdateLeedActivity extends AppCompatActivity implements AdapterView
         } catch (Exception e) {
             ExceptionUtil.logException(e);
         }
+    }
+
+    private void setFromDateClickListner() {
+        setFromCurrentDate();
+        activityUpdateLeedBinding.edittextdob.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                DatePickerDialog mDatePicker = new DatePickerDialog(context, new DatePickerDialog.OnDateSetListener() {
+                    public void onDateSet(DatePicker datepicker, int selectedyear, int selectedmonth, int selectedday) {
+                        Calendar myCalendar = Calendar.getInstance();
+                        myCalendar.set(Calendar.YEAR, selectedyear);
+                        myCalendar.set(Calendar.MONTH, selectedmonth);
+                        myCalendar.set(Calendar.DAY_OF_MONTH, selectedday);
+                        SimpleDateFormat sdf = new SimpleDateFormat(CALANDER_DATE_OF_BIRTH_FORMATE, Locale.FRANCE);
+                        String formatedDate = sdf.format(myCalendar.getTime());
+                        activityUpdateLeedBinding.edittextdob.setText(formatedDate);
+                        fromDay = selectedday;
+                        fromMonth = selectedmonth;
+                        fromYear = selectedyear;
+                    }
+                }, fromYear, fromMonth, fromDay);
+                mDatePicker.show();
+            }
+        });
+    }
+
+    private void setFromCurrentDate() {
+        Calendar mcurrentDate = Calendar.getInstance();
+        fromYear = mcurrentDate.get(Calendar.YEAR);
+        fromMonth = mcurrentDate.get(Calendar.MONTH);
+        fromDay = mcurrentDate.get(Calendar.DAY_OF_MONTH);
     }
 }

@@ -2,10 +2,12 @@ package com.smartloan.smtrick.smart_loan.view.adapters;
 
 
 import android.content.Context;
+import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Parcelable;
+import android.provider.MediaStore;
 import android.support.v4.view.PagerAdapter;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,6 +16,7 @@ import android.widget.ImageView;
 
 import com.smartloan.smtrick.smart_loan.R;
 import com.smartloan.smtrick.smart_loan.exception.ExceptionUtil;
+import com.smartloan.smtrick.smart_loan.models.ViewImageModel;
 import com.smartloan.smtrick.smart_loan.utilities.Utility;
 import com.squareup.picasso.Picasso;
 import com.squareup.picasso.Target;
@@ -21,11 +24,11 @@ import com.squareup.picasso.Target;
 import java.util.ArrayList;
 
 public class ImageSwipZoomAdapter extends PagerAdapter {
-    private ArrayList<Uri> imagesList;
+    private ArrayList<ViewImageModel> imagesList;
     private LayoutInflater inflater;
     private Context context;
 
-    public ImageSwipZoomAdapter(Context context, ArrayList<Uri> imagesList) {
+    public ImageSwipZoomAdapter(Context context, ArrayList<ViewImageModel> imagesList) {
         try {
             this.context = context;
             this.imagesList = imagesList;
@@ -52,10 +55,10 @@ public class ImageSwipZoomAdapter extends PagerAdapter {
         try {
             assert imageLayout != null;
             final ImageView imageView = (ImageView) imageLayout.findViewById(R.id.img);
-            final Uri item = imagesList.get(position);
+            final Uri item = imagesList.get(position).getImageUri();
             try {
                 if (item != null && !Utility.isEmptyOrNull(item.getPath()))
-                    Picasso.with(context).load(item).placeholder(R.drawable.transparentimage).into(imageView);
+                    Picasso.with(context).load(getRealPathFromURI(item)).placeholder(R.drawable.transparentimage).into(imageView);
                 else
                     imageView.setImageResource(R.drawable.dummy_image);
             } catch (Exception e) {
@@ -73,7 +76,19 @@ public class ImageSwipZoomAdapter extends PagerAdapter {
         }
         return imageLayout;
     }
-
+    private String getRealPathFromURI(Uri contentURI) {
+        String result;
+        Cursor cursor = context.getContentResolver().query(contentURI, null, null, null, null);
+        if (cursor == null) { // Source is Dropbox or other similar local file path
+            result = contentURI.getPath();
+        } else {
+            cursor.moveToFirst();
+            int idx = cursor.getColumnIndex(MediaStore.Images.ImageColumns.DATA);
+            result = cursor.getString(idx);
+            cursor.close();
+        }
+        return result;
+    }
     @Override
     public boolean isViewFromObject(View view, Object object) {
         return view.equals(object);

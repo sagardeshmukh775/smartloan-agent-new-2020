@@ -108,8 +108,8 @@ public class LeedsAdapter extends ArrayAdapter<LeedsModel> {
             viewHolder.txtapprovedloanvalue.setText(getString(R.string.na));
         }
         if (!Utility.isEmptyOrNull(leedsModel.getCustomerName())) {
-            viewHolder.textViewCustomerName.setText(leedsModel.getCustomerName());
-            viewHolder.textviewDetailCustomerName.setText(leedsModel.getCustomerName());
+            viewHolder.textViewCustomerName.setText(Utility.capitalize(leedsModel.getCustomerName()));
+            viewHolder.textviewDetailCustomerName.setText(Utility.capitalize(leedsModel.getCustomerName()));
         } else {
             viewHolder.textViewCustomerName.setText(getString(R.string.na));
             viewHolder.textviewDetailCustomerName.setText(getString(R.string.na));

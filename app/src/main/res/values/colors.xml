@@ -23,6 +23,7 @@
     <color name="darkgraycolor">#848484</color>
     <color name="graycolor">#d3d3d3</color>
     <item type="color" name="hederbackground">#594691</item>
+    <item type="color" name="hederdarkground">#c6594691</item>
     <item type="color" name="whitetextcolor">#000000</item>
     <item type="color" name="whiteheadercolor">#ffffff</item>
     <item type="color" name="hinttextcolor">#c3c3c3</item>
@@ -34,4 +35,5 @@
     <item type="color" name="light_white">#76ffffff</item>
     <item type="color" name="transprant_color">#00000000</item>
     <item type="color" name="background_color">#2bf5dea8</item>
+    <item type="color" name="black_color">#000000</item>
 </resources>

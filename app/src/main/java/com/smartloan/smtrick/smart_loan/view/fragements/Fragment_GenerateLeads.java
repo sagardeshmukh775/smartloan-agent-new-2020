@@ -1,6 +1,7 @@
 package com.smartloan.smtrick.smart_loan.view.fragements;
 
 import android.Manifest;
+import android.app.DatePickerDialog;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
@@ -15,11 +16,14 @@ import android.support.v4.content.LocalBroadcastManager;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.DatePicker;
 
 import com.sangcomz.fishbun.FishBun;
 import com.sangcomz.fishbun.adapter.image.impl.GlideAdapter;
@@ -30,9 +34,11 @@ import com.smartloan.smtrick.smart_loan.constants.Constant;
 import com.smartloan.smtrick.smart_loan.databinding.FragmentGenerateleadBinding;
 import com.smartloan.smtrick.smart_loan.exception.ExceptionUtil;
 import com.smartloan.smtrick.smart_loan.helper.RuntimePermissionHelper;
+import com.smartloan.smtrick.smart_loan.interfaces.ItemRemoveListner;
 import com.smartloan.smtrick.smart_loan.interfaces.OnFragmentInteractionListener;
 import com.smartloan.smtrick.smart_loan.models.History;
 import com.smartloan.smtrick.smart_loan.models.LeedsModel;
+import com.smartloan.smtrick.smart_loan.models.ViewImageModel;
 import com.smartloan.smtrick.smart_loan.preferences.AppSharedPreference;
 import com.smartloan.smtrick.smart_loan.repository.LeedRepository;
 import com.smartloan.smtrick.smart_loan.repository.impl.LeedRepositoryImpl;
@@ -44,30 +50,38 @@ import com.smartloan.smtrick.smart_loan.view.dialog.ProgressDialogClass;
 import com.theartofdev.edmodo.cropper.CropImage;
 import com.theartofdev.edmodo.cropper.CropImageView;
 
+import java.text.DecimalFormat;
+import java.text.NumberFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.HashMap;
+import java.util.Locale;
 import java.util.Map;
 
 import static android.app.Activity.RESULT_OK;
+import static com.smartloan.smtrick.smart_loan.constants.Constant.CALANDER_DATE_OF_BIRTH_FORMATE;
 import static com.smartloan.smtrick.smart_loan.constants.Constant.FEMALE;
 import static com.smartloan.smtrick.smart_loan.constants.Constant.LEEDS_TABLE_REF;
 import static com.smartloan.smtrick.smart_loan.constants.Constant.LEED_PREFIX;
 import static com.smartloan.smtrick.smart_loan.constants.Constant.MALE;
 import static com.smartloan.smtrick.smart_loan.constants.Constant.STATUS_GENERATED;
 
-public class Fragment_GenerateLeads extends RuntimePermissionHelper implements AdapterView.OnItemSelectedListener {
+public class Fragment_GenerateLeads extends RuntimePermissionHelper implements AdapterView.OnItemSelectedListener, ItemRemoveListner {
     private OnFragmentInteractionListener mListener;
     FragmentGenerateleadBinding fragmentGenerateleadBinding;
     AppSharedPreference appSharedPreference;
     LeedRepository leedRepository;
     AppSingleton appSingleton;
     ProgressDialogClass progressDialogClass;
-    ArrayList<Uri> imagesUriList;
+    ArrayList<ViewImageModel> imagesUriList;
     Context context;
     ImageUploadReceiver imageUploadReceiver;
     ViewImageAdapter viewImageAdapter;
     private Uri profileUri;
     private static final int REQUEST_PERMISSIONS = 7000;
+    int fromYear, fromMonth, fromDay;
+    private long fromDate;
 
     public Fragment_GenerateLeads() {
     }
@@ -111,22 +125,66 @@ public class Fragment_GenerateLeads extends RuntimePermissionHelper implements A
             onClickAttachDocuments();
             onClickSelectProfile();
             onClickCancelProfile();
+            setFromDateClickListner();
+            formatNumber();
         }
         return fragmentGenerateleadBinding.getRoot();
     }//end of onCreateView
 
-    private void setImageViewAdapter(ArrayList<Uri> imagesUriList) {
+    private void formatNumber() {
+        fragmentGenerateleadBinding.edittextexloanammount.addTextChangedListener(new TextWatcher() {
+            boolean isEdiging;
+
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+            }
+
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+            }
+
+            public void afterTextChanged(Editable s) {
+                if (isEdiging) return;
+                isEdiging = true;
+                String str = s.toString().replaceAll("[^\\d]", "");
+                double s1 = 0;
+                try {
+                    s1 = Double.parseDouble(str);
+                } catch (NumberFormatException e) {
+                    e.printStackTrace();
+                }
+                NumberFormat nf2 = NumberFormat.getInstance(Locale.ENGLISH);
+                ((DecimalFormat) nf2).applyPattern("###,###.###");
+                s.replace(0, s.length(), nf2.format(s1));
+
+                if (s.toString().equals("0")) {
+                    fragmentGenerateleadBinding.edittextexloanammount.setText("");
+                }
+                isEdiging = false;
+            }
+        });
+    }
+
+    private void setImageViewAdapter(ArrayList<ViewImageModel> imagesUriList) {
         if (imagesUriList == null || imagesUriList.isEmpty()) {
             fragmentGenerateleadBinding.rvDocumentImages.setVisibility(View.GONE);
         } else {
             fragmentGenerateleadBinding.rvDocumentImages.setVisibility(View.VISIBLE);
             if (viewImageAdapter == null) {
-                viewImageAdapter = new ViewImageAdapter(context, imagesUriList);
+                viewImageAdapter = new ViewImageAdapter(context, imagesUriList, this, false);
                 fragmentGenerateleadBinding.rvDocumentImages.setAdapter(viewImageAdapter);
             } else {
                 viewImageAdapter.reload(imagesUriList);
             }
         }
+    }
+
+    @Override
+    public void itemRemoved(int postion) {
+        setImageCount();
+    }
+
+    @Override
+    public void itemRemoveFromDatabase(String leedId, String documentId) {
+
     }
 
     private void onClickAttachDocuments() {
@@ -253,14 +311,14 @@ public class Fragment_GenerateLeads extends RuntimePermissionHelper implements A
             if (profileUri != null) {
                 if (imagesUriList == null)
                     imagesUriList = new ArrayList<>();
-                imagesUriList.add(profileUri);
+                imagesUriList.add(new ViewImageModel(profileUri));
             }
             if (imagesUriList != null && !imagesUriList.isEmpty()) {
                 int count = 0;
-                for (Uri uri : imagesUriList) {
+                for (ViewImageModel imageModel : imagesUriList) {
                     count += 1;
                     Intent intentToUpload = new Intent(getActivity(), ImageUploadIntentService.class);
-                    intentToUpload.putExtra(Constant.BITMAP_IMG, uri);
+                    intentToUpload.putExtra(Constant.BITMAP_IMG, imageModel.getImageUri());
                     if (profileUri != null && imagesUriList.size() == count)
                         intentToUpload.putExtra(Constant.STORAGE_PATH, Constant.CUSROMER_PROFILE_PATH);
                     else
@@ -341,6 +399,17 @@ public class Fragment_GenerateLeads extends RuntimePermissionHelper implements A
         return leedsModel;
     }
 
+    private void setImageCount() {
+        if (imagesUriList != null && !imagesUriList.isEmpty()) {
+            fragmentGenerateleadBinding.rvDocumentImages.setVisibility(View.VISIBLE);
+            fragmentGenerateleadBinding.textviewAttachedFileCount.setVisibility(View.VISIBLE);
+            fragmentGenerateleadBinding.textviewAttachedFileCount.setText((context.getString(R.string.file_attached) + imagesUriList.size()));
+        } else {
+            fragmentGenerateleadBinding.rvDocumentImages.setVisibility(View.GONE);
+            fragmentGenerateleadBinding.textviewAttachedFileCount.setVisibility(View.GONE);
+        }
+    }
+
     public void onActivityResult(int requestCode, int resultCode,
                                  Intent imageData) {
         super.onActivityResult(requestCode, resultCode, imageData);
@@ -350,14 +419,17 @@ public class Fragment_GenerateLeads extends RuntimePermissionHelper implements A
                     if (resultCode == RESULT_OK) {
                         // path = imageData.getStringArrayListExtra(Define.INTENT_PATH);
                         // you can get an image path(ArrayList<String>) on <0.6.2
-                        imagesUriList = imageData.getParcelableArrayListExtra(Define.INTENT_PATH);
-                        setImageViewAdapter(imagesUriList);
-                        if (imagesUriList != null && !imagesUriList.isEmpty()) {
-                            fragmentGenerateleadBinding.textviewAttachedFileCount.setVisibility(View.VISIBLE);
-                            fragmentGenerateleadBinding.textviewAttachedFileCount.setText((context.getString(R.string.file_attached) + imagesUriList.size()));
-                        } else {
-                            fragmentGenerateleadBinding.textviewAttachedFileCount.setVisibility(View.GONE);
+                        ArrayList<Uri> uriList = imageData.getParcelableArrayListExtra(Define.INTENT_PATH);
+                        if (imagesUriList == null)
+                            imagesUriList = new ArrayList<>();
+                        imagesUriList.clear();
+                        if (uriList != null&&!uriList.isEmpty()) {
+                            for (Uri uri : uriList) {
+                                imagesUriList.add(new ViewImageModel(uri));
+                            }
                         }
+                        setImageViewAdapter(imagesUriList);
+                        setImageCount();
                         // you can get an image path(ArrayList<Uri>) on 0.6.2 and later
                         break;
                     }
@@ -439,5 +511,37 @@ public class Fragment_GenerateLeads extends RuntimePermissionHelper implements A
     public void onPermissionsGranted(final int requestCode) {
         if (checkPermissionGranted(Manifest.permission.CAMERA, getActivity()) && requestCode == REQUEST_PERMISSIONS) {
         }
+    }
+
+    private void setFromDateClickListner() {
+        setFromCurrentDate();
+        fragmentGenerateleadBinding.edittextdob.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                DatePickerDialog mDatePicker = new DatePickerDialog(context, new DatePickerDialog.OnDateSetListener() {
+                    public void onDateSet(DatePicker datepicker, int selectedyear, int selectedmonth, int selectedday) {
+                        Calendar myCalendar = Calendar.getInstance();
+                        myCalendar.set(Calendar.YEAR, selectedyear);
+                        myCalendar.set(Calendar.MONTH, selectedmonth);
+                        myCalendar.set(Calendar.DAY_OF_MONTH, selectedday);
+                        SimpleDateFormat sdf = new SimpleDateFormat(CALANDER_DATE_OF_BIRTH_FORMATE, Locale.FRANCE);
+                        String formatedDate = sdf.format(myCalendar.getTime());
+                        fragmentGenerateleadBinding.edittextdob.setText(formatedDate);
+                        fromDay = selectedday;
+                        fromMonth = selectedmonth;
+                        fromYear = selectedyear;
+                        fromDate = Utility.convertFormatedDateToMilliSeconds(formatedDate, CALANDER_DATE_OF_BIRTH_FORMATE);
+                    }
+                }, fromYear, fromMonth, fromDay);
+                mDatePicker.show();
+            }
+        });
+    }
+
+    private void setFromCurrentDate() {
+        Calendar mcurrentDate = Calendar.getInstance();
+        fromYear = mcurrentDate.get(Calendar.YEAR);
+        fromMonth = mcurrentDate.get(Calendar.MONTH);
+        fromDay = mcurrentDate.get(Calendar.DAY_OF_MONTH);
     }
 }
