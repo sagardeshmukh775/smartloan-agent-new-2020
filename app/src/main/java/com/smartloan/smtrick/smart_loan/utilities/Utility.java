@@ -266,7 +266,7 @@ public class Utility {
 
     public static Bitmap blur(Context context, Bitmap image) {
         final float BITMAP_SCALE = 0.4f;
-        final float BLUR_RADIUS = 20.5f;
+        final float BLUR_RADIUS = 7.5f;
 
         int width = Math.round(image.getWidth() * BITMAP_SCALE);
         int height = Math.round(image.getHeight() * BITMAP_SCALE);

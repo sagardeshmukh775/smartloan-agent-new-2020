@@ -91,6 +91,7 @@ public class Fragment_LeadsActivity extends Fragment {
             public void onError(Object object) {
                 if (progressDialogClass != null)
                     progressDialogClass.dismissDialog();
+                if(isAdded()&&context!=null)
                 Utility.showLongMessage(context, getString(R.string.server_error));
             }
         });

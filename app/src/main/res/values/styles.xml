@@ -2,12 +2,44 @@
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/hederbackground</item>
-        <item name="colorPrimaryDark">@color/hederbackground</item>
+        <item name="colorPrimary">@color/black_color</item>
+        <item name="colorPrimaryDark">@color/black_color</item>
         <item name="colorAccent">@color/colorAccent</item>
         <item name="android:textSize">15sp</item>
-        <item name="android:textColor">@color/whitetextcolor</item>
-        <item name="colorControlNormal">@color/white</item>
+    </style>
+
+    <style name="FormLabel">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textColorHint">@color/light_white</item>
+    </style>
+
+    <style name="FormTitle">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/light_white</item>
+        <item name="android:textColorHint">@color/light_white</item>
+    </style>
+
+    <style name="FormInput">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textColorHint">@color/light_white</item>
+    </style>
+
+    <style name="BackgroundLayout">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">@color/black_color</item>
+        <item name="cardBackgroundColor">@color/black_color</item>
+    </style>
+
+    <style name="LightBackgroundLayout">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">@color/light_black_color</item>
     </style>
 
     <style name="ContentImageBadgeTitle" parent="AppTheme">
@@ -24,7 +56,7 @@
     </style>
 
     <style name="ContentMainBadgeTitle" parent="AppTheme">
-        <item name="android:textColor">@color/contentBadgeTitle</item>
+        <item name="android:textColor">@color/white</item>
         <item name="android:textSize">20dp</item>
     </style>
 

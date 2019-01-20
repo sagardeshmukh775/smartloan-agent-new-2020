@@ -1,10 +1,12 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/LightBackgroundLayout"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="#ffffff">
+    android:layout_height="match_parent">
+
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+
         <LinearLayout
             android:layout_width="fill_parent"
             android:layout_height="match_parent"
@@ -15,18 +17,17 @@
             android:paddingTop="0dp">
 
             <EditText
-                android:layout_marginTop="65dp"
                 android:id="@+id/principal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="65dp"
                 android:background="@drawable/edittextanimation"
                 android:digits="0123456789."
                 android:hint="@string/hint_principal"
                 android:inputType="number"
                 android:padding="10dp"
                 android:singleLine="true"
-                android:textColor="@color/whitetextcolor"
-                android:textColorHint="@color/edittexthintcolor" />
+                style="@style/FormLabel" />
 
             <EditText
                 android:id="@+id/interest"
@@ -39,8 +40,7 @@
                 android:inputType="number"
                 android:padding="10dp"
                 android:singleLine="true"
-                android:textColor="@color/whitetextcolor"
-                android:textColorHint="@color/edittexthintcolor" />
+                style="@style/FormLabel" />
 
             <EditText
                 android:id="@+id/years"
@@ -52,8 +52,7 @@
                 android:hint="@string/hint_years"
                 android:inputType="number"
                 android:padding="10dp"
-                android:textColor="@color/whitetextcolor"
-                android:textColorHint="@color/edittexthintcolor" />
+                style="@style/FormLabel"  />
 
             <Button
                 android:id="@+id/btn_calculate2"
@@ -75,8 +74,7 @@
                 android:inputType="number"
                 android:maxEms="0"
                 android:padding="10dp"
-                android:textColor="@color/whitetextcolor"
-                android:textColorHint="@color/edittexthintcolor" />
+                style="@style/FormLabel"  />
 
 
             <EditText
@@ -88,8 +86,7 @@
                 android:hint="@string/hint_interest_total"
                 android:inputType="number"
                 android:padding="10dp"
-                android:textColor="@color/whitetextcolor"
-                android:textColorHint="@color/edittexthintcolor" />
+                style="@style/FormLabel"  />
 
             <EditText
                 android:id="@+id/totalloan"
@@ -100,8 +97,7 @@
                 android:hint="Total loan Amount"
                 android:inputType="number"
                 android:padding="10dp"
-                android:textColor="@color/whitetextcolor"
-                android:textColorHint="@color/edittexthintcolor" />
+                style="@style/FormLabel"  />
 
             <LinearLayout
                 android:layout_width="match_parent"

@@ -11,6 +11,7 @@ import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.support.annotation.NonNull;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.content.LocalBroadcastManager;
 import android.support.v7.app.ActionBar;
@@ -22,9 +23,11 @@ import android.support.v7.widget.Toolbar;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.DatePicker;
+import android.widget.TextView;
 
 import com.sangcomz.fishbun.FishBun;
 import com.sangcomz.fishbun.adapter.image.impl.GlideAdapter;
@@ -95,11 +98,27 @@ public class UpdateLeedActivity extends AppCompatActivity implements AdapterView
         activityUpdateLeedBinding.spinnerselectloantype.setOnItemSelectedListener(this);
         activityUpdateLeedBinding.spinnerselecttypeofemployee.setOnItemSelectedListener(this);
         // ArrayAdapter<String> spinnerArrayAdapterloantype = new ArrayAdapter<String>(this, sppinner_layout_listitem,loanType);
-        ArrayAdapter<String> spinnerArrayAdapterloantype = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, loanType);
-        spinnerArrayAdapterloantype.setDropDownViewResource(R.layout.support_simple_spinner_dropdown_item);
+        ArrayAdapter<String> spinnerArrayAdapterloantype = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, loanType) {
+            @Override
+            public View getView(int position, View convertView, @NonNull ViewGroup parent) {
+                View view = super.getView(position, convertView, parent);
+                //change the color to which ever you want
+                ((TextView) view).setTextColor(Color.WHITE);
+                return view;
+            }
+        };
+        spinnerArrayAdapterloantype.setDropDownViewResource(R.layout.spinner_item);
         activityUpdateLeedBinding.spinnerselectloantype.setAdapter(spinnerArrayAdapterloantype);
-        ArrayAdapter<String> spinnerArrayAdapteremptype = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, empType);
-        spinnerArrayAdapteremptype.setDropDownViewResource(R.layout.support_simple_spinner_dropdown_item);
+        ArrayAdapter<String> spinnerArrayAdapteremptype = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, empType) {
+            @Override
+            public View getView(int position, View convertView, @NonNull ViewGroup parent) {
+                View view = super.getView(position, convertView, parent);
+                //change the color to which ever you want
+                ((TextView) view).setTextColor(Color.WHITE);
+                return view;
+            }
+        };
+        spinnerArrayAdapteremptype.setDropDownViewResource(R.layout.spinner_item);
         activityUpdateLeedBinding.spinnerselecttypeofemployee.setAdapter(spinnerArrayAdapteremptype);
         activityUpdateLeedBinding.rvDocumentImages.setHasFixedSize(true);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);

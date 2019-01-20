@@ -109,6 +109,7 @@ public class Fragment_Reports extends Fragment {
             @Override
             public void onError(Object object) {
                 progressDialogClass.dismissDialog();
+                if(isAdded())
                 Utility.showLongMessage(getActivity(), getString(R.string.server_error));
             }
         });

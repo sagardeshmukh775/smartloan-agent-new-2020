@@ -32,8 +32,10 @@
     <item type="color" name="textcolor">#7e7e7e</item>
     <item type="color" name="edittexthintcolor">#7e7e7e</item>
     <item type="color" name="white">#ffffff</item>
-    <item type="color" name="light_white">#76ffffff</item>
+    <item type="color" name="light_white">#abffffff</item>
+    <item type="color" name="full_light_white">#49ffffff</item>
     <item type="color" name="transprant_color">#00000000</item>
     <item type="color" name="background_color">#2bf5dea8</item>
     <item type="color" name="black_color">#000000</item>
+    <item type="color" name="light_black_color">#292828</item>
 </resources>

@@ -10,7 +10,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="100"
-            android:background="@color/background_color"
+            style="@style/LightBackgroundLayout"
             android:orientation="vertical">
 
             <android.support.v7.widget.Toolbar

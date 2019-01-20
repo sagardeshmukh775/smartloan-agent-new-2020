@@ -103,8 +103,10 @@ public class PaidInvoiceFragment extends Fragment {
 
             @Override
             public void onError(Object object) {
-                progressDialogClass.dismissDialog();
-                Utility.showLongMessage(getActivity(), getString(R.string.server_error));
+                if(isAdded()) {
+                    progressDialogClass.dismissDialog();
+                    Utility.showLongMessage(getActivity(), getString(R.string.server_error));
+                }
             }
         });
     }

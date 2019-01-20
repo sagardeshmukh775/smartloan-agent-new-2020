@@ -12,6 +12,7 @@ import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.support.annotation.NonNull;
 import android.support.v4.content.LocalBroadcastManager;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
@@ -23,7 +24,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.CheckedTextView;
 import android.widget.DatePicker;
+import android.widget.TextView;
 
 import com.sangcomz.fishbun.FishBun;
 import com.sangcomz.fishbun.adapter.image.impl.GlideAdapter;
@@ -108,11 +111,27 @@ public class Fragment_GenerateLeads extends RuntimePermissionHelper implements A
             fragmentGenerateleadBinding.spinnerselectloantype.setOnItemSelectedListener(this);
             fragmentGenerateleadBinding.spinnerselecttypeofemployee.setOnItemSelectedListener(this);
             // ArrayAdapter<String> spinnerArrayAdapterloantype = new ArrayAdapter<String>(this, sppinner_layout_listitem,loanType);
-            ArrayAdapter<String> spinnerArrayAdapterloantype = new ArrayAdapter<String>(this.getActivity(), android.R.layout.simple_spinner_item, loanType);
-            spinnerArrayAdapterloantype.setDropDownViewResource(R.layout.support_simple_spinner_dropdown_item);
+            ArrayAdapter<String> spinnerArrayAdapterloantype = new ArrayAdapter<String>(this.getContext(), android.R.layout.simple_spinner_item, loanType){
+                @Override
+                public View getView(int position, View convertView, @NonNull ViewGroup parent) {
+                    View view = super.getView(position, convertView, parent);
+                    //change the color to which ever you want
+                    ((TextView) view).setTextColor(Color.WHITE);
+                    return view;
+                }
+            };
+            spinnerArrayAdapterloantype.setDropDownViewResource(R.layout.spinner_item);
             fragmentGenerateleadBinding.spinnerselectloantype.setAdapter(spinnerArrayAdapterloantype);
-            ArrayAdapter<String> spinnerArrayAdapteremptype = new ArrayAdapter<String>(this.getActivity(), android.R.layout.simple_spinner_item, empType);
-            spinnerArrayAdapteremptype.setDropDownViewResource(R.layout.support_simple_spinner_dropdown_item);
+            ArrayAdapter<String> spinnerArrayAdapteremptype = new ArrayAdapter<String>(this.getContext(), android.R.layout.simple_spinner_item, empType){
+                @Override
+                public View getView(int position, View convertView, @NonNull ViewGroup parent) {
+                    View view = super.getView(position, convertView, parent);
+                    //change the color to which ever you want
+                    ((TextView) view).setTextColor(Color.WHITE);
+                    return view;
+                }
+            };
+            spinnerArrayAdapteremptype.setDropDownViewResource(R.layout.spinner_item);
             fragmentGenerateleadBinding.spinnerselecttypeofemployee.setAdapter(spinnerArrayAdapteremptype);
             fragmentGenerateleadBinding.rvDocumentImages.setHasFixedSize(true);
             RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getActivity(), LinearLayoutManager.HORIZONTAL, false);

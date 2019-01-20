@@ -10,7 +10,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="100"
-            android:background="#ffffff"
+            style="@style/LightBackgroundLayout"
             android:gravity="center_vertical"
             android:orientation="vertical">
 
@@ -86,7 +86,7 @@
                                     android:layout_height="100dp"
                                     android:layout_marginTop="15dp"
                                     android:src="@drawable/dummy_user_profile"
-                                    app:civ_border_color="@color/hederbackground"
+                                    app:civ_border_color="@color/white"
                                     app:civ_border_width="3dp" />
 
                                 <ImageView
@@ -113,8 +113,7 @@
                                 android:maxLength="30"
                                 android:padding="10sp"
                                 android:paddingLeft="4dp"
-                                android:textColor="@color/whitetextcolor"
-                                android:textColorHint="@color/edittexthintcolor"
+                                style="@style/FormLabel"
                                 android:textSize="15sp" />
 
                             <EditText
@@ -130,8 +129,7 @@
                                 android:maxLength="10"
                                 android:padding="10sp"
                                 android:paddingLeft="4dp"
-                                android:textColor="@color/whitetextcolor"
-                                android:textColorHint="@color/edittexthintcolor"
+                                style="@style/FormLabel"
                                 android:textSize="15sp" />
 
                             <EditText
@@ -147,8 +145,7 @@
                                 android:maxLength="10"
                                 android:padding="10sp"
                                 android:paddingLeft="4dp"
-                                android:textColor="@color/whitetextcolor"
-                                android:textColorHint="@color/edittexthintcolor"
+                                style="@style/FormLabel"
                                 android:textSize="15sp" />
 
                             <EditText
@@ -163,8 +160,7 @@
                                 android:maxLength="50"
                                 android:padding="10sp"
                                 android:paddingLeft="4dp"
-                                android:textColor="@color/whitetextcolor"
-                                android:textColorHint="@color/edittexthintcolor"
+                                style="@style/FormLabel"
                                 android:textSize="15sp" />
 
                             <EditText
@@ -179,8 +175,7 @@
                                 android:maxLength="25"
                                 android:padding="10sp"
                                 android:paddingLeft="4dp"
-                                android:textColor="@color/whitetextcolor"
-                                android:textColorHint="@color/edittexthintcolor"
+                                style="@style/FormLabel"
                                 android:textSize="15sp" />
 
                             <RadioGroup
@@ -200,7 +195,7 @@
                                     android:buttonTint="@color/darkgraycolor"
                                     android:checked="true"
                                     android:text="Male"
-                                    android:textColor="@color/darkgraycolor"
+                                    style="@style/FormLabel"
                                     android:textSize="16sp"
                                     android:textStyle="normal|bold" />
 
@@ -211,7 +206,7 @@
                                     android:layout_marginLeft="10sp"
                                     android:buttonTint="@color/darkgraycolor"
                                     android:text="Female"
-                                    android:textColor="@color/darkgraycolor"
+                                    style="@style/FormLabel"
                                     android:textSize="16sp"
                                     android:textStyle="normal|bold" />
                             </RadioGroup>
@@ -226,8 +221,7 @@
                                 android:gravity="center_horizontal"
                                 android:padding="10sp"
                                 android:paddingLeft="4dp"
-                                android:textColor="@color/whitetextcolor"
-                                android:textColorHint="@color/edittexthintcolor"
+                                style="@style/FormLabel"
                                 android:textSize="15sp" />
 
                             <EditText
@@ -242,8 +236,7 @@
                                 android:maxLength="20"
                                 android:padding="10sp"
                                 android:paddingLeft="4dp"
-                                android:textColor="@color/whitetextcolor"
-                                android:textColorHint="@color/edittexthintcolor"
+                                style="@style/FormLabel"
                                 android:textSize="15sp" />
 
                             <TextView
@@ -258,8 +251,7 @@
                                 android:maxLength="30"
                                 android:padding="10sp"
                                 android:paddingLeft="4dp"
-                                android:textColor="@color/whitetextcolor"
-                                android:textColorHint="@color/edittexthintcolor"
+                                style="@style/FormLabel"
                                 android:textSize="15sp" />
 
 
@@ -276,8 +268,7 @@
                                 android:maxLength="20"
                                 android:padding="10sp"
                                 android:paddingLeft="4dp"
-                                android:textColor="@color/whitetextcolor"
-                                android:textColorHint="@color/edittexthintcolor"
+                                style="@style/FormLabel"
                                 android:textSize="15sp" />
 
                             <Spinner
@@ -290,8 +281,7 @@
                                 android:gravity="center_horizontal"
                                 android:padding="10sp"
                                 android:paddingLeft="4dp"
-                                android:textColor="@color/whitetextcolor"
-                                android:textColorHint="@color/edittexthintcolor"
+                                style="@style/FormLabel"
                                 android:textSize="15sp" />
 
                             <EditText
@@ -304,8 +294,7 @@
                                 android:gravity="center_horizontal"
                                 android:padding="10sp"
                                 android:paddingLeft="4dp"
-                                android:textColor="@color/whitetextcolor"
-                                android:textColorHint="@color/edittexthintcolor"
+                                style="@style/FormLabel"
                                 android:textSize="15sp"
                                 android:visibility="gone" />
 
@@ -334,7 +323,7 @@
                                     android:gravity="center_horizontal"
                                     android:padding="5sp"
                                     android:text="Attach doc"
-                                    android:textColor="@color/darkgraycolor"
+                                    style="@style/FormLabel"
                                     android:textSize="15dp" />
 
 

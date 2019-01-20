@@ -187,13 +187,13 @@ public class LeedsAdapter extends ArrayAdapter<LeedsModel> {
             viewHolder.textviewApprovedValue.setTextColor(context.getResources().getColor(R.color.white));
             viewHolder.textviewTimeValue.setTextColor(context.getResources().getColor(R.color.white));
         } else {
-            viewHolder.topLeftLayout.setBackgroundColor(context.getResources().getColor(R.color.white));
-            viewHolder.textViewAppliedLoan.setTextColor(context.getResources().getColor(R.color.darkgraycolor));
-            viewHolder.textviewApproved.setTextColor(context.getResources().getColor(R.color.darkgraycolor));
-            viewHolder.textviewDateLabel.setTextColor(context.getResources().getColor(R.color.darkgraycolor));
-            viewHolder.textViewAppliedLoanValue.setTextColor(context.getResources().getColor(R.color.darkgraycolor));
-            viewHolder.textviewApprovedValue.setTextColor(context.getResources().getColor(R.color.darkgraycolor));
-            viewHolder.textviewTimeValue.setTextColor(context.getResources().getColor(R.color.darkgraycolor));
+            viewHolder.topLeftLayout.setBackgroundColor(context.getResources().getColor(R.color.black_color));
+            viewHolder.textViewAppliedLoan.setTextColor(context.getResources().getColor(R.color.light_white));
+            viewHolder.textviewApproved.setTextColor(context.getResources().getColor(R.color.light_white));
+            viewHolder.textviewDateLabel.setTextColor(context.getResources().getColor(R.color.white));
+            viewHolder.textViewAppliedLoanValue.setTextColor(context.getResources().getColor(R.color.white));
+            viewHolder.textviewApprovedValue.setTextColor(context.getResources().getColor(R.color.white));
+            viewHolder.textviewTimeValue.setTextColor(context.getResources().getColor(R.color.white));
         }
         viewHolder.llUpdateLayout.setOnClickListener(new View.OnClickListener() {
             @Override

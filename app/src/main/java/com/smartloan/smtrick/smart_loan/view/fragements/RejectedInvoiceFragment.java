@@ -102,7 +102,9 @@ public class RejectedInvoiceFragment extends Fragment {
 
             @Override
             public void onError(Object object) {
+                if(progressDialogClass!=null)
                 progressDialogClass.dismissDialog();
+                if(isAdded())
                 Utility.showLongMessage(getActivity(), getString(R.string.server_error));
             }
         });

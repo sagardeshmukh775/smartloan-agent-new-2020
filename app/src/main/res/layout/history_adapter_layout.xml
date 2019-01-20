@@ -19,6 +19,7 @@
                 android:layout_marginTop="1dp"
                 android:clickable="true"
                 android:focusable="true"
+                style="@style/BackgroundLayout"
                 android:foreground="?android:attr/selectableItemBackground"
                 card_view:cardCornerRadius="4dp"
                 card_view:cardElevation="3dp">
@@ -42,7 +43,7 @@
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:text="Staus :"
-                            android:textColor="@color/darkgraycolor"
+                            style="@style/FormTitle"
                             android:textSize="14dp" />
 
                         <TextView
@@ -51,7 +52,7 @@
                             android:layout_height="wrap_content"
                             android:layout_weight="0.7"
                             android:text="@string/na"
-                            android:textColor="@color/whitetextcolor"
+                            style="@style/FormLabel"
                             android:textSize="14dp" />
                     </LinearLayout>
 
@@ -67,7 +68,7 @@
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:text="Updated By Id:"
-                            android:textColor="@color/darkgraycolor"
+                            style="@style/FormTitle"
                             android:textSize="14dp" />
 
                         <TextView
@@ -76,7 +77,7 @@
                             android:layout_height="wrap_content"
                             android:layout_weight="0.7"
                             android:text="@string/na"
-                            android:textColor="@color/whitetextcolor"
+                            style="@style/FormLabel"
                             android:textSize="14dp" />
                     </LinearLayout>
 
@@ -92,7 +93,7 @@
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:text="Updated By Name:"
-                            android:textColor="@color/darkgraycolor"
+                            style="@style/FormTitle"
                             android:textSize="14dp" />
 
                         <TextView
@@ -101,7 +102,7 @@
                             android:layout_height="wrap_content"
                             android:layout_weight="0.7"
                             android:text="@string/na"
-                            android:textColor="@color/whitetextcolor"
+                            style="@style/FormLabel"
                             android:textSize="14dp" />
                     </LinearLayout>
 
@@ -117,7 +118,7 @@
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:text="Updated Date Time:"
-                            android:textColor="@color/darkgraycolor"
+                            style="@style/FormTitle"
                             android:textSize="14dp" />
 
                         <TextView
@@ -126,7 +127,7 @@
                             android:layout_height="wrap_content"
                             android:layout_weight="0.7"
                             android:text="@string/na"
-                            android:textColor="@color/whitetextcolor"
+                            style="@style/FormLabel"
                             android:textSize="14dp" />
                     </LinearLayout>
 

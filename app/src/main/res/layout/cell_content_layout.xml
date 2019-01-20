@@ -111,7 +111,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/bgContent"
+        style="@style/BackgroundLayout"
         android:orientation="vertical"
         android:paddingBottom="6dp"
         android:paddingLeft="20dp"
@@ -154,7 +154,7 @@
                     android:layout_height="wrap_content"
                     android:text="Update"
                     android:clickable="false"
-                    android:textColor="@color/mainTextColor"
+                    style="@style/FormLabel"
                     android:textSize="12sp" />
             </LinearLayout>
 
@@ -172,13 +172,13 @@
                     android:layout_height="25dp"
                     android:clickable="false"
                     android:contentDescription="@string/app_name"
-                    android:src="@drawable/baseline_history_black_48"/>
+                    android:src="@drawable/history_white"/>
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="History"
                     android:clickable="false"
-                    android:textColor="@color/mainTextColor"
+                    style="@style/FormLabel"
                     android:textSize="12sp" />
             </LinearLayout>
 
@@ -189,7 +189,7 @@
                 android:layout_below="@id/content_avatar_title"
                 android:scaleType="centerCrop"
                 android:src="@drawable/dummy_user_profile"
-                app:civ_border_color="@color/hederbackground"
+                app:civ_border_color="@color/white"
                 app:civ_border_width="3dp" />
 
             <TextView
@@ -204,7 +204,7 @@
                 android:layout_toEndOf="@id/imageview_avatar"
                 android:layout_toRightOf="@id/imageview_avatar"
                 android:text="Pratik Patel"
-                android:textColor="@color/mainTextColor"
+                style="@style/FormLabel"
                 android:textSize="18sp"
                 android:textStyle="bold" />
 
@@ -229,7 +229,7 @@
                     android:layout_marginTop="0dp"
                     android:layout_toRightOf="@+id/imageview_avatar"
                     android:text="Applied for "
-                    android:textColor="@color/mainTextColor"
+                    style="@style/FormLabel"
                     android:textSize="14sp" />
 
                 <TextView
@@ -241,7 +241,7 @@
                     android:layout_marginTop="0dp"
                     android:layout_toRightOf="@+id/imageview_avatar"
                     android:text="Home Loan"
-                    android:textColor="@color/mainTextColor"
+                    style="@style/FormLabel"
                     android:textSize="14sp" />
             </LinearLayout>
 
@@ -290,7 +290,7 @@
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/content_from_badge"
                     android:text="Mobile No:"
-                    android:textColor="@color/mainTextColor"
+                    style="@style/FormTitle"
                     android:textSize="14sp" />
 
                 <TextView
@@ -302,7 +302,7 @@
                     android:layout_marginTop="1sp"
                     android:layout_toRightOf="@+id/textview_mobille_number"
                     android:text="@string/content_from2_mock"
-                    android:textColor="@color/mainTextColor"
+                    style="@style/FormLabel"
                     android:textSize="14sp" />
 
                 <TextView
@@ -311,7 +311,7 @@
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/textview_mobille_number_value"
                     android:text="Email Id:"
-                    android:textColor="@color/mainTextColor"
+                    style="@style/FormTitle"
                     android:textSize="14sp" />
 
                 <TextView
@@ -323,7 +323,7 @@
                     android:layout_marginTop="1sp"
                     android:layout_toRightOf="@+id/textview_emailid"
                     android:text="Pratikpatel@gmail.com"
-                    android:textColor="@color/mainTextColor"
+                    style="@style/FormLabel"
                     android:textSize="14sp" />
 
                 <TextView
@@ -332,7 +332,7 @@
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/textview_emailid_value"
                     android:text="Address:"
-                    android:textColor="@color/mainTextColor"
+                    style="@style/FormTitle"
                     android:textSize="14sp" />
 
                 <TextView
@@ -344,7 +344,7 @@
                     android:layout_marginTop="1sp"
                     android:layout_toRightOf="@+id/textaddress"
                     android:text="Andheri east mumbai,400001"
-                    android:textColor="@color/mainTextColor"
+                    style="@style/FormLabel"
                     android:textSize="14sp" />
 
             </RelativeLayout>
@@ -433,7 +433,7 @@
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/content_delivery_date_badge"
                     android:text="Loan Type:"
-                    android:textColor="@color/mainTextColor"
+                    style="@style/FormTitle"
                     android:textSize="14sp" />
 
                 <TextView
@@ -445,7 +445,7 @@
                     android:layout_marginTop="1sp"
                     android:layout_toRightOf="@+id/txtloantype"
                     android:text="Home Loan"
-                    android:textColor="@color/mainTextColor"
+                    style="@style/FormLabel"
                     android:textSize="14sp" />
 
 
@@ -455,7 +455,7 @@
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/txtloantype"
                     android:text="Bank Name:"
-                    android:textColor="@color/mainTextColor"
+                    style="@style/FormTitle"
                     android:textSize="14sp" />
 
                 <TextView
@@ -467,7 +467,7 @@
                     android:layout_marginTop="1sp"
                     android:layout_toRightOf="@+id/txtbank"
                     android:text="HDFC Bank"
-                    android:textColor="@color/mainTextColor"
+                    style="@style/FormLabel"
                     android:textSize="14sp" />
 
                 <TextView
@@ -476,7 +476,7 @@
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/txtbank"
                     android:text="Payout:"
-                    android:textColor="@color/mainTextColor"
+                    style="@style/FormTitle"
                     android:textSize="14sp" />
 
                 <TextView
@@ -488,7 +488,7 @@
                     android:layout_marginTop="1sp"
                     android:layout_toRightOf="@+id/txtpayout"
                     android:text="Rs 110000"
-                    android:textColor="@color/mainTextColor"
+                    style="@style/FormLabel"
                     android:textSize="14sp" />
 
                 <TextView
@@ -497,7 +497,7 @@
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/txtpayout"
                     android:text="Agent Name:"
-                    android:textColor="@color/mainTextColor"
+                    style="@style/FormTitle"
                     android:textSize="14sp" />
 
                 <TextView
@@ -509,7 +509,7 @@
                     android:layout_marginTop="1sp"
                     android:layout_toRightOf="@+id/txtagent"
                     android:text="Vikram Kodag"
-                    android:textColor="@color/mainTextColor"
+                    style="@style/FormLabel"
                     android:textSize="14sp" />
 
                 <TextView
@@ -518,7 +518,7 @@
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/txtagent"
                     android:text="Approved Loan:"
-                    android:textColor="@color/mainTextColor"
+                    style="@style/FormTitle"
                     android:textSize="14sp" />
 
                 <TextView
@@ -530,7 +530,7 @@
                     android:layout_marginTop="1sp"
                     android:layout_toRightOf="@+id/txtapprovedloan"
                     android:text="200000"
-                    android:textColor="@color/mainTextColor"
+                    style="@style/FormLabel"
                     android:textSize="14sp" />
 
                 <LinearLayout

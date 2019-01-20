@@ -11,6 +11,7 @@
 
             <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
                 android:id="@+id/card_view"
+                style="@style/BackgroundLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:clickable="true"
@@ -36,42 +37,42 @@
 
                         <TextView
                             android:id="@+id/txtid"
+                            style="@style/FormTitle"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Invoice Id:"
-                            android:textColor="@color/darkgraycolor"
                             android:textSize="14dp" />
 
                         <TextView
                             android:id="@+id/txtcname"
+                            style="@style/FormTitle"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="C Name:"
-                            android:textColor="@color/darkgraycolor"
                             android:textSize="14dp" />
 
                         <TextView
                             android:id="@+id/txtbank"
+                            style="@style/FormTitle"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Bank:"
-                            android:textColor="@color/darkgraycolor"
                             android:textSize="14dp" />
 
                         <TextView
                             android:id="@+id/txtcommision"
+                            style="@style/FormTitle"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Commission:"
-                            android:textColor="@color/darkgraycolor"
                             android:textSize="14dp" />
 
                         <TextView
                             android:id="@+id/txt_Status"
+                            style="@style/FormTitle"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Status:"
-                            android:textColor="@color/darkgraycolor"
                             android:textSize="14dp" />
                     </LinearLayout>
 
@@ -84,42 +85,42 @@
 
                         <TextView
                             android:id="@+id/txtidvalue"
+                            style="@style/FormLabel"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="I Id:"
-                            android:textColor="@color/whitetextcolor"
                             android:textSize="14dp" />
 
                         <TextView
                             android:id="@+id/txtcnamevalue"
+                            style="@style/FormLabel"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="C Name:"
-                            android:textColor="@color/whitetextcolor"
                             android:textSize="14dp" />
 
                         <TextView
                             android:id="@+id/txtbankvalue"
+                            style="@style/FormLabel"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Bank:"
-                            android:textColor="@color/whitetextcolor"
                             android:textSize="14dp" />
 
                         <TextView
                             android:id="@+id/txtcommisionvalue"
+                            style="@style/FormLabel"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="25000"
-                            android:textColor="@color/whitetextcolor"
                             android:textSize="14dp" />
 
                         <TextView
                             android:id="@+id/txt_status_value"
+                            style="@style/FormLabel"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Sent"
-                            android:textColor="@color/whitetextcolor"
                             android:textSize="14dp" />
 
                     </LinearLayout>
