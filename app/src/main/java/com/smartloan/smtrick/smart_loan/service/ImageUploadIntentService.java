@@ -96,7 +96,7 @@ public class ImageUploadIntentService extends IntentService {
             @Override
             public void onSuccess(Object object) {
                /* Intent broadcastIntent = new Intent();
-                broadcastIntent.setAction(Fragment_GenerateLeads.ImageUploadReceiver.PROCESS_RESPONSE);
+                broadcastIntent.setAction(GenerateLeedFragment.ImageUploadReceiver.PROCESS_RESPONSE);
                 broadcastIntent.putExtra(IMAGE_COUNT, imageCount);
                 LocalBroadcastManager.getInstance(getApplicationContext()).sendBroadcast(broadcastIntent);
                 */
@@ -121,7 +121,7 @@ public class ImageUploadIntentService extends IntentService {
             @Override
             public void onSuccess(Object object) {
                /* Intent broadcastIntent = new Intent();
-                broadcastIntent.setAction(Fragment_GenerateLeads.ImageUploadReceiver.PROCESS_RESPONSE);
+                broadcastIntent.setAction(GenerateLeedFragment.ImageUploadReceiver.PROCESS_RESPONSE);
                 broadcastIntent.putExtra(IMAGE_COUNT, imageCount);
                 LocalBroadcastManager.getInstance(getApplicationContext()).sendBroadcast(broadcastIntent);
                 */

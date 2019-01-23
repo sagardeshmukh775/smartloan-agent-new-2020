@@ -15,11 +15,11 @@ import android.widget.Spinner;
 import com.smartloan.smtrick.smart_loan.R;
 import com.smartloan.smtrick.smart_loan.interfaces.OnFragmentInteractionListener;
 
-public class Fragment_Calculator extends Fragment {
+public class CalculatorFragment extends Fragment {
     // NOTE: Removed Some unwanted Boiler Plate Codes
     private OnFragmentInteractionListener mListener;
 
-    public Fragment_Calculator() {
+    public CalculatorFragment() {
     }
 
     Spinner spinloantype, spinemptype, spinincome;

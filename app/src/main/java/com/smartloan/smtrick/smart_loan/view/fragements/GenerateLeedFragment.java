@@ -24,7 +24,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.CheckedTextView;
 import android.widget.DatePicker;
 import android.widget.TextView;
 
@@ -70,7 +69,7 @@ import static com.smartloan.smtrick.smart_loan.constants.Constant.LEED_PREFIX;
 import static com.smartloan.smtrick.smart_loan.constants.Constant.MALE;
 import static com.smartloan.smtrick.smart_loan.constants.Constant.STATUS_GENERATED;
 
-public class Fragment_GenerateLeads extends RuntimePermissionHelper implements AdapterView.OnItemSelectedListener, ItemRemoveListner {
+public class GenerateLeedFragment extends RuntimePermissionHelper implements AdapterView.OnItemSelectedListener, ItemRemoveListner {
     private OnFragmentInteractionListener mListener;
     FragmentGenerateleadBinding fragmentGenerateleadBinding;
     AppSharedPreference appSharedPreference;
@@ -86,7 +85,7 @@ public class Fragment_GenerateLeads extends RuntimePermissionHelper implements A
     int fromYear, fromMonth, fromDay;
     private long fromDate;
 
-    public Fragment_GenerateLeads() {
+    public GenerateLeedFragment() {
     }
 
     @Override
@@ -171,7 +170,7 @@ public class Fragment_GenerateLeads extends RuntimePermissionHelper implements A
                     e.printStackTrace();
                 }
                 NumberFormat nf2 = NumberFormat.getInstance(Locale.ENGLISH);
-                ((DecimalFormat) nf2).applyPattern("###,###.###");
+                ((DecimalFormat) nf2).applyPattern("##,##,###.##");
                 s.replace(0, s.length(), nf2.format(s1));
 
                 if (s.toString().equals("0")) {
@@ -210,7 +209,7 @@ public class Fragment_GenerateLeads extends RuntimePermissionHelper implements A
         fragmentGenerateleadBinding.layoutattachdocuments.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                FishBun.with(Fragment_GenerateLeads.this)
+                FishBun.with(GenerateLeedFragment.this)
                         .setImageAdapter(new GlideAdapter())
                         .setIsUseDetailView(false)
                         .setPickerCount(5) //Deprecated
@@ -321,7 +320,7 @@ public class Fragment_GenerateLeads extends RuntimePermissionHelper implements A
 
     private void OnSuccessResult() {
         Utility.showLongMessage(getActivity(), getString(R.string.lead_generated_success_message));
-        mListener.changeFragement(new Fragment_LeadsActivity());
+        mListener.changeFragement(new LeedsFragment());
         progressDialogClass.dismissDialog();
     }
 

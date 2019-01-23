@@ -160,7 +160,7 @@ public class UpdateLeedActivity extends AppCompatActivity implements AdapterView
                     e.printStackTrace();
                 }
                 NumberFormat nf2 = NumberFormat.getInstance(Locale.ENGLISH);
-                ((DecimalFormat) nf2).applyPattern("###,###.###");
+                ((DecimalFormat) nf2).applyPattern("##,##,###.##");
                 s.replace(0, s.length(), nf2.format(s1));
 
                 if (s.toString().equals("0")) {

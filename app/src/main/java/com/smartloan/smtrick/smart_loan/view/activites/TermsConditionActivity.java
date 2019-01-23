@@ -8,7 +8,7 @@ import android.widget.Button;
 
 import com.smartloan.smtrick.smart_loan.R;
 
-public class TermsCondition_Activity extends AppCompatActivity {
+public class TermsConditionActivity extends AppCompatActivity {
     Button btnAccept;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,7 +19,7 @@ public class TermsCondition_Activity extends AppCompatActivity {
         btnAccept.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
 
-                Intent i = new Intent(TermsCondition_Activity.this, Registeractivity.class);
+                Intent i = new Intent(TermsConditionActivity.this, Registeractivity.class);
                 startActivity(i);
                 overridePendingTransition(R.anim.slide_in, R.anim.slide_out);
 

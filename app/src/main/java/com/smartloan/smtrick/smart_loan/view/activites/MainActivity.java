@@ -1,5 +1,7 @@
 package com.smartloan.smtrick.smart_loan.view.activites;
 
+import android.app.SearchManager;
+import android.app.SearchableInfo;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
@@ -16,7 +18,11 @@ import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.SearchView;
 import android.support.v7.widget.Toolbar;
+import android.text.InputType;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
@@ -28,11 +34,11 @@ import com.smartloan.smtrick.smart_loan.exception.ExceptionUtil;
 import com.smartloan.smtrick.smart_loan.interfaces.OnFragmentInteractionListener;
 import com.smartloan.smtrick.smart_loan.preferences.AppSharedPreference;
 import com.smartloan.smtrick.smart_loan.utilities.Utility;
-import com.smartloan.smtrick.smart_loan.view.fragements.Fragment_Calculator;
-import com.smartloan.smtrick.smart_loan.view.fragements.Fragment_GenerateLeads;
-import com.smartloan.smtrick.smart_loan.view.fragements.Fragment_LeadsActivity;
-import com.smartloan.smtrick.smart_loan.view.fragements.Fragment_Reports;
+import com.smartloan.smtrick.smart_loan.view.fragements.CalculatorFragment;
+import com.smartloan.smtrick.smart_loan.view.fragements.GenerateLeedFragment;
 import com.smartloan.smtrick.smart_loan.view.fragements.InvoicesTabFragment;
+import com.smartloan.smtrick.smart_loan.view.fragements.LeedsFragment;
+import com.smartloan.smtrick.smart_loan.view.fragements.ReportsFragment;
 import com.squareup.picasso.Callback;
 import com.squareup.picasso.Picasso;
 
@@ -41,19 +47,25 @@ import static com.smartloan.smtrick.smart_loan.constants.Constant.RESULT_CODE;
 
 public class MainActivity extends AppCompatActivity
         implements OnFragmentInteractionListener,
-        NavigationView.OnNavigationItemSelectedListener {
+        NavigationView.OnNavigationItemSelectedListener, SearchView.OnQueryTextListener {
 
     private AppSharedPreference appSharedPreference;
     private NavigationView navigationView;
     private Fragment selectedFragement;
     ImageUploadReceiver imageUploadReceiver;
+    private SearchView searchView;
+    private MenuItem searchMenuItem;
+    LeedsFragment leedsFragement;
+    public static String searchText = "";
+    Menu menu;
+    private Toolbar toolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         appSharedPreference = new AppSharedPreference(this);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         // NOTE : Just remove the fab button
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -66,10 +78,62 @@ public class MainActivity extends AppCompatActivity
         navigationView.setCheckedItem(R.id.generateleads);
         updateNavigationHeader();
         //NOTE:  Open fragment1 initially.
-        selectedFragement = new Fragment_GenerateLeads();
+        selectedFragement = new GenerateLeedFragment();
         FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
         ft.replace(R.id.mainFrame, selectedFragement);
         ft.commit();
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        this.menu = menu;
+        initMenu(false);
+        return true;
+    }
+
+    private void initMenu(boolean isShow) {
+        if (toolbar.getMenu() != null)
+            toolbar.getMenu().clear();
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.search_menu, menu);
+        initSearchView(menu);
+        clearSearchView(isShow);
+    }
+
+    public void initSearchView(Menu menu) {
+        SearchManager searchManager = (SearchManager) getSystemService(Context.SEARCH_SERVICE);
+        searchMenuItem = menu.findItem(R.id.item_search);
+        searchView = (SearchView) searchMenuItem.getActionView();
+        searchView.setQueryHint("Name, Mobile Number, Alternet Number");
+        if (searchManager != null) {
+            SearchableInfo searchableInfo = searchManager.getSearchableInfo(getComponentName());
+            searchView.setSearchableInfo(searchableInfo);
+            searchView.setSubmitButtonEnabled(true);
+            searchView.setOnQueryTextListener(this);
+        }
+    }
+
+    private void clearSearchView(final boolean isShow) {
+        searchView.setQuery("", false);
+        searchView.clearFocus();
+        searchMenuItem.setVisible(isShow);
+        if (isShow)
+            searchView.setInputType(InputType.TYPE_CLASS_TEXT);
+        else
+            searchView.setInputType(InputType.TYPE_NULL);
+    }
+
+    @Override
+    public boolean onQueryTextSubmit(String query) {
+        return false;
+    }
+
+    @Override
+    public boolean onQueryTextChange(String newText) {
+        searchText = newText;
+        if (leedsFragement != null && leedsFragement.getLeedAdapter() != null)
+            leedsFragement.getLeedAdapter().getFilter().filter(newText);
+        return true;
     }
 
     @Override
@@ -89,17 +153,24 @@ public class MainActivity extends AppCompatActivity
         //NOTE: creating fragment object
         Fragment fragment = null;
         if (id == R.id.generateleads) {
-            fragment = new Fragment_GenerateLeads();
+            fragment = new GenerateLeedFragment();
+            initMenu(false);
         } else if (id == R.id.Leads) {
-            fragment = new Fragment_LeadsActivity();
+            leedsFragement = new LeedsFragment();
+            fragment = leedsFragement;
+            initMenu(true);
         } else if (id == R.id.Invices) {
             fragment = new InvoicesTabFragment();
+            initMenu(false);
         } else if (id == R.id.Reports) {
-            fragment = new Fragment_Reports();
+            fragment = new ReportsFragment();
+            initMenu(false);
         } else if (id == R.id.Calulator) {
-            fragment = new Fragment_Calculator();
+            fragment = new CalculatorFragment();
+            initMenu(false);
         } else if (id == R.id.item_logout) {
             clearDataWithSignOut();
+            initMenu(false);
         }
         //NOTE: Fragment changing code
         selectedFragement = fragment;
@@ -141,7 +212,7 @@ public class MainActivity extends AppCompatActivity
             TextView textViewUserName = header.findViewById(R.id.textView_user_name);
             TextView textViewEmailId = header.findViewById(R.id.text_view_email);
             TextView textViewMobileNumber = header.findViewById(R.id.textView_contact);
-           final ImageView imageViewProfile = header.findViewById(R.id.image_view_profile);
+            final ImageView imageViewProfile = header.findViewById(R.id.image_view_profile);
             final ImageView ivProfileLayout = header.findViewById(R.id.ivProfileLayout);
             textViewUserName.setText(appSharedPreference.getUserName());
             textViewEmailId.setText(appSharedPreference.getEmaiId());
@@ -158,7 +229,7 @@ public class MainActivity extends AppCompatActivity
                                     @Override
                                     public void run() {
                                         Bitmap innerBitmap = ((BitmapDrawable) imageViewProfile.getDrawable()).getBitmap();
-                                        ivProfileLayout.setImageBitmap(Utility.blur(MainActivity.this,innerBitmap));
+                                        ivProfileLayout.setImageBitmap(Utility.blur(MainActivity.this, innerBitmap));
                                     }
                                 }, 100);
                             }

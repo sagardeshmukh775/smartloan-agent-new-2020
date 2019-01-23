@@ -12,7 +12,7 @@ import android.widget.Spinner;
 import com.smartloan.smtrick.smart_loan.R;
 
 
-public class BankDetails_Activity extends AppCompatActivity implements
+public class BankDetailsActivity extends AppCompatActivity implements
         AdapterView.OnItemSelectedListener{
     Spinner spinloantype,spinemptype,spinincome;
     Button btupdate,btverify,btcancel;

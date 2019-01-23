@@ -94,7 +94,7 @@ public class Registeractivity extends AppCompatActivity implements
                 validateAndCreateUser();
                 break;
             case R.id.txttermsandconditions:
-                Intent intent = new Intent(Registeractivity.this, TermsCondition_Activity.class);
+                Intent intent = new Intent(Registeractivity.this, TermsConditionActivity.class);
                 startActivity(intent);
                 overridePendingTransition(R.anim.backslide_in, R.anim.backslide_out);
                 break;

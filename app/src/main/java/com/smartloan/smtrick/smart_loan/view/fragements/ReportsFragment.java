@@ -38,7 +38,7 @@ import static com.smartloan.smtrick.smart_loan.constants.Constant.CALANDER_DATE_
 import static com.smartloan.smtrick.smart_loan.constants.Constant.STATUS_APPROVED;
 import static com.smartloan.smtrick.smart_loan.constants.Constant.STATUS_REJECTED;
 
-public class Fragment_Reports extends Fragment {
+public class ReportsFragment extends Fragment {
     ReportLeedsAdapter reportLeedsAdapter;
     LeedRepository leedRepository;
     AppSingleton appSingleton;
@@ -51,7 +51,7 @@ public class Fragment_Reports extends Fragment {
     ArrayList<LeedsModel> leedsModelArrayList;
     private OnFragmentInteractionListener mListener;
 
-    public Fragment_Reports() {
+    public ReportsFragment() {
     }
 
     @Override

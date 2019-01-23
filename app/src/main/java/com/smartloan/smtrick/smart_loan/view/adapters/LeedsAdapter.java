@@ -7,6 +7,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.Filter;
+import android.widget.Filterable;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
@@ -17,6 +19,7 @@ import com.smartloan.smtrick.smart_loan.R;
 import com.smartloan.smtrick.smart_loan.models.LeedsModel;
 import com.smartloan.smtrick.smart_loan.utilities.Utility;
 import com.smartloan.smtrick.smart_loan.view.activites.LeedHistoryActivity;
+import com.smartloan.smtrick.smart_loan.view.activites.MainActivity;
 import com.smartloan.smtrick.smart_loan.view.activites.UpdateLeedActivity;
 import com.squareup.picasso.Picasso;
 
@@ -28,16 +31,67 @@ import static com.smartloan.smtrick.smart_loan.constants.Constant.LEED_DATE_FORM
 import static com.smartloan.smtrick.smart_loan.constants.Constant.LEED_MODEL;
 
 @SuppressWarnings({"WeakerAccess", "unused"})
-public class LeedsAdapter extends ArrayAdapter<LeedsModel> {
+public class LeedsAdapter extends ArrayAdapter<LeedsModel> implements Filterable {
     private HashSet<Integer> unfoldedIndexes = new HashSet<>();
     private View.OnClickListener defaultRequestBtnClickListener;
     Context context;
     private ArrayList<LeedsModel> leedsModelList;
+    private LeedFilter leedFilter;
+    private ArrayList<LeedsModel> filterLeedsList;
 
     public LeedsAdapter(Context context, ArrayList<LeedsModel> leedsModelList) {
         super(context, 0, leedsModelList);
         this.context = context;
+        this.filterLeedsList = leedsModelList;
         this.leedsModelList = leedsModelList;
+    }
+
+    @NonNull
+    @Override
+    public Filter getFilter() {
+        if (leedFilter == null) {
+            leedFilter = new LeedFilter();
+        }
+        return leedFilter;
+    }
+
+    private class LeedFilter extends Filter {
+
+        @Override
+        protected FilterResults performFiltering(CharSequence constraint) {
+            FilterResults filterResults = new FilterResults();
+            if (constraint != null && constraint.length() > 0) {
+                ArrayList<LeedsModel> tempList = new ArrayList();
+                // search content in customer list
+                for (LeedsModel leedsModel : filterLeedsList) {
+                    if (leedsModel.getCustomerName().toLowerCase().contains(constraint.toString().toLowerCase())
+                            || (leedsModel.getMobileNumber()!=null&&leedsModel.getMobileNumber().contains(constraint.toString().toLowerCase()))
+                            || (leedsModel.getAlternetMobileNumber()!=null&&leedsModel.getAlternetMobileNumber().contains(constraint.toString().toLowerCase()))) {
+                        tempList.add(leedsModel);
+                    }
+                }
+                filterResults.count = tempList.size();
+                filterResults.values = tempList;
+            } else {
+                filterResults.count = filterLeedsList.size();
+                filterResults.values = filterLeedsList;
+            }
+            return filterResults;
+        }
+
+        @SuppressWarnings("unchecked")
+        @Override
+        protected void publishResults(CharSequence constraint, FilterResults results) {
+            leedsModelList = (ArrayList<LeedsModel>) results.values;
+            notifyDataSetChanged();
+        }
+    }
+
+    @Override
+    public int getCount() {
+        if(leedsModelList!=null)
+        return leedsModelList.size();
+        else return 0;
     }
 
     private LeedsModel getModel(int position) {
@@ -258,6 +312,12 @@ public class LeedsAdapter extends ArrayAdapter<LeedsModel> {
         this.defaultRequestBtnClickListener = defaultRequestBtnClickListener;
     }
 
+    public void reload(ArrayList<LeedsModel> leedsModels) {
+        filterLeedsList = leedsModels;
+        if (getFilter() != null)
+            getFilter().filter(MainActivity.searchText);
+    }
+
     private String getString(int id) {
         return context.getString(id);
     }
@@ -315,12 +375,4 @@ public class LeedsAdapter extends ArrayAdapter<LeedsModel> {
         public LinearLayout llUpdateLayout;
         public LinearLayout llHistoryLayout;
     }
-
-    public void reload(ArrayList<LeedsModel> leedsModels) {
-        leedsModelList.clear();
-        leedsModelList.addAll(leedsModels);
-        notifyDataSetChanged();
-    }
-
-
 }

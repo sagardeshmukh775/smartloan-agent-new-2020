@@ -30,11 +30,11 @@
             android:theme="@style/AppTheme"
             android:windowSoftInputMode="stateHidden" />
         <activity
-            android:name=".view.activites.BankDetails_Activity"
+            android:name=".view.activites.BankDetailsActivity"
             android:theme="@style/AppTheme"
             android:windowSoftInputMode="stateHidden" />
         <activity
-            android:name=".view.activites.TermsCondition_Activity"
+            android:name=".view.activites.TermsConditionActivity"
             android:theme="@style/AppTheme"
             android:windowSoftInputMode="stateHidden" />
         <activity

@@ -266,14 +266,11 @@ public class Utility {
 
     public static Bitmap blur(Context context, Bitmap image) {
         final float BITMAP_SCALE = 0.4f;
-        final float BLUR_RADIUS = 7.5f;
-
+        final float BLUR_RADIUS = 3f;
         int width = Math.round(image.getWidth() * BITMAP_SCALE);
         int height = Math.round(image.getHeight() * BITMAP_SCALE);
-
         Bitmap inputBitmap = Bitmap.createScaledBitmap(image, width, height, false);
         Bitmap outputBitmap = Bitmap.createBitmap(inputBitmap);
-
         RenderScript rs = RenderScript.create(context);
         ScriptIntrinsicBlur theIntrinsic = ScriptIntrinsicBlur.create(rs, Element.U8_4(rs));
         Allocation tmpIn = Allocation.createFromBitmap(rs, inputBitmap);
@@ -282,8 +279,6 @@ public class Utility {
         theIntrinsic.setInput(tmpIn);
         theIntrinsic.forEach(tmpOut);
         tmpOut.copyTo(outputBitmap);
-
         return outputBitmap;
-
     }
 }

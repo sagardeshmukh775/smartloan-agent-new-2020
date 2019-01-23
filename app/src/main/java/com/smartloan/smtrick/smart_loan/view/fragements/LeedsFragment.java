@@ -24,16 +24,16 @@ import com.smartloan.smtrick.smart_loan.view.dialog.ProgressDialogClass;
 
 import java.util.ArrayList;
 
-public class Fragment_LeadsActivity extends Fragment {
+public class LeedsFragment extends Fragment {
     private OnFragmentInteractionListener mListener;
     LeedRepository leedRepository;
     AppSingleton appSingleton;
     ProgressDialogClass progressDialogClass;
     AppSharedPreference appSharedPreference;
     ListView leedsListView;
-    LeedsAdapter adapter;
+    private LeedsAdapter adapter;
     Context context;
-    public Fragment_LeadsActivity() {
+    public LeedsFragment() {
     }
 
     @Override
@@ -72,6 +72,10 @@ public class Fragment_LeadsActivity extends Fragment {
     public void onDetach() {
         super.onDetach();
         mListener = null;
+    }
+
+    public LeedsAdapter getLeedAdapter() {
+        return adapter;
     }
 
     private void getteLeed() {
