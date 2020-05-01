@@ -8,4 +8,5 @@
 .externalNativeBuild
 .idea/misc.xml
 .idea/modules.xml
+.idea/codeStyles/Project.xml
 cropper/build

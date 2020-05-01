@@ -1,312 +1,371 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:layout_gravity="center_vertical"
-    android:orientation="vertical"
-    android:weightSum="100">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <LinearLayout
-        style="@style/LightBackgroundLayout"
+    <android.support.design.widget.CoordinatorLayout
         android:layout_width="match_parent"
-        android:layout_height="0sp"
-        android:layout_weight="100"
-        android:gravity="center_vertical"
-        android:orientation="vertical">
+        android:layout_height="match_parent"
+        android:fitsSystemWindows="true">
 
-        <ScrollView
-            android:id="@+id/scrollviewrightleft"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:gravity="center_vertical">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_vertical"
+            android:orientation="vertical"
+            android:weightSum="100">
 
-            <RelativeLayout
-                android:id="@+id/scrolllayout"
+            <LinearLayout
+                style="@style/LightBackgroundLayout"
                 android:layout_width="match_parent"
-                android:layout_height="fill_parent"
-                android:layout_gravity="center_horizontal"
-                android:gravity="center_vertical">
+                android:layout_height="0sp"
+                android:layout_weight="100"
+                android:gravity="center_vertical"
+                android:orientation="vertical">
 
-                <RelativeLayout
-                    android:id="@+id/layoutmain"
-                    android:layout_width="match_parent"
+                <ScrollView
+                    android:id="@+id/scrollviewrightleft"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
                     android:gravity="center_vertical">
 
                     <RelativeLayout
-                        android:id="@+id/layouttext"
+                        android:id="@+id/scrolllayout"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="fill_parent"
                         android:layout_gravity="center_horizontal"
-                        android:layout_marginTop="20sp"
                         android:gravity="center_vertical">
 
-                        <TextView
-                            android:id="@+id/txtlogin"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center_vertical"
-                            android:gravity="center_horizontal"
-                            android:text="Register New User"
-                            android:textSize="22sp"
-                            style="@style/FormLabel"
-                            android:textStyle="normal|bold" />
-                    </RelativeLayout>
-
-                    <LinearLayout
-                        android:id="@+id/layoutlogin"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_below="@+id/layouttext"
-                        android:layout_gravity="center_horizontal"
-                        android:gravity="center_horizontal"
-                        android:orientation="vertical">
-
-                        <EditText
-                            android:id="@+id/edittextname"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="30sp"
-                            android:layout_marginRight="30sp"
-                            android:layout_marginTop="30sp"
-                            android:background="@drawable/edittext_bprder"
-                            android:gravity="center_horizontal"
-                            android:hint="Name"
-                            android:maxLength="30"
-                            android:padding="10sp"
-                            android:paddingLeft="4dp"
-                            android:textColor="@color/whitetextcolor"
-                            android:textColorHint="@color/hinttextcolor"
-                            android:textSize="15sp" />
-
-                        <EditText
-                            android:id="@+id/edittextmobile"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_below="@+id/edittextname"
-                            android:layout_marginLeft="30sp"
-                            android:layout_marginRight="30sp"
-                            android:layout_marginTop="20sp"
-                            android:background="@drawable/edittext_bprder"
-                            android:gravity="center_horizontal"
-                            android:hint="Mobile Number"
-                            android:inputType="number"
-                            android:maxLength="10"
-                            android:padding="10sp"
-                            android:paddingLeft="4dp"
-                            android:textColor="@color/whitetextcolor"
-                            android:textColorHint="@color/hinttextcolor"
-                            android:textSize="15sp" />
-
-                        <EditText
-                            android:id="@+id/edittextaddress"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_below="@+id/edittextmobile"
-                            android:layout_marginLeft="30sp"
-                            android:layout_marginRight="30sp"
-                            android:layout_marginTop="20sp"
-                            android:background="@drawable/edittext_bprder"
-                            android:gravity="center_horizontal"
-                            android:hint="Address"
-                            android:maxLength="50"
-                            android:padding="10sp"
-                            android:paddingLeft="4dp"
-                            android:textColor="@color/whitetextcolor"
-                            android:textColorHint="@color/hinttextcolor"
-                            android:textSize="15sp" />
-
-                        <EditText
-                            android:id="@+id/edittextemailid"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_below="@+id/edittextaddress"
-                            android:layout_marginLeft="30sp"
-                            android:layout_marginRight="30sp"
-                            android:layout_marginTop="20sp"
-                            android:background="@drawable/edittext_bprder"
-                            android:gravity="center_horizontal"
-                            android:hint="Email Id"
-                            android:maxLength="25"
-                            android:padding="10sp"
-                            android:paddingLeft="4dp"
-                            android:textColor="@color/whitetextcolor"
-                            android:textColorHint="@color/hinttextcolor"
-                            android:textSize="15sp" />
-
-
-                        <RadioGroup
-                            android:id="@+id/radiogender"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_below="@+id/edittextemailid"
-                            android:layout_marginTop="20sp"
-                            android:gravity="center_horizontal"
-                            android:orientation="horizontal"
-                            android:text="Gender">
-
-                            <RadioButton
-                                android:id="@+id/radiomale"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:buttonTint="@color/darkgraycolor"
-                                android:checked="true"
-                                android:text="Male"
-                                style="@style/FormLabel"
-                                android:textSize="16sp"
-                                android:textStyle="normal|bold" />
-
-                            <RadioButton
-                                android:id="@+id/radiofemale"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginLeft="10sp"
-                                android:buttonTint="@color/darkgraycolor"
-                                android:text="Female"
-                                style="@style/FormLabel"
-                                android:textSize="16sp"
-                                android:textStyle="normal|bold" />
-                        </RadioGroup>
-
-
-                        <EditText
-                            android:id="@+id/edittextusername"
-                            android:layout_width="0dp"
-                            android:layout_height="0dp"
-                            android:layout_below="@+id/radiogender"
-                            android:layout_marginLeft="30sp"
-                            android:layout_marginRight="30sp"
-                            android:layout_marginTop="20sp"
-                            android:background="@drawable/edittext_bprder"
-                            android:gravity="center_horizontal"
-                            android:hint="User Name"
-                            android:maxLength="20"
-                            android:padding="10sp"
-                            android:paddingLeft="4dp"
-                            android:textColor="@color/whitetextcolor"
-                            android:textColorHint="@color/hinttextcolor"
-                            android:textSize="15sp" />
-
-                        <EditText
-                            android:id="@+id/edittextpassword"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:layout_below="@+id/edittextusername"
-                            android:layout_marginLeft="30sp"
-                            android:layout_marginRight="30sp"
-                            android:layout_marginTop="20sp"
-                            android:background="@drawable/edittext_bprder"
-                            android:gravity="center_horizontal"
-                            android:hint="Password"
-                            android:inputType="textPassword"
-                            android:maxLength="30"
-                            android:padding="10sp"
-                            android:paddingLeft="4dp"
-                            android:textColor="@color/whitetextcolor"
-                            android:textColorHint="@color/hinttextcolor"
-                            android:textSize="15sp" />
-
-                        <EditText
-                            android:id="@+id/edittextreenterpassword"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_below="@+id/edittextpassword"
-                            android:layout_marginBottom="15sp"
-                            android:layout_marginLeft="30sp"
-                            android:layout_marginRight="30sp"
-                            android:layout_marginTop="20sp"
-                            android:background="@drawable/edittext_bprder"
-                            android:gravity="center_horizontal"
-                            android:hint="Re-Enter Password"
-                            android:inputType="textPassword"
-                            android:maxLength="20"
-                            android:padding="10sp"
-                            android:paddingLeft="4dp"
-                            android:textColor="@color/whitetextcolor"
-                            android:textColorHint="@color/hinttextcolor"
-                            android:textSize="15sp"
-                            android:visibility="gone" />
-
                         <RelativeLayout
-                            android:id="@+id/layoutbuttonotp"
+                            android:id="@+id/layoutmain"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_below="@+id/radiogender"
-                            android:layout_marginTop="10sp"
-                            android:gravity="center_horizontal">
+                            android:layout_gravity="center_horizontal"
+                            android:gravity="center_vertical">
 
-                            <Button
-                                android:id="@+id/buttongenerateotp"
-                                android:layout_width="120sp"
+                            <RelativeLayout
+                                android:id="@+id/layouttext"
+                                android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:background="@drawable/view_dropshadow2"
+                                android:layout_gravity="center_horizontal"
                                 android:gravity="center"
-                                android:padding="5sp"
-                                android:text="Generate OTP"
-                                android:textColor="@color/darkgraycolor"
-                                android:textSize="12sp" />
+                                android:orientation="vertical">
+
+                                <ImageView
+                                    android:layout_width="150dp"
+                                    android:layout_height="130dp"
+                                    android:layout_centerHorizontal="true"
+                                    android:background="@drawable/logo_image"
+                                    android:scaleType="fitXY" />
+
+                                <TextView
+                                    android:id="@+id/txtlogin"
+                                    style="@style/FormLabel"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="110dp"
+                                    android:gravity="center"
+                                    android:text="Sign up"
+                                    android:textSize="22sp"
+                                    android:textStyle="normal|bold" />
+                            </RelativeLayout>
+
+                            <LinearLayout
+                                android:id="@+id/layoutlogin"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@+id/layouttext"
+                                android:layout_gravity="center_horizontal"
+                                android:gravity="center_horizontal"
+                                android:orientation="vertical">
+
+                                <LinearLayout
+                                    android:id="@+id/ll_name_layout"
+                                    style="@style/InputBackgroundLayout"
+                                    android:layout_marginTop="30dp">
+
+                                    <ImageView
+                                        style="@style/InputIcon"
+                                        android:contentDescription="@string/app_name"
+                                        android:src="@drawable/textbox" />
+
+                                    <EditText
+                                        android:id="@+id/edittextname"
+                                        style="@style/InputEditText"
+                                        android:hint="Name"
+                                        android:inputType="text"
+                                        android:maxLength="30" />
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:id="@+id/ll_user_name_layout"
+                                    style="@style/InputBackgroundLayout"
+                                    android:layout_marginTop="30dp"
+                                    android:visibility="gone">
+
+                                    <ImageView
+                                        style="@style/InputIcon"
+                                        android:contentDescription="@string/app_name"
+                                        android:src="@drawable/account" />
+
+                                    <EditText
+                                        android:id="@+id/edittextusername"
+                                        style="@style/InputEditText"
+                                        android:hint="User Name"
+                                        android:inputType="text"
+                                        android:maxLength="20" />
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:id="@+id/ll_email_layout"
+                                    style="@style/InputBackgroundLayout"
+                                    android:layout_marginTop="30dp">
+
+                                    <ImageView
+                                        style="@style/InputIcon"
+                                        android:contentDescription="@string/app_name"
+                                        android:src="@drawable/email" />
+
+                                    <EditText
+                                        android:id="@+id/edittextemailid"
+                                        style="@style/InputEditText"
+                                        android:hint="Email Id"
+                                        android:inputType="textEmailAddress"
+                                        android:maxLength="100" />
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:id="@+id/ll_password_layout"
+                                    style="@style/InputBackgroundLayout"
+                                    android:layout_marginTop="30dp">
+
+                                    <ImageView
+                                        style="@style/InputIcon"
+                                        android:contentDescription="@string/app_name"
+                                        android:src="@drawable/textbox_password" />
+
+                                    <EditText
+                                        android:id="@+id/edittextpassword"
+                                        style="@style/InputEditText"
+                                        android:hint="Password"
+                                        android:inputType="textPassword"
+                                        android:maxLength="30" />
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:id="@+id/ll_address_layout"
+                                    style="@style/InputBackgroundLayout"
+                                    android:layout_marginTop="30dp">
+
+                                    <ImageView
+                                        style="@style/InputIcon"
+                                        android:contentDescription="@string/app_name"
+                                        android:src="@drawable/map_marker" />
+
+                                    <EditText
+                                        android:id="@+id/edittextaddress"
+                                        style="@style/InputEditText"
+                                        android:hint="Address"
+                                        android:inputType="text"
+                                        android:maxLength="150" />
+                                </LinearLayout>
+
+                                <RadioGroup
+                                    android:id="@+id/radiogender"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_below="@+id/edittextemailid"
+                                    android:layout_marginTop="20sp"
+                                    android:gravity="center_horizontal"
+                                    android:orientation="horizontal"
+                                    android:text="Gender">
+
+                                    <RadioButton
+                                        android:id="@+id/radiomale"
+                                        style="@style/FormLabel"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:buttonTint="@color/icon_green"
+                                        android:checked="true"
+                                        android:text="Male"
+                                        android:textSize="16sp"
+                                        android:textStyle="normal|bold" />
+
+                                    <RadioButton
+                                        android:id="@+id/radiofemale"
+                                        style="@style/FormLabel"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginLeft="10sp"
+                                        android:buttonTint="@color/icon_green"
+                                        android:text="Female"
+                                        android:textSize="16sp"
+                                        android:textStyle="normal|bold" />
+                                </RadioGroup>
+
+                                <LinearLayout
+                                    android:id="@+id/ll_mobile_number"
+                                    style="@style/InputBackgroundLayout"
+                                    android:layout_marginTop="30dp">
+
+                                    <ImageView
+                                        style="@style/InputIcon"
+                                        android:contentDescription="@string/app_name"
+                                        android:src="@drawable/cellphone_android" />
+
+                                    <EditText
+                                        android:id="@+id/edittextmobile"
+                                        style="@style/InputEditText"
+                                        android:hint="Mobile Number"
+                                        android:inputType="number"
+                                        android:maxLength="10" />
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:id="@+id/ll_otp_verified_layout"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:gravity="center"
+                                    android:visibility="gone"
+                                    android:orientation="horizontal">
+
+                                    <CheckBox
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:checked="true"
+                                        android:clickable="true"
+                                        android:enabled="false"
+                                        app:buttonTint="@color/icon_green" />
+
+                                    <TextView
+                                        style="@style/FormTitle"
+                                        android:text="Mobile Number Verified Successfully." />
+
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:id="@+id/ll_otp_verification_layout"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="vertical">
+
+                                    <LinearLayout
+                                        style="@style/InputBackgroundLayout"
+                                        android:layout_marginTop="30dp"
+                                        android:visibility="gone">
+
+                                        <ImageView
+                                            style="@style/InputIcon"
+                                            android:contentDescription="@string/app_name"
+                                            android:src="@drawable/cellphone_android" />
+
+                                        <EditText
+                                            android:id="@+id/edittextreenterpassword"
+                                            style="@style/InputEditText"
+                                            android:hint="Re-Enter Password"
+                                            android:inputType="textPassword"
+                                            android:maxLength="30" />
+                                    </LinearLayout>
+
+                                    <Button
+                                        android:id="@+id/buttongenerateotp"
+                                        style="@style/FormButton"
+                                        android:layout_marginTop="30dp"
+                                        android:onClick="sendOtp"
+                                        android:text="Generate OTP" />
+
+                                    <LinearLayout
+                                        android:id="@+id/ll_otp_layout"
+                                        style="@style/InputBackgroundLayout"
+                                        android:visibility="gone"
+                                        android:layout_marginTop="30dp">
+
+                                        <ImageView
+                                            style="@style/InputIcon"
+                                            android:contentDescription="@string/app_name"
+                                            android:src="@drawable/lock_question" />
+
+                                        <EditText
+                                            android:id="@+id/edittextenterotp"
+                                            style="@style/InputEditText"
+                                            android:hint="Enter OTP"
+                                            android:inputType="number"
+                                            android:maxLength="6" />
+                                    </LinearLayout>
+
+                                    <TextView
+                                        android:id="@+id/tvResendOtp"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_gravity="right"
+                                        android:layout_marginTop="15dp"
+                                        android:layout_marginEnd="50dp"
+                                        android:onClick="resendOtp"
+                                        android:padding="10dp"
+                                        android:text="Resend OTP"
+                                        android:textColor="@color/white"
+                                        android:textSize="16sp"
+                                        android:textStyle="bold"
+                                        android:visibility="gone" />
+
+                                    <Button
+                                        android:id="@+id/buttonVerifyOtp"
+                                        style="@style/FormButton"
+                                        android:layout_marginTop="20dp"
+                                        android:visibility="gone"
+                                        android:onClick="verifyOtp"
+                                        android:text="Verify OTP" />
+                                </LinearLayout>
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:id="@+id/ll_terms_condition"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@+id/layoutlogin"
+                                android:layout_marginStart="50dp"
+                                android:layout_marginTop="30sp"
+                                android:orientation="horizontal">
+
+                                <CheckBox
+                                    android:id="@+id/chk_terms_condition"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:checked="true"
+                                    app:buttonTint="@color/icon_green" />
+
+                                <TextView
+                                    android:id="@+id/txttermsandconditions"
+                                    style="@style/FormLabel"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="10dp"
+                                    android:text="Terms and Conditions !"
+                                    android:textSize="16sp"
+                                    android:textStyle="bold" />
+
+                            </LinearLayout>
+
+                            <RelativeLayout
+                                android:id="@+id/layoutbutton"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@+id/ll_terms_condition"
+                                android:layout_marginTop="20sp"
+                                android:layout_marginBottom="20sp"
+                                android:gravity="center_horizontal">
+
+                                <Button
+                                    android:id="@+id/buttonsubmit"
+                                    style="@style/FormButton"
+                                    android:visibility="gone"
+                                    android:text="Sign up" />
+                            </RelativeLayout>
                         </RelativeLayout>
-
-                        <EditText
-                            android:id="@+id/edittextenterotp"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_below="@+id/layoutbuttonotp"
-                            android:layout_marginBottom="15sp"
-                            android:layout_marginLeft="30sp"
-                            android:layout_marginRight="30sp"
-                            android:layout_marginTop="15sp"
-                            android:background="@drawable/edittext_bprder"
-                            android:gravity="center_horizontal"
-                            android:hint="Enter OTP"
-                            android:inputType="textPassword"
-                            android:maxLength="20"
-                            android:padding="10sp"
-                            android:paddingLeft="4dp"
-                            android:textColor="@color/whitetextcolor"
-                            android:textColorHint="@color/hinttextcolor"
-                            android:textSize="15sp" />
-
-                    </LinearLayout>
-
-                    <TextView
-                        android:id="@+id/txttermsandconditions"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_below="@+id/layoutlogin"
-                        android:layout_gravity="center_vertical"
-                        android:layout_marginTop="10sp"
-                        android:gravity="center_horizontal"
-                        android:text="Terms and Conditions !"
-                        style="@style/FormLabel"
-                        android:textSize="14dp" />
-
-
-                    <RelativeLayout
-                        android:id="@+id/layoutbutton"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_below="@+id/txttermsandconditions"
-                        android:layout_marginBottom="20sp"
-                        android:layout_marginTop="20sp"
-                        android:gravity="center_horizontal">
-
-                        <Button
-                            android:id="@+id/buttonsubmit"
-                            android:layout_width="150sp"
-                            android:layout_height="wrap_content"
-                            android:background="@drawable/view_dropshadow2"
-                            android:gravity="center"
-                            android:padding="5sp"
-                            android:text="REGISTER"
-                            android:textColor="@color/darkgraycolor"
-                            android:textSize="15sp"
-                            android:textStyle="normal|bold" />
                     </RelativeLayout>
-                </RelativeLayout>
-            </RelativeLayout>
-        </ScrollView>
-    </LinearLayout>
+                </ScrollView>
+            </LinearLayout>
 
-</LinearLayout>
+        </LinearLayout>
+    </android.support.design.widget.CoordinatorLayout>
+</layout>

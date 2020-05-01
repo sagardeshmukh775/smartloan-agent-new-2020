@@ -2,10 +2,13 @@ package com.smartloan.smtrick.smart_loan.models;
 
 import com.google.firebase.database.Exclude;
 import com.google.firebase.database.ServerValue;
+import com.smartloan.smtrick.smart_loan.constants.Constant;
 
+import java.io.Serializable;
+import java.util.HashMap;
 import java.util.Map;
 
-public class Invoice {
+public class Invoice implements Serializable {
     private String invoiceId;
     private String mobileNumber;
     private String status;
@@ -17,12 +20,25 @@ public class Invoice {
     private String agentId;
     private String agentUserId;
     private String agentName;
-    private String commission;
     private String loanType;
-    private String loanAmount;
-    private String disbursment;
     private String gst;
     private Long createdDateTime, updatedDateTime;
+    private String totalPaymentAmount;
+    private String commisionwithtdsAmount;
+    private String disbussmentDate;
+    private String loanapprovedaamount;
+    private String loandisbussedamount;
+    private String payoutbussedamount;
+    private String pendingdisbussedamount;
+    private String tdsAmount;
+    private String totalpayoutamount;
+    private String payOutOnDisbursementAmount;
+    private String balancePayout;
+    private String lastPayoutPaidAmount;
+    private String lastPayoutPaidDate;
+    private String balancePayoutWithTdsAmount;
+    private String payoutPayableAfterTdsAmount;
+    private Long invoiceApprovedDateTime;
 
     public Invoice() {
     }
@@ -38,6 +54,19 @@ public class Invoice {
 
     public void setCreatedDateTime(Long createdDateTime) {
         this.createdDateTime = (Long) createdDateTime;
+    }
+
+    @Exclude
+    public Long getInvoiceApprovedDateTimeLong() {
+        return invoiceApprovedDateTime;
+    }
+
+    public Map<String, String> getInvoiceApprovedDateTime() {
+        return ServerValue.TIMESTAMP;
+    }
+
+    public void setInvoiceApprovedDateTime(Long invoiceApprovedDateTime) {
+        this.invoiceApprovedDateTime = invoiceApprovedDateTime;
     }
 
     @Exclude
@@ -133,36 +162,12 @@ public class Invoice {
         this.agentName = agentName;
     }
 
-    public String getCommission() {
-        return commission;
-    }
-
-    public void setCommission(String commission) {
-        this.commission = commission;
-    }
-
     public String getLoanType() {
         return loanType;
     }
 
     public void setLoanType(String loanType) {
         this.loanType = loanType;
-    }
-
-    public String getLoanAmount() {
-        return loanAmount;
-    }
-
-    public void setLoanAmount(String loanAmount) {
-        this.loanAmount = loanAmount;
-    }
-
-    public String getDisbursment() {
-        return disbursment;
-    }
-
-    public void setDisbursment(String disbursment) {
-        this.disbursment = disbursment;
     }
 
     public String getGst() {
@@ -179,5 +184,135 @@ public class Invoice {
 
     public void setAgentUserId(String agentUserId) {
         this.agentUserId = agentUserId;
+    }
+
+    public String getBalancePayout() {
+        return balancePayout;
+    }
+
+    public void setBalancePayout(String balancePayout) {
+        this.balancePayout = balancePayout;
+    }
+
+    public String getLastPayoutPaidAmount() {
+        return lastPayoutPaidAmount;
+    }
+
+    public void setLastPayoutPaidAmount(String lastPayoutPaidAmount) {
+        this.lastPayoutPaidAmount = lastPayoutPaidAmount;
+    }
+
+    public String getLastPayoutPaidDate() {
+        return lastPayoutPaidDate;
+    }
+
+    public void setLastPayoutPaidDate(String lastPayoutPaidDate) {
+        this.lastPayoutPaidDate = lastPayoutPaidDate;
+    }
+
+    public String getBalancePayoutWithTdsAmount() {
+        return balancePayoutWithTdsAmount;
+    }
+
+    public void setBalancePayoutWithTdsAmount(String balancePayoutWithTdsAmount) {
+        this.balancePayoutWithTdsAmount = balancePayoutWithTdsAmount;
+    }
+
+    public String getPayOutOnDisbursementAmount() {
+        return payOutOnDisbursementAmount;
+    }
+
+    public void setPayOutOnDisbursementAmount(String payOutOnDisbursementAmount) {
+        this.payOutOnDisbursementAmount = payOutOnDisbursementAmount;
+    }
+
+    public String getPayoutPayableAfterTdsAmount() {
+        return payoutPayableAfterTdsAmount;
+    }
+
+    public void setPayoutPayableAfterTdsAmount(String payoutPayableAfterTdsAmount) {
+        this.payoutPayableAfterTdsAmount = payoutPayableAfterTdsAmount;
+    }
+
+    public String getCommisionwithtdsAmount() {
+        return commisionwithtdsAmount;
+    }
+
+    public void setCommisionwithtdsAmount(String commisionwithtdsAmount) {
+        this.commisionwithtdsAmount = commisionwithtdsAmount;
+    }
+
+    public String getDisbussmentDate() {
+        return disbussmentDate;
+    }
+
+    public void setDisbussmentDate(String disbussmentDate) {
+        this.disbussmentDate = disbussmentDate;
+    }
+
+    public String getLoanapprovedaamount() {
+        return loanapprovedaamount;
+    }
+
+    public void setLoanapprovedaamount(String loanapprovedaamount) {
+        this.loanapprovedaamount = loanapprovedaamount;
+    }
+
+    public String getLoandisbussedamount() {
+        return loandisbussedamount;
+    }
+
+    public void setLoandisbussedamount(String loandisbussedamount) {
+        this.loandisbussedamount = loandisbussedamount;
+    }
+
+    public String getPayoutbussedamount() {
+        return payoutbussedamount;
+    }
+
+    public void setPayoutbussedamount(String payoutbussedamount) {
+        this.payoutbussedamount = payoutbussedamount;
+    }
+
+    public String getPendingdisbussedamount() {
+        return pendingdisbussedamount;
+    }
+
+    public void setPendingdisbussedamount(String pendingdisbussedamount) {
+        this.pendingdisbussedamount = pendingdisbussedamount;
+    }
+
+    public String getTdsAmount() {
+        return tdsAmount;
+    }
+
+    public void setTdsAmount(String tdsAmount) {
+        this.tdsAmount = tdsAmount;
+    }
+
+    public String getTotalpayoutamount() {
+        return totalpayoutamount;
+    }
+
+    public void setTotalpayoutamount(String totalpayoutamount) {
+        this.totalpayoutamount = totalpayoutamount;
+    }
+
+    public String getTotalPaymentAmount() {
+        return totalPaymentAmount;
+    }
+
+    public void setTotalPaymentAmount(String totalPaymentAmount) {
+        this.totalPaymentAmount = totalPaymentAmount;
+    }
+
+    public Map<String, Object> getPayoutStatusMap(String status, String description) {
+        Map<String, Object> payoutStatusMap = new HashMap<>();
+        payoutStatusMap.put("status", status);
+        payoutStatusMap.put("rejectDescription", description);
+        payoutStatusMap.put("updatedDateTime", getUpdatedDateTime());
+        if (status.equalsIgnoreCase(Constant.STATUS_ACCEPTED))
+            payoutStatusMap.put("invoiceApprovedDateTime", getInvoiceApprovedDateTime());
+        return payoutStatusMap;
     }
 }

@@ -30,6 +30,11 @@ public class AppSharedPreference {
     private String ROLE = "ROLE";
     private String GENDER = "GENDER";
     private String AGENT_ID = "AGENT_ID";
+    private String ACCOUNT_HOLDER_NAME = "ACCOUNT_HOLDER_NAME";
+    private String ACCOUNT_NUMBER = "ACCOUNT_NUMBER";
+    private String BRANCH_NAME = "BRANCH_NAME";
+    private String IFSC = "IFSC";
+    private String BANK_NAME = "BANK_NAME";
 
 
     public AppSharedPreference(Context context) {
@@ -66,6 +71,18 @@ public class AppSharedPreference {
                 editor.putString(GENDER, (user.getGender()));
             if (user.getAgentId() != null)
                 editor.putString(AGENT_ID, (user.getAgentId()));
+            if (user.getKycDetails() != null) {
+                if (user.getKycDetails().getAccountHolderName() != null)
+                    editor.putString(ACCOUNT_HOLDER_NAME, user.getKycDetails().getAccountHolderName());
+                if (user.getKycDetails().getAccountNumber() != null)
+                    editor.putString(ACCOUNT_NUMBER, user.getKycDetails().getAccountNumber());
+                if (user.getKycDetails().getBankName() != null)
+                    editor.putString(BANK_NAME, user.getKycDetails().getBankName());
+                if (user.getKycDetails().getBranchName() != null)
+                    editor.putString(BRANCH_NAME, user.getKycDetails().getBranchName());
+                if (user.getKycDetails().getIfsc() != null)
+                    editor.putString(IFSC, user.getKycDetails().getIfsc());
+            }
         }
         editor.apply();
     }
@@ -123,6 +140,26 @@ public class AppSharedPreference {
 
     public String getProfileLargeImage() {
         return (sharedPref.getString(PROFILE_LARGE_IMAGE, ""));
+    }
+
+    public String getAccountHolderName() {
+        return (sharedPref.getString(ACCOUNT_HOLDER_NAME, ""));
+    }
+
+    public String getAccountNumber() {
+        return (sharedPref.getString(ACCOUNT_NUMBER, ""));
+    }
+
+    public String getBranchName() {
+        return (sharedPref.getString(BRANCH_NAME, ""));
+    }
+
+    public String getIfsc() {
+        return (sharedPref.getString(IFSC, ""));
+    }
+
+    public String getBankName() {
+        return (sharedPref.getString(BANK_NAME, ""));
     }
 
     public void setUserProfileImages(String imagePath) {

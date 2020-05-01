@@ -118,7 +118,7 @@
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:gravity="center"
-                                        android:text="Total Leeds"
+                                        android:text="Total Leads"
                                         android:textColor="@color/whitetextcolor"
                                         android:textSize="14sp" />
 
@@ -159,7 +159,7 @@
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:gravity="center"
-                                        android:text="Approved Leeds"
+                                        android:text="Approved Leads"
                                         android:textColor="@color/whitetextcolor"
                                         android:textSize="14sp" />
 
@@ -210,7 +210,7 @@
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:gravity="center"
-                                        android:text="Rejected Leeds"
+                                        android:text="Rejected Leads"
                                         android:textColor="@color/whitetextcolor"
                                         android:textSize="14sp" />
 

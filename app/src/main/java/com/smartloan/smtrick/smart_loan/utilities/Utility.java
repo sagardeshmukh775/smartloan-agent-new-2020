@@ -18,19 +18,27 @@ import com.smartloan.smtrick.smart_loan.R;
 import com.smartloan.smtrick.smart_loan.constants.Constant;
 import com.smartloan.smtrick.smart_loan.exception.ExceptionUtil;
 import com.smartloan.smtrick.smart_loan.models.History;
+import com.smartloan.smtrick.smart_loan.models.LeadActivitiesModel;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.InputStream;
+import java.text.DecimalFormat;
+import java.text.NumberFormat;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 import java.util.Random;
+import java.util.concurrent.TimeUnit;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import static com.smartloan.smtrick.smart_loan.constants.Constant.CALANDER_DATE_FORMATE;
 import static com.smartloan.smtrick.smart_loan.constants.Constant.FOUR_DIGIT_LIMIT;
 import static com.smartloan.smtrick.smart_loan.constants.Constant.TWO_DIGIT_LIMIT;
 
@@ -255,6 +263,31 @@ public class Utility {
         }
     }
 
+    public static void sortLeadActivitiesByCreatedDate(List<LeadActivitiesModel> dataSnapshotList) {
+        try {
+            Collections.sort(dataSnapshotList, new Comparator<LeadActivitiesModel>() {
+                public int compare(LeadActivitiesModel snapshot1, LeadActivitiesModel snapshot2) {
+                    long createdDate1, createdDate2;
+                    try {
+                        createdDate1 = snapshot1.getCreatedDateTimeLong();
+                        createdDate2 = snapshot2.getCreatedDateTimeLong();
+                    } catch (Exception e) {
+                        createdDate1 = 0;
+                        createdDate2 = 0;
+                        ExceptionUtil.logException(e);
+                    }
+                    if (createdDate1 > createdDate2)
+                        return -1;
+                    else if (createdDate1 < createdDate2)
+                        return +1;
+                    return 0;
+                }
+            });
+        } catch (Exception e) {
+            ExceptionUtil.logException(e);
+        }
+    }
+
     public static String capitalize(String capString) {
         StringBuffer capBuffer = new StringBuffer();
         Matcher capMatcher = Pattern.compile("([a-z])([a-z]*)", Pattern.CASE_INSENSITIVE).matcher(capString);
@@ -280,5 +313,50 @@ public class Utility {
         theIntrinsic.forEach(tmpOut);
         tmpOut.copyTo(outputBitmap);
         return outputBitmap;
+    }
+
+    public static long daysDifference(long inputTime) {
+        long msDiff = (toMilliSeconds(15)
+                + convertFormatedDateToMilliSeconds(convertMilliSecondsToFormatedDate(inputTime, CALANDER_DATE_FORMATE), CALANDER_DATE_FORMATE))
+                - convertFormatedDateToMilliSeconds(convertMilliSecondsToFormatedDate(System.currentTimeMillis(), CALANDER_DATE_FORMATE), CALANDER_DATE_FORMATE);
+        long daysDiff = TimeUnit.MILLISECONDS.toDays(msDiff);
+        return daysDiff;
+    }
+
+    private static long toMilliSeconds(double day) {
+        return (long) (day * 24 * 60 * 60 * 1000);
+    }
+
+    public static String twoDecimalPoint(double inputValue) {
+        DecimalFormat df = new DecimalFormat("#.00");
+        return df.format(inputValue);
+    }
+
+    public static String removeDecimalPoint(double inputValue) {
+        DecimalFormat df = new DecimalFormat("#");
+        return df.format(inputValue);
+    }
+
+    public static long remainingHrs(long inputTime) {
+        long msDiff = (toMilliSeconds(15)
+                + inputTime)
+                - System.currentTimeMillis();
+        return msDiff;
+    }
+
+    public static String formatString(String inputString){
+        String str = inputString.toString().replaceAll("[^\\d]", "");
+        double s1 = 0;
+        try {
+            s1 = Double.parseDouble(str);
+        } catch (NumberFormatException e) {
+            e.printStackTrace();
+        }
+        NumberFormat nf2 = NumberFormat.getInstance(Locale.ENGLISH);
+        ((DecimalFormat) nf2).applyPattern("##,##,###.##");
+       // inputString.replace(0, inputString.length(), nf2.format(s1));
+        inputString=nf2.format(s1);
+
+        return inputString;
     }
 }

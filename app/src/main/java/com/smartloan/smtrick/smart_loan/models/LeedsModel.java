@@ -20,10 +20,11 @@ public class LeedsModel implements Serializable {
     private String agentUserId;
     private Long createdDateTime, updatedDateTime;
     private String loanType;
+    private String balanceTransferLoanType;
     private String panCardNumber;
     private String email;
     private String dateOfBirth;
-    private String expectedLoanAmount;
+    private String expectedLoanAmount = "0";
     private String occupation;
     private String agentName;
     private String leedId;
@@ -40,28 +41,13 @@ public class LeedsModel implements Serializable {
     private Boolean isShowColor;
     private Map<String, History> history;
     private View.OnClickListener requestBtnClickListener;
+    private String approvedLoanAmount = "0";
+    private String disbursedLoanAmount = "0";
+    private String payOutOnDisbursementAmount = "0";
+    private String totalPayoutAmount = "0";
+    private String balancePayout = "0";
 
     public LeedsModel() {
-    }
-
-    public LeedsModel(int id) {
-        this.customerName = "Prateek Patel";
-        this.mobileNumber = "84121211";
-        this.address = "Pune";
-        this.gender = "Male";
-        this.agentId = "Ag-56465";
-        this.loanType = "Home Loan";
-        this.panCardNumber = "jds45";
-        this.email = "kjsdj@jhjdf.sdf";
-        this.expectedLoanAmount = "2565656";
-        this.occupation = "vdvf";
-        this.agentName = "Aikk";
-        this.leedId = "dfgdfg";
-        this.status = "Generated";
-        this.leedNumber = "LD_56654";
-        this.bankName = "SBI";
-        this.payout = "325454";
-        this.approvedLoan = "3564545";
     }
 
     @Exclude
@@ -138,6 +124,14 @@ public class LeedsModel implements Serializable {
         this.loanType = loanType;
     }
 
+    public String getBalanceTransferLoanType() {
+        return balanceTransferLoanType;
+    }
+
+    public void setBalanceTransferLoanType(String balanceTransferLoanType) {
+        this.balanceTransferLoanType = balanceTransferLoanType;
+    }
+
     public String getPanCardNumber() {
         return panCardNumber;
     }
@@ -163,6 +157,8 @@ public class LeedsModel implements Serializable {
     }
 
     public String getExpectedLoanAmount() {
+        if (expectedLoanAmount == null || expectedLoanAmount.isEmpty())
+            expectedLoanAmount = "0";
         return expectedLoanAmount;
     }
 
@@ -314,6 +310,46 @@ public class LeedsModel implements Serializable {
         this.history = history;
     }
 
+    public String getApprovedLoanAmount() {
+        return approvedLoanAmount;
+    }
+
+    public void setApprovedLoanAmount(String approvedLoanAmount) {
+        this.approvedLoanAmount = approvedLoanAmount;
+    }
+
+    public String getDisbursedLoanAmount() {
+        return disbursedLoanAmount;
+    }
+
+    public void setDisbursedLoanAmount(String disbursedLoanAmount) {
+        this.disbursedLoanAmount = disbursedLoanAmount;
+    }
+
+    public String getPayOutOnDisbursementAmount() {
+        return payOutOnDisbursementAmount;
+    }
+
+    public void setPayOutOnDisbursementAmount(String payOutOnDisbursementAmount) {
+        this.payOutOnDisbursementAmount = payOutOnDisbursementAmount;
+    }
+
+    public String getTotalPayoutAmount() {
+        return totalPayoutAmount;
+    }
+
+    public void setTotalPayoutAmount(String totalPayoutAmount) {
+        this.totalPayoutAmount = totalPayoutAmount;
+    }
+
+    public String getBalancePayout() {
+        return balancePayout;
+    }
+
+    public void setBalancePayout(String balancePayout) {
+        this.balancePayout = balancePayout;
+    }
+
     @Exclude
     public Map<String, Object> getUpdateLeedMap() {
         Map<String, Object> objectMap = new HashMap<>();
@@ -322,6 +358,7 @@ public class LeedsModel implements Serializable {
         objectMap.put("address", address);
         objectMap.put("gender", gender);
         objectMap.put("loanType", loanType);
+        objectMap.put("balanceTransferLoanType", balanceTransferLoanType);
         objectMap.put("panCardNumber", panCardNumber);
         objectMap.put("email", email);
         objectMap.put("expectedLoanAmount", expectedLoanAmount);
@@ -331,14 +368,5 @@ public class LeedsModel implements Serializable {
         objectMap.put("customerImageSmall", customerImageSmall);
         objectMap.put("customerImagelarge", customerImagelarge);
         return objectMap;
-    }
-
-    public static ArrayList<LeedsModel> getLeeds() {
-        ArrayList<LeedsModel> leedsModelArrayList = new ArrayList<>();
-        for (int i = 0; i < 10; i++) {
-            LeedsModel leedsModel = new LeedsModel(i);
-            leedsModelArrayList.add(leedsModel);
-        }
-        return leedsModelArrayList;
     }
 }

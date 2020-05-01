@@ -44,7 +44,8 @@
     <string name="hint_interest">Interest rate per Year %</string>
     <string name="hint_years">How Many Years</string>
     <string name="hint_emi">EMI ₹</string>
-    <string name="hint_interest_total">Total Interest for Loan ₹</string>
+    <string name="hint_interest_total">Total Interest on Loan ₹</string>
+    <string name="total_loan">Total loan Amount ₹</string>
     <string name="please_wait">Please wait</string>
     <string name="registration_fail">Registration fail, please try again.</string>
     <string name="dismiss">dismiss</string>
@@ -54,6 +55,8 @@
     <string name="INVALID_EMAIL">Invalid Email</string>
     <string name="INVALID_CHARACTERS">Invalid Characters</string>
     <string name="PLEASE_ENTER_NAME"> Please enter the name.</string>
+    <string name="invalid_email"> Please enter valid email address.</string>
+    <string name="invalid_otp"> Please enter valid OTP.</string>
     <string name="INVALID_MOBILE_NUMBER">Invalid mobile number.</string>
     <string name="MOBILE_NUMBER_SHOULD_BE_10_DIGIT">Mobile number should be 10 digit.</string>
     <string name="OTP_FIVE_DIGIT_NUMBER">OTP is 5 digit number</string>
@@ -68,17 +71,44 @@
     <string name="login_fail_try_again">Login fail, please try again with correct login details.</string>
     <string name="customer_name_should_be_empty">Customer name should not be empty.</string>
     <string name="loan_type_error">Select one of loan type.</string>
-    <string name="lead_generated_success_message">Leed generated successfully.</string>
-    <string name="lead_updated_success_message">Leed updated successfully.</string>
-    <string name="lead_generated_fails_message">Leed generated failed, please try again.</string>
+    <string name="balance_transfer_loan_type_error">Select one of balance transfer loan type.</string>
+    <string name="lead_generated_success_message">Lead generated successfully.</string>
+    <string name="lead_updated_success_message">Lead updated successfully.</string>
+    <string name="lead_generated_fails_message">Lead generated failed, please try again.</string>
     <string name="data_updation_fails_message">Data updation failed, please try again.</string>
     <string name="server_error">Faild to fetch data, please try again.</string>
-    <string name="leed_In_loading">Generating Leed&#8230;</string>
-    <string name="updating_leed">Updating Leed&#8230;</string>
-    <string name="na">NA</string>
+    <string name="leed_In_loading">Generating Lead&#8230;</string>
+    <string name="updating_leed">Updating Lead&#8230;</string>
+    <string name="na">N/A</string>
     <string name="file_uploading_progress">Uploading in progress</string>
     <string name="file_uploading_complited">Uploading to server done </string>
     <string name="file_uploading_complited_message">Total uploaded files :&#160; </string>
     <string name="notification_message">Don\'t close the app.</string>
     <string name="file_attached">Total Count :&#160;</string>
+    <string name="rs">\u20B9</string>
+    <string name="last_payout_paid_amt">Last Payout Paid Amt. &amp;</string>
+    <string name="kyc_details">KYC Details</string>
+    <string name="days">&#160;days</string>
+    <string name="overdue">Overdue</string>
+    <string name="last_day">Last day</string>
+    <string name="sign_up">Sign up</string>
+    <string name="forgot_password">Forgot Password</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="home_loan">HL</string>
+    <string name="loan_against_property">LAP</string>
+    <string name="balance_transfer">BT</string>
+    <string name="ok_message">OK</string>
+    <string name="fill_kyc_details">Please fill KYC details first.</string>
+    <string name="terms_condition_text">Please accept terms and conditions</string>
+
+    <string name="account_holder_name"> Please enter account holder name.</string>
+    <string name="bank_name"> Please enter bank name.</string>
+    <string name="branch_name"> Please enter bank branch name.</string>
+    <string name="account_number"> Please enter valid bank account number.</string>
+    <string name="ifsc_error"> Please enter valid IFSC code.</string>
+    <string name="fill_kyc_details_error">Please fill KYC details.</string>
+    <string name="reset_password_error">Failed to send email, please try again.</string>
+    <string name="reset_password_success">Reset password link sent on email, please check your email.</string>
 </resources>

@@ -5,12 +5,12 @@
     <android.support.constraint.ConstraintLayout xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".view.activites.UpdateProfileActivity">
+        tools:context=".view.activite.UpdateProfileActivity">
 
         <LinearLayout
+            style="@style/LightBackgroundLayout"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@color/graycolor"
             android:gravity="center_vertical"
             android:orientation="vertical">
 
@@ -70,79 +70,78 @@
 
                         </RelativeLayout>
 
-                        <EditText
-                            android:id="@+id/edittextname"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="30sp"
-                            android:layout_marginRight="30sp"
-                            android:layout_marginTop="15dp"
-                            android:background="@drawable/edittext_bprder"
-                            android:gravity="center_horizontal"
-                            android:hint="Name"
-                            android:maxLength="30"
-                            android:padding="10sp"
-                            android:paddingLeft="4dp"
-                            android:textColor="@color/whitetextcolor"
-                            android:textColorHint="@color/hinttextcolor"
-                            android:textSize="15sp" />
+                        <LinearLayout
+                            android:id="@+id/ll_name_layout"
+                            style="@style/InputBackgroundLayout"
+                            android:layout_marginTop="30dp">
 
-                        <EditText
-                            android:id="@+id/edittextmobile"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_below="@+id/edittextname"
-                            android:layout_marginLeft="30sp"
-                            android:layout_marginRight="30sp"
-                            android:layout_marginTop="20sp"
-                            android:background="@drawable/edittext_bprder"
-                            android:gravity="center_horizontal"
-                            android:hint="Mobile Number"
-                            android:inputType="number"
-                            android:maxLength="10"
-                            android:enabled="false"
-                            android:padding="10sp"
-                            android:paddingLeft="4dp"
-                            android:textColor="@color/whitetextcolor"
-                            android:textColorHint="@color/hinttextcolor"
-                            android:textSize="15sp" />
+                            <ImageView
+                                style="@style/InputIcon"
+                                android:contentDescription="@string/app_name"
+                                android:src="@drawable/textbox" />
 
-                        <EditText
-                            android:id="@+id/edittextaddress"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_below="@+id/edittextmobile"
-                            android:layout_marginLeft="30sp"
-                            android:layout_marginRight="30sp"
-                            android:layout_marginTop="20sp"
-                            android:background="@drawable/edittext_bprder"
-                            android:gravity="center_horizontal"
-                            android:hint="Address"
-                            android:maxLength="50"
-                            android:padding="10sp"
-                            android:paddingLeft="4dp"
-                            android:textColor="@color/whitetextcolor"
-                            android:textColorHint="@color/hinttextcolor"
-                            android:textSize="15sp" />
+                            <EditText
+                                android:id="@+id/edittextname"
+                                style="@style/InputEditText"
+                                android:hint="Name"
+                                android:inputType="text"
+                                android:maxLength="30" />
+                        </LinearLayout>
 
-                        <EditText
-                            android:id="@+id/edittextemailid"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_below="@+id/edittextaddress"
-                            android:layout_marginLeft="30sp"
-                            android:layout_marginRight="30sp"
-                            android:layout_marginTop="20sp"
-                            android:background="@drawable/edittext_bprder"
-                            android:gravity="center_horizontal"
-                            android:hint="Email Id"
-                            android:maxLength="25"
-                            android:padding="10sp"
-                            android:paddingLeft="4dp"
-                            android:textColor="@color/whitetextcolor"
-                            android:textColorHint="@color/hinttextcolor"
-                            android:textSize="15sp" />
+                        <LinearLayout
+                            android:id="@+id/ll_mobile_number"
+                            style="@style/InputBackgroundLayout"
+                            android:layout_marginTop="30dp">
 
+                            <ImageView
+                                style="@style/InputIcon"
+                                android:contentDescription="@string/app_name"
+                                android:src="@drawable/cellphone_android" />
+
+                            <EditText
+                                android:id="@+id/edittextmobile"
+                                style="@style/InputEditText"
+                                android:hint="Mobile Number"
+                                android:inputType="number"
+                                android:maxLength="10" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/ll_address_layout"
+                            style="@style/InputBackgroundLayout"
+                            android:layout_marginTop="30dp">
+
+                            <ImageView
+                                style="@style/InputIcon"
+                                android:contentDescription="@string/app_name"
+                                android:src="@drawable/map_marker" />
+
+                            <EditText
+                                android:id="@+id/edittextaddress"
+                                style="@style/InputEditText"
+                                android:hint="Address"
+                                android:inputType="text"
+                                android:maxLength="150" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/ll_email_layout"
+                            style="@style/InputBackgroundLayout"
+                            android:layout_marginTop="30dp">
+
+                            <ImageView
+                                style="@style/InputIcon"
+                                android:contentDescription="@string/app_name"
+                                android:src="@drawable/email" />
+
+                            <EditText
+                                android:id="@+id/edittextemailid"
+                                style="@style/InputEditText"
+                                android:enabled="false"
+                                android:hint="Email Id"
+                                android:inputType="textEmailAddress"
+                                android:maxLength="100" />
+                        </LinearLayout>
 
                         <RadioGroup
                             android:id="@+id/radiogender"
@@ -156,47 +155,144 @@
 
                             <RadioButton
                                 android:id="@+id/radiomale"
+                                style="@style/FormLabel"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:buttonTint="@color/darkgraycolor"
+                                android:buttonTint="@color/icon_green"
                                 android:checked="true"
                                 android:text="Male"
-                                android:textColor="@color/darkgraycolor"
                                 android:textSize="16sp"
                                 android:textStyle="normal|bold" />
 
                             <RadioButton
                                 android:id="@+id/radiofemale"
+                                style="@style/FormLabel"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginLeft="10sp"
-                                android:buttonTint="@color/darkgraycolor"
+                                android:buttonTint="@color/icon_green"
                                 android:text="Female"
-                                android:textColor="@color/darkgraycolor"
                                 android:textSize="16sp"
                                 android:textStyle="normal|bold" />
                         </RadioGroup>
+
+                        <LinearLayout
+                            android:id="@+id/ll_kyc_details_layout"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:visibility="visible">
+
+                            <TextView
+                                style="@style/FormTextView"
+                                android:text="@string/kyc_details"
+                                android:textColor="@color/white" />
+
+                            <LinearLayout
+                                android:id="@+id/ll_bank_name_layout"
+                                style="@style/InputBackgroundLayout"
+                                android:layout_marginTop="30dp">
+
+                                <ImageView
+                                    style="@style/InputIcon"
+                                    android:contentDescription="@string/app_name"
+                                    android:src="@drawable/bank" />
+
+                                <EditText
+                                    android:id="@+id/et_bank_name"
+                                    style="@style/InputEditText"
+                                    android:hint="Bank Name"
+                                    android:inputType="textCapCharacters"
+                                    android:maxLength="100" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:id="@+id/ll_branch_name_layout"
+                                style="@style/InputBackgroundLayout"
+                                android:layout_marginTop="30dp">
+
+                                <ImageView
+                                    style="@style/InputIcon"
+                                    android:contentDescription="@string/app_name"
+                                    android:src="@drawable/source_branch" />
+
+                                <EditText
+                                    android:id="@+id/et_branch_name"
+                                    style="@style/InputEditText"
+                                    android:hint="Branch Name"
+                                    android:inputType="textCapCharacters"
+                                    android:maxLength="100" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:id="@+id/ll_account_name_layout"
+                                style="@style/InputBackgroundLayout"
+                                android:layout_marginTop="30dp">
+
+                                <ImageView
+                                    style="@style/InputIcon"
+                                    android:contentDescription="@string/app_name"
+                                    android:src="@drawable/textbox" />
+
+                                <EditText
+                                    android:id="@+id/et_account_name"
+                                    style="@style/InputEditText"
+                                    android:hint="Bank account holder name"
+                                    android:inputType="text"
+                                    android:maxLength="100" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:id="@+id/ll_account_number_layout"
+                                style="@style/InputBackgroundLayout"
+                                android:layout_marginTop="30dp">
+
+                                <ImageView
+                                    style="@style/InputIcon"
+                                    android:contentDescription="@string/app_name"
+                                    android:src="@drawable/textbox" />
+
+                                <EditText
+                                    android:id="@+id/et_account_number"
+                                    style="@style/InputEditText"
+                                    android:hint="Account Number"
+                                    android:inputType="number"
+                                    android:maxLength="20" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:id="@+id/ll_ifsc_layout"
+                                style="@style/InputBackgroundLayout"
+                                android:layout_marginTop="30dp">
+
+                                <ImageView
+                                    style="@style/InputIcon"
+                                    android:contentDescription="@string/app_name"
+                                    android:src="@drawable/textbox" />
+
+                                <EditText
+                                    android:id="@+id/et_ifsc"
+                                    style="@style/InputEditText"
+                                    android:hint="IFSC"
+                                    android:inputType="textCapCharacters"
+                                    android:maxLength="20" />
+                            </LinearLayout>
+
+
+                        </LinearLayout>
 
                         <RelativeLayout
                             android:id="@+id/layoutbutton"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_below="@+id/txttermsandconditions"
-                            android:layout_marginBottom="20sp"
                             android:layout_marginTop="20sp"
+                            android:layout_marginBottom="20sp"
                             android:gravity="center_horizontal">
 
                             <Button
                                 android:id="@+id/buttonsubmit"
-                                android:layout_width="150sp"
-                                android:layout_height="wrap_content"
-                                android:background="@drawable/view_dropshadow2"
-                                android:gravity="center"
-                                android:padding="5sp"
-                                android:text="UPDATE"
-                                android:textColor="@color/darkgraycolor"
-                                android:textSize="15sp"
-                                android:textStyle="normal|bold" />
+                                style="@style/FormButton"
+                                android:text="UPDATE" />
                         </RelativeLayout>
                     </LinearLayout>
                 </RelativeLayout>

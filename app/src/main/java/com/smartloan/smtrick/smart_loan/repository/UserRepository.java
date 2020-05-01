@@ -7,7 +7,7 @@ import java.util.Map;
 
 public interface UserRepository {
 
-    void signIn(final String mobileNumber, final String password, final CallBack callback);
+    void signIn(final String emailId, final String password, final CallBack callback);
 
     void readLoggedInUser(final CallBack callback);
 
@@ -32,4 +32,6 @@ public interface UserRepository {
     void readUserByUserId(final String regId, final CallBack callBack);
 
     void setDataChangeListnerOnUserLogin(final String regId, final CallBack callback);
+
+    void resetPasswordWithEmailId(final String emailId, final CallBack callBack);
 }

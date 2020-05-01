@@ -45,13 +45,13 @@
 
                             <TextView
                                 android:id="@+id/txtgenerateleeds"
+                                style="@style/FormLabel"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center_vertical"
                                 android:gravity="center_horizontal"
                                 android:text="Generate New Lead"
                                 android:textSize="18sp"
-                                style="@style/FormLabel"
                                 android:textStyle="normal|bold" />
                         </RelativeLayout>
 
@@ -62,8 +62,8 @@
                             android:layout_below="@+id/layouttextleeds"
                             android:layout_centerHorizontal="true"
                             android:layout_gravity="center_horizontal"
-                            android:layout_marginEnd="10dp"
                             android:layout_marginStart="10dp"
+                            android:layout_marginEnd="10dp"
                             android:gravity="center_horizontal"
                             android:orientation="vertical">
 
@@ -95,6 +95,7 @@
 
                             <EditText
                                 android:id="@+id/edittextname"
+                                style="@style/FormLabel"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="20sp"
@@ -105,11 +106,11 @@
                                 android:maxLength="30"
                                 android:padding="10sp"
                                 android:paddingLeft="4dp"
-                                style="@style/FormLabel"
                                 android:textSize="15sp" />
 
                             <EditText
                                 android:id="@+id/edittextmobile"
+                                style="@style/FormLabel"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_below="@+id/edittextname"
@@ -121,27 +122,27 @@
                                 android:maxLength="10"
                                 android:padding="10sp"
                                 android:paddingLeft="4dp"
-                                style="@style/FormLabel"
                                 android:textSize="15sp" />
 
                             <EditText
                                 android:id="@+id/et_alternet_mobile"
+                                style="@style/FormLabel"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_below="@+id/edittextname"
                                 android:layout_marginTop="20sp"
                                 android:background="@drawable/edittextanimation"
                                 android:gravity="center_horizontal"
-                                android:hint="Alternet Mobile Number"
+                                android:hint="WhatsApp Number"
                                 android:inputType="number"
                                 android:maxLength="10"
                                 android:padding="10sp"
                                 android:paddingLeft="4dp"
-                                style="@style/FormLabel"
                                 android:textSize="15sp" />
 
                             <EditText
                                 android:id="@+id/edittextaddress"
+                                style="@style/FormLabel"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_below="@+id/edittextmobile"
@@ -152,11 +153,11 @@
                                 android:maxLength="50"
                                 android:padding="10sp"
                                 android:paddingLeft="4dp"
-                                style="@style/FormLabel"
                                 android:textSize="15sp" />
 
                             <EditText
                                 android:id="@+id/edittextemailid"
+                                style="@style/FormLabel"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_below="@+id/edittextaddress"
@@ -164,48 +165,48 @@
                                 android:background="@drawable/edittextanimation"
                                 android:gravity="center_horizontal"
                                 android:hint="Email Id"
-                                android:maxLength="25"
+                                android:maxLength="100"
                                 android:padding="10sp"
                                 android:paddingLeft="4dp"
-                                style="@style/FormLabel"
                                 android:textSize="15sp" />
 
                             <RadioGroup
                                 android:id="@+id/radiogender"
+                                style="@style/FormLabel"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_below="@+id/edittextemailid"
                                 android:layout_marginTop="20sp"
                                 android:gravity="center_horizontal"
                                 android:orientation="horizontal"
-                                style="@style/FormLabel"
                                 android:text="Gender">
 
                                 <RadioButton
                                     android:id="@+id/radiomale"
+                                    style="@style/FormLabel"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:buttonTint="@color/darkgraycolor"
+                                    android:buttonTint="@color/icon_green"
                                     android:checked="true"
                                     android:text="Male"
-                                    style="@style/FormLabel"
                                     android:textSize="16sp"
                                     android:textStyle="normal|bold" />
 
                                 <RadioButton
                                     android:id="@+id/radiofemale"
+                                    style="@style/FormLabel"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_marginLeft="10sp"
-                                    android:buttonTint="@color/darkgraycolor"
+                                    android:buttonTint="@color/icon_green"
                                     android:text="Female"
-                                    style="@style/FormLabel"
                                     android:textSize="16sp"
                                     android:textStyle="normal|bold" />
                             </RadioGroup>
 
                             <Spinner
                                 android:id="@+id/spinnerselectloantype"
+                                style="@style/FormLabel"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_below="@+id/radiogender"
@@ -214,11 +215,25 @@
                                 android:gravity="center_horizontal"
                                 android:padding="10sp"
                                 android:paddingLeft="4dp"
-                                style="@style/FormLabel"
                                 android:textSize="15sp" />
+
+                            <Spinner
+                                android:id="@+id/spinner_balance_transfer_type"
+                                style="@style/FormLabel"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@+id/radiogender"
+                                android:layout_marginTop="20sp"
+                                android:background="@drawable/edittextanimation"
+                                android:gravity="center_horizontal"
+                                android:padding="10sp"
+                                android:paddingLeft="4dp"
+                                android:textSize="15sp"
+                                android:visibility="gone" />
 
                             <EditText
                                 android:id="@+id/edittextpannumber"
+                                style="@style/FormLabel"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_below="@+id/spinnerselectloantype"
@@ -226,14 +241,16 @@
                                 android:background="@drawable/edittextanimation"
                                 android:gravity="center_horizontal"
                                 android:hint="Pan Number"
+                                android:inputType="textCapCharacters"
+                                android:digits="ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
                                 android:maxLength="20"
                                 android:padding="10sp"
                                 android:paddingLeft="4dp"
-                                style="@style/FormLabel"
                                 android:textSize="15sp" />
 
                             <TextView
                                 android:id="@+id/edittextdob"
+                                style="@style/FormLabel"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_below="@+id/edittextpannumber"
@@ -246,11 +263,11 @@
                                 android:maxLength="30"
                                 android:padding="10sp"
                                 android:paddingLeft="4dp"
-                                style="@style/FormLabel"
                                 android:textSize="15sp" />
 
                             <EditText
                                 android:id="@+id/edittextexloanammount"
+                                style="@style/FormLabel"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_below="@+id/edittextdob"
@@ -262,11 +279,11 @@
                                 android:maxLength="20"
                                 android:padding="10sp"
                                 android:paddingLeft="4dp"
-                                style="@style/FormLabel"
                                 android:textSize="15sp" />
 
                             <Spinner
                                 android:id="@+id/spinnerselecttypeofemployee"
+                                style="@style/FormLabel"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_below="@+id/edittextexloanammount"
@@ -275,11 +292,11 @@
                                 android:gravity="center_horizontal"
                                 android:padding="10sp"
                                 android:paddingLeft="4dp"
-                                style="@style/FormLabel"
                                 android:textSize="15sp" />
 
                             <EditText
                                 android:id="@+id/edittextincome"
+                                style="@style/FormLabel"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_below="@+id/spinnerselecttypeofemployee"
@@ -288,7 +305,6 @@
                                 android:gravity="center_horizontal"
                                 android:padding="10sp"
                                 android:paddingLeft="4dp"
-                                style="@style/FormLabel"
                                 android:textSize="15sp"
                                 android:visibility="gone" />
 
@@ -302,13 +318,13 @@
 
                                 <TextView
                                     android:id="@+id/txtattachdoc"
+                                    style="@style/FormLabel"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="center_vertical"
                                     android:gravity="center_horizontal"
                                     android:padding="5sp"
                                     android:text="Attach doc"
-                                    style="@style/FormLabel"
                                     android:textSize="15dp" />
 
 
@@ -350,35 +366,23 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_below="@+id/layoutleadfields"
-                            android:layout_marginBottom="20sp"
                             android:layout_marginTop="20sp"
+                            android:layout_marginBottom="20sp"
                             android:gravity="center_horizontal">
 
                             <Button
                                 android:id="@+id/buttonCallExpart"
-                                android:layout_width="150sp"
-                                android:layout_height="wrap_content"
-                                android:layout_margin="5dp"
-                                android:background="@drawable/view_dropshadow2"
-                                android:gravity="center"
-                                android:padding="5sp"
-                                android:text="Call Expart"
-                                android:textColor="@color/darkgraycolor"
-                                android:textSize="15sp"
-                                android:textStyle="normal|bold" />
+                                style="@style/FormButton"
+                                android:layout_margin="15dp"
+                                android:layout_weight="1"
+                                android:text="Call Expart" />
 
                             <Button
                                 android:id="@+id/buttonsubmit"
-                                android:layout_width="150sp"
-                                android:layout_height="wrap_content"
-                                android:layout_margin="5dp"
-                                android:background="@drawable/view_dropshadow2"
-                                android:gravity="center"
-                                android:padding="5sp"
-                                android:text="SUBMIT"
-                                android:textColor="@color/darkgraycolor"
-                                android:textSize="15sp"
-                                android:textStyle="normal|bold" />
+                                style="@style/FormButton"
+                                android:layout_margin="15dp"
+                                android:layout_weight="1"
+                                android:text="SUBMIT" />
 
                         </LinearLayout>
                     </RelativeLayout>

@@ -1,5 +1,10 @@
 package com.smartloan.smtrick.smart_loan.repository;
 
+import android.support.annotation.NonNull;
+
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -172,11 +177,12 @@ public abstract class FirebaseTemplateRepository {
             e.printStackTrace();
         }
     }
+
     /**
      * update offline data on FireBase
      *
      * @param databaseReference
-     *  @param pushKey
+     * @param pushKey
      * @param model
      * @throws Exception
      */
@@ -203,7 +209,7 @@ public abstract class FirebaseTemplateRepository {
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot snapshot) {
-               callback.onSuccess(snapshot);
+                callback.onSuccess(snapshot);
             }
 
             @Override
@@ -213,4 +219,21 @@ public abstract class FirebaseTemplateRepository {
         });
     }
 
+    /**
+     * Reset password
+     *
+     * @param emailId
+     * @param callBack
+     * @throws Exception
+     */
+    protected final void resetPassword(String emailId, final CallBack callBack) {
+        FirebaseAuth.getInstance().sendPasswordResetEmail(emailId)
+                .addOnCompleteListener((@NonNull Task<Void> task) -> {
+                    if (task.isSuccessful()) {
+                        callBack.onSuccess(true);
+                    } else {
+                        callBack.onError(false);
+                    }
+                });
+    }
 }

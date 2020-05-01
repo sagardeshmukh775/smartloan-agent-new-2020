@@ -28,8 +28,9 @@ public class User implements Serializable {
     private String address;
     private String gender;
     private String agentId;
+    private KYCDetails kycDetails;
 
-    //empty constructor is neaded
+    //empty constructor is needed
     public User() {
     }
 
@@ -211,6 +212,14 @@ public class User implements Serializable {
         this.agentId = agentId;
     }
 
+    public KYCDetails getKycDetails() {
+        return kycDetails;
+    }
+
+    public void setKycDetails(KYCDetails kycDetails) {
+        this.kycDetails = kycDetails;
+    }
+
     @Exclude
     public Map<String, Object> toMap() {
         HashMap<String, Object> result = new HashMap<>();
@@ -241,6 +250,7 @@ public class User implements Serializable {
         result.put("gender", gender);
         result.put("userProfileImageLarge", userProfileImageLarge);
         result.put("userProfileImageSmall", userProfileImageSmall);
+        result.put("kycDetails", getKycDetails());
         return result;
     }
 }

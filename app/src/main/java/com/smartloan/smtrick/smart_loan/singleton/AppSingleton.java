@@ -9,6 +9,10 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.smartloan.smtrick.smart_loan.R;
 import com.smartloan.smtrick.smart_loan.exception.ExceptionUtil;
 
+import static com.smartloan.smtrick.smart_loan.constants.Constant.LOAN_TYPE_BALANCE_TRANSFER;
+import static com.smartloan.smtrick.smart_loan.constants.Constant.LOAN_TYPE_HL;
+import static com.smartloan.smtrick.smart_loan.constants.Constant.LOAN_TYPE_LAP;
+
 public class AppSingleton {
     private static AppSingleton appSingleton;
     public int notificationId = 100;
@@ -45,7 +49,11 @@ public class AppSingleton {
     }
 
     public String[] getLoanType() {
-        return new String[]{"Select Loan Type", "HL", "LAP"};
+        return new String[]{"Select Loan Type", LOAN_TYPE_HL, LOAN_TYPE_LAP, LOAN_TYPE_BALANCE_TRANSFER};
+    }
+
+    public String[] getBalanceTransferType() {
+        return new String[]{"Select Balance Transfer Type", "HL", "LAP"};
     }
 
     public String[] getEmployeeType() {
@@ -70,7 +78,7 @@ public class AppSingleton {
 
     public void updateProgress(int uploaded, int total, int percent) {
         try {
-            if(mNotifyManager!=null&&mBuilder!=null) {
+            if (mNotifyManager != null && mBuilder != null) {
                 if (total == uploaded) {
                     mBuilder.setContentText(context.getString(R.string.file_uploading_complited))
                             // Removes the progress bar
@@ -79,8 +87,8 @@ public class AppSingleton {
                             .setOngoing(false);
                     mNotifyManager.notify(0, mBuilder.build());
                     mNotifyManager.cancel(notificationId);
-                    mNotifyManager=null;
-                    mBuilder=null;
+                    mNotifyManager = null;
+                    mBuilder = null;
                 } else {
                     mBuilder.setProgress(total, uploaded, false);
                     mBuilder.setContentTitle(context.getString(R.string.file_uploading_progress) + " (" + Integer.toString(percent) + "%)" + " " + uploaded + "/" + total);

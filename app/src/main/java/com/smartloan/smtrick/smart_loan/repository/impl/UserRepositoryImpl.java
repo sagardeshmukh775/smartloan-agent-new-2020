@@ -138,7 +138,7 @@ public class UserRepositoryImpl extends FirebaseTemplateRepository implements Us
      */
     @Override
     public void createUser(final User userModel, final CallBack callback) {
-        Constant.AUTH.createUserWithEmailAndPassword(userModel.getMobileNumber() + EMAIL_POSTFIX, userModel.getPassword())
+        Constant.AUTH.createUserWithEmailAndPassword(userModel.getEmail(), userModel.getPassword())
                 .addOnCompleteListener(_activity, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
@@ -178,8 +178,8 @@ public class UserRepositoryImpl extends FirebaseTemplateRepository implements Us
     }
 
     @Override
-    public void signIn(final String mobileNumber, final String password, final CallBack callback) {
-        Constant.AUTH.signInWithEmailAndPassword(mobileNumber + EMAIL_POSTFIX, password)
+    public void signIn(final String emailId, final String password, final CallBack callback) {
+        Constant.AUTH.signInWithEmailAndPassword(emailId, password)
                 .addOnCompleteListener(_activity, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
@@ -305,5 +305,10 @@ public class UserRepositoryImpl extends FirebaseTemplateRepository implements Us
                 callback.onError(databaseError);
             }
         });
+    }
+
+    @Override
+    public void resetPasswordWithEmailId(String emailId, CallBack callBack) {
+        resetPassword(emailId, callBack);
     }
 }
