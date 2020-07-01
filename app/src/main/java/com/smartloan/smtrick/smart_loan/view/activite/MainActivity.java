@@ -258,7 +258,7 @@ public class MainActivity extends AppCompatActivity
             imageViewProfile.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    Intent intent = new Intent(MainActivity.this, UpdateProfileActivity.class);
+                    Intent intent = new Intent(MainActivity.this, UpdateUserProfileActivity.class);
                     startActivityForResult(intent, REQUEST_CODE);
                 }
             });
