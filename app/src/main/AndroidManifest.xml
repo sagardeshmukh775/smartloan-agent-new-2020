@@ -13,13 +13,17 @@
         android:roundIcon="@drawable/ic_launcher"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".view.activite.ForgotPasswordActivity"
+        <activity android:name=".view.activite.UpdateUserProfileActivity"></activity>
+        <activity
+            android:name=".view.activite.ForgotPasswordActivity"
             android:screenOrientation="portrait"
-            android:windowSoftInputMode="stateHidden"/>
-        <activity android:name=".view.activite.LeadActivitiesActivity"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name=".view.activite.LeadActivitiesActivity"
             android:screenOrientation="portrait"
-            android:windowSoftInputMode="stateHidden"/>
-        <activity android:name=".view.activite.SplashScreen"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name=".view.activite.SplashScreen"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden">
             <intent-filter>
@@ -38,18 +42,18 @@
             android:windowSoftInputMode="stateHidden" />
         <activity
             android:name=".view.activite.MainActivity"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme"
-            android:windowSoftInputMode="stateHidden|adjustResize"
-            android:screenOrientation="portrait"/>
+            android:windowSoftInputMode="stateHidden|adjustResize" />
         <activity
             android:name=".view.activite.BankDetailsActivity"
-            android:theme="@style/AppTheme"
             android:screenOrientation="portrait"
+            android:theme="@style/AppTheme"
             android:windowSoftInputMode="stateHidden" />
         <activity
             android:name=".view.activite.TermsConditionActivity"
-            android:theme="@style/AppTheme"
             android:screenOrientation="portrait"
+            android:theme="@style/AppTheme"
             android:windowSoftInputMode="stateHidden" />
         <activity
             android:name=".view.activite.GenerateLeads"
