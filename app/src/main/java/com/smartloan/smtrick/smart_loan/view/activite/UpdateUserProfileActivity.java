@@ -3,6 +3,7 @@ package com.smartloan.smtrick.smart_loan.view.activite;
 import android.graphics.Bitmap;
 import android.net.Uri;
 import android.support.design.widget.TabLayout;
+import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.ActionBar;
@@ -17,6 +18,7 @@ import android.widget.TextView;
 import com.smartloan.smtrick.smart_loan.R;
 import com.smartloan.smtrick.smart_loan.callback.CallBack;
 import com.smartloan.smtrick.smart_loan.databinding.ActivityUpdateProfileBinding;
+import com.smartloan.smtrick.smart_loan.interfaces.OnFragmentInteractionListener;
 import com.smartloan.smtrick.smart_loan.models.LeedsModel;
 import com.smartloan.smtrick.smart_loan.preferences.AppSharedPreference;
 import com.smartloan.smtrick.smart_loan.repository.LeedRepository;
@@ -26,15 +28,17 @@ import com.smartloan.smtrick.smart_loan.view.adapter.ViewPagerAdapter;
 import com.smartloan.smtrick.smart_loan.view.dialog.ProgressDialogClass;
 import com.smartloan.smtrick.smart_loan.view.fragement.ApprovedInvoiceFragment;
 import com.smartloan.smtrick.smart_loan.view.fragement.InvoiceFragment;
+import com.smartloan.smtrick.smart_loan.view.fragement.LeedsFragment;
 import com.smartloan.smtrick.smart_loan.view.fragement.PaidInvoiceFragment;
 import com.smartloan.smtrick.smart_loan.view.fragement.RejectedInvoiceFragment;
+import com.smartloan.smtrick.smart_loan.view.fragement.ReportsFragment;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
 import static com.smartloan.smtrick.smart_loan.constants.Constant.MALE;
 
-public class UpdateUserProfileActivity extends AppCompatActivity {
+public class UpdateUserProfileActivity extends AppCompatActivity implements OnFragmentInteractionListener {
 
     ImageView imgCoverImage, imgProfileImage;
     TextView txtTotalLeeds, txtTotalEarning, txtAgentId, txtAgentName, txtAgentAddress;
@@ -53,7 +57,7 @@ public class UpdateUserProfileActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_update_user_profile);
+        setContentView(R.layout.activity_update_user_profile1);
 
         appSharedPreference = new AppSharedPreference(this);
         leedRepository = new LeedRepositoryImpl();
@@ -88,12 +92,11 @@ public class UpdateUserProfileActivity extends AppCompatActivity {
         txtAgentId = findViewById(R.id.agent_id);
         txtAgentName = findViewById(R.id.agent_name);
         txtAgentAddress = findViewById(R.id.address);
-        viewPager = findViewById(R.id.viewpager);
-        tabLayout = findViewById(R.id.tabs);
+        viewPager = findViewById(R.id.viewPager);
 
         viewPagerAdapter = new ViewPagerAdapter(getSupportFragmentManager());
-        viewPagerAdapter.addFragement(new InvoiceFragment(), "Personel Details");
-        viewPagerAdapter.addFragement(new ApprovedInvoiceFragment(), "Bank Details");
+        viewPagerAdapter.addFragement(new LeedsFragment(), "Personel Details");
+        viewPagerAdapter.addFragement(new ReportsFragment(), "Bank Details");
 
         viewPager.setAdapter(viewPagerAdapter);
         tabLayout = (TabLayout) findViewById(R.id.tabs);
@@ -143,6 +146,16 @@ public class UpdateUserProfileActivity extends AppCompatActivity {
         } else
             imgProfileImage.setImageResource(R.drawable.dummy_user_profile);
 
+
+    }
+
+    @Override
+    public void onFragmentInteraction(String title) {
+
+    }
+
+    @Override
+    public void changeFragement(Fragment fragment) {
 
     }
 }
