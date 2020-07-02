@@ -105,11 +105,13 @@ public class UpdateUserProfileActivity extends AppCompatActivity {
     }
 
     private void getAetLeeds() {
-        leedRepository.readLeedsByUserId(this, appSharedPreference.getAgeniId(), new CallBack() {
+        leedRepository.readLeedByAgentId(appSharedPreference.getAgeniId(), new CallBack() {
             @Override
             public void onSuccess(Object object) {
                 if (object != null){
-                    leedRepository = (LeedRepository) object;
+                    leedsModelArrayList = (ArrayList<LeedsModel>) object;
+
+                    setReports(leedsModelArrayList);
                 }
             }
 
@@ -118,6 +120,13 @@ public class UpdateUserProfileActivity extends AppCompatActivity {
 
             }
         });
+    }
+
+    private void setReports(ArrayList<LeedsModel> leedsModelArrayList) {
+        int totalLeeds = leedsModelArrayList.size();
+        Double TotalEarnings = 0.00;
+
+        txtTotalLeeds.setText(String.valueOf(totalLeeds));
     }
 
     private void setProfileData() {

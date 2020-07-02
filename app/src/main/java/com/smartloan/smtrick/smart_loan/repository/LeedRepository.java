@@ -30,4 +30,6 @@ public interface LeedRepository {
     void updateLeedHistory(final String leedId, final Map leedMap, final CallBack callback);
 
     void readLeedsByUserIdOfYear(final Context context, final String userId, long year, final CallBack callBack);
+
+    void readLeedByAgentId(final String agentId, final CallBack callBack);
 }

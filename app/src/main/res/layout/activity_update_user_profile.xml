@@ -64,34 +64,34 @@
                 android:id="@+id/total_lead"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="3dp"
+                android:gravity="center"
                 android:text="Total Lead"
                 android:textColor="@color/white"
                 app:layout_constraintBottom_toBottomOf="@+id/profile_photo"
-                app:layout_constraintEnd_toStartOf="@+id/profile_photo"
-                app:layout_constraintHorizontal_bias="0.541"
+                app:layout_constraintEnd_toEndOf="@+id/textView"
+                app:layout_constraintHorizontal_bias="1.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/profile_photo"
-                app:layout_constraintVertical_bias="0.725" />
+                app:layout_constraintTop_toBottomOf="@+id/textView"
+                app:layout_constraintVertical_bias="0.0" />
 
             <TextView
                 android:id="@+id/total_earning"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="22dp"
+                android:gravity="center"
                 android:text="Total Earning"
                 android:textColor="@color/white"
                 app:layout_constraintBottom_toBottomOf="@+id/profile_photo"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.573"
-                app:layout_constraintStart_toEndOf="@+id/profile_photo"
-                app:layout_constraintTop_toBottomOf="@+id/coverphoto"
-                app:layout_constraintVertical_bias="1.0" />
+                app:layout_constraintHorizontal_bias="0.47"
+                app:layout_constraintStart_toEndOf="@+id/profile_photo" />
 
             <TextView
                 android:id="@+id/agent_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="12dp"
+                android:layout_marginTop="10dp"
                 android:text="Agent Name"
                 android:textColor="@color/white"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -102,7 +102,7 @@
                 android:id="@+id/address"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="12dp"
+                android:layout_marginTop="10dp"
                 android:layout_marginBottom="10dp"
                 android:text="Address"
                 android:textColor="@color/white"
@@ -150,6 +150,32 @@
 
 
             </LinearLayout>
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="28dp"
+                android:layout_marginTop="60dp"
+                android:text="Total Leeds"
+                android:textColor="@color/white"
+                app:layout_constraintEnd_toStartOf="@+id/profile_photo"
+                app:layout_constraintHorizontal_bias="0.326"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/profile_photo" />
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Total Earnings"
+                android:textColor="@color/white"
+                app:layout_constraintBottom_toTopOf="@+id/total_earning"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.494"
+                app:layout_constraintStart_toEndOf="@+id/profile_photo"
+                app:layout_constraintTop_toTopOf="@+id/profile_photo"
+                app:layout_constraintVertical_bias="1.0" />
 
         </android.support.constraint.ConstraintLayout>
 
