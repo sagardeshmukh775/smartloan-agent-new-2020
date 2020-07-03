@@ -5,6 +5,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.smartloan.smtrick.smart_loan.R;
 import com.smartloan.smtrick.smart_loan.interfaces.OnFragmentInteractionListener;
@@ -16,7 +17,7 @@ public class BankDetailsFragment extends Fragment {
     public BankDetailsFragment() {
     }
 
-
+    TextView txtbankname, txtbranchname, txtbankaccountholdername, txtacountnumber, txtifsc;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -32,9 +33,20 @@ public class BankDetailsFragment extends Fragment {
             mListener.onFragmentInteraction("Loan Calculator");
         }
 
+        txtbankname = view.findViewById(R.id.txtbanknamevalue);
+        txtbranchname = view.findViewById(R.id.txtbranchnamevalue);
+        txtbankaccountholdername = view.findViewById(R.id.txtacctholdervalue);
+        txtacountnumber = view.findViewById(R.id.txtacctnumbervalue);
+        txtifsc = view.findViewById(R.id.txtifscvalue);
+
+        getUser();
+
         return view;
     }
 
+    private void getUser() {
+
+    }
 
 
 }

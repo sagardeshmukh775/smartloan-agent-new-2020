@@ -24,6 +24,7 @@ import com.smartloan.smtrick.smart_loan.R;
 import com.smartloan.smtrick.smart_loan.databinding.ShareMessageDialogLayoutBinding;
 import com.smartloan.smtrick.smart_loan.exception.ExceptionUtil;
 import com.smartloan.smtrick.smart_loan.interfaces.OnFragmentInteractionListener;
+import com.smartloan.smtrick.smart_loan.preferences.AppSharedPreference;
 import com.smartloan.smtrick.smart_loan.utilities.Utility;
 
 import static com.smartloan.smtrick.smart_loan.utilities.Utility.formatString;
@@ -36,7 +37,8 @@ public class PersonelDetailsFragment extends Fragment {
     public PersonelDetailsFragment() {
     }
 
-
+    TextView txtname, txtmobilenumber, txtadress, txtemailaddress, txtgender;
+    AppSharedPreference appSharedPreference;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -52,9 +54,25 @@ public class PersonelDetailsFragment extends Fragment {
             mListener.onFragmentInteraction("Loan Calculator");
         }
 
+        appSharedPreference = new AppSharedPreference(getContext());
+
+        txtname = view.findViewById(R.id.txtnamevalue);
+        txtmobilenumber = view.findViewById(R.id.txtmobilevalue);
+        txtadress = view.findViewById(R.id.txtaddressvalue);
+        txtemailaddress = view.findViewById(R.id.txtemailvalue);
+        txtgender = view.findViewById(R.id.txtgendervalue);
+
+        getUser();
         return view;
     }
 
+    private void getUser() {
+        txtname.setText(appSharedPreference.getUserName());
+        txtmobilenumber.setText(appSharedPreference.getMobileNo());
+        txtadress.setText(appSharedPreference.getAddress());
+        txtemailaddress.setText(appSharedPreference.getEmaiId());
+        txtgender.setText(appSharedPreference.getGender());
+    }
 
 
 }
