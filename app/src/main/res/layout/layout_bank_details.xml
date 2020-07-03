@@ -43,8 +43,8 @@
                             android:id="@+id/edit"
                             android:layout_width="30dp"
                             android:layout_height="30dp"
-                            android:layout_gravity="right"
                             android:layout_margin="5dp"
+                            android:layout_gravity="right"
                             android:src="@drawable/edit_thin_icon" />
 
                         <RelativeLayout
@@ -90,20 +90,20 @@
                             android:weightSum="100">
 
                             <TextView
-                                android:id="@+id/txtname"
+                                android:id="@+id/txtbankname"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="50"
-                                android:text="Name"
+                                android:text="Bank Name"
                                 android:textColor="@color/graycolor"
                                 android:textSize="16sp" />
 
                             <TextView
-                                android:id="@+id/txtnamevalue"
+                                android:id="@+id/txtbanknamevalue"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="50"
-                                android:text="Name"
+                                android:text="bank Name"
                                 android:textColor="@color/white"
                                 android:textStyle="bold"
                                 android:textSize="16sp" />
@@ -117,20 +117,20 @@
                             android:weightSum="100">
 
                             <TextView
-                                android:id="@+id/txtmobile"
+                                android:id="@+id/txtbranchname"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="50"
-                                android:text="Mobile Number"
+                                android:text="Branch Name"
                                 android:textColor="@color/graycolor"
                                 android:textSize="16sp" />
 
                             <TextView
-                                android:id="@+id/txtmobilevalue"
+                                android:id="@+id/txtbranchnamevalue"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="50"
-                                android:text="number"
+                                android:text="branch name"
                                 android:textStyle="bold"
                                 android:textColor="@color/white"
                                 android:textSize="16sp" />
@@ -144,20 +144,20 @@
                             android:weightSum="100">
 
                             <TextView
-                                android:id="@+id/txtaddress"
+                                android:id="@+id/txtacctholder"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="50"
-                                android:text="Address"
+                                android:text="Bank Account Holder Name"
                                 android:textColor="@color/graycolor"
                                 android:textSize="16sp" />
 
                             <TextView
-                                android:id="@+id/txtaddressvalue"
+                                android:id="@+id/txtacctholdervalue"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="50"
-                                android:text="Address"
+                                android:text="account holder name"
                                 android:textStyle="bold"
                                 android:textColor="@color/white"
                                 android:textSize="16sp" />
@@ -171,20 +171,20 @@
                             android:weightSum="100">
 
                             <TextView
-                                android:id="@+id/txtemail"
+                                android:id="@+id/txtacctnumber"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="50"
-                                android:text="Email Address"
+                                android:text="Account Number"
                                 android:textColor="@color/graycolor"
                                 android:textSize="16sp" />
 
                             <TextView
-                                android:id="@+id/txtemailvalue"
+                                android:id="@+id/txtacctnumbervalue"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="50"
-                                android:text="Email"
+                                android:text="account number"
                                 android:textStyle="bold"
                                 android:textColor="@color/white"
                                 android:textSize="16sp" />
@@ -198,20 +198,20 @@
                             android:weightSum="100">
 
                             <TextView
-                                android:id="@+id/txtgender"
+                                android:id="@+id/txtifsc"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="50"
-                                android:text="Gender"
+                                android:text="IFSC"
                                 android:textColor="@color/graycolor"
                                 android:textSize="16sp" />
 
                             <TextView
-                                android:id="@+id/txtgendervalue"
+                                android:id="@+id/txtifscvalue"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="50"
-                                android:text="Gender"
+                                android:text="ifsc"
                                 android:textStyle="bold"
                                 android:textColor="@color/white"
                                 android:textSize="16sp" />

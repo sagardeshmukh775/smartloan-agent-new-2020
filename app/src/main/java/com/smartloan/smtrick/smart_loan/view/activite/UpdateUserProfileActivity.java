@@ -27,9 +27,11 @@ import com.smartloan.smtrick.smart_loan.utilities.Utility;
 import com.smartloan.smtrick.smart_loan.view.adapter.ViewPagerAdapter;
 import com.smartloan.smtrick.smart_loan.view.dialog.ProgressDialogClass;
 import com.smartloan.smtrick.smart_loan.view.fragement.ApprovedInvoiceFragment;
+import com.smartloan.smtrick.smart_loan.view.fragement.BankDetailsFragment;
 import com.smartloan.smtrick.smart_loan.view.fragement.InvoiceFragment;
 import com.smartloan.smtrick.smart_loan.view.fragement.LeedsFragment;
 import com.smartloan.smtrick.smart_loan.view.fragement.PaidInvoiceFragment;
+import com.smartloan.smtrick.smart_loan.view.fragement.PersonelDetailsFragment;
 import com.smartloan.smtrick.smart_loan.view.fragement.RejectedInvoiceFragment;
 import com.smartloan.smtrick.smart_loan.view.fragement.ReportsFragment;
 import com.squareup.picasso.Picasso;
@@ -95,8 +97,8 @@ public class UpdateUserProfileActivity extends AppCompatActivity implements OnFr
         viewPager = findViewById(R.id.viewPager);
 
         viewPagerAdapter = new ViewPagerAdapter(getSupportFragmentManager());
-        viewPagerAdapter.addFragement(new LeedsFragment(), "Personel Details");
-        viewPagerAdapter.addFragement(new ReportsFragment(), "Bank Details");
+        viewPagerAdapter.addFragement(new PersonelDetailsFragment(), "Personel Details");
+        viewPagerAdapter.addFragement(new BankDetailsFragment(), "Bank Details");
 
         viewPager.setAdapter(viewPagerAdapter);
         tabLayout = (TabLayout) findViewById(R.id.tabs);
