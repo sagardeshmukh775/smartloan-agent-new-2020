@@ -48,7 +48,7 @@ import static com.smartloan.smtrick.smart_loan.constants.Constant.USER_PROFILE_P
 
 public class PersonelDetailsActivity extends AppCompatActivity {
     //    ActivityUpdateProfileBinding activityUpdateProfileBinding;
-    ImageView imgProfile;
+    ImageView imgProfile,imgCancleprofile;
     EditText edtName, edtMobile, edtAddress, edtEmail;
     RadioGroup GroupGender;
     RadioButton radiogender, radioMale, radioFemale;
@@ -93,6 +93,8 @@ public class PersonelDetailsActivity extends AppCompatActivity {
         radioMale = findViewById(R.id.radiomale);
         radioFemale = findViewById(R.id.radiofemale);
         btnUpdate = findViewById(R.id.buttonsubmit);
+        imgProfile = findViewById(R.id.ivProfile);
+        imgCancleprofile = findViewById(R.id.iv_cancel_profile);
 
 
 
@@ -210,7 +212,7 @@ public class PersonelDetailsActivity extends AppCompatActivity {
     }
 
     private void onClickSelectProfile() {
-        ivProfile.setOnClickListener(new View.OnClickListener() {
+        imgProfile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 startCropImageActivity();
@@ -219,14 +221,14 @@ public class PersonelDetailsActivity extends AppCompatActivity {
     }
 
     private void onClickCancelProfile() {
-        ivCancelProfile.setOnClickListener(new View.OnClickListener() {
+        imgCancleprofile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                ivProfile.setImageResource(R.drawable.dummy_user_profile);
+                imgProfile.setImageResource(R.drawable.dummy_user_profile);
                 profileUri = null;
                 bitmap = null;
                 profileImage = "";
-                ivCancelProfile.setVisibility(View.GONE);
+                imgCancleprofile.setVisibility(View.GONE);
             }
         });
     }
@@ -256,9 +258,9 @@ public class PersonelDetailsActivity extends AppCompatActivity {
                             if (extras != null) {
                                 Bitmap bitmapImg = MediaStore.Images.Media.getBitmap(getContentResolver(), result.getUri());
                                 profileUri = result.getUri();
-                                ivCancelProfile.setVisibility(View.VISIBLE);
+                                imgCancleprofile.setVisibility(View.VISIBLE);
                                 if (bitmapImg != null)
-                                    ivProfile.setImageBitmap(bitmapImg);
+                                    imgProfile.setImageBitmap(bitmapImg);
                                 compressBitmap(profileUri);
                             }
                         }
