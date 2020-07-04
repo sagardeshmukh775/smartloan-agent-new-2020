@@ -138,7 +138,7 @@ public class UpdateUserProfileActivity extends AppCompatActivity implements OnFr
 
         txtAgentName.setText(appSharedPreference.getUserName());
         txtAgentAddress.setText(appSharedPreference.getAddress());
-        txtAgentId.setText(appSharedPreference.getMobileNo());
+        txtAgentId.setText(appSharedPreference.getAgeniId());
 
         profileImage = appSharedPreference.getProfileLargeImage();
 

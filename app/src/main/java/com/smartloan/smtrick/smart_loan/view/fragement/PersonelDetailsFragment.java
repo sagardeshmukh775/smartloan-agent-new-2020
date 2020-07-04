@@ -16,6 +16,7 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -26,11 +27,12 @@ import com.smartloan.smtrick.smart_loan.exception.ExceptionUtil;
 import com.smartloan.smtrick.smart_loan.interfaces.OnFragmentInteractionListener;
 import com.smartloan.smtrick.smart_loan.preferences.AppSharedPreference;
 import com.smartloan.smtrick.smart_loan.utilities.Utility;
+import com.smartloan.smtrick.smart_loan.view.activite.MainActivity;
 
 import static com.smartloan.smtrick.smart_loan.utilities.Utility.formatString;
 import static com.smartloan.smtrick.smart_loan.utilities.Utility.removeDecimalPoint;
 
-public class PersonelDetailsFragment extends Fragment {
+public class PersonelDetailsFragment extends Fragment implements View.OnClickListener {
     // NOTE: Removed Some unwanted Boiler Plate Codes
     private OnFragmentInteractionListener mListener;
 
@@ -38,6 +40,7 @@ public class PersonelDetailsFragment extends Fragment {
     }
 
     TextView txtname, txtmobilenumber, txtadress, txtemailaddress, txtgender;
+    ImageView imgEdit;
     AppSharedPreference appSharedPreference;
 
     @Override
@@ -61,8 +64,10 @@ public class PersonelDetailsFragment extends Fragment {
         txtadress = view.findViewById(R.id.txtaddressvalue);
         txtemailaddress = view.findViewById(R.id.txtemailvalue);
         txtgender = view.findViewById(R.id.txtgendervalue);
+        imgEdit = view.findViewById(R.id.edit);
 
         getUser();
+        imgEdit.setOnClickListener(this);
         return view;
     }
 
@@ -75,4 +80,11 @@ public class PersonelDetailsFragment extends Fragment {
     }
 
 
+    @Override
+    public void onClick(View v) {
+        if (v == imgEdit){
+            Intent intent = new Intent(getContext(), MainActivity.class);
+            startActivity(intent);
+        }
+    }
 }
