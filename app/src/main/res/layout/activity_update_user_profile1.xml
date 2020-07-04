@@ -72,7 +72,8 @@
                             android:layout_below="@+id/txttotalleeds"
                             android:layout_gravity="center"
                             android:gravity="center"
-                            android:text="Total Leeds"
+                            android:layout_marginLeft="30dp"
+                            android:text="0"
                             android:textColor="@color/white"
                             android:textStyle="bold"
                             android:textSize="15sp" />
@@ -103,7 +104,8 @@
                             android:layout_below="@+id/txttotalearning"
                             android:layout_gravity="center"
                             android:gravity="center"
-                            android:text="Total earning"
+                            android:layout_marginLeft="30dp"
+                            android:text="0"
                             android:textStyle="bold"
                             android:textColor="@color/white"
                             android:textSize="15sp" />
