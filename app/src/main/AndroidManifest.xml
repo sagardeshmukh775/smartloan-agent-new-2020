@@ -88,7 +88,7 @@
             android:windowSoftInputMode="stateHidden" />
         <activity android:name=".view.activite.LeedHistoryActivity" />
 
-        <activity android:name=".view.activite.PersonelDetailsActivity"></activity>
+        <activity android:name=".view.activite.UpdatePersonelDetailsActivity"></activity>
 
 
     </application>

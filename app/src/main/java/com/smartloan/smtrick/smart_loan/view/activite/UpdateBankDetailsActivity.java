@@ -1,5 +1,6 @@
 package com.smartloan.smtrick.smart_loan.view.activite;
 
+import android.app.MediaRouteButton;
 import android.content.Intent;
 import android.databinding.DataBindingUtil;
 import android.graphics.Bitmap;
@@ -15,8 +16,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.RadioButton;
-import android.widget.RadioGroup;
+import android.widget.LinearLayout;
 
 import com.smartloan.smtrick.smart_loan.R;
 import com.smartloan.smtrick.smart_loan.callback.CallBack;
@@ -46,25 +46,25 @@ import static com.smartloan.smtrick.smart_loan.constants.Constant.MALE;
 import static com.smartloan.smtrick.smart_loan.constants.Constant.RESULT_CODE;
 import static com.smartloan.smtrick.smart_loan.constants.Constant.USER_PROFILE_PATH;
 
-public class PersonelDetailsActivity extends AppCompatActivity {
-    //    ActivityUpdateProfileBinding activityUpdateProfileBinding;
-    ImageView imgProfile,imgCancleprofile;
-    EditText edtName, edtMobile, edtAddress, edtEmail;
-    RadioGroup GroupGender;
-    RadioButton radiogender, radioMale, radioFemale;
-    Button btnUpdate;
+public class UpdateBankDetailsActivity extends AppCompatActivity {
+//    ActivityUpdateProfileBinding activityUpdateProfileBinding;
+
+
     AppSharedPreference appSharedPreference;
     private ProgressDialogClass progressDialogClass;
     private Uri profileUri;
     Bitmap bitmap;
     UserRepository userRepository;
     private String profileImage = "";
+    private ImageView ivCancelProfile,ivProfile;
+    EditText etAccountName,etAccountNumber,etIfsc,etBranchName,etBankName;
+    Button buttonsubmit;
+    LinearLayout llKycDetailsLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_personel_details);
-
         appSharedPreference = new AppSharedPreference(this);
         progressDialogClass = new ProgressDialogClass(this);
         userRepository = new UserRepositoryImpl(this);
@@ -85,19 +85,6 @@ public class PersonelDetailsActivity extends AppCompatActivity {
             }
         });
 
-        edtName = findViewById(R.id.edittextname);
-        edtMobile = findViewById(R.id.edittextmobile);
-        edtAddress = findViewById(R.id.edittextaddress);
-        edtEmail = findViewById(R.id.edittextemailid);
-        GroupGender = findViewById(R.id.radiogender);
-        radioMale = findViewById(R.id.radiomale);
-        radioFemale = findViewById(R.id.radiofemale);
-        btnUpdate = findViewById(R.id.buttonsubmit);
-        imgProfile = findViewById(R.id.ivProfile);
-        imgCancleprofile = findViewById(R.id.iv_cancel_profile);
-
-
-
         setProfileData();
         setUpdateClickListner();
         onClickSelectProfile();
@@ -105,27 +92,29 @@ public class PersonelDetailsActivity extends AppCompatActivity {
     }//end of activity
 
 
-    private void setProfileData() {
-        edtName.setText(appSharedPreference.getUserName());
-        edtAddress.setText(appSharedPreference.getAddress());
-        edtMobile.setText(appSharedPreference.getMobileNo());
-        edtEmail.setText(appSharedPreference.getEmaiId());
-        profileImage = appSharedPreference.getProfileLargeImage();
-        if (appSharedPreference.getGender().equalsIgnoreCase(MALE))
-            radioMale.setChecked(true);
-        else
-            radioFemale.setChecked(true);
-        if (!Utility.isEmptyOrNull(appSharedPreference.getProfileLargeImage())) {
-            Picasso.with(this).load(appSharedPreference.getProfileLargeImage()).resize(200, 200).centerCrop().placeholder(R.drawable.dummy_user_profile).into(imgProfile);
-            imgProfile.setVisibility(View.VISIBLE);
-        } else
-            imgProfile.setImageResource(R.drawable.dummy_user_profile);
 
+    private void setProfileData() {
+
+        if (!Utility.isEmptyOrNull(appSharedPreference.getProfileLargeImage())) {
+            Picasso.with(this).load(appSharedPreference.getProfileLargeImage()).resize(200, 200).centerCrop().placeholder(R.drawable.dummy_user_profile).into(ivProfile);
+            ivCancelProfile.setVisibility(View.VISIBLE);
+        } else
+            ivProfile.setImageResource(R.drawable.dummy_user_profile);
+
+        if (!Utility.isEmptyOrNull(appSharedPreference.getUserId())) {
+            llKycDetailsLayout.setVisibility(View.VISIBLE);
+            etAccountName.setText(appSharedPreference.getAccountHolderName());
+            etAccountNumber.setText(appSharedPreference.getAccountNumber());
+            etIfsc.setText(appSharedPreference.getIfsc());
+            etBranchName.setText(appSharedPreference.getBranchName());
+            etBankName.setText(appSharedPreference.getBankName());
+        } else
+            llKycDetailsLayout.setVisibility(View.VISIBLE);
 
     }
 
     private void setUpdateClickListner() {
-        btnUpdate.setOnClickListener(new View.OnClickListener() {
+        buttonsubmit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 validateAndCreateUser();
@@ -141,17 +130,18 @@ public class PersonelDetailsActivity extends AppCompatActivity {
 
     private User fillUserModel() {
         User user = new User();
-        user.setUserName(edtName.getText().toString());
-        user.setMobileNumber(edtMobile.getText().toString());
-        user.setAddress(edtAddress.getText().toString());
-        user.setEmail(edtEmail.getText().toString());
-        user.setUserProfileImageLarge(profileImage);
-        user.setUserProfileImageSmall(profileImage);
-        if (radioMale.isChecked())
-            user.setGender(MALE);
-        else
-            user.setGender(FEMALE);
 
+        user.setUserProfileImageLarge(profileImage);
+
+        if (!Utility.isEmptyOrNull(appSharedPreference.getUserId())) {
+            KYCDetails kycDetails = new KYCDetails();
+            kycDetails.setAccountHolderName(etAccountName.getText().toString());
+            kycDetails.setAccountNumber(etAccountNumber.getText().toString());
+            kycDetails.setIfsc(etIfsc.getText().toString());
+            kycDetails.setBranchName(etBranchName.getText().toString());
+            kycDetails.setBankName(etBankName.getText().toString());
+            user.setKycDetails(kycDetails);
+        }
         return user;
     }
 
@@ -159,20 +149,35 @@ public class PersonelDetailsActivity extends AppCompatActivity {
         String validationMessage;
         boolean isValid = true;
         try {
-            if (Utility.isEmptyOrNull(user.getUserName())) {
-                validationMessage = getString(R.string.PLEASE_ENTER_NAME);
-                edtName.setError(validationMessage);
-                isValid = false;
-            }
-            if (Utility.isEmptyOrNull(user.getMobileNumber())) {
-                validationMessage = getString(R.string.MOBILE_NUMBER_SHOULD_NOT_BE_EMPTY);
-                edtMobile.setError(validationMessage);
-                isValid = false;
-            } else if (!Utility.isValidMobileNumber(user.getMobileNumber())) {
-                validationMessage = getMessage(R.string.INVALID_MOBILE_NUMBER);
-                edtAddress.setError(validationMessage);
-                isValid = false;
-            }
+
+
+
+             if(user.getKycDetails()!=null){
+                 if (Utility.isEmptyOrNull(user.getKycDetails().getBankName())) {
+                     validationMessage = getString(R.string.bank_name);
+                     etBankName.setError(validationMessage);
+                     isValid = false;
+                 }
+                 if (Utility.isEmptyOrNull(user.getKycDetails().getBranchName())) {
+                     validationMessage = getString(R.string.branch_name);
+                     etBranchName.setError(validationMessage);
+                     isValid = false;
+                 }
+                 if (Utility.isEmptyOrNull(user.getKycDetails().getAccountNumber())) {
+                     validationMessage = getString(R.string.account_number);
+                     etAccountNumber.setError(validationMessage);
+                     isValid = false;
+                 }
+                 if (Utility.isEmptyOrNull(user.getKycDetails().getIfsc())) {
+                     validationMessage = getString(R.string.ifsc_error);
+                     etIfsc.setError(validationMessage);
+                     isValid = false;
+                 }
+             }else{
+                 validationMessage = getString(R.string.fill_kyc_details_error);
+                Utility.showLongMessage(this,validationMessage);
+                 isValid = false;
+             }
 
         } catch (Exception e) {
             isValid = false;
@@ -212,7 +217,7 @@ public class PersonelDetailsActivity extends AppCompatActivity {
     }
 
     private void onClickSelectProfile() {
-        imgProfile.setOnClickListener(new View.OnClickListener() {
+        ivProfile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 startCropImageActivity();
@@ -221,14 +226,14 @@ public class PersonelDetailsActivity extends AppCompatActivity {
     }
 
     private void onClickCancelProfile() {
-        imgCancleprofile.setOnClickListener(new View.OnClickListener() {
+        ivCancelProfile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                imgProfile.setImageResource(R.drawable.dummy_user_profile);
+                ivProfile.setImageResource(R.drawable.dummy_user_profile);
                 profileUri = null;
                 bitmap = null;
                 profileImage = "";
-                imgCancleprofile.setVisibility(View.GONE);
+                ivCancelProfile.setVisibility(View.GONE);
             }
         });
     }
@@ -258,9 +263,9 @@ public class PersonelDetailsActivity extends AppCompatActivity {
                             if (extras != null) {
                                 Bitmap bitmapImg = MediaStore.Images.Media.getBitmap(getContentResolver(), result.getUri());
                                 profileUri = result.getUri();
-                                imgCancleprofile.setVisibility(View.VISIBLE);
+                                ivCancelProfile.setVisibility(View.VISIBLE);
                                 if (bitmapImg != null)
-                                    imgProfile.setImageBitmap(bitmapImg);
+                                    ivProfile.setImageBitmap(bitmapImg);
                                 compressBitmap(profileUri);
                             }
                         }
@@ -326,7 +331,7 @@ public class PersonelDetailsActivity extends AppCompatActivity {
         userRepository.updateUser(appSharedPreference.getUserId(), map, new CallBack() {
             @Override
             public void onSuccess(Object object) {
-                AppSingleton.getInstance(PersonelDetailsActivity.this).updateProgress(1, 1, 100);
+                AppSingleton.getInstance(UpdateBankDetailsActivity.this).updateProgress(1, 1, 100);
             }
 
             @Override

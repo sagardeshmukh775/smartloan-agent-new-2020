@@ -1,37 +1,18 @@
 package com.smartloan.smtrick.smart_loan.view.fragement;
 
-import android.app.Dialog;
-import android.content.Context;
 import android.content.Intent;
-import android.databinding.DataBindingUtil;
-import android.graphics.drawable.ColorDrawable;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.Window;
-import android.view.WindowManager;
-import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.ProgressBar;
-import android.widget.Spinner;
 import android.widget.TextView;
 
 import com.smartloan.smtrick.smart_loan.R;
-import com.smartloan.smtrick.smart_loan.databinding.ShareMessageDialogLayoutBinding;
-import com.smartloan.smtrick.smart_loan.exception.ExceptionUtil;
 import com.smartloan.smtrick.smart_loan.interfaces.OnFragmentInteractionListener;
 import com.smartloan.smtrick.smart_loan.preferences.AppSharedPreference;
-import com.smartloan.smtrick.smart_loan.utilities.Utility;
-import com.smartloan.smtrick.smart_loan.view.activite.MainActivity;
-import com.smartloan.smtrick.smart_loan.view.activite.PersonelDetailsActivity;
-
-import static com.smartloan.smtrick.smart_loan.utilities.Utility.formatString;
-import static com.smartloan.smtrick.smart_loan.utilities.Utility.removeDecimalPoint;
+import com.smartloan.smtrick.smart_loan.view.activite.UpdatePersonelDetailsActivity;
 
 public class PersonelDetailsFragment extends Fragment implements View.OnClickListener {
     // NOTE: Removed Some unwanted Boiler Plate Codes
@@ -84,7 +65,7 @@ public class PersonelDetailsFragment extends Fragment implements View.OnClickLis
     @Override
     public void onClick(View v) {
         if (v == imgEdit){
-            Intent intent = new Intent(getContext(), PersonelDetailsActivity.class);
+            Intent intent = new Intent(getContext(), UpdatePersonelDetailsActivity.class);
             startActivity(intent);
         }
     }
