@@ -56,8 +56,8 @@ public class UpdateBankDetailsActivity extends AppCompatActivity {
     Bitmap bitmap;
     UserRepository userRepository;
     private String profileImage = "";
-    private ImageView ivCancelProfile,ivProfile;
-    EditText etAccountName,etAccountNumber,etIfsc,etBranchName,etBankName;
+    private ImageView ivCancelProfile, ivProfile;
+    EditText etAccountName, etAccountNumber, etIfsc, etBranchName, etBankName;
     Button buttonsubmit;
     LinearLayout llKycDetailsLayout;
 
@@ -69,7 +69,7 @@ public class UpdateBankDetailsActivity extends AppCompatActivity {
         progressDialogClass = new ProgressDialogClass(this);
         userRepository = new UserRepositoryImpl(this);
 
-        Toolbar tb =findViewById(R.id.toolbar);
+        Toolbar tb = findViewById(R.id.toolbar);
         setSupportActionBar(tb);
         ActionBar ab = getSupportActionBar();
         if (ab != null) {
@@ -85,12 +85,21 @@ public class UpdateBankDetailsActivity extends AppCompatActivity {
             }
         });
 
+        etAccountName = findViewById(R.id.et_account_name);
+        etAccountNumber = findViewById(R.id.et_account_number);
+        etIfsc = findViewById(R.id.et_ifsc);
+        etBranchName = findViewById(R.id.et_branch_name);
+        etBankName = findViewById(R.id.et_bank_name);
+        ivCancelProfile = findViewById(R.id.iv_cancel_profile);
+        ivProfile = findViewById(R.id.ivProfile);
+        buttonsubmit = findViewById(R.id.buttonsubmit);
+        llKycDetailsLayout = findViewById(R.id.ll_kyc_details_layout);
+
         setProfileData();
         setUpdateClickListner();
         onClickSelectProfile();
         onClickCancelProfile();
     }//end of activity
-
 
 
     private void setProfileData() {
@@ -151,33 +160,32 @@ public class UpdateBankDetailsActivity extends AppCompatActivity {
         try {
 
 
-
-             if(user.getKycDetails()!=null){
-                 if (Utility.isEmptyOrNull(user.getKycDetails().getBankName())) {
-                     validationMessage = getString(R.string.bank_name);
-                     etBankName.setError(validationMessage);
-                     isValid = false;
-                 }
-                 if (Utility.isEmptyOrNull(user.getKycDetails().getBranchName())) {
-                     validationMessage = getString(R.string.branch_name);
-                     etBranchName.setError(validationMessage);
-                     isValid = false;
-                 }
-                 if (Utility.isEmptyOrNull(user.getKycDetails().getAccountNumber())) {
-                     validationMessage = getString(R.string.account_number);
-                     etAccountNumber.setError(validationMessage);
-                     isValid = false;
-                 }
-                 if (Utility.isEmptyOrNull(user.getKycDetails().getIfsc())) {
-                     validationMessage = getString(R.string.ifsc_error);
-                     etIfsc.setError(validationMessage);
-                     isValid = false;
-                 }
-             }else{
-                 validationMessage = getString(R.string.fill_kyc_details_error);
-                Utility.showLongMessage(this,validationMessage);
-                 isValid = false;
-             }
+            if (user.getKycDetails() != null) {
+                if (Utility.isEmptyOrNull(user.getKycDetails().getBankName())) {
+                    validationMessage = getString(R.string.bank_name);
+                    etBankName.setError(validationMessage);
+                    isValid = false;
+                }
+                if (Utility.isEmptyOrNull(user.getKycDetails().getBranchName())) {
+                    validationMessage = getString(R.string.branch_name);
+                    etBranchName.setError(validationMessage);
+                    isValid = false;
+                }
+                if (Utility.isEmptyOrNull(user.getKycDetails().getAccountNumber())) {
+                    validationMessage = getString(R.string.account_number);
+                    etAccountNumber.setError(validationMessage);
+                    isValid = false;
+                }
+                if (Utility.isEmptyOrNull(user.getKycDetails().getIfsc())) {
+                    validationMessage = getString(R.string.ifsc_error);
+                    etIfsc.setError(validationMessage);
+                    isValid = false;
+                }
+            } else {
+                validationMessage = getString(R.string.fill_kyc_details_error);
+                Utility.showLongMessage(this, validationMessage);
+                isValid = false;
+            }
 
         } catch (Exception e) {
             isValid = false;
