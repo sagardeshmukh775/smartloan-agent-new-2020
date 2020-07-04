@@ -116,7 +116,7 @@ public class PersonelDetailsActivity extends AppCompatActivity {
         else
             radioFemale.setChecked(true);
         if (!Utility.isEmptyOrNull(appSharedPreference.getProfileLargeImage())) {
-            Picasso.with(this).load(appSharedPreference.getProfileLargeImage()).resize(200, 200).centerCrop().placeholder(R.drawable.dummy_user_profile).into(activityUpdateProfileBinding.ivProfile);
+            Picasso.with(this).load(appSharedPreference.getProfileLargeImage()).resize(200, 200).centerCrop().placeholder(R.drawable.dummy_user_profile).into(imgProfile);
             imgProfile.setVisibility(View.VISIBLE);
         } else
             imgProfile.setImageResource(R.drawable.dummy_user_profile);

@@ -28,6 +28,7 @@ import com.smartloan.smtrick.smart_loan.interfaces.OnFragmentInteractionListener
 import com.smartloan.smtrick.smart_loan.preferences.AppSharedPreference;
 import com.smartloan.smtrick.smart_loan.utilities.Utility;
 import com.smartloan.smtrick.smart_loan.view.activite.MainActivity;
+import com.smartloan.smtrick.smart_loan.view.activite.PersonelDetailsActivity;
 
 import static com.smartloan.smtrick.smart_loan.utilities.Utility.formatString;
 import static com.smartloan.smtrick.smart_loan.utilities.Utility.removeDecimalPoint;
@@ -83,7 +84,7 @@ public class PersonelDetailsFragment extends Fragment implements View.OnClickLis
     @Override
     public void onClick(View v) {
         if (v == imgEdit){
-            Intent intent = new Intent(getContext(), MainActivity.class);
+            Intent intent = new Intent(getContext(), PersonelDetailsActivity.class);
             startActivity(intent);
         }
     }

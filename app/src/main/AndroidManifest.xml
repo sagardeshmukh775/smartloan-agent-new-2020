@@ -87,6 +87,10 @@
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden" />
         <activity android:name=".view.activite.LeedHistoryActivity" />
+
+        <activity android:name=".view.activite.PersonelDetailsActivity"></activity>
+
+
     </application>
 
 </manifest>
