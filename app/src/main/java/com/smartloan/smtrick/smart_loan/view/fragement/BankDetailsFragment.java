@@ -13,6 +13,7 @@ import com.smartloan.smtrick.smart_loan.R;
 import com.smartloan.smtrick.smart_loan.interfaces.OnFragmentInteractionListener;
 import com.smartloan.smtrick.smart_loan.preferences.AppSharedPreference;
 import com.smartloan.smtrick.smart_loan.view.activite.MainActivity;
+import com.smartloan.smtrick.smart_loan.view.activite.UpdateBankDetailsActivity;
 
 public class BankDetailsFragment extends Fragment implements View.OnClickListener {
     // NOTE: Removed Some unwanted Boiler Plate Codes
@@ -65,7 +66,7 @@ public class BankDetailsFragment extends Fragment implements View.OnClickListene
     @Override
     public void onClick(View v) {
         if (v == imgEdit) {
-            Intent intent = new Intent(getContext(), MainActivity.class);
+            Intent intent = new Intent(getContext(), UpdateBankDetailsActivity.class);
             startActivity(intent);
         }
     }
