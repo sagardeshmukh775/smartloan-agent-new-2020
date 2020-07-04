@@ -59,12 +59,12 @@ public class UpdateBankDetailsActivity extends AppCompatActivity {
     private ImageView ivCancelProfile, ivProfile;
     EditText etAccountName, etAccountNumber, etIfsc, etBranchName, etBankName;
     Button buttonsubmit;
-    LinearLayout llKycDetailsLayout;
+//    LinearLayout llKycDetailsLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_personel_details);
+        setContentView(R.layout.activity_update_bank_details);
         appSharedPreference = new AppSharedPreference(this);
         progressDialogClass = new ProgressDialogClass(this);
         userRepository = new UserRepositoryImpl(this);
@@ -93,7 +93,7 @@ public class UpdateBankDetailsActivity extends AppCompatActivity {
         ivCancelProfile = findViewById(R.id.iv_cancel_profile);
         ivProfile = findViewById(R.id.ivProfile);
         buttonsubmit = findViewById(R.id.buttonsubmit);
-        llKycDetailsLayout = findViewById(R.id.ll_kyc_details_layout);
+//        llKycDetailsLayout = findViewById(R.id.ll_kyc_details_layout);
 
         setProfileData();
         setUpdateClickListner();
@@ -111,14 +111,15 @@ public class UpdateBankDetailsActivity extends AppCompatActivity {
             ivProfile.setImageResource(R.drawable.dummy_user_profile);
 
         if (!Utility.isEmptyOrNull(appSharedPreference.getUserId())) {
-            llKycDetailsLayout.setVisibility(View.VISIBLE);
+//            llKycDetailsLayout.setVisibility(View.VISIBLE);
             etAccountName.setText(appSharedPreference.getAccountHolderName());
             etAccountNumber.setText(appSharedPreference.getAccountNumber());
             etIfsc.setText(appSharedPreference.getIfsc());
             etBranchName.setText(appSharedPreference.getBranchName());
             etBankName.setText(appSharedPreference.getBankName());
-        } else
-            llKycDetailsLayout.setVisibility(View.VISIBLE);
+        }
+//        else
+//            llKycDetailsLayout.setVisibility(View.VISIBLE);
 
     }
 
