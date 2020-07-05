@@ -87,6 +87,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:orientation="horizontal"
+                            android:padding="7dp"
                             android:weightSum="100">
 
                             <TextView
@@ -95,6 +96,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_weight="60"
                                 android:text="Name"
+                                android:gravity="center"
                                 android:textColor="@color/graycolor"
                                 android:textSize="16sp" />
 
@@ -104,6 +106,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_weight="40"
                                 android:text="Name"
+                                android:gravity="center"
                                 android:textColor="@color/white"
                                 android:textStyle="bold"
                                 android:textSize="16sp" />
@@ -114,6 +117,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:orientation="horizontal"
+                            android:padding="7dp"
                             android:weightSum="100">
 
                             <TextView
@@ -122,6 +126,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_weight="60"
                                 android:text="Mobile Number"
+                                android:gravity="center"
                                 android:textColor="@color/graycolor"
                                 android:textSize="16sp" />
 
@@ -131,6 +136,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_weight="40"
                                 android:text="number"
+                                android:gravity="center"
                                 android:textStyle="bold"
                                 android:textColor="@color/white"
                                 android:textSize="16sp" />
@@ -141,6 +147,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:orientation="horizontal"
+                            android:padding="7dp"
                             android:weightSum="100">
 
                             <TextView
@@ -149,6 +156,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_weight="60"
                                 android:text="Address"
+                                android:gravity="center"
                                 android:textColor="@color/graycolor"
                                 android:textSize="16sp" />
 
@@ -158,6 +166,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_weight="40"
                                 android:text="Address"
+                                android:gravity="center"
                                 android:textStyle="bold"
                                 android:textColor="@color/white"
                                 android:textSize="16sp" />
@@ -168,6 +177,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:orientation="horizontal"
+                            android:padding="7dp"
                             android:weightSum="100">
 
                             <TextView
@@ -176,6 +186,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_weight="60"
                                 android:text="Email Address"
+                                android:gravity="center"
                                 android:textColor="@color/graycolor"
                                 android:textSize="16sp" />
 
@@ -185,6 +196,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_weight="40"
                                 android:text="Email"
+                                android:gravity="center"
                                 android:textStyle="bold"
                                 android:textColor="@color/white"
                                 android:textSize="16sp" />
@@ -195,6 +207,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:orientation="horizontal"
+                            android:padding="7dp"
                             android:weightSum="100">
 
                             <TextView
@@ -203,6 +216,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_weight="60"
                                 android:text="Gender"
+                                android:gravity="center"
                                 android:textColor="@color/graycolor"
                                 android:textSize="16sp" />
 
@@ -212,6 +226,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_weight="40"
                                 android:text="Gender"
+                                android:gravity="center"
                                 android:textStyle="bold"
                                 android:textColor="@color/white"
                                 android:textSize="16sp" />
