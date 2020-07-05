@@ -122,6 +122,7 @@ public class UpdateBankDetailsActivity extends AppCompatActivity {
 
     private void setProfileData() {
 
+        profileImage = appSharedPreference.getProfileLargeImage();
         if (!Utility.isEmptyOrNull(appSharedPreference.getProfileLargeImage())) {
             Picasso.with(this).load(appSharedPreference.getProfileLargeImage()).resize(200, 200).centerCrop().placeholder(R.drawable.dummy_user_profile).into(ivProfile);
             ivCancelProfile.setVisibility(View.VISIBLE);
@@ -160,6 +161,7 @@ public class UpdateBankDetailsActivity extends AppCompatActivity {
 //        User user = new User();
         if (profileImage != null) {
             agent.setUserProfileImageLarge(profileImage);
+            agent.setUserProfileImageSmall(profileImage);
         }
 
         if (!Utility.isEmptyOrNull(appSharedPreference.getUserId())) {
