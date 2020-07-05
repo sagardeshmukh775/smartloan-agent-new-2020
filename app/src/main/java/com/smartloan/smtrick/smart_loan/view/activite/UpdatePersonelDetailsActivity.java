@@ -56,6 +56,7 @@ public class UpdatePersonelDetailsActivity extends AppCompatActivity {
     Bitmap bitmap;
     UserRepository userRepository;
     private String profileImage = "";
+    User agent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -94,13 +95,29 @@ public class UpdatePersonelDetailsActivity extends AppCompatActivity {
         imgCancleprofile = findViewById(R.id.iv_cancel_profile);
 
 
-
+        readUser();
         setProfileData();
         setUpdateClickListner();
         onClickSelectProfile();
         onClickCancelProfile();
     }//end of activity
 
+
+    private void readUser() {
+        userRepository.readUserByUserId(appSharedPreference.getUserId(), new CallBack() {
+            @Override
+            public void onSuccess(Object object) {
+                if (object != null) {
+                    agent = (User) object;
+                }
+            }
+
+            @Override
+            public void onError(Object object) {
+
+            }
+        });
+    }
 
     private void setProfileData() {
         edtName.setText(appSharedPreference.getUserName());
@@ -131,25 +148,25 @@ public class UpdatePersonelDetailsActivity extends AppCompatActivity {
     }
 
     private void validateAndCreateUser() {
-        User user = fillUserModel();
+        User user = fillUserModel(agent);
         if (validate(user))
             updateUser(user);
     }
 
-    private User fillUserModel() {
-        User user = new User();
-        user.setUserName(edtName.getText().toString());
-        user.setMobileNumber(edtMobile.getText().toString());
-        user.setAddress(edtAddress.getText().toString());
-        user.setEmail(edtEmail.getText().toString());
-        user.setUserProfileImageLarge(profileImage);
-        user.setUserProfileImageSmall(profileImage);
+    private User fillUserModel(User aget) {
+//        User user = new User();
+        aget.setUserName(edtName.getText().toString());
+        aget.setMobileNumber(edtMobile.getText().toString());
+        aget.setAddress(edtAddress.getText().toString());
+        aget.setEmail(edtEmail.getText().toString());
+        aget.setUserProfileImageLarge(profileImage);
+        aget.setUserProfileImageSmall(profileImage);
         if (radioMale.isChecked())
-            user.setGender(MALE);
+            aget.setGender(MALE);
         else
-            user.setGender(FEMALE);
+            aget.setGender(FEMALE);
 
-        return user;
+        return aget;
     }
 
     private boolean validate(User user) {
