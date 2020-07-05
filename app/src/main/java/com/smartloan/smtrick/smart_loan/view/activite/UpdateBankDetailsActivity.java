@@ -59,6 +59,7 @@ public class UpdateBankDetailsActivity extends AppCompatActivity {
     private ImageView ivCancelProfile, ivProfile;
     EditText etAccountName, etAccountNumber, etIfsc, etBranchName, etBankName;
     Button buttonsubmit;
+    User agent;
 //    LinearLayout llKycDetailsLayout;
 
     @Override
@@ -95,11 +96,28 @@ public class UpdateBankDetailsActivity extends AppCompatActivity {
         buttonsubmit = findViewById(R.id.buttonsubmit);
 //        llKycDetailsLayout = findViewById(R.id.ll_kyc_details_layout);
 
+        readUser();
         setProfileData();
         setUpdateClickListner();
         onClickSelectProfile();
         onClickCancelProfile();
     }//end of activity
+
+    private void readUser() {
+        userRepository.readUserByUserId(appSharedPreference.getUserId(), new CallBack() {
+            @Override
+            public void onSuccess(Object object) {
+                if (object != null) {
+                    agent = (User) object;
+                }
+            }
+
+            @Override
+            public void onError(Object object) {
+
+            }
+        });
+    }
 
 
     private void setProfileData() {
@@ -133,15 +151,15 @@ public class UpdateBankDetailsActivity extends AppCompatActivity {
     }
 
     private void validateAndCreateUser() {
-        User user = fillUserModel();
+        User user = fillUserModel(agent);
         if (validate(user))
             updateUser(user);
     }
 
-    private User fillUserModel() {
-        User user = new User();
+    private User fillUserModel(User agent) {
+//        User user = new User();
 
-        user.setUserProfileImageLarge(profileImage);
+        agent.setUserProfileImageLarge(profileImage);
 
         if (!Utility.isEmptyOrNull(appSharedPreference.getUserId())) {
             KYCDetails kycDetails = new KYCDetails();
@@ -150,9 +168,9 @@ public class UpdateBankDetailsActivity extends AppCompatActivity {
             kycDetails.setIfsc(etIfsc.getText().toString());
             kycDetails.setBranchName(etBranchName.getText().toString());
             kycDetails.setBankName(etBankName.getText().toString());
-            user.setKycDetails(kycDetails);
+            agent.setKycDetails(kycDetails);
         }
-        return user;
+        return agent;
     }
 
     private boolean validate(User user) {
