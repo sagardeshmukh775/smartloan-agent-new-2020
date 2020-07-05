@@ -159,8 +159,11 @@ public class UpdatePersonelDetailsActivity extends AppCompatActivity {
         aget.setMobileNumber(edtMobile.getText().toString());
         aget.setAddress(edtAddress.getText().toString());
         aget.setEmail(edtEmail.getText().toString());
-        aget.setUserProfileImageLarge(profileImage);
-        aget.setUserProfileImageSmall(profileImage);
+        if (profileImage != null) {
+            aget.setUserProfileImageLarge(profileImage);
+            aget.setUserProfileImageSmall(profileImage);
+        }
+
         if (radioMale.isChecked())
             aget.setGender(MALE);
         else

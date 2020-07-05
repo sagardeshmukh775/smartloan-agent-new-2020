@@ -158,8 +158,9 @@ public class UpdateBankDetailsActivity extends AppCompatActivity {
 
     private User fillUserModel(User agent) {
 //        User user = new User();
-
-        agent.setUserProfileImageLarge(profileImage);
+        if (profileImage != null) {
+            agent.setUserProfileImageLarge(profileImage);
+        }
 
         if (!Utility.isEmptyOrNull(appSharedPreference.getUserId())) {
             KYCDetails kycDetails = new KYCDetails();
