@@ -45,26 +45,6 @@
                         android:gravity="center_horizontal"
                         android:orientation="vertical">
 
-                        <FrameLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="221dp">
-
-                            <ImageView
-                                android:id="@+id/coverphoto"
-                                android:layout_width="match_parent"
-                                android:layout_height="160dp"
-                                android:scaleType="fitXY"
-                                android:src="@drawable/cover" />
-
-                            <ImageView
-                                android:id="@+id/editcoverphoto"
-                                android:layout_width="30dp"
-                                android:layout_height="30dp"
-                                android:scaleType="fitXY"
-                                android:layout_gravity="right"
-                                android:layout_margin="10dp"
-                                android:src="@drawable/photo" />
-
                             <RelativeLayout
                                 android:layout_width="125dp"
                                 android:layout_height="wrap_content"
@@ -90,8 +70,6 @@
                                     android:visibility="gone" />
 
                             </RelativeLayout>
-
-                        </FrameLayout>
 
                         <LinearLayout
                             android:id="@+id/ll_name_layout"
