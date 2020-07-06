@@ -12,7 +12,9 @@ import android.widget.TextView;
 import com.smartloan.smtrick.smart_loan.R;
 import com.smartloan.smtrick.smart_loan.interfaces.OnFragmentInteractionListener;
 import com.smartloan.smtrick.smart_loan.preferences.AppSharedPreference;
+import com.smartloan.smtrick.smart_loan.utilities.Utility;
 import com.smartloan.smtrick.smart_loan.view.activite.UpdatePersonelDetailsActivity;
+import com.squareup.picasso.Picasso;
 
 public class PersonelDetailsFragment extends Fragment implements View.OnClickListener {
     // NOTE: Removed Some unwanted Boiler Plate Codes
@@ -59,6 +61,7 @@ public class PersonelDetailsFragment extends Fragment implements View.OnClickLis
         txtadress.setText(appSharedPreference.getAddress());
         txtemailaddress.setText(appSharedPreference.getEmaiId());
         txtgender.setText(appSharedPreference.getGender());
+
     }
 
 

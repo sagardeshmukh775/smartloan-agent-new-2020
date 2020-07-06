@@ -12,8 +12,10 @@ import android.widget.TextView;
 import com.smartloan.smtrick.smart_loan.R;
 import com.smartloan.smtrick.smart_loan.interfaces.OnFragmentInteractionListener;
 import com.smartloan.smtrick.smart_loan.preferences.AppSharedPreference;
+import com.smartloan.smtrick.smart_loan.utilities.Utility;
 import com.smartloan.smtrick.smart_loan.view.activite.MainActivity;
 import com.smartloan.smtrick.smart_loan.view.activite.UpdateBankDetailsActivity;
+import com.squareup.picasso.Picasso;
 
 public class BankDetailsFragment extends Fragment implements View.OnClickListener {
     // NOTE: Removed Some unwanted Boiler Plate Codes
