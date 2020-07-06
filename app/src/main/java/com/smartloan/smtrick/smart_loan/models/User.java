@@ -17,6 +17,7 @@ public class User implements Serializable {
     private String aadhaarNumber;
     private String userProfileImageLarge;
     private String userProfileImageSmall;
+    private String userCoverImage;
     private String userId;
     private String registrationToken;
     private Boolean isTermsAndConditionsAccepted, isBlocked;
@@ -220,6 +221,14 @@ public class User implements Serializable {
         this.kycDetails = kycDetails;
     }
 
+    public String getUserCoverImage() {
+        return userCoverImage;
+    }
+
+    public void setUserCoverImage(String userCoverImage) {
+        this.userCoverImage = userCoverImage;
+    }
+
     @Exclude
     public Map<String, Object> toMap() {
         HashMap<String, Object> result = new HashMap<>();
@@ -250,6 +259,7 @@ public class User implements Serializable {
         result.put("gender", gender);
         result.put("userProfileImageLarge", userProfileImageLarge);
         result.put("userProfileImageSmall", userProfileImageSmall);
+        result.put("userCoverImage", userCoverImage);
         result.put("kycDetails", getKycDetails());
         return result;
     }
