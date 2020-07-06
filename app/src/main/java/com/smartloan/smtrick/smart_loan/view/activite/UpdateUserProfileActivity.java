@@ -16,6 +16,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 
 import com.smartloan.smtrick.smart_loan.R;
@@ -81,6 +82,7 @@ public class UpdateUserProfileActivity extends AppCompatActivity implements OnFr
         appSharedPreference = new AppSharedPreference(this);
         leedRepository = new LeedRepositoryImpl();
         userRepository = new UserRepositoryImpl(this);
+        progressDialogClass = new ProgressDialogClass(this);
 
         Toolbar tb = findViewById(R.id.toolbar);
 //        setSupportActionBar(tb);
@@ -114,7 +116,7 @@ public class UpdateUserProfileActivity extends AppCompatActivity implements OnFr
         txtAgentAddress = findViewById(R.id.address);
         viewPager = findViewById(R.id.viewPager);
         imgEditCover = findViewById(R.id.editcoverphoto);
-        imgEditCover = findViewById(R.id.coverphoto);
+        imgCover = findViewById(R.id.coverphoto);
 
         viewPagerAdapter = new ViewPagerAdapter(getSupportFragmentManager());
         viewPagerAdapter.addFragement(new PersonelDetailsFragment(), "Personel Details");
@@ -184,7 +186,7 @@ public class UpdateUserProfileActivity extends AppCompatActivity implements OnFr
 
     @Override
     public void onClick(View v) {
-        if (v == imgCoverImage){
+        if (v == imgEditCover){
             startCropImageActivity();
         }
     }
@@ -253,6 +255,7 @@ public class UpdateUserProfileActivity extends AppCompatActivity implements OnFr
 
     void uploadImage(Bitmap bitmap, String storagePath) {
         try {
+            progressDialogClass.showDialog(getMessage(R.string.loading), getMessage(R.string.please_wait));
             AppSingleton.getInstance(this).setNotificationManager();
             InputStream imageInputStream = Utility.returnInputStreamFromBitmap(bitmap);
             StorageService.uploadImageStreamToFirebaseStorage(imageInputStream, storagePath, new CallBack() {
@@ -268,10 +271,14 @@ public class UpdateUserProfileActivity extends AppCompatActivity implements OnFr
                             ExceptionUtil.logException(e);
                         }
                         updateUserData(downloadUrlLarge);
+
+                        progressDialogClass.dismissDialog();
                     }
                 }
 
                 public void onError(Object object) {
+
+                    progressDialogClass.dismissDialog();
                 }
             });
         } catch (Exception e) {
@@ -287,6 +294,7 @@ public class UpdateUserProfileActivity extends AppCompatActivity implements OnFr
             @Override
             public void onSuccess(Object object) {
                 AppSingleton.getInstance(UpdateUserProfileActivity.this).updateProgress(1, 1, 100);
+                Toast.makeText(UpdateUserProfileActivity.this, "Coover Photo Uploaded", Toast.LENGTH_SHORT).show();
             }
 
             @Override
