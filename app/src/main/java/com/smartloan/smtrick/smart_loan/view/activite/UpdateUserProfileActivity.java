@@ -66,6 +66,7 @@ public class UpdateUserProfileActivity extends AppCompatActivity implements OnFr
     UserRepository userRepository;
 //    Toolbar tb;
     private String profileImage = "";
+    private String coverImage = "";
     AppSharedPreference appSharedPreference;
     private ProgressDialogClass progressDialogClass;
     private Uri profileUri;
@@ -106,8 +107,6 @@ public class UpdateUserProfileActivity extends AppCompatActivity implements OnFr
 
         leedsModelArrayList = new ArrayList<>();
 
-
-        imgCoverImage = findViewById(R.id.coverphoto);
         imgProfileImage = findViewById(R.id.profile_photo);
         txtTotalLeeds = findViewById(R.id.total_lead);
         txtTotalEarning = findViewById(R.id.total_earning);
@@ -164,12 +163,19 @@ public class UpdateUserProfileActivity extends AppCompatActivity implements OnFr
         txtAgentId.setText(appSharedPreference.getAgeniId());
 
         profileImage = appSharedPreference.getProfileLargeImage();
+        coverImage = appSharedPreference.getCoverLargeImage();
 
         if (!Utility.isEmptyOrNull(appSharedPreference.getProfileLargeImage())) {
             Picasso.with(this).load(appSharedPreference.getProfileLargeImage()).resize(200, 200).centerCrop().placeholder(R.drawable.dummy_user_profile).into(imgProfileImage);
             imgProfileImage.setVisibility(View.VISIBLE);
         } else
             imgProfileImage.setImageResource(R.drawable.dummy_user_profile);
+
+        if (!Utility.isEmptyOrNull(appSharedPreference.getCoverLargeImage())) {
+            Picasso.with(this).load(appSharedPreference.getCoverLargeImage()).resize(200, 200).centerCrop().placeholder(R.drawable.dummy_user_profile).into(imgCover);
+            imgCover.setVisibility(View.VISIBLE);
+        } else
+            imgCover.setImageResource(R.drawable.cover);
 
 
     }

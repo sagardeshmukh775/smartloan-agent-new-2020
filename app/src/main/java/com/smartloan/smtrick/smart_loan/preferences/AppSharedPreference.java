@@ -20,6 +20,7 @@ public class AppSharedPreference {
     private String AADHAAR_NO = "AADHAAR_NO";
     private String PROFILE_SMALL_IMAGE = "PROFILE_SMALL_IMAGE";
     private String PROFILE_LARGE_IMAGE = "PROFILE_LARGE_IMAGE";
+    private String COVER_LARGE_IMAGE = "COVER_LARGE_IMAGE";
     private String REG_ID = "REG_ID";
     private String IS_USER_LOGGED_IN = "IS_USER_LOGGED_IN";
     private String USER_ID = "USER_ID";
@@ -59,6 +60,8 @@ public class AppSharedPreference {
                 editor.putString(PROFILE_SMALL_IMAGE, (user.getUserProfileImageSmall()));
             if (user.getUserProfileImageLarge() != null)
                 editor.putString(PROFILE_LARGE_IMAGE, (user.getUserProfileImageLarge()));
+            if (user.getUserCoverImage() != null)
+                editor.putString(COVER_LARGE_IMAGE, (user.getUserCoverImage()));
             if (user.getUserId() != null)
                 editor.putString(USER_ID, (user.getUserId()));
             if (user.getRegistrationToken() != null)
@@ -141,6 +144,11 @@ public class AppSharedPreference {
     public String getProfileLargeImage() {
         return (sharedPref.getString(PROFILE_LARGE_IMAGE, ""));
     }
+
+    public String getCoverLargeImage() {
+        return (sharedPref.getString(COVER_LARGE_IMAGE, ""));
+    }
+
 
     public String getAccountHolderName() {
         return (sharedPref.getString(ACCOUNT_HOLDER_NAME, ""));
