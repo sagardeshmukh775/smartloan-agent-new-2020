@@ -172,7 +172,7 @@ public class UpdateUserProfileActivity extends AppCompatActivity implements OnFr
             imgProfileImage.setImageResource(R.drawable.dummy_user_profile);
 
         if (!Utility.isEmptyOrNull(appSharedPreference.getCoverLargeImage())) {
-            Picasso.with(this).load(appSharedPreference.getCoverLargeImage()).resize(200, 200).centerCrop().placeholder(R.drawable.dummy_user_profile).into(imgCover);
+            Picasso.with(this).load(appSharedPreference.getCoverLargeImage()).resize(200, 200).centerCrop().placeholder(R.drawable.cover).into(imgCover);
             imgCover.setVisibility(View.VISIBLE);
         } else
             imgCover.setImageResource(R.drawable.cover);

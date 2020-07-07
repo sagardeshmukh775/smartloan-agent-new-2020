@@ -311,7 +311,7 @@
                                         android:id="@+id/buttonVerifyOtp"
                                         style="@style/FormButton"
                                         android:layout_marginTop="20dp"
-                                        android:visibility="gone"
+                                        android:visibility="visible"
                                         android:onClick="verifyOtp"
                                         android:text="Verify OTP" />
                                 </LinearLayout>

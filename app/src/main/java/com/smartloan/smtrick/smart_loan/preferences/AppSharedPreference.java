@@ -17,6 +17,7 @@ public class AppSharedPreference {
     private String PASSWORD = "PASSWORD";
     private String EMAIL_ID = "EMAIL_ID";
     private String MOBILE_NO = "MOBILE_NO";
+    private String WHATSAPP_NO = "WHATSAPP_NO";
     private String AADHAAR_NO = "AADHAAR_NO";
     private String PROFILE_SMALL_IMAGE = "PROFILE_SMALL_IMAGE";
     private String PROFILE_LARGE_IMAGE = "PROFILE_LARGE_IMAGE";
@@ -54,6 +55,8 @@ public class AppSharedPreference {
                 editor.putString(REG_ID, (user.getRegId()));
             if (user.getMobileNumber() != null)
                 editor.putString(MOBILE_NO, (user.getMobileNumber()));
+            if (user.getWhatsappNumber() != null)
+                editor.putString(WHATSAPP_NO, (user.getWhatsappNumber()));
             if (user.getAadhaarNumber() != null)
                 editor.putString(AADHAAR_NO, (user.getAadhaarNumber()));
             if (user.getUserProfileImageSmall() != null)
@@ -131,6 +134,10 @@ public class AppSharedPreference {
 
     public String getMobileNo() {
         return (sharedPref.getString(MOBILE_NO, ""));
+    }
+
+    public String getWhatsappNo() {
+        return (sharedPref.getString(WHATSAPP_NO, ""));
     }
 
     public String getAadhaarNo() {

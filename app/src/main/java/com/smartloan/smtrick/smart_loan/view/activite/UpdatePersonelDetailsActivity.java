@@ -46,7 +46,7 @@ import static com.smartloan.smtrick.smart_loan.constants.Constant.USER_PROFILE_P
 public class UpdatePersonelDetailsActivity extends AppCompatActivity {
     //    ActivityUpdateProfileBinding activityUpdateProfileBinding;
     ImageView imgProfile,imgCancleprofile;
-    EditText edtName, edtMobile, edtAddress, edtEmail;
+    EditText edtName, edtMobile, edtAddress, edtEmail, edtWhatsapp;
     RadioGroup GroupGender;
     RadioButton radiogender, radioMale, radioFemale;
     Button btnUpdate;
@@ -85,6 +85,7 @@ public class UpdatePersonelDetailsActivity extends AppCompatActivity {
 
         edtName = findViewById(R.id.edittextname);
         edtMobile = findViewById(R.id.edittextmobile);
+        edtWhatsapp = findViewById(R.id.edittextwhatsapp);
         edtAddress = findViewById(R.id.edittextaddress);
         edtEmail = findViewById(R.id.edittextemailid);
         GroupGender = findViewById(R.id.radiogender);
@@ -123,6 +124,7 @@ public class UpdatePersonelDetailsActivity extends AppCompatActivity {
         edtName.setText(appSharedPreference.getUserName());
         edtAddress.setText(appSharedPreference.getAddress());
         edtMobile.setText(appSharedPreference.getMobileNo());
+        edtWhatsapp.setText(appSharedPreference.getWhatsappNo());
         edtEmail.setText(appSharedPreference.getEmaiId());
         profileImage = appSharedPreference.getProfileLargeImage();
         if (appSharedPreference.getGender().equalsIgnoreCase(MALE))
@@ -159,6 +161,7 @@ public class UpdatePersonelDetailsActivity extends AppCompatActivity {
         aget.setMobileNumber(edtMobile.getText().toString());
         aget.setAddress(edtAddress.getText().toString());
         aget.setEmail(edtEmail.getText().toString());
+        aget.setWhatsappNumber(edtWhatsapp.getText().toString());
         if (profileImage != null) {
             aget.setUserProfileImageLarge(profileImage);
             aget.setUserProfileImageSmall(profileImage);

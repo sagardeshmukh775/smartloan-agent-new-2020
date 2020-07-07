@@ -307,7 +307,7 @@ public class Registeractivity extends AppCompatActivity implements
                         progressDialogClass.dismissDialog();
                         tvResendOtp.setVisibility(View.GONE);
                         ll_otp_layout.setVisibility(View.GONE);
-                        buttonVerifyOtp.setVisibility(View.GONE);
+                        buttonVerifyOtp.setVisibility(View.VISIBLE);
                         Utility.showLongMessage(Registeractivity.this, "Failed to send OTP.");
                     }
 

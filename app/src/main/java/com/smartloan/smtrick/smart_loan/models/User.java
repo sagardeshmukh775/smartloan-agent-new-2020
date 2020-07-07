@@ -14,6 +14,7 @@ public class User implements Serializable {
     private String password;
     private String email;
     private String mobileNumber;
+    private String whatsappNumber;
     private String aadhaarNumber;
     private String userProfileImageLarge;
     private String userProfileImageSmall;
@@ -229,6 +230,14 @@ public class User implements Serializable {
         this.userCoverImage = userCoverImage;
     }
 
+    public String getWhatsappNumber() {
+        return whatsappNumber;
+    }
+
+    public void setWhatsappNumber(String whatsappNumber) {
+        this.whatsappNumber = whatsappNumber;
+    }
+
     @Exclude
     public Map<String, Object> toMap() {
         HashMap<String, Object> result = new HashMap<>();
@@ -236,6 +245,7 @@ public class User implements Serializable {
         result.put("userName", userName);
         result.put("email", email);
         result.put("mobileNumber", mobileNumber);
+        result.put("whatsappNumber", whatsappNumber);
         result.put("userId", userId);
         result.put("registrationToken", registrationToken);
         result.put("termsAndConditionsAccepted", true);
@@ -254,6 +264,7 @@ public class User implements Serializable {
         result.put("userName", userName);
         result.put("email", email);
         result.put("mobileNumber", mobileNumber);
+        result.put("whatsappNumber", whatsappNumber);
         result.put("updatedDateTime", getUpdatedDateTime());
         result.put("address", address);
         result.put("gender", gender);

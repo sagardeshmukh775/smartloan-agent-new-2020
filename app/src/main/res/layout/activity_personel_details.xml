@@ -108,6 +108,24 @@
                         </LinearLayout>
 
                         <LinearLayout
+                            android:id="@+id/ll_whatsapp_number"
+                            style="@style/InputBackgroundLayout"
+                            android:layout_marginTop="30dp">
+
+                            <ImageView
+                                style="@style/InputIcon"
+                                android:contentDescription="@string/app_name"
+                                android:src="@drawable/cellphone_android" />
+
+                            <EditText
+                                android:id="@+id/edittextwhatsapp"
+                                style="@style/InputEditText"
+                                android:hint="whatsapp Number"
+                                android:inputType="number"
+                                android:maxLength="10" />
+                        </LinearLayout>
+
+                        <LinearLayout
                             android:id="@+id/ll_address_layout"
                             style="@style/InputBackgroundLayout"
                             android:layout_marginTop="30dp">

@@ -56,7 +56,7 @@ public class UpdateBankDetailsActivity extends AppCompatActivity {
     Bitmap bitmap;
     UserRepository userRepository;
     private String profileImage = "";
-    private ImageView ivCancelProfile, ivProfile;
+//    private ImageView ivCancelProfile, ivProfile;
     EditText etAccountName, etAccountNumber, etIfsc, etBranchName, etBankName;
     Button buttonsubmit;
     User agent;
@@ -91,8 +91,8 @@ public class UpdateBankDetailsActivity extends AppCompatActivity {
         etIfsc = findViewById(R.id.et_ifsc);
         etBranchName = findViewById(R.id.et_branch_name);
         etBankName = findViewById(R.id.et_bank_name);
-        ivCancelProfile = findViewById(R.id.iv_cancel_profile);
-        ivProfile = findViewById(R.id.ivProfile);
+//        ivCancelProfile = findViewById(R.id.iv_cancel_profile);
+//        ivProfile = findViewById(R.id.ivProfile);
         buttonsubmit = findViewById(R.id.buttonsubmit);
 //        llKycDetailsLayout = findViewById(R.id.ll_kyc_details_layout);
 
@@ -123,11 +123,11 @@ public class UpdateBankDetailsActivity extends AppCompatActivity {
     private void setProfileData() {
 
         profileImage = appSharedPreference.getProfileLargeImage();
-        if (!Utility.isEmptyOrNull(appSharedPreference.getProfileLargeImage())) {
-            Picasso.with(this).load(appSharedPreference.getProfileLargeImage()).resize(200, 200).centerCrop().placeholder(R.drawable.dummy_user_profile).into(ivProfile);
-            ivCancelProfile.setVisibility(View.VISIBLE);
-        } else
-            ivProfile.setImageResource(R.drawable.dummy_user_profile);
+//        if (!Utility.isEmptyOrNull(appSharedPreference.getProfileLargeImage())) {
+//            Picasso.with(this).load(appSharedPreference.getProfileLargeImage()).resize(200, 200).centerCrop().placeholder(R.drawable.dummy_user_profile).into(ivProfile);
+//            ivCancelProfile.setVisibility(View.VISIBLE);
+//        } else
+//            ivProfile.setImageResource(R.drawable.dummy_user_profile);
 
         if (!Utility.isEmptyOrNull(appSharedPreference.getUserId())) {
 //            llKycDetailsLayout.setVisibility(View.VISIBLE);
@@ -247,25 +247,25 @@ public class UpdateBankDetailsActivity extends AppCompatActivity {
     }
 
     private void onClickSelectProfile() {
-        ivProfile.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startCropImageActivity();
-            }
-        });
+//        ivProfile.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                startCropImageActivity();
+//            }
+//        });
     }
 
     private void onClickCancelProfile() {
-        ivCancelProfile.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                ivProfile.setImageResource(R.drawable.dummy_user_profile);
-                profileUri = null;
-                bitmap = null;
-                profileImage = "";
-                ivCancelProfile.setVisibility(View.GONE);
-            }
-        });
+//        ivCancelProfile.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                ivProfile.setImageResource(R.drawable.dummy_user_profile);
+//                profileUri = null;
+//                bitmap = null;
+//                profileImage = "";
+//                ivCancelProfile.setVisibility(View.GONE);
+//            }
+//        });
     }
 
     //Start crop image activity for the given image.
@@ -293,9 +293,9 @@ public class UpdateBankDetailsActivity extends AppCompatActivity {
                             if (extras != null) {
                                 Bitmap bitmapImg = MediaStore.Images.Media.getBitmap(getContentResolver(), result.getUri());
                                 profileUri = result.getUri();
-                                ivCancelProfile.setVisibility(View.VISIBLE);
+//                                ivCancelProfile.setVisibility(View.VISIBLE);
                                 if (bitmapImg != null)
-                                    ivProfile.setImageBitmap(bitmapImg);
+//                                    ivProfile.setImageBitmap(bitmapImg);
                                 compressBitmap(profileUri);
                             }
                         }
