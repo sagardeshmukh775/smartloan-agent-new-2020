@@ -200,6 +200,14 @@ public class AppSharedPreference {
         }
         editor.apply();
     }
+    public void setUserCoverImages(String imagePath) {
+        editor = sharedPref.edit();
+        if (imagePath != null) {
+            editor.putString(COVER_LARGE_IMAGE, imagePath);
+
+        }
+        editor.apply();
+    }
 
     public String getUserId() {
         return (sharedPref.getString(USER_ID, ""));

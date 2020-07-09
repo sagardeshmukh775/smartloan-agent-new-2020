@@ -269,7 +269,7 @@ public class UpdateUserProfileActivity extends AppCompatActivity implements OnFr
                     if (object != null) {
                         String downloadUrlLarge = (String) object;
                         try {
-                            appSharedPreference.setUserProfileImages(downloadUrlLarge);
+                            appSharedPreference.setUserCoverImages(downloadUrlLarge);
                             Intent broadcastIntent = new Intent();
                             broadcastIntent.setAction(MainActivity.ImageUploadReceiver.PROCESS_RESPONSE);
                             LocalBroadcastManager.getInstance(getApplicationContext()).sendBroadcast(broadcastIntent);
