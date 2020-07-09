@@ -69,7 +69,7 @@ public class UpdateUserProfileActivity extends AppCompatActivity implements OnFr
     private String coverImage = "";
     AppSharedPreference appSharedPreference;
     private ProgressDialogClass progressDialogClass;
-    private Uri profileUri;
+    private Uri coverUri;
     Bitmap bitmap;
     ViewPagerAdapter viewPagerAdapter;
     LeedRepository leedRepository;
@@ -221,11 +221,11 @@ public class UpdateUserProfileActivity extends AppCompatActivity implements OnFr
                             Bundle extras = imageData.getExtras();
                             if (extras != null) {
                                 Bitmap bitmapImg = MediaStore.Images.Media.getBitmap(getContentResolver(), result.getUri());
-                                profileUri = result.getUri();
+                                coverUri = result.getUri();
 //                                imgCancleprofile.setVisibility(View.VISIBLE);
                                 if (bitmapImg != null)
                                     imgCover.setImageBitmap(bitmapImg);
-                                compressBitmap(profileUri);
+                                compressBitmap(coverUri);
                             }
                         }
                     } else if (resultCode == CropImage.CROP_IMAGE_ACTIVITY_RESULT_ERROR_CODE) {
@@ -247,7 +247,7 @@ public class UpdateUserProfileActivity extends AppCompatActivity implements OnFr
                 if (object != null) {
                     bitmap = (Bitmap) object;
 
-                    if (profileUri != null && bitmap != null) {
+                    if (coverUri != null && bitmap != null) {
                         uploadImage(bitmap, USER_PROFILE_PATH);
                     }
                 }
