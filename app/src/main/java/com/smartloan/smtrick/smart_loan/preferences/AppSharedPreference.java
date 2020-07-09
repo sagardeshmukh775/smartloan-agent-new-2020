@@ -37,6 +37,8 @@ public class AppSharedPreference {
     private String BRANCH_NAME = "BRANCH_NAME";
     private String IFSC = "IFSC";
     private String BANK_NAME = "BANK_NAME";
+    private String STATE = "STATE";
+    private String CITY = "CITY";
 
 
     public AppSharedPreference(Context context) {
@@ -77,6 +79,10 @@ public class AppSharedPreference {
                 editor.putString(GENDER, (user.getGender()));
             if (user.getAgentId() != null)
                 editor.putString(AGENT_ID, (user.getAgentId()));
+            if (user.getState() != null)
+                editor.putString(STATE, (user.getState()));
+            if (user.getCity() != null)
+                editor.putString(CITY, (user.getCity()));
             if (user.getKycDetails() != null) {
                 if (user.getKycDetails().getAccountHolderName() != null)
                     editor.putString(ACCOUNT_HOLDER_NAME, user.getKycDetails().getAccountHolderName());
@@ -176,6 +182,15 @@ public class AppSharedPreference {
     public String getBankName() {
         return (sharedPref.getString(BANK_NAME, ""));
     }
+
+    public String getCity() {
+        return (sharedPref.getString(CITY, ""));
+    }
+
+    public String getState() {
+        return (sharedPref.getString(STATE, ""));
+    }
+
 
     public void setUserProfileImages(String imagePath) {
         editor = sharedPref.edit();

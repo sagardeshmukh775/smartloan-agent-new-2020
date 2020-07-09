@@ -46,7 +46,7 @@ import static com.smartloan.smtrick.smart_loan.constants.Constant.USER_PROFILE_P
 public class UpdatePersonelDetailsActivity extends AppCompatActivity {
     //    ActivityUpdateProfileBinding activityUpdateProfileBinding;
     ImageView imgProfile,imgCancleprofile;
-    EditText edtName, edtMobile, edtAddress, edtEmail, edtWhatsapp;
+    EditText edtName, edtMobile, edtAddress, edtEmail, edtWhatsapp,edtState,edtCity;
     RadioGroup GroupGender;
     RadioButton radiogender, radioMale, radioFemale;
     Button btnUpdate;
@@ -88,6 +88,8 @@ public class UpdatePersonelDetailsActivity extends AppCompatActivity {
         edtWhatsapp = findViewById(R.id.edittextwhatsapp);
         edtAddress = findViewById(R.id.edittextaddress);
         edtEmail = findViewById(R.id.edittextemailid);
+        edtState = findViewById(R.id.edittextstate);
+        edtCity = findViewById(R.id.edittextcity);
         GroupGender = findViewById(R.id.radiogender);
         radioMale = findViewById(R.id.radiomale);
         radioFemale = findViewById(R.id.radiofemale);
@@ -126,6 +128,8 @@ public class UpdatePersonelDetailsActivity extends AppCompatActivity {
         edtMobile.setText(appSharedPreference.getMobileNo());
         edtWhatsapp.setText(appSharedPreference.getWhatsappNo());
         edtEmail.setText(appSharedPreference.getEmaiId());
+        edtState.setText(appSharedPreference.getState());
+        edtCity.setText(appSharedPreference.getCity());
         profileImage = appSharedPreference.getProfileLargeImage();
         if (appSharedPreference.getGender().equalsIgnoreCase(MALE))
             radioMale.setChecked(true);
@@ -162,6 +166,8 @@ public class UpdatePersonelDetailsActivity extends AppCompatActivity {
         aget.setAddress(edtAddress.getText().toString());
         aget.setEmail(edtEmail.getText().toString());
         aget.setWhatsappNumber(edtWhatsapp.getText().toString());
+        aget.setState(edtState.getText().toString());
+        aget.setCity(edtCity.getText().toString());
         if (profileImage != null) {
             aget.setUserProfileImageLarge(profileImage);
             aget.setUserProfileImageSmall(profileImage);

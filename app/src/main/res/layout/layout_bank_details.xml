@@ -87,7 +87,6 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:orientation="horizontal"
-                            android:layout_gravity="center"
                             android:padding="7dp"
                             android:gravity="center"
                             android:weightSum="100">
@@ -96,9 +95,8 @@
                                 android:id="@+id/txtbankname"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_weight="60"
+                                android:layout_weight="50"
                                 android:text="Bank Name"
-                                android:gravity="center"
                                 android:textColor="@color/graycolor"
                                 android:textSize="16sp" />
 
@@ -106,9 +104,8 @@
                                 android:id="@+id/txtbanknamevalue"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_weight="40"
+                                android:layout_weight="50"
                                 android:text="bank Name"
-                                android:gravity="center"
                                 android:textColor="@color/white"
                                 android:textStyle="bold"
                                 android:textSize="16sp" />
@@ -126,9 +123,8 @@
                                 android:id="@+id/txtbranchname"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_weight="60"
+                                android:layout_weight="50"
                                 android:text="Branch Name"
-                                android:gravity="center"
                                 android:textColor="@color/graycolor"
                                 android:textSize="16sp" />
 
@@ -136,9 +132,8 @@
                                 android:id="@+id/txtbranchnamevalue"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_weight="40"
+                                android:layout_weight="50"
                                 android:text="branch name"
-                                android:gravity="center"
                                 android:textStyle="bold"
                                 android:textColor="@color/white"
                                 android:textSize="16sp" />
@@ -156,9 +151,8 @@
                                 android:id="@+id/txtacctholder"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_weight="60"
+                                android:layout_weight="50"
                                 android:text="Bank Account Holder Name"
-                                android:gravity="center"
                                 android:textColor="@color/graycolor"
                                 android:textSize="16sp" />
 
@@ -166,9 +160,8 @@
                                 android:id="@+id/txtacctholdervalue"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_weight="40"
+                                android:layout_weight="50"
                                 android:text="account holder name"
-                                android:gravity="center"
                                 android:textStyle="bold"
                                 android:textColor="@color/white"
                                 android:textSize="16sp" />
@@ -186,9 +179,8 @@
                                 android:id="@+id/txtacctnumber"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_weight="60"
+                                android:layout_weight="50"
                                 android:text="Account Number"
-                                android:gravity="center"
                                 android:textColor="@color/graycolor"
                                 android:textSize="16sp" />
 
@@ -196,9 +188,8 @@
                                 android:id="@+id/txtacctnumbervalue"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_weight="40"
+                                android:layout_weight="50"
                                 android:text="account number"
-                                android:gravity="center"
                                 android:textStyle="bold"
                                 android:textColor="@color/white"
                                 android:textSize="16sp" />
@@ -216,9 +207,8 @@
                                 android:id="@+id/txtifsc"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_weight="60"
+                                android:layout_weight="50"
                                 android:text="IFSC"
-                                android:gravity="center"
                                 android:textColor="@color/graycolor"
                                 android:textSize="16sp" />
 
@@ -226,9 +216,8 @@
                                 android:id="@+id/txtifscvalue"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_weight="40"
+                                android:layout_weight="50"
                                 android:text="ifsc"
-                                android:gravity="center"
                                 android:textStyle="bold"
                                 android:textColor="@color/white"
                                 android:textSize="16sp" />

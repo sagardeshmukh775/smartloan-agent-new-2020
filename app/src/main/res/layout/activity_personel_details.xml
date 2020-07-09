@@ -162,6 +162,44 @@
                                 android:maxLength="100" />
                         </LinearLayout>
 
+                        <LinearLayout
+                            android:id="@+id/ll_state_layout"
+                            style="@style/InputBackgroundLayout"
+                            android:layout_marginTop="30dp">
+
+                            <ImageView
+                                style="@style/InputIcon"
+                                android:contentDescription="@string/app_name"
+                                android:src="@drawable/state" />
+
+                            <EditText
+                                android:id="@+id/edittextstate"
+                                style="@style/InputEditText"
+                                android:enabled="true"
+                                android:hint="State"
+                                android:inputType="textEmailAddress"
+                                android:maxLength="100" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/ll_city_layout"
+                            style="@style/InputBackgroundLayout"
+                            android:layout_marginTop="30dp">
+
+                            <ImageView
+                                style="@style/InputIcon"
+                                android:contentDescription="@string/app_name"
+                                android:src="@drawable/city" />
+
+                            <EditText
+                                android:id="@+id/edittextcity"
+                                style="@style/InputEditText"
+                                android:enabled="true"
+                                android:hint="City"
+                                android:inputType="textEmailAddress"
+                                android:maxLength="100" />
+                        </LinearLayout>
+
                         <RadioGroup
                             android:id="@+id/radiogender"
                             android:layout_width="match_parent"

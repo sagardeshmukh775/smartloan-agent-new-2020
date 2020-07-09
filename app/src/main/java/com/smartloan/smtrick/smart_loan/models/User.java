@@ -30,6 +30,8 @@ public class User implements Serializable {
     private String address;
     private String gender;
     private String agentId;
+    private String state;
+    private String city;
     private KYCDetails kycDetails;
 
     //empty constructor is needed
@@ -238,6 +240,22 @@ public class User implements Serializable {
         this.whatsappNumber = whatsappNumber;
     }
 
+    public String getState() {
+        return state;
+    }
+
+    public void setState(String state) {
+        this.state = state;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
+    }
+
     @Exclude
     public Map<String, Object> toMap() {
         HashMap<String, Object> result = new HashMap<>();
@@ -255,6 +273,9 @@ public class User implements Serializable {
         result.put("address", address);
         result.put("gender", gender);
         result.put("agentId", agentId);
+        result.put("city", city);
+        result.put("state", state);
+        result.put("agentId", agentId);
         return result;
     }
 
@@ -271,6 +292,8 @@ public class User implements Serializable {
         result.put("userProfileImageLarge", userProfileImageLarge);
         result.put("userProfileImageSmall", userProfileImageSmall);
         result.put("userCoverImage", userCoverImage);
+        result.put("state", state);
+        result.put("city", city);
         result.put("kycDetails", getKycDetails());
         return result;
     }

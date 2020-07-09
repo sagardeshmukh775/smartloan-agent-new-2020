@@ -85,24 +85,24 @@ public class UpdateUserProfileActivity extends AppCompatActivity implements OnFr
         userRepository = new UserRepositoryImpl(this);
         progressDialogClass = new ProgressDialogClass(this);
 
-        Toolbar tb = findViewById(R.id.toolbar);
+//        Toolbar tb = findViewById(R.id.toolbar);
+////        setSupportActionBar(tb);
 //        setSupportActionBar(tb);
-        setSupportActionBar(tb);
-        assert getSupportActionBar() != null;   //null check
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        ActionBar ab = getSupportActionBar();
-        if (ab != null) {
-            ab.setHomeAsUpIndicator(R.drawable.ic_arrow_back_white_24dp);
-            ab.setTitle(appSharedPreference.getAgeniId());
-            ab.setDisplayHomeAsUpEnabled(true);
-        }
-        tb.setTitleTextColor(ContextCompat.getColor(this, R.color.white));
-        tb.setNavigationOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                onBackPressed();
-            }
-        });
+//        assert getSupportActionBar() != null;   //null check
+//        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+//        ActionBar ab = getSupportActionBar();
+//        if (ab != null) {
+//            ab.setHomeAsUpIndicator(R.drawable.ic_arrow_back_white_24dp);
+//            ab.setTitle(appSharedPreference.getAgeniId());
+//            ab.setDisplayHomeAsUpEnabled(true);
+//        }
+//        tb.setTitleTextColor(ContextCompat.getColor(this, R.color.white));
+//        tb.setNavigationOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                onBackPressed();
+//            }
+//        });
 
 
         leedsModelArrayList = new ArrayList<>();

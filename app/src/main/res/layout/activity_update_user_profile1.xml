@@ -6,11 +6,11 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <android.support.v7.widget.Toolbar
-        android:id="@+id/toolbar"
-        android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        app:layout_scrollFlags="scroll|enterAlways"></android.support.v7.widget.Toolbar>
+<!--    <android.support.v7.widget.Toolbar-->
+<!--        android:id="@+id/toolbar"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="?attr/actionBarSize"-->
+<!--        app:layout_scrollFlags="scroll|enterAlways"></android.support.v7.widget.Toolbar>-->
 
     <ScrollView
         android:layout_width="match_parent"
@@ -30,12 +30,12 @@
 
                 <FrameLayout
                     android:layout_width="match_parent"
-                    android:layout_height="221dp">
+                    android:layout_height="230dp">
 
                     <ImageView
                         android:id="@+id/coverphoto"
                         android:layout_width="match_parent"
-                        android:layout_height="150dp"
+                        android:layout_height="165dp"
                         android:scaleType="fitXY"
                         android:src="@drawable/cover" />
 
@@ -70,7 +70,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:gravity="center"
-                            android:text="Total Leeds"
+                            android:text="Total Leeds/Leeds"
                             android:textColor="@color/graycolor"
                             android:textSize="15sp" />
 
@@ -81,7 +81,7 @@
                             android:layout_below="@+id/txttotalleeds"
                             android:layout_gravity="center"
                             android:gravity="center"
-                            android:layout_marginLeft="30dp"
+                            android:layout_marginLeft="50dp"
                             android:text="0"
                             android:textColor="@color/white"
                             android:textStyle="bold"
@@ -113,7 +113,7 @@
                             android:layout_below="@+id/txttotalearning"
                             android:layout_gravity="center"
                             android:gravity="center"
-                            android:layout_marginLeft="30dp"
+                            android:layout_marginLeft="40dp"
                             android:text="0"
                             android:textStyle="bold"
                             android:textColor="@color/white"
