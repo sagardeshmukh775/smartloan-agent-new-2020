@@ -687,6 +687,7 @@ public class CropImageView extends FrameLayout {
         startCropWorkerTask(reqWidth, reqHeight, options, null, null, 0);
     }
 
+
     /**
      * Save the cropped image based on the current crop window to the given uri.<br>
      * Uses JPEG image compression with 90 compression quality.<br>

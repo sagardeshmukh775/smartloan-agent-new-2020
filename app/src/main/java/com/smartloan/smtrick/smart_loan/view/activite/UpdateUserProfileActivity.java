@@ -3,6 +3,7 @@ package com.smartloan.smtrick.smart_loan.view.activite;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.net.Uri;
+import android.os.Environment;
 import android.provider.MediaStore;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
@@ -50,6 +51,7 @@ import com.squareup.picasso.Picasso;
 import com.theartofdev.edmodo.cropper.CropImage;
 import com.theartofdev.edmodo.cropper.CropImageView;
 
+import java.io.File;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -64,7 +66,6 @@ public class UpdateUserProfileActivity extends AppCompatActivity implements OnFr
     ViewPager viewPager;
     TabLayout tabLayout;
     UserRepository userRepository;
-//    Toolbar tb;
     private String profileImage = "";
     private String coverImage = "";
     AppSharedPreference appSharedPreference;
@@ -74,6 +75,9 @@ public class UpdateUserProfileActivity extends AppCompatActivity implements OnFr
     ViewPagerAdapter viewPagerAdapter;
     LeedRepository leedRepository;
     ArrayList<LeedsModel> leedsModelArrayList;
+    private static final int REQUEST_PICK_IMAGE = 1002;
+    String image;
+    private Uri filePath;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -129,6 +133,7 @@ public class UpdateUserProfileActivity extends AppCompatActivity implements OnFr
         setProfileData();
         getAetLeeds();
         imgEditCover.setOnClickListener(this);
+        imgProfileImage.setOnClickListener(this);
     }
 
     private void getAetLeeds() {
@@ -195,6 +200,14 @@ public class UpdateUserProfileActivity extends AppCompatActivity implements OnFr
         if (v == imgEditCover){
             startCropImageActivity();
         }
+        if (v == imgProfileImage){
+//            pickImage();
+        }
+    }
+
+    public void pickImage() {
+
+//        startActivityForResult(new Intent(getApplicationContext(), ImagePickerActivity.class), REQUEST_PICK_IMAGE);
     }
 
     //Start crop image activity for the given image.
@@ -232,11 +245,13 @@ public class UpdateUserProfileActivity extends AppCompatActivity implements OnFr
                         Utility.showMessage(this, "Cropping failed: " + result.getError());
                     }
                     break;
+
             }
         } catch (Exception e) {
             ExceptionUtil.logException(e);
         }
     }
+
 
     private void compressBitmap(Uri uri) {
         String path = FileUtils.getPath(this, uri);
