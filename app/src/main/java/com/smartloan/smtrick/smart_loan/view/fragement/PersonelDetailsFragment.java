@@ -23,7 +23,7 @@ public class PersonelDetailsFragment extends Fragment implements View.OnClickLis
     public PersonelDetailsFragment() {
     }
 
-    TextView txtname, txtmobilenumber, txtadress, txtemailaddress, txtgender;
+    TextView txtname, txtmobilenumber, txtadress, txtemailaddress, txtgender, txtState, txtCity;
     ImageView imgEdit;
     AppSharedPreference appSharedPreference;
 
@@ -47,6 +47,8 @@ public class PersonelDetailsFragment extends Fragment implements View.OnClickLis
         txtmobilenumber = view.findViewById(R.id.txtmobilevalue);
         txtadress = view.findViewById(R.id.txtaddressvalue);
         txtemailaddress = view.findViewById(R.id.txtemailvalue);
+        txtState = view.findViewById(R.id.txtstatevalue);
+        txtCity = view.findViewById(R.id.txtcityvalue);
         txtgender = view.findViewById(R.id.txtgendervalue);
         imgEdit = view.findViewById(R.id.edit);
 
@@ -61,13 +63,15 @@ public class PersonelDetailsFragment extends Fragment implements View.OnClickLis
         txtadress.setText(appSharedPreference.getAddress());
         txtemailaddress.setText(appSharedPreference.getEmaiId());
         txtgender.setText(appSharedPreference.getGender());
+        txtState.setText(appSharedPreference.getState());
+        txtCity.setText(appSharedPreference.getCity());
 
     }
 
 
     @Override
     public void onClick(View v) {
-        if (v == imgEdit){
+        if (v == imgEdit) {
             Intent intent = new Intent(getContext(), UpdatePersonelDetailsActivity.class);
             startActivity(intent);
         }

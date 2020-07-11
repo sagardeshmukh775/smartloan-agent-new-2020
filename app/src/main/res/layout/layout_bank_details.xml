@@ -98,7 +98,7 @@
                                 android:layout_weight="50"
                                 android:text="Bank Name"
                                 android:textColor="@color/graycolor"
-                                android:textSize="16sp" />
+                                android:textSize="14sp" />
 
                             <TextView
                                 android:id="@+id/txtbanknamevalue"
@@ -108,7 +108,7 @@
                                 android:text="bank Name"
                                 android:textColor="@color/white"
                                 android:textStyle="bold"
-                                android:textSize="16sp" />
+                                android:textSize="14sp" />
 
                         </LinearLayout>
 
@@ -126,7 +126,7 @@
                                 android:layout_weight="50"
                                 android:text="Branch Name"
                                 android:textColor="@color/graycolor"
-                                android:textSize="16sp" />
+                                android:textSize="14sp" />
 
                             <TextView
                                 android:id="@+id/txtbranchnamevalue"
@@ -136,7 +136,7 @@
                                 android:text="branch name"
                                 android:textStyle="bold"
                                 android:textColor="@color/white"
-                                android:textSize="16sp" />
+                                android:textSize="14sp" />
 
                         </LinearLayout>
 
@@ -154,7 +154,7 @@
                                 android:layout_weight="50"
                                 android:text="Bank Account Holder Name"
                                 android:textColor="@color/graycolor"
-                                android:textSize="16sp" />
+                                android:textSize="14sp" />
 
                             <TextView
                                 android:id="@+id/txtacctholdervalue"
@@ -164,7 +164,7 @@
                                 android:text="account holder name"
                                 android:textStyle="bold"
                                 android:textColor="@color/white"
-                                android:textSize="16sp" />
+                                android:textSize="14sp" />
 
                         </LinearLayout>
 
@@ -182,7 +182,7 @@
                                 android:layout_weight="50"
                                 android:text="Account Number"
                                 android:textColor="@color/graycolor"
-                                android:textSize="16sp" />
+                                android:textSize="14sp" />
 
                             <TextView
                                 android:id="@+id/txtacctnumbervalue"
@@ -192,7 +192,7 @@
                                 android:text="account number"
                                 android:textStyle="bold"
                                 android:textColor="@color/white"
-                                android:textSize="16sp" />
+                                android:textSize="14sp" />
 
                         </LinearLayout>
 
@@ -210,7 +210,7 @@
                                 android:layout_weight="50"
                                 android:text="IFSC"
                                 android:textColor="@color/graycolor"
-                                android:textSize="16sp" />
+                                android:textSize="14sp" />
 
                             <TextView
                                 android:id="@+id/txtifscvalue"
@@ -220,7 +220,7 @@
                                 android:text="ifsc"
                                 android:textStyle="bold"
                                 android:textColor="@color/white"
-                                android:textSize="16sp" />
+                                android:textSize="14sp" />
 
                         </LinearLayout>
 
