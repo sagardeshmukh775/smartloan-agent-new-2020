@@ -88,6 +88,7 @@
     <string name="rs">\u20B9</string>
     <string name="last_payout_paid_amt">Last Payout Paid Amt. &amp;</string>
     <string name="kyc_details">KYC Details</string>
+    <string name="personal_details">Personal Details</string>
     <string name="days">&#160;days</string>
     <string name="overdue">Overdue</string>
     <string name="last_day">Last day</string>

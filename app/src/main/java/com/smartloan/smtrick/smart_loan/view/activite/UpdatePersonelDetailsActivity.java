@@ -45,7 +45,7 @@ import static com.smartloan.smtrick.smart_loan.constants.Constant.USER_PROFILE_P
 
 public class UpdatePersonelDetailsActivity extends AppCompatActivity {
     //    ActivityUpdateProfileBinding activityUpdateProfileBinding;
-    ImageView imgProfile,imgCancleprofile;
+//    ImageView imgProfile,imgCancleprofile;
     EditText edtName, edtMobile, edtAddress, edtEmail, edtWhatsapp,edtState,edtCity;
     RadioGroup GroupGender;
     RadioButton radiogender, radioMale, radioFemale;
@@ -94,8 +94,8 @@ public class UpdatePersonelDetailsActivity extends AppCompatActivity {
         radioMale = findViewById(R.id.radiomale);
         radioFemale = findViewById(R.id.radiofemale);
         btnUpdate = findViewById(R.id.buttonsubmit);
-        imgProfile = findViewById(R.id.ivProfile);
-        imgCancleprofile = findViewById(R.id.iv_cancel_profile);
+//        imgProfile = findViewById(R.id.ivProfile);
+//        imgCancleprofile = findViewById(R.id.iv_cancel_profile);
 
 
         readUser();
@@ -135,11 +135,11 @@ public class UpdatePersonelDetailsActivity extends AppCompatActivity {
             radioMale.setChecked(true);
         else
             radioFemale.setChecked(true);
-        if (!Utility.isEmptyOrNull(appSharedPreference.getProfileLargeImage())) {
-            Picasso.with(this).load(appSharedPreference.getProfileLargeImage()).resize(200, 200).centerCrop().placeholder(R.drawable.dummy_user_profile).into(imgProfile);
-            imgCancleprofile.setVisibility(View.VISIBLE);
-        } else
-            imgProfile.setImageResource(R.drawable.dummy_user_profile);
+//        if (!Utility.isEmptyOrNull(appSharedPreference.getProfileLargeImage())) {
+//            Picasso.with(this).load(appSharedPreference.getProfileLargeImage()).resize(200, 200).centerCrop().placeholder(R.drawable.dummy_user_profile).into(imgProfile);
+//            imgCancleprofile.setVisibility(View.VISIBLE);
+//        } else
+//            imgProfile.setImageResource(R.drawable.dummy_user_profile);
 
 
     }
@@ -238,25 +238,25 @@ public class UpdatePersonelDetailsActivity extends AppCompatActivity {
     }
 
     private void onClickSelectProfile() {
-        imgProfile.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startCropImageActivity();
-            }
-        });
+//        imgProfile.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                startCropImageActivity();
+//            }
+//        });
     }
 
     private void onClickCancelProfile() {
-        imgCancleprofile.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                imgProfile.setImageResource(R.drawable.dummy_user_profile);
-                profileUri = null;
-                bitmap = null;
-                profileImage = "";
-                imgCancleprofile.setVisibility(View.GONE);
-            }
-        });
+//        imgCancleprofile.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                imgProfile.setImageResource(R.drawable.dummy_user_profile);
+//                profileUri = null;
+//                bitmap = null;
+//                profileImage = "";
+//                imgCancleprofile.setVisibility(View.GONE);
+//            }
+//        });
     }
 
     //Start crop image activity for the given image.
@@ -284,9 +284,9 @@ public class UpdatePersonelDetailsActivity extends AppCompatActivity {
                             if (extras != null) {
                                 Bitmap bitmapImg = MediaStore.Images.Media.getBitmap(getContentResolver(), result.getUri());
                                 profileUri = result.getUri();
-                                imgCancleprofile.setVisibility(View.VISIBLE);
+//                                imgCancleprofile.setVisibility(View.VISIBLE);
                                 if (bitmapImg != null)
-                                    imgProfile.setImageBitmap(bitmapImg);
+//                                    imgProfile.setImageBitmap(bitmapImg);
                                 compressBitmap(profileUri);
                             }
                         }

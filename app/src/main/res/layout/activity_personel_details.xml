@@ -45,31 +45,37 @@
                         android:gravity="center_horizontal"
                         android:orientation="vertical">
 
-                            <RelativeLayout
-                                android:layout_width="125dp"
-                                android:layout_height="wrap_content"
-                                android:layout_gravity="center_horizontal|bottom">
+<!--                            <RelativeLayout-->
+<!--                                android:layout_width="125dp"-->
+<!--                                android:layout_height="wrap_content"-->
+<!--                                android:layout_gravity="center_horizontal|bottom">-->
 
-                                <de.hdodenhof.circleimageview.CircleImageView
-                                    android:id="@+id/ivProfile"
-                                    android:layout_width="100dp"
-                                    android:layout_height="100dp"
-                                    android:layout_marginTop="10dp"
-                                    android:src="@drawable/dummy_user_profile"
-                                    app:civ_border_color="@color/white"
-                                    app:civ_border_width="3dp" />
+<!--                                <de.hdodenhof.circleimageview.CircleImageView-->
+<!--                                    android:id="@+id/ivProfile"-->
+<!--                                    android:layout_width="100dp"-->
+<!--                                    android:layout_height="100dp"-->
+<!--                                    android:layout_marginTop="10dp"-->
+<!--                                    android:src="@drawable/dummy_user_profile"-->
+<!--                                    app:civ_border_color="@color/white"-->
+<!--                                    app:civ_border_width="3dp" />-->
 
-                                <ImageView
-                                    android:id="@+id/iv_cancel_profile"
-                                    android:layout_width="50dp"
-                                    android:layout_height="50dp"
-                                    android:layout_alignParentEnd="true"
-                                    android:contentDescription="@string/app_name"
-                                    android:padding="15dp"
-                                    android:src="@drawable/cancel_gray_icon"
-                                    android:visibility="gone" />
+<!--                                <ImageView-->
+<!--                                    android:id="@+id/iv_cancel_profile"-->
+<!--                                    android:layout_width="50dp"-->
+<!--                                    android:layout_height="50dp"-->
+<!--                                    android:layout_alignParentEnd="true"-->
+<!--                                    android:contentDescription="@string/app_name"-->
+<!--                                    android:padding="15dp"-->
+<!--                                    android:src="@drawable/cancel_gray_icon"-->
+<!--                                    android:visibility="gone" />-->
 
-                            </RelativeLayout>
+<!--                            </RelativeLayout>-->
+
+                        <TextView
+                            style="@style/FormTextView"
+                            android:text="@string/personal_details"
+                            android:gravity="center_horizontal"
+                            android:textColor="@color/white" />
 
                         <LinearLayout
                             android:id="@+id/ll_name_layout"
