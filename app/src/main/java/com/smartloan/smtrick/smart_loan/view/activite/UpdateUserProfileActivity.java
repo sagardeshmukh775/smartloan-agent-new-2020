@@ -71,13 +71,12 @@ public class UpdateUserProfileActivity extends AppCompatActivity implements OnFr
     AppSharedPreference appSharedPreference;
     private ProgressDialogClass progressDialogClass;
     private Uri coverUri;
+    private Uri profileUri;
     Bitmap bitmap;
     ViewPagerAdapter viewPagerAdapter;
     LeedRepository leedRepository;
     ArrayList<LeedsModel> leedsModelArrayList;
-    private static final int REQUEST_PICK_IMAGE = 1002;
-    String image;
-    private Uri filePath;
+    static String imgType = "0";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -198,10 +197,13 @@ public class UpdateUserProfileActivity extends AppCompatActivity implements OnFr
     @Override
     public void onClick(View v) {
         if (v == imgEditCover){
+            imgType = "0";
             startCropImageActivity();
         }
         if (v == imgProfileImage){
 //            pickImage();
+            imgType = "1";
+            startCropImageActivity();
         }
     }
 
@@ -231,14 +233,28 @@ public class UpdateUserProfileActivity extends AppCompatActivity implements OnFr
                     CropImage.ActivityResult result = CropImage.getActivityResult(imageData);
                     if (resultCode == RESULT_OK) {
                         if (imageData != null) {
-                            Bundle extras = imageData.getExtras();
-                            if (extras != null) {
-                                Bitmap bitmapImg = MediaStore.Images.Media.getBitmap(getContentResolver(), result.getUri());
-                                coverUri = result.getUri();
+                            if (imgType.equalsIgnoreCase("0")) {
+                                Bundle extras = imageData.getExtras();
+                                if (extras != null) {
+                                    Bitmap bitmapImg = MediaStore.Images.Media.getBitmap(getContentResolver(), result.getUri());
+                                    coverUri = result.getUri();
 //                                imgCancleprofile.setVisibility(View.VISIBLE);
-                                if (bitmapImg != null)
-                                    imgCover.setImageBitmap(bitmapImg);
-                                compressBitmap(coverUri);
+                                    if (bitmapImg != null)
+                                        imgCover.setImageBitmap(bitmapImg);
+                                    compressBitmap(coverUri);
+                                }
+                            }else if (imgType.equalsIgnoreCase("1")){
+
+                                Bundle extras = imageData.getExtras();
+                                if (extras != null) {
+                                    Bitmap bitmapImg = MediaStore.Images.Media.getBitmap(getContentResolver(), result.getUri());
+                                    profileUri = result.getUri();
+//                                imgCancleprofile.setVisibility(View.VISIBLE);
+                                    if (bitmapImg != null)
+                                        imgProfileImage.setImageBitmap(bitmapImg);
+                                    compressBitmap(profileUri);
+                                }
+
                             }
                         }
                     } else if (resultCode == CropImage.CROP_IMAGE_ACTIVITY_RESULT_ERROR_CODE) {
@@ -262,8 +278,15 @@ public class UpdateUserProfileActivity extends AppCompatActivity implements OnFr
                 if (object != null) {
                     bitmap = (Bitmap) object;
 
-                    if (coverUri != null && bitmap != null) {
-                        uploadImage(bitmap, USER_PROFILE_PATH);
+                    if (imgType.equalsIgnoreCase("0")) {
+                        if (coverUri != null && bitmap != null) {
+                            uploadImage(bitmap, USER_PROFILE_PATH);
+                        }
+                    }
+                    else if (imgType.equalsIgnoreCase("1")){
+                        if (profileUri != null && bitmap != null) {
+                            uploadImage(bitmap, USER_PROFILE_PATH);
+                        }
                     }
                 }
             }
@@ -284,10 +307,17 @@ public class UpdateUserProfileActivity extends AppCompatActivity implements OnFr
                     if (object != null) {
                         String downloadUrlLarge = (String) object;
                         try {
-                            appSharedPreference.setUserCoverImages(downloadUrlLarge);
-                            Intent broadcastIntent = new Intent();
-                            broadcastIntent.setAction(MainActivity.ImageUploadReceiver.PROCESS_RESPONSE);
-                            LocalBroadcastManager.getInstance(getApplicationContext()).sendBroadcast(broadcastIntent);
+                            if (imgType.equalsIgnoreCase("0")) {
+                                appSharedPreference.setUserCoverImages(downloadUrlLarge);
+                                Intent broadcastIntent = new Intent();
+                                broadcastIntent.setAction(MainActivity.ImageUploadReceiver.PROCESS_RESPONSE);
+                                LocalBroadcastManager.getInstance(getApplicationContext()).sendBroadcast(broadcastIntent);
+                            }else if (imgType.equalsIgnoreCase("1")){
+                                appSharedPreference.setUserProfileImages(downloadUrlLarge);
+                                Intent broadcastIntent = new Intent();
+                                broadcastIntent.setAction(MainActivity.ImageUploadReceiver.PROCESS_RESPONSE);
+                                LocalBroadcastManager.getInstance(getApplicationContext()).sendBroadcast(broadcastIntent);
+                            }
                         } catch (Exception e) {
                             ExceptionUtil.logException(e);
                         }
@@ -309,7 +339,12 @@ public class UpdateUserProfileActivity extends AppCompatActivity implements OnFr
 
     private void updateUserData(final String downloadUrlLarge) {
         HashMap<String, String> map = new HashMap<>();
-        map.put("userCoverImage", downloadUrlLarge);
+        if (imgType.equalsIgnoreCase("0")) {
+            map.put("userCoverImage", downloadUrlLarge);
+        }else if (imgType.equalsIgnoreCase("1")){
+            map.put("userProfileImageLarge", downloadUrlLarge);
+            map.put("userProfileImageSmall", downloadUrlLarge);
+        }
 
         userRepository.updateUser(appSharedPreference.getUserId(), map, new CallBack() {
             @Override
