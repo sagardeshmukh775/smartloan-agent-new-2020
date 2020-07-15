@@ -85,7 +85,7 @@
                             <ImageView
                                 style="@style/InputIcon"
                                 android:contentDescription="@string/app_name"
-                                android:src="@drawable/textbox" />
+                                android:src="@drawable/name_tag" />
 
                             <EditText
                                 android:id="@+id/edittextname"

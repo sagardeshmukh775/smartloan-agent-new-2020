@@ -129,7 +129,7 @@
                                 <ImageView
                                     style="@style/InputIcon"
                                     android:contentDescription="@string/app_name"
-                                    android:src="@drawable/textbox" />
+                                    android:src="@drawable/name_tag" />
 
                                 <EditText
                                     android:id="@+id/et_account_name"
@@ -147,7 +147,7 @@
                                 <ImageView
                                     style="@style/InputIcon"
                                     android:contentDescription="@string/app_name"
-                                    android:src="@drawable/textbox" />
+                                    android:src="@drawable/acctnumber" />
 
                                 <EditText
                                     android:id="@+id/et_account_number"
@@ -165,7 +165,7 @@
                                 <ImageView
                                     style="@style/InputIcon"
                                     android:contentDescription="@string/app_name"
-                                    android:src="@drawable/textbox" />
+                                    android:src="@drawable/ifsc" />
 
                                 <EditText
                                     android:id="@+id/et_ifsc"

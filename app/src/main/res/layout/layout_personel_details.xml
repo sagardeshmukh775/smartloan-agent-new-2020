@@ -94,7 +94,7 @@
                                 android:id="@+id/imgname"
                                 android:layout_width="25dp"
                                 android:layout_height="25dp"
-                                android:src="@drawable/textbox"
+                                android:src="@drawable/name_tag"
                                 android:layout_marginRight="10dp"/>
 
                             <TextView
