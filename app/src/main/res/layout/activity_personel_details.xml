@@ -121,7 +121,7 @@
                             <ImageView
                                 style="@style/InputIcon"
                                 android:contentDescription="@string/app_name"
-                                android:src="@drawable/cellphone_android" />
+                                android:src="@drawable/whatsapp" />
 
                             <EditText
                                 android:id="@+id/edittextwhatsapp"

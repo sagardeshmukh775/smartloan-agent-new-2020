@@ -161,6 +161,42 @@
                             android:weightSum="100">
 
                             <ImageView
+                                android:id="@+id/imgwhatsappnumber"
+                                android:layout_width="25dp"
+                                android:layout_height="25dp"
+                                android:src="@drawable/whatsapp"
+                                android:layout_marginRight="10dp"/>
+
+                            <TextView
+                                android:id="@+id/txtwhatsapp"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="50"
+                                android:text="Whatsapp Number"
+                                android:textColor="@color/graycolor"
+                                android:textSize="14sp" />
+
+                            <TextView
+                                android:id="@+id/txtwhatsappvalue"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="50"
+                                android:text="whatsapp number"
+                                android:textStyle="bold"
+                                android:textColor="@color/white"
+                                android:textSize="14sp" />
+
+                        </LinearLayout>
+
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:padding="7dp"
+                            android:weightSum="100">
+
+                            <ImageView
                                 android:id="@+id/imgaddress"
                                 android:layout_width="25dp"
                                 android:layout_height="25dp"
