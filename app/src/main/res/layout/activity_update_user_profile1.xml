@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    style="@style/LightBackgroundLayout"
+    style="@style/BlackBackgroundLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
@@ -37,6 +37,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="165dp"
                         android:scaleType="fitXY"
+
                         android:src="@drawable/cover" />
 
                     <ImageView
@@ -70,7 +71,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:gravity="center"
-                            android:text="Total Leeds/Leeds"
+                            android:text="Total Leads"
                             android:textColor="@color/graycolor"
                             android:textSize="15sp" />
 
@@ -81,9 +82,9 @@
                             android:layout_below="@+id/txttotalleeds"
                             android:layout_gravity="center"
                             android:gravity="center"
-                            android:layout_marginLeft="50dp"
+                            android:layout_marginLeft="30dp"
                             android:text="0"
-                            android:textColor="@color/white"
+                            android:textColor="@color/yello"
                             android:textStyle="bold"
                             android:textSize="15sp" />
 
@@ -116,7 +117,7 @@
                             android:layout_marginLeft="40dp"
                             android:text="0"
                             android:textStyle="bold"
-                            android:textColor="@color/white"
+                            android:textColor="@color/yello"
                             android:textSize="15sp" />
 
                     </RelativeLayout>

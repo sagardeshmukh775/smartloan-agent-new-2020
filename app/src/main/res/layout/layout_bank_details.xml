@@ -91,6 +91,13 @@
                             android:gravity="center"
                             android:weightSum="100">
 
+                            <ImageView
+                                android:id="@+id/imgbankname"
+                                android:layout_width="25dp"
+                                android:layout_height="25dp"
+                                android:src="@drawable/bank"
+                                android:layout_marginRight="10dp"/>
+
                             <TextView
                                 android:id="@+id/txtbankname"
                                 android:layout_width="match_parent"
@@ -118,6 +125,13 @@
                             android:orientation="horizontal"
                             android:padding="7dp"
                             android:weightSum="100">
+
+                            <ImageView
+                                android:id="@+id/imgbranchname"
+                                android:layout_width="25dp"
+                                android:layout_height="25dp"
+                                android:src="@drawable/branch"
+                                android:layout_marginRight="10dp"/>
 
                             <TextView
                                 android:id="@+id/txtbranchname"
@@ -147,6 +161,13 @@
                             android:padding="7dp"
                             android:weightSum="100">
 
+                            <ImageView
+                                android:id="@+id/imgacctholder"
+                                android:layout_width="25dp"
+                                android:layout_height="25dp"
+                                android:src="@drawable/textbox"
+                                android:layout_marginRight="10dp"/>
+
                             <TextView
                                 android:id="@+id/txtacctholder"
                                 android:layout_width="match_parent"
@@ -175,6 +196,13 @@
                             android:padding="7dp"
                             android:weightSum="100">
 
+                            <ImageView
+                                android:id="@+id/imgacctnumber"
+                                android:layout_width="25dp"
+                                android:layout_height="25dp"
+                                android:src="@drawable/acctnumber"
+                                android:layout_marginRight="10dp"/>
+
                             <TextView
                                 android:id="@+id/txtacctnumber"
                                 android:layout_width="match_parent"
@@ -202,6 +230,13 @@
                             android:orientation="horizontal"
                             android:padding="7dp"
                             android:weightSum="100">
+
+                            <ImageView
+                                android:id="@+id/imgifsc"
+                                android:layout_width="25dp"
+                                android:layout_height="25dp"
+                                android:src="@drawable/ifsc"
+                                android:layout_marginRight="10dp"/>
 
                             <TextView
                                 android:id="@+id/txtifsc"
