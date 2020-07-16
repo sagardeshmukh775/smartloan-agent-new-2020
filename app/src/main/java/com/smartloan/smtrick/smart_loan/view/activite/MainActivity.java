@@ -92,6 +92,7 @@ public class MainActivity extends AppCompatActivity
                 && leedsFragement.getLeedAdapter() != null) {
             leedsFragement.getLeedAdapter().updateKYCDetailsValue();
         }
+        updateNavigationHeader();
     }
 
     @Override
@@ -315,4 +316,6 @@ public class MainActivity extends AppCompatActivity
             updateNavigationHeader();
         }
     }
+
+
 }
