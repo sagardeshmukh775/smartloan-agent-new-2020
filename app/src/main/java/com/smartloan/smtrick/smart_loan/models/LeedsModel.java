@@ -20,6 +20,7 @@ public class LeedsModel implements Serializable {
     private String agentUserId;
     private Long createdDateTime, updatedDateTime;
     private String loanType;
+    private String homeLoanType;
     private String balanceTransferLoanType;
     private String panCardNumber;
     private String email;
@@ -122,6 +123,14 @@ public class LeedsModel implements Serializable {
 
     public void setLoanType(String loanType) {
         this.loanType = loanType;
+    }
+
+    public String getHomeLoanType() {
+        return homeLoanType;
+    }
+
+    public void setHomeLoanType(String homeLoanType) {
+        this.homeLoanType = homeLoanType;
     }
 
     public String getBalanceTransferLoanType() {
@@ -358,6 +367,7 @@ public class LeedsModel implements Serializable {
         objectMap.put("address", address);
         objectMap.put("gender", gender);
         objectMap.put("loanType", loanType);
+        objectMap.put("homeLoanType", homeLoanType);
         objectMap.put("balanceTransferLoanType", balanceTransferLoanType);
         objectMap.put("panCardNumber", panCardNumber);
         objectMap.put("email", email);

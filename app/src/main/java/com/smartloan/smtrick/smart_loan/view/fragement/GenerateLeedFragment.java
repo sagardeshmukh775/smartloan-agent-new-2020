@@ -488,6 +488,9 @@ public class GenerateLeedFragment extends RuntimePermissionHelper implements Ada
         leedsModel.setDateOfBirth(fragmentGenerateleadBinding.edittextdob.getText().toString());
         leedsModel.setExpectedLoanAmount(fragmentGenerateleadBinding.edittextexloanammount.getText().toString());
         leedsModel.setLoanType(fragmentGenerateleadBinding.spinnerselectloantype.getSelectedItem().toString());
+        if (fragmentGenerateleadBinding.spinnerselectloantype.getSelectedItem().toString().equalsIgnoreCase(Constant.LOAN_TYPE_HL)) {
+            leedsModel.setHomeLoanType(fragmentGenerateleadBinding.spinnerselecthomeloantype.getSelectedItem().toString());
+        }
         if (fragmentGenerateleadBinding.spinnerselectloantype.getSelectedItemPosition() == 3) {
             leedsModel.setBalanceTransferLoanType(fragmentGenerateleadBinding.spinnerBalanceTransferType.getSelectedItem().toString());
         } else {
