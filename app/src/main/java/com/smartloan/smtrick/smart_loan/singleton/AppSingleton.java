@@ -55,7 +55,7 @@ public class AppSingleton {
     }
 
     public String[] getHomeLoanType() {
-        return new String[]{"Select Loan Type", LOAN_TYPE_BP, LOAN_TYPE_RE};
+        return new String[]{"Select Home Loan Type", LOAN_TYPE_BP, LOAN_TYPE_RE};
     }
 
     public String[] getBalanceTransferType() {
