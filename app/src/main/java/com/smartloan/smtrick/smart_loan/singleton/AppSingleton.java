@@ -10,8 +10,10 @@ import com.smartloan.smtrick.smart_loan.R;
 import com.smartloan.smtrick.smart_loan.exception.ExceptionUtil;
 
 import static com.smartloan.smtrick.smart_loan.constants.Constant.LOAN_TYPE_BALANCE_TRANSFER;
+import static com.smartloan.smtrick.smart_loan.constants.Constant.LOAN_TYPE_BP;
 import static com.smartloan.smtrick.smart_loan.constants.Constant.LOAN_TYPE_HL;
 import static com.smartloan.smtrick.smart_loan.constants.Constant.LOAN_TYPE_LAP;
+import static com.smartloan.smtrick.smart_loan.constants.Constant.LOAN_TYPE_RE;
 
 public class AppSingleton {
     private static AppSingleton appSingleton;
@@ -50,6 +52,10 @@ public class AppSingleton {
 
     public String[] getLoanType() {
         return new String[]{"Select Loan Type", LOAN_TYPE_HL, LOAN_TYPE_LAP, LOAN_TYPE_BALANCE_TRANSFER};
+    }
+
+    public String[] getHomeLoanType() {
+        return new String[]{"Select Loan Type", LOAN_TYPE_BP, LOAN_TYPE_RE};
     }
 
     public String[] getBalanceTransferType() {

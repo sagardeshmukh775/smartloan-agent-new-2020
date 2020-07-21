@@ -75,9 +75,11 @@ public class Constant {
     public static final int SCROLL_PAGE_TIME = 5000;
     public static final int START_DELAY_TIME = 3000;
     //****************************************************************Loan type
-    public static final String LOAN_TYPE_HL = "HL";
-    public static final String LOAN_TYPE_LAP = "LAP";
+    public static final String LOAN_TYPE_HL = "Home Loan";
+    public static final String LOAN_TYPE_LAP = "Loan Against Property";
     public static final String LOAN_TYPE_BALANCE_TRANSFER = "Balance Transfer";
+    public static final String LOAN_TYPE_BP = "Builder Purchase";
+    public static final String LOAN_TYPE_RE = "Resale";
 
     public static final String ACTIVITY_EMAIL = "EMAIL";
     public static final String ACTIVITY_CALL = "CALL";

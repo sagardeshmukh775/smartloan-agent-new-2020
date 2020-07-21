@@ -25,6 +25,7 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.DatePicker;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.sangcomz.fishbun.FishBun;
@@ -107,10 +108,12 @@ public class GenerateLeedFragment extends RuntimePermissionHelper implements Ada
             leedRepository = new LeedRepositoryImpl();
             appSharedPreference = new AppSharedPreference(getActivity());
             String[] loanType = appSingleton.getLoanType();
+            String[] HomeloanType = appSingleton.getHomeLoanType();
             String[] empType = appSingleton.getEmployeeType();
             String[] balanceTransferType = appSingleton.getBalanceTransferType();
             fragmentGenerateleadBinding.spinnerselecttypeofemployee.setOnItemSelectedListener(this);
             fragmentGenerateleadBinding.spinnerBalanceTransferType.setOnItemSelectedListener(this);
+
             // ArrayAdapter<String> spinnerArrayAdapterloantype = new ArrayAdapter<String>(this, sppinner_layout_listitem,loanType);
 
             ArrayAdapter<String> spinnerArrayAdapterloantype = new ArrayAdapter<String>(this.getContext(), android.R.layout.simple_spinner_item, loanType) {
@@ -122,8 +125,19 @@ public class GenerateLeedFragment extends RuntimePermissionHelper implements Ada
                     return view;
                 }
             };
+            ArrayAdapter<String> spinnerArrayAdapterHLloantype = new ArrayAdapter<String>(this.getContext(), android.R.layout.simple_spinner_item, HomeloanType) {
+                @Override
+                public View getView(int position, View convertView, @NonNull ViewGroup parent) {
+                    View view = super.getView(position, convertView, parent);
+                    //change the color to which ever you want
+                    ((TextView) view).setTextColor(Color.WHITE);
+                    return view;
+                }
+            };
             spinnerArrayAdapterloantype.setDropDownViewResource(R.layout.spinner_item);
+            spinnerArrayAdapterHLloantype.setDropDownViewResource(R.layout.spinner_item);
             fragmentGenerateleadBinding.spinnerselectloantype.setAdapter(spinnerArrayAdapterloantype);
+            fragmentGenerateleadBinding.spinnerselecthomeloantype.setAdapter(spinnerArrayAdapterHLloantype);
             fragmentGenerateleadBinding.spinnerselectloantype.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
                 @Override
                 public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
@@ -170,6 +184,31 @@ public class GenerateLeedFragment extends RuntimePermissionHelper implements Ada
             fragmentGenerateleadBinding.rvDocumentImages.setItemAnimator(new DefaultItemAnimator());
            /* fragmentGenerateleadBinding.rvDocumentImages.addItemDecoration(new DividerItemDecoration(getContext(),
                     DividerItemDecoration.HORIZONTAL));*/
+
+            if (fragmentGenerateleadBinding.spinnerselectloantype.getSelectedItem().toString().equalsIgnoreCase(Constant.LOAN_TYPE_HL)) {
+                showcLoanDetails();
+            }else {
+                hideLoanDetails();
+            }
+
+            fragmentGenerateleadBinding.spinnerselectloantype.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                @Override
+                public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                    String loantype = fragmentGenerateleadBinding.spinnerselectloantype.getSelectedItem().toString();
+                    if (loantype.equalsIgnoreCase(Constant.LOAN_TYPE_HL)) {
+                        showcLoanDetails();
+                    } else {
+                        hideLoanDetails();
+                    }
+                }
+
+                @Override
+                public void onNothingSelected(AdapterView<?> parent) {
+
+                }
+            });
+
+
             onClickGenerateLead();
             onClickCallExpart();
             onClickAttachDocuments();
@@ -629,5 +668,19 @@ public class GenerateLeedFragment extends RuntimePermissionHelper implements Ada
         fromYear = mcurrentDate.get(Calendar.YEAR);
         fromMonth = mcurrentDate.get(Calendar.MONTH);
         fromDay = mcurrentDate.get(Calendar.DAY_OF_MONTH);
+    }
+
+    public void showcLoanDetails() {
+        LinearLayout.LayoutParams params1 = (LinearLayout.LayoutParams) fragmentGenerateleadBinding.layoutHomeLoanType.getLayoutParams();
+        params1.height = -1;
+        fragmentGenerateleadBinding.layoutHomeLoanType.setLayoutParams(params1);
+
+    }
+
+    public void hideLoanDetails() {
+        LinearLayout.LayoutParams params1 = (LinearLayout.LayoutParams) fragmentGenerateleadBinding.layoutHomeLoanType.getLayoutParams();
+        params1.height = 0;
+        fragmentGenerateleadBinding.layoutHomeLoanType.setLayoutParams(params1);
+
     }
 }
