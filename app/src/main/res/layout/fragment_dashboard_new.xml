@@ -44,14 +44,22 @@
                                 android:textSize="18sp"
                                 android:textStyle="bold" />
 
+                            <RelativeLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentBottom="true">
+
                             <TextView
                                 android:id="@+id/txtTotalLeeds"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="0"
                                 android:textColor="@color/blue"
+                                android:layout_alignParentBottom="true"
                                 android:textSize="18sp"
                                 android:textStyle="bold" />
+
+                            </RelativeLayout>
 
                         </LinearLayout>
 
@@ -72,14 +80,22 @@
                                 android:textSize="18sp"
                                 android:textStyle="bold" />
 
+                            <RelativeLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentBottom="true">
+
                             <TextView
                                 android:id="@+id/txtTotalLoanRequirementAmount"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="0"
                                 android:textColor="@color/blue"
+                                android:layout_alignParentBottom="true"
                                 android:textSize="18sp"
                                 android:textStyle="bold" />
+
+                            </RelativeLayout>
 
                         </LinearLayout>
 
@@ -108,14 +124,22 @@
                                 android:textSize="18sp"
                                 android:textStyle="bold" />
 
+                            <RelativeLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentBottom="true">
+
                             <TextView
                                 android:id="@+id/txtTotalfilesLogin"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="0"
                                 android:textColor="@color/blue"
+                                android:layout_alignParentBottom="true"
                                 android:textSize="18sp"
                                 android:textStyle="bold" />
+
+                            </RelativeLayout>
 
                         </LinearLayout>
 
@@ -136,14 +160,24 @@
                                 android:textSize="18sp"
                                 android:textStyle="bold" />
 
+                            <RelativeLayout
+                                android:id="@+id/buttons"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentBottom="true">
+
+
                             <TextView
                                 android:id="@+id/txtrejectedfiles"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="0"
                                 android:textColor="@color/blue"
+                                android:layout_alignParentBottom="true"
                                 android:textSize="18sp"
                                 android:textStyle="bold" />
+
+                            </RelativeLayout>
 
                         </LinearLayout>
 
@@ -172,14 +206,22 @@
                                 android:textSize="18sp"
                                 android:textStyle="bold" />
 
+                            <RelativeLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentBottom="true">
+
                             <TextView
                                 android:id="@+id/txtTotalfilessanctioned"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="0"
                                 android:textColor="@color/blue"
+                                android:layout_alignParentBottom="true"
                                 android:textSize="18sp"
                                 android:textStyle="bold" />
+
+                            </RelativeLayout>
 
                         </LinearLayout>
 
@@ -200,14 +242,22 @@
                                 android:textSize="18sp"
                                 android:textStyle="bold" />
 
+                            <RelativeLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentBottom="true">
+
                             <TextView
                                 android:id="@+id/txtTotalSanctionedAmount"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="0"
                                 android:textColor="@color/blue"
+                                android:layout_alignParentBottom="true"
                                 android:textSize="18sp"
                                 android:textStyle="bold" />
+
+                            </RelativeLayout>
 
                         </LinearLayout>
 
@@ -236,14 +286,22 @@
                                 android:textSize="18sp"
                                 android:textStyle="bold" />
 
+                            <RelativeLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentBottom="true">
+
                             <TextView
                                 android:id="@+id/txtTotaldisbursedfiles"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="0"
                                 android:textColor="@color/blue"
+                                android:layout_alignParentBottom="true"
                                 android:textSize="18sp"
                                 android:textStyle="bold" />
+
+                            </RelativeLayout>
 
                         </LinearLayout>
 
@@ -264,14 +322,22 @@
                                 android:textSize="18sp"
                                 android:textStyle="bold" />
 
+                            <RelativeLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentBottom="true">
+
                             <TextView
                                 android:id="@+id/txtTotalDisburstmentAmount"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="0"
                                 android:textColor="@color/blue"
+                                android:layout_alignParentBottom="true"
                                 android:textSize="18sp"
                                 android:textStyle="bold" />
+
+                            </RelativeLayout>
 
                         </LinearLayout>
 
@@ -301,14 +367,22 @@
                                 android:textSize="18sp"
                                 android:textStyle="bold" />
 
+                            <RelativeLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentBottom="true">
+
                             <TextView
                                 android:id="@+id/txtTotaldisbursepayoutamount"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="0"
                                 android:textColor="@color/blue"
+                                android:layout_alignParentBottom="true"
                                 android:textSize="18sp"
                                 android:textStyle="bold" />
+
+                            </RelativeLayout>
 
                         </LinearLayout>
 
@@ -329,14 +403,22 @@
                                 android:textSize="18sp"
                                 android:textStyle="bold" />
 
+                            <RelativeLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentBottom="true">
+
                             <TextView
                                 android:id="@+id/txtTotalpayoutpaid"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="0"
                                 android:textColor="@color/blue"
+                                android:layout_alignParentBottom="true"
                                 android:textSize="18sp"
                                 android:textStyle="bold" />
+
+                            </RelativeLayout>
 
                         </LinearLayout>
 
@@ -365,14 +447,22 @@
                                 android:textSize="18sp"
                                 android:textStyle="bold" />
 
+                            <RelativeLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentBottom="true">
+
                             <TextView
                                 android:id="@+id/txtTotalbalancepayout"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="0"
                                 android:textColor="@color/blue"
+                                android:layout_alignParentBottom="true"
                                 android:textSize="18sp"
                                 android:textStyle="bold" />
+
+                            </RelativeLayout>
 
                         </LinearLayout>
 
