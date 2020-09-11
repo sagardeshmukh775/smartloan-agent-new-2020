@@ -164,7 +164,7 @@ public class GenerateLeedFragment extends RuntimePermissionHelper implements Ada
                 }
             };
             spinnerAdapterBalanceTransferType.setDropDownViewResource(R.layout.spinner_item);
-            fragmentGenerateleadBinding.spinnerBalanceTransferType.setAdapter(spinnerAdapterBalanceTransferType);
+            fragmentGenerateleadBinding.spinnerselectbalancetrancefertype.setAdapter(spinnerAdapterBalanceTransferType);
 
             ArrayAdapter<String> spinnerArrayAdapteremptype = new ArrayAdapter<String>(this.getContext(), android.R.layout.simple_spinner_item, empType) {
                 @Override
@@ -186,19 +186,31 @@ public class GenerateLeedFragment extends RuntimePermissionHelper implements Ada
                     DividerItemDecoration.HORIZONTAL));*/
 
             if (fragmentGenerateleadBinding.spinnerselectloantype.getSelectedItem().toString().equalsIgnoreCase(Constant.LOAN_TYPE_HL)) {
-                showcLoanDetails();
-            }else {
-                hideLoanDetails();
+                showchomeLoanDetails();
+                hideBTLoanDetails();
+            } else if (fragmentGenerateleadBinding.spinnerselectloantype.getSelectedItem().toString().equalsIgnoreCase(Constant.LOAN_TYPE_BALANCE_TRANSFER)){
+                hidehomeLoanDetails();
+                showBTLoanDetails();
             }
+//            if (fragmentGenerateleadBinding.spinnerselectloantype.getSelectedItem().toString().equalsIgnoreCase(Constant.LOAN_TYPE_HL)) {
+//                showBTLoanDetails();
+//            } else {
+//                hideBTLoanDetails();
+//            }
 
             fragmentGenerateleadBinding.spinnerselectloantype.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
                 @Override
                 public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                     String loantype = fragmentGenerateleadBinding.spinnerselectloantype.getSelectedItem().toString();
                     if (loantype.equalsIgnoreCase(Constant.LOAN_TYPE_HL)) {
-                        showcLoanDetails();
-                    } else {
-                        hideLoanDetails();
+                        showchomeLoanDetails();
+                        hideBTLoanDetails();
+                    } else if (loantype.equalsIgnoreCase(Constant.LOAN_TYPE_BALANCE_TRANSFER)){
+                        hidehomeLoanDetails();
+                        showBTLoanDetails();
+                    }else {
+                        hideBTLoanDetails();
+                        hidehomeLoanDetails();
                     }
                 }
 
@@ -207,6 +219,23 @@ public class GenerateLeedFragment extends RuntimePermissionHelper implements Ada
 
                 }
             });
+
+//            fragmentGenerateleadBinding.spinnerselectloantype.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+//                @Override
+//                public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+//                    String loantype = fragmentGenerateleadBinding.spinnerselectloantype.getSelectedItem().toString();
+//                    if (loantype.equalsIgnoreCase(Constant.LOAN_TYPE_BALANCE_TRANSFER)) {
+//                        showBTLoanDetails();
+//                    } else {
+//                        hideBTLoanDetails();
+//                    }
+//                }
+//
+//                @Override
+//                public void onNothingSelected(AdapterView<?> parent) {
+//
+//                }
+//            });
 
 
             onClickGenerateLead();
@@ -673,17 +702,31 @@ public class GenerateLeedFragment extends RuntimePermissionHelper implements Ada
         fromDay = mcurrentDate.get(Calendar.DAY_OF_MONTH);
     }
 
-    public void showcLoanDetails() {
+    public void showchomeLoanDetails() {
         LinearLayout.LayoutParams params1 = (LinearLayout.LayoutParams) fragmentGenerateleadBinding.layoutHomeLoanType.getLayoutParams();
         params1.height = -1;
         fragmentGenerateleadBinding.layoutHomeLoanType.setLayoutParams(params1);
 
     }
 
-    public void hideLoanDetails() {
+    public void hidehomeLoanDetails() {
         LinearLayout.LayoutParams params1 = (LinearLayout.LayoutParams) fragmentGenerateleadBinding.layoutHomeLoanType.getLayoutParams();
         params1.height = 0;
         fragmentGenerateleadBinding.layoutHomeLoanType.setLayoutParams(params1);
+
+    }
+
+    public void showBTLoanDetails() {
+        LinearLayout.LayoutParams params1 = (LinearLayout.LayoutParams) fragmentGenerateleadBinding.layoutBalanceTransferType.getLayoutParams();
+        params1.height = -1;
+        fragmentGenerateleadBinding.layoutBalanceTransferType.setLayoutParams(params1);
+
+    }
+
+    public void hideBTLoanDetails() {
+        LinearLayout.LayoutParams params1 = (LinearLayout.LayoutParams) fragmentGenerateleadBinding.layoutBalanceTransferType.getLayoutParams();
+        params1.height = 0;
+        fragmentGenerateleadBinding.layoutBalanceTransferType.setLayoutParams(params1);
 
     }
 }

@@ -243,6 +243,27 @@
 
                             </LinearLayout>
 
+                            <LinearLayout
+                                android:id="@+id/layoutBalanceTransferType"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical">
+
+                                <Spinner
+                                    android:id="@+id/spinnerselectbalancetrancefertype"
+                                    style="@style/FormLabel"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_below="@+id/radiogender"
+                                    android:layout_marginTop="20sp"
+                                    android:background="@drawable/edittextanimation"
+                                    android:gravity="center_horizontal"
+                                    android:padding="10sp"
+                                    android:paddingLeft="4dp"
+                                    android:textSize="15sp" />
+
+                            </LinearLayout>
+
                             <Spinner
                                 android:id="@+id/spinner_balance_transfer_type"
                                 style="@style/FormLabel"
