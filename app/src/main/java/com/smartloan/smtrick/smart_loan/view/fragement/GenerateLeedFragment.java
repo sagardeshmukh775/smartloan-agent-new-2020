@@ -192,11 +192,7 @@ public class GenerateLeedFragment extends RuntimePermissionHelper implements Ada
                 hidehomeLoanDetails();
                 showBTLoanDetails();
             }
-//            if (fragmentGenerateleadBinding.spinnerselectloantype.getSelectedItem().toString().equalsIgnoreCase(Constant.LOAN_TYPE_HL)) {
-//                showBTLoanDetails();
-//            } else {
-//                hideBTLoanDetails();
-//            }
+
 
             fragmentGenerateleadBinding.spinnerselectloantype.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
                 @Override
@@ -219,24 +215,6 @@ public class GenerateLeedFragment extends RuntimePermissionHelper implements Ada
 
                 }
             });
-
-//            fragmentGenerateleadBinding.spinnerselectloantype.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-//                @Override
-//                public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-//                    String loantype = fragmentGenerateleadBinding.spinnerselectloantype.getSelectedItem().toString();
-//                    if (loantype.equalsIgnoreCase(Constant.LOAN_TYPE_BALANCE_TRANSFER)) {
-//                        showBTLoanDetails();
-//                    } else {
-//                        hideBTLoanDetails();
-//                    }
-//                }
-//
-//                @Override
-//                public void onNothingSelected(AdapterView<?> parent) {
-//
-//                }
-//            });
-
 
             onClickGenerateLead();
             onClickCallExpart();
