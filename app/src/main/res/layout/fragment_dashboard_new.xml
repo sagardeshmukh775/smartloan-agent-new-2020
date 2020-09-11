@@ -34,14 +34,14 @@
                             android:layout_weight="50"
                             android:background="@drawable/black_bg_white_border_shape"
                             android:orientation="vertical"
-                            android:padding="5dp">
+                            android:padding="10dp">
 
                             <TextView
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:text="Total Number Of Leeds"
                                 android:textColor="@color/blue"
-                                android:textSize="18sp"
+                                android:textSize="16sp"
                                 android:textStyle="bold" />
 
                             <RelativeLayout
@@ -56,7 +56,7 @@
                                 android:text="0"
                                 android:textColor="@color/blue"
                                 android:layout_alignParentBottom="true"
-                                android:textSize="18sp"
+                                android:textSize="16sp"
                                 android:textStyle="bold" />
 
                             </RelativeLayout>
@@ -70,14 +70,14 @@
                             android:layout_weight="50"
                             android:background="@drawable/black_bg_white_border_shape"
                             android:orientation="vertical"
-                            android:padding="5dp">
+                            android:padding="10dp">
 
                             <TextView
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:text="Total Loan Required Amount"
                                 android:textColor="@color/blue"
-                                android:textSize="18sp"
+                                android:textSize="16sp"
                                 android:textStyle="bold" />
 
                             <RelativeLayout
@@ -92,7 +92,7 @@
                                 android:text="0"
                                 android:textColor="@color/blue"
                                 android:layout_alignParentBottom="true"
-                                android:textSize="18sp"
+                                android:textSize="16sp"
                                 android:textStyle="bold" />
 
                             </RelativeLayout>
@@ -114,14 +114,14 @@
                             android:layout_weight="50"
                             android:background="@drawable/black_bg_white_border_shape"
                             android:orientation="vertical"
-                            android:padding="5dp">
+                            android:padding="10dp">
 
                             <TextView
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:text="Total Number Of Files Login"
                                 android:textColor="@color/blue"
-                                android:textSize="18sp"
+                                android:textSize="16sp"
                                 android:textStyle="bold" />
 
                             <RelativeLayout
@@ -136,7 +136,7 @@
                                 android:text="0"
                                 android:textColor="@color/blue"
                                 android:layout_alignParentBottom="true"
-                                android:textSize="18sp"
+                                android:textSize="16sp"
                                 android:textStyle="bold" />
 
                             </RelativeLayout>
@@ -150,14 +150,14 @@
                             android:layout_weight="50"
                             android:background="@drawable/black_bg_white_border_shape"
                             android:orientation="vertical"
-                            android:padding="5dp">
+                            android:padding="10dp">
 
                             <TextView
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:text="Files Rejected"
                                 android:textColor="@color/blue"
-                                android:textSize="18sp"
+                                android:textSize="16sp"
                                 android:textStyle="bold" />
 
                             <RelativeLayout
@@ -174,7 +174,7 @@
                                 android:text="0"
                                 android:textColor="@color/blue"
                                 android:layout_alignParentBottom="true"
-                                android:textSize="18sp"
+                                android:textSize="16sp"
                                 android:textStyle="bold" />
 
                             </RelativeLayout>
@@ -196,14 +196,14 @@
                             android:layout_weight="50"
                             android:background="@drawable/black_bg_white_border_shape"
                             android:orientation="vertical"
-                            android:padding="5dp">
+                            android:padding="10dp">
 
                             <TextView
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:text="Total Number Of Files Sanctioned"
                                 android:textColor="@color/blue"
-                                android:textSize="18sp"
+                                android:textSize="16sp"
                                 android:textStyle="bold" />
 
                             <RelativeLayout
@@ -218,7 +218,7 @@
                                 android:text="0"
                                 android:textColor="@color/blue"
                                 android:layout_alignParentBottom="true"
-                                android:textSize="18sp"
+                                android:textSize="16sp"
                                 android:textStyle="bold" />
 
                             </RelativeLayout>
@@ -232,14 +232,14 @@
                             android:layout_weight="50"
                             android:background="@drawable/black_bg_white_border_shape"
                             android:orientation="vertical"
-                            android:padding="5dp">
+                            android:padding="10dp">
 
                             <TextView
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:text="Total Sanctioned Amount"
                                 android:textColor="@color/blue"
-                                android:textSize="18sp"
+                                android:textSize="16sp"
                                 android:textStyle="bold" />
 
                             <RelativeLayout
@@ -254,7 +254,7 @@
                                 android:text="0"
                                 android:textColor="@color/blue"
                                 android:layout_alignParentBottom="true"
-                                android:textSize="18sp"
+                                android:textSize="16sp"
                                 android:textStyle="bold" />
 
                             </RelativeLayout>
@@ -276,14 +276,14 @@
                             android:layout_weight="50"
                             android:background="@drawable/black_bg_white_border_shape"
                             android:orientation="vertical"
-                            android:padding="5dp">
+                            android:padding="10dp">
 
                             <TextView
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:text="Total Files Disbursed"
                                 android:textColor="@color/blue"
-                                android:textSize="18sp"
+                                android:textSize="16sp"
                                 android:textStyle="bold" />
 
                             <RelativeLayout
@@ -298,7 +298,7 @@
                                 android:text="0"
                                 android:textColor="@color/blue"
                                 android:layout_alignParentBottom="true"
-                                android:textSize="18sp"
+                                android:textSize="16sp"
                                 android:textStyle="bold" />
 
                             </RelativeLayout>
@@ -312,14 +312,14 @@
                             android:layout_weight="50"
                             android:background="@drawable/black_bg_white_border_shape"
                             android:orientation="vertical"
-                            android:padding="5dp">
+                            android:padding="10dp">
 
                             <TextView
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:text="Total Disbursement Amount"
                                 android:textColor="@color/blue"
-                                android:textSize="18sp"
+                                android:textSize="16sp"
                                 android:textStyle="bold" />
 
                             <RelativeLayout
@@ -334,7 +334,7 @@
                                 android:text="0"
                                 android:textColor="@color/blue"
                                 android:layout_alignParentBottom="true"
-                                android:textSize="18sp"
+                                android:textSize="16sp"
                                 android:textStyle="bold" />
 
                             </RelativeLayout>
@@ -357,14 +357,14 @@
                             android:layout_weight="50"
                             android:background="@drawable/black_bg_white_border_shape"
                             android:orientation="vertical"
-                            android:padding="5dp">
+                            android:padding="10dp">
 
                             <TextView
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:text="Total Payout On Disburstment Amount 0.03%"
                                 android:textColor="@color/blue"
-                                android:textSize="18sp"
+                                android:textSize="16sp"
                                 android:textStyle="bold" />
 
                             <RelativeLayout
@@ -379,7 +379,7 @@
                                 android:text="0"
                                 android:textColor="@color/blue"
                                 android:layout_alignParentBottom="true"
-                                android:textSize="18sp"
+                                android:textSize="16sp"
                                 android:textStyle="bold" />
 
                             </RelativeLayout>
@@ -393,14 +393,14 @@
                             android:layout_weight="50"
                             android:background="@drawable/black_bg_white_border_shape"
                             android:orientation="vertical"
-                            android:padding="5dp">
+                            android:padding="10dp">
 
                             <TextView
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:text="Total Payout Paid Till Now"
                                 android:textColor="@color/blue"
-                                android:textSize="18sp"
+                                android:textSize="16sp"
                                 android:textStyle="bold" />
 
                             <RelativeLayout
@@ -415,7 +415,7 @@
                                 android:text="0"
                                 android:textColor="@color/blue"
                                 android:layout_alignParentBottom="true"
-                                android:textSize="18sp"
+                                android:textSize="16sp"
                                 android:textStyle="bold" />
 
                             </RelativeLayout>
@@ -437,14 +437,14 @@
                             android:layout_weight="50"
                             android:background="@drawable/black_bg_white_border_shape"
                             android:orientation="vertical"
-                            android:padding="5dp">
+                            android:padding="10dp">
 
                             <TextView
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:text="Total Balance Payout"
                                 android:textColor="@color/blue"
-                                android:textSize="18sp"
+                                android:textSize="16sp"
                                 android:textStyle="bold" />
 
                             <RelativeLayout
@@ -459,7 +459,7 @@
                                 android:text="0"
                                 android:textColor="@color/blue"
                                 android:layout_alignParentBottom="true"
-                                android:textSize="18sp"
+                                android:textSize="16sp"
                                 android:textStyle="bold" />
 
                             </RelativeLayout>

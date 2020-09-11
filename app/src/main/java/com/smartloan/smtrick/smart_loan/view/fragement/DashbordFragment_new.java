@@ -59,6 +59,8 @@ public class DashbordFragment_new extends Fragment {
 
         fabAddLead = view.findViewById(R.id.fab_add_lead);
 
+        addNewLeadClick();
+
         return view;
     }
 
