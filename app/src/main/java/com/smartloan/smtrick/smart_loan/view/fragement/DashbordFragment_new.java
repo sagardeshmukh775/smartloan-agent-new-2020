@@ -2,6 +2,7 @@ package com.smartloan.smtrick.smart_loan.view.fragement;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -21,12 +22,11 @@ public class DashbordFragment_new extends Fragment {
     private OnFragmentInteractionListener mListener;
     private TextView txtNumberOfLeeds, txtLoanRequiredAmount, txtTotalFilesLogin, txtFilesRejected, txtFilesSanctioned, txtSanctionedAmount, txtFilesDisbursed,
             txtTotalDisbursementAmount, txtTotalDisbursedPayoutAmt, txtTotalPayoutPaid, txtTotalBalancePayout;
+    private FloatingActionButton fabAddLead;
 
     public DashbordFragment_new() {
     }
 
-    Spinner spinloantype, spinemptype, spinincome;
-    Button emiCalcBtn;
     ProgressBar progressBar;
 
     @Override
@@ -45,8 +45,30 @@ public class DashbordFragment_new extends Fragment {
             mListener.onFragmentInteraction("fragment5");
         }
 
+        txtNumberOfLeeds = view.findViewById(R.id.txtTotalLeeds);
+        txtLoanRequiredAmount = view.findViewById(R.id.txtTotalLoanRequirementAmount);
+        txtTotalFilesLogin = view.findViewById(R.id.txtTotalfilesLogin);
+        txtFilesRejected = view.findViewById(R.id.txtrejectedfiles);
+        txtFilesSanctioned = view.findViewById(R.id.txtTotalfilessanctioned);
+        txtSanctionedAmount = view.findViewById(R.id.txtTotalSanctionedAmount);
+        txtFilesDisbursed = view.findViewById(R.id.txtTotaldisbursedfiles);
+        txtTotalDisbursementAmount = view.findViewById(R.id.txtTotalDisburstmentAmount);
+        txtTotalDisbursedPayoutAmt = view.findViewById(R.id.txtTotaldisbursepayoutamount);
+        txtTotalPayoutPaid = view.findViewById(R.id.txtTotalpayoutpaid);
+        txtTotalBalancePayout = view.findViewById(R.id.txtTotalbalancepayout);
+
+        fabAddLead = view.findViewById(R.id.fab_add_lead);
 
         return view;
+    }
+
+    private void addNewLeadClick() {
+        fabAddLead.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mListener.changeFragement(new GenerateLeedFragment());
+            }
+        });
     }
 
     @Override

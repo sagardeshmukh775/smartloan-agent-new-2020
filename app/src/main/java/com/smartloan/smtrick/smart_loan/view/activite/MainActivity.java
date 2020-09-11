@@ -36,6 +36,7 @@ import com.smartloan.smtrick.smart_loan.preferences.AppSharedPreference;
 import com.smartloan.smtrick.smart_loan.utilities.Utility;
 import com.smartloan.smtrick.smart_loan.view.fragement.CalculatorFragment;
 import com.smartloan.smtrick.smart_loan.view.fragement.DashboardFragment;
+import com.smartloan.smtrick.smart_loan.view.fragement.DashbordFragment_new;
 import com.smartloan.smtrick.smart_loan.view.fragement.GenerateLeedFragment;
 import com.smartloan.smtrick.smart_loan.view.fragement.InvoicesTabFragment;
 import com.smartloan.smtrick.smart_loan.view.fragement.LeedsFragment;
@@ -79,7 +80,8 @@ public class MainActivity extends AppCompatActivity
         navigationView.setCheckedItem(R.id.generateleads);
         updateNavigationHeader();
         //NOTE:  Open fragment1 initially.
-        selectedFragement = new DashboardFragment();
+//        selectedFragement = new DashboardFragment();
+        selectedFragement = new DashbordFragment_new();
         FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
         ft.replace(R.id.mainFrame, selectedFragement);
         ft.commit();
