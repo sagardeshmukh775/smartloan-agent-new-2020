@@ -42,7 +42,7 @@ public class DashbordFragment_new extends Fragment {
         // NOTE : We are calling the onFragmentInteraction() declared in the MainActivity
         // ie we are sending "Fragment 1" as title parameter when fragment1 is activated
         if (mListener != null) {
-            mListener.onFragmentInteraction("fragment5");
+            mListener.onFragmentInteraction("Dash Bord");
         }
 
         txtNumberOfLeeds = view.findViewById(R.id.txtTotalLeeds);
