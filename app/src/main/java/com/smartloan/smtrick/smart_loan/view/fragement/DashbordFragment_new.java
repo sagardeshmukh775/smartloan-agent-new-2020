@@ -72,7 +72,7 @@ public class DashbordFragment_new extends Fragment {
         // ie we are sending "Fragment 1" as title parameter when fragment1 is activated
         context = getActivity();
         if (mListener != null) {
-            mListener.onFragmentInteraction("Dash Bord");
+            mListener.onFragmentInteraction("DashBord");
         }
 
         progressDialogClass = new ProgressDialogClass(getActivity());
