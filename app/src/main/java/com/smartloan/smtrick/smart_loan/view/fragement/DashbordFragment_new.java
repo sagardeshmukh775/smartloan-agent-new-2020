@@ -157,9 +157,7 @@ public class DashbordFragment_new extends Fragment {
                 Calendar c = Calendar.getInstance(TimeZone.getDefault());
                 c.setTimeInMillis(leedsModel.getCreatedDateTimeLong());
                 int mMonth = c.get(Calendar.MONTH);
-                Log.i("Dashboard fragment", "Month Formated Date:::" + dateString);
-                Log.i("Dashboard fragment", "Month Milliseconds:::" + leedsModel.getCreatedDateTimeLong());
-                Log.i("Dashboard fragment", "Month values:::" + (mMonth));
+
                 if (leedsModel.getLoanType().equalsIgnoreCase(LOAN_TYPE_HL)) {
                     homeLoanFileCount++;
                     long amount = Long.parseLong(leedsModel.getExpectedLoanAmount().replaceAll(",", ""));

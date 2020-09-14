@@ -31,7 +31,7 @@
 
                         <LinearLayout
                             android:layout_width="match_parent"
-                            android:layout_height="match_parent"
+                            android:layout_height="100dp"
                             android:layout_margin="5dp"
                             android:layout_weight="50"
                             android:background="@drawable/viewdropshadow5"
@@ -43,7 +43,7 @@
                                 android:layout_height="wrap_content"
                                 android:text="Total Number Of Leeds"
                                 android:textColor="@color/blue"
-                                android:textSize="16sp"
+                                android:textSize="14sp"
                                 android:textStyle="bold" />
 
                             <RelativeLayout
@@ -57,8 +57,8 @@
                                     android:layout_height="wrap_content"
                                     android:layout_alignParentBottom="true"
                                     android:text="0"
-                                    android:textColor="@color/blue"
-                                    android:textSize="16sp"
+                                    android:textColor="@color/icon_green"
+                                    android:textSize="14sp"
                                     android:textStyle="bold" />
 
                             </RelativeLayout>
@@ -68,7 +68,7 @@
 
                         <LinearLayout
                             android:layout_width="match_parent"
-                            android:layout_height="match_parent"
+                            android:layout_height="100dp"
                             android:layout_margin="5dp"
                             android:layout_weight="50"
                             android:background="@drawable/viewdropshadow5"
@@ -80,7 +80,7 @@
                                 android:layout_height="wrap_content"
                                 android:text="Total Loan Required Amount"
                                 android:textColor="@color/blue"
-                                android:textSize="16sp"
+                                android:textSize="14sp"
                                 android:textStyle="bold" />
 
                             <RelativeLayout
@@ -94,8 +94,8 @@
                                     android:layout_height="wrap_content"
                                     android:layout_alignParentBottom="true"
                                     android:text="0"
-                                    android:textColor="@color/blue"
-                                    android:textSize="16sp"
+                                    android:textColor="@color/icon_green"
+                                    android:textSize="14sp"
                                     android:textStyle="bold" />
 
                             </RelativeLayout>
@@ -112,7 +112,7 @@
 
                         <LinearLayout
                             android:layout_width="match_parent"
-                            android:layout_height="match_parent"
+                            android:layout_height="100dp"
                             android:layout_margin="5dp"
                             android:layout_weight="50"
                             android:background="@drawable/viewdropshadow5"
@@ -124,7 +124,7 @@
                                 android:layout_height="wrap_content"
                                 android:text="Total Number Of Files Login"
                                 android:textColor="@color/blue"
-                                android:textSize="16sp"
+                                android:textSize="14sp"
                                 android:textStyle="bold" />
 
                             <RelativeLayout
@@ -138,8 +138,8 @@
                                     android:layout_height="wrap_content"
                                     android:layout_alignParentBottom="true"
                                     android:text="0"
-                                    android:textColor="@color/blue"
-                                    android:textSize="16sp"
+                                    android:textColor="@color/icon_green"
+                                    android:textSize="14sp"
                                     android:textStyle="bold" />
 
                             </RelativeLayout>
@@ -148,7 +148,7 @@
 
                         <LinearLayout
                             android:layout_width="match_parent"
-                            android:layout_height="match_parent"
+                            android:layout_height="100dp"
                             android:layout_margin="5dp"
                             android:layout_weight="50"
                             android:background="@drawable/viewdropshadow5"
@@ -160,7 +160,7 @@
                                 android:layout_height="wrap_content"
                                 android:text="Files Rejected"
                                 android:textColor="@color/blue"
-                                android:textSize="16sp"
+                                android:textSize="14sp"
                                 android:textStyle="bold" />
 
                             <RelativeLayout
@@ -176,8 +176,8 @@
                                     android:layout_height="wrap_content"
                                     android:layout_alignParentBottom="true"
                                     android:text="0"
-                                    android:textColor="@color/blue"
-                                    android:textSize="16sp"
+                                    android:textColor="@color/icon_green"
+                                    android:textSize="14sp"
                                     android:textStyle="bold" />
 
                             </RelativeLayout>
@@ -194,7 +194,7 @@
 
                         <LinearLayout
                             android:layout_width="match_parent"
-                            android:layout_height="match_parent"
+                            android:layout_height="100dp"
                             android:layout_margin="5dp"
                             android:layout_weight="50"
                             android:background="@drawable/viewdropshadow5"
@@ -206,7 +206,7 @@
                                 android:layout_height="wrap_content"
                                 android:text="Total Number Of Files Sanctioned"
                                 android:textColor="@color/blue"
-                                android:textSize="16sp"
+                                android:textSize="14sp"
                                 android:textStyle="bold" />
 
                             <RelativeLayout
@@ -220,8 +220,8 @@
                                     android:layout_height="wrap_content"
                                     android:layout_alignParentBottom="true"
                                     android:text="0"
-                                    android:textColor="@color/blue"
-                                    android:textSize="16sp"
+                                    android:textColor="@color/icon_green"
+                                    android:textSize="14sp"
                                     android:textStyle="bold" />
 
                             </RelativeLayout>
@@ -230,7 +230,7 @@
 
                         <LinearLayout
                             android:layout_width="match_parent"
-                            android:layout_height="match_parent"
+                            android:layout_height="100dp"
                             android:layout_margin="5dp"
                             android:layout_weight="50"
                             android:background="@drawable/viewdropshadow5"
@@ -242,7 +242,7 @@
                                 android:layout_height="wrap_content"
                                 android:text="Total Sanctioned Amount"
                                 android:textColor="@color/blue"
-                                android:textSize="16sp"
+                                android:textSize="14sp"
                                 android:textStyle="bold" />
 
                             <RelativeLayout
@@ -256,8 +256,8 @@
                                     android:layout_height="wrap_content"
                                     android:layout_alignParentBottom="true"
                                     android:text="0"
-                                    android:textColor="@color/blue"
-                                    android:textSize="16sp"
+                                    android:textColor="@color/icon_green"
+                                    android:textSize="14sp"
                                     android:textStyle="bold" />
 
                             </RelativeLayout>
@@ -274,7 +274,7 @@
 
                         <LinearLayout
                             android:layout_width="match_parent"
-                            android:layout_height="match_parent"
+                            android:layout_height="100dp"
                             android:layout_margin="5dp"
                             android:layout_weight="50"
                             android:background="@drawable/viewdropshadow5"
@@ -286,7 +286,7 @@
                                 android:layout_height="wrap_content"
                                 android:text="Total Files Disbursed"
                                 android:textColor="@color/blue"
-                                android:textSize="16sp"
+                                android:textSize="14sp"
                                 android:textStyle="bold" />
 
                             <RelativeLayout
@@ -300,8 +300,8 @@
                                     android:layout_height="wrap_content"
                                     android:layout_alignParentBottom="true"
                                     android:text="0"
-                                    android:textColor="@color/blue"
-                                    android:textSize="16sp"
+                                    android:textColor="@color/icon_green"
+                                    android:textSize="14sp"
                                     android:textStyle="bold" />
 
                             </RelativeLayout>
@@ -310,7 +310,7 @@
 
                         <LinearLayout
                             android:layout_width="match_parent"
-                            android:layout_height="match_parent"
+                            android:layout_height="100dp"
                             android:layout_margin="5dp"
                             android:layout_weight="50"
                             android:background="@drawable/viewdropshadow5"
@@ -322,7 +322,7 @@
                                 android:layout_height="wrap_content"
                                 android:text="Total Disbursement Amount"
                                 android:textColor="@color/blue"
-                                android:textSize="16sp"
+                                android:textSize="14sp"
                                 android:textStyle="bold" />
 
                             <RelativeLayout
@@ -336,8 +336,8 @@
                                     android:layout_height="wrap_content"
                                     android:layout_alignParentBottom="true"
                                     android:text="0"
-                                    android:textColor="@color/blue"
-                                    android:textSize="16sp"
+                                    android:textColor="@color/icon_green"
+                                    android:textSize="14sp"
                                     android:textStyle="bold" />
 
                             </RelativeLayout>
@@ -355,7 +355,7 @@
 
                         <LinearLayout
                             android:layout_width="match_parent"
-                            android:layout_height="match_parent"
+                            android:layout_height="100dp"
                             android:layout_margin="5dp"
                             android:layout_weight="50"
                             android:background="@drawable/viewdropshadow5"
@@ -367,7 +367,7 @@
                                 android:layout_height="wrap_content"
                                 android:text="Total Payout On Disburstment Amount 0.03%"
                                 android:textColor="@color/blue"
-                                android:textSize="16sp"
+                                android:textSize="14sp"
                                 android:textStyle="bold" />
 
                             <RelativeLayout
@@ -381,8 +381,8 @@
                                     android:layout_height="wrap_content"
                                     android:layout_alignParentBottom="true"
                                     android:text="0"
-                                    android:textColor="@color/blue"
-                                    android:textSize="16sp"
+                                    android:textColor="@color/icon_green"
+                                    android:textSize="14sp"
                                     android:textStyle="bold" />
 
                             </RelativeLayout>
@@ -391,7 +391,7 @@
 
                         <LinearLayout
                             android:layout_width="match_parent"
-                            android:layout_height="match_parent"
+                            android:layout_height="100dp"
                             android:layout_margin="5dp"
                             android:layout_weight="50"
                             android:background="@drawable/viewdropshadow5"
@@ -403,7 +403,7 @@
                                 android:layout_height="wrap_content"
                                 android:text="Total Payout Paid Till Now"
                                 android:textColor="@color/blue"
-                                android:textSize="16sp"
+                                android:textSize="14sp"
                                 android:textStyle="bold" />
 
                             <RelativeLayout
@@ -417,8 +417,8 @@
                                     android:layout_height="wrap_content"
                                     android:layout_alignParentBottom="true"
                                     android:text="0"
-                                    android:textColor="@color/blue"
-                                    android:textSize="16sp"
+                                    android:textColor="@color/icon_green"
+                                    android:textSize="14sp"
                                     android:textStyle="bold" />
 
                             </RelativeLayout>
@@ -435,7 +435,7 @@
 
                         <LinearLayout
                             android:layout_width="match_parent"
-                            android:layout_height="match_parent"
+                            android:layout_height="100dp"
                             android:layout_margin="5dp"
                             android:layout_weight="50"
                             android:background="@drawable/viewdropshadow5"
@@ -447,7 +447,7 @@
                                 android:layout_height="wrap_content"
                                 android:text="Total Balance Payout"
                                 android:textColor="@color/blue"
-                                android:textSize="16sp"
+                                android:textSize="14sp"
                                 android:textStyle="bold" />
 
                             <RelativeLayout
@@ -461,43 +461,15 @@
                                     android:layout_height="wrap_content"
                                     android:layout_alignParentBottom="true"
                                     android:text="0"
-                                    android:textColor="@color/blue"
-                                    android:textSize="16sp"
+                                    android:textColor="@color/icon_green"
+                                    android:textSize="14sp"
                                     android:textStyle="bold" />
 
                             </RelativeLayout>
 
                         </LinearLayout>
 
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:layout_margin="5dp"
-                            android:layout_weight="50"
-                            android:orientation="vertical"
-                            android:padding="5dp">
-
-                            <!--                            <TextView-->
-                            <!--                                android:layout_width="match_parent"-->
-                            <!--                                android:layout_height="wrap_content"-->
-                            <!--                                android:text="Total Loan Required Amount"-->
-                            <!--                                android:textColor="@color/blue"-->
-                            <!--                                android:textSize="18sp"-->
-                            <!--                                android:textStyle="bold" />-->
-
-                            <!--                            <TextView-->
-                            <!--                                android:id="@+id/txtTotalLoanRequirementAmount"-->
-                            <!--                                android:layout_width="wrap_content"-->
-                            <!--                                android:layout_height="wrap_content"-->
-                            <!--                                android:text="0"-->
-                            <!--                                android:textColor="@color/blue"-->
-                            <!--                                android:textSize="18sp"-->
-                            <!--                                android:textStyle="bold" />-->
-
-                        </LinearLayout>
-
                     </LinearLayout>
-
 
                 </LinearLayout>
 
