@@ -166,7 +166,7 @@ public class MainActivity extends AppCompatActivity
         //NOTE: creating fragment object
         Fragment fragment = null;
         if (id == R.id.generateleads) {
-            fragment = new DashboardFragment();
+            fragment = new DashbordFragment_new();
             initMenu(false);
         } else if (id == R.id.Leads) {
             leedsFragement = new LeedsFragment();
