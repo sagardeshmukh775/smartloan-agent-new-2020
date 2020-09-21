@@ -82,7 +82,7 @@ public class FoldingLeedsViewHolder extends RecyclerView.ViewHolder {
         txtDetailloantypevalue = cell.findViewById(R.id.txtloantypevalue);
         txtDetailbankvalue = cell.findViewById(R.id.txtbankvalue);
         txtDetailpayoutvalue = cell.findViewById(R.id.txtpayoutvalue);
-        txtagentvalue = cell.findViewById(R.id.txtagentvalue);
+//        txtagentvalue = cell.findViewById(R.id.txtagentvalue);
         txtapprovedloanvalue = cell.findViewById(R.id.txtapprovedloanvalue);
         contentRequestBtn = cell.findViewById(R.id.title_request);
         cell.setTag(this);

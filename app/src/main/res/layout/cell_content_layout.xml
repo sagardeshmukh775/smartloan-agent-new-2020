@@ -541,33 +541,33 @@
                     android:text="Rs 110000"
                     android:textSize="14sp" />
 
-                <TextView
-                    android:id="@+id/txtagent"
-                    style="@style/FormTitle"
-                    android:layout_width="100dp"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/txtpayout"
-                    android:text="Agent Name:"
-                    android:textSize="14sp" />
+<!--                <TextView-->
+<!--                    android:id="@+id/txtagent"-->
+<!--                    style="@style/FormTitle"-->
+<!--                    android:layout_width="100dp"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_below="@+id/txtpayout"-->
+<!--                    android:text="Agent Name:"-->
+<!--                    android:textSize="14sp" />-->
 
-                <TextView
-                    android:id="@+id/txtagentvalue"
-                    style="@style/FormLabel"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/txtpayout"
-                    android:layout_marginLeft="10sp"
-                    android:layout_marginTop="1sp"
-                    android:layout_toRightOf="@+id/txtagent"
-                    android:text="Vikram Kodag"
-                    android:textSize="14sp" />
+<!--                <TextView-->
+<!--                    android:id="@+id/txtagentvalue"-->
+<!--                    style="@style/FormLabel"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_below="@+id/txtpayout"-->
+<!--                    android:layout_marginLeft="10sp"-->
+<!--                    android:layout_marginTop="1sp"-->
+<!--                    android:layout_toRightOf="@+id/txtagent"-->
+<!--                    android:text="Vikram Kodag"-->
+<!--                    android:textSize="14sp" />-->
 
                 <TextView
                     android:id="@+id/txtapprovedloan"
                     style="@style/FormTitle"
                     android:layout_width="100dp"
                     android:layout_height="wrap_content"
-                    android:layout_below="@+id/txtagent"
+                    android:layout_below="@+id/txtpayout"
                     android:text="Approved Loan:"
                     android:textSize="14sp" />
 
@@ -576,7 +576,7 @@
                     style="@style/FormLabel"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_below="@+id/txtagent"
+                    android:layout_below="@+id/txtpayout"
                     android:layout_marginLeft="10sp"
                     android:layout_marginTop="1sp"
                     android:layout_toRightOf="@+id/txtapprovedloan"

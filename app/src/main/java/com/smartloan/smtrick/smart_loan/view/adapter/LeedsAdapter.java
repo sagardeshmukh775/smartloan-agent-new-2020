@@ -148,7 +148,7 @@ public class LeedsAdapter extends ArrayAdapter<LeedsModel> implements Filterable
             viewHolder.txtDetailloantypevalue = cell.findViewById(R.id.txtloantypevalue);
             viewHolder.txtDetailbankvalue = cell.findViewById(R.id.txtbankvalue);
             viewHolder.txtDetailpayoutvalue = cell.findViewById(R.id.txtpayoutvalue);
-            viewHolder.txtagentvalue = cell.findViewById(R.id.txtagentvalue);
+//            viewHolder.txtagentvalue = cell.findViewById(R.id.txtagentvalue);
             viewHolder.txtapprovedloanvalue = cell.findViewById(R.id.txtapprovedloanvalue);
             viewHolder.contentRequestBtn = cell.findViewById(R.id.title_request);
             viewHolder.tvLeadActivity = cell.findViewById(R.id.tvLeadActivity);
@@ -232,10 +232,10 @@ public class LeedsAdapter extends ArrayAdapter<LeedsModel> implements Filterable
             viewHolder.txtBalanceTransferTypeValue.setText(leedsModel.getBalanceTransferLoanType());
         else
             viewHolder.txtBalanceTransferTypeValue.setText(getString(R.string.na));
-        if (!Utility.isEmptyOrNull(leedsModel.getAgentName()))
-            viewHolder.txtagentvalue.setText(leedsModel.getAgentName());
-        else
-            viewHolder.txtagentvalue.setText(getString(R.string.na));
+//        if (!Utility.isEmptyOrNull(leedsModel.getAgentName()))
+//            viewHolder.txtagentvalue.setText(leedsModel.getAgentName());
+//        else
+//            viewHolder.txtagentvalue.setText(getString(R.string.na));
         if (leedsModel.getRequestBtnClickListener() != null) {
             viewHolder.contentRequestBtn.setOnClickListener(leedsModel.getRequestBtnClickListener());
         } else {
@@ -454,7 +454,7 @@ public class LeedsAdapter extends ArrayAdapter<LeedsModel> implements Filterable
         TextView txDetailtpayout;
         TextView txtDetailpayoutvalue;
         TextView txtagent;
-        TextView txtagentvalue;
+//        TextView txtagentvalue;
         TextView txtapprovedloan;
         TextView txtapprovedloanvalue;
         TextView title_request;
