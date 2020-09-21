@@ -36,6 +36,22 @@
             android:textStyle="normal|bold" />
 
         <item
+            android:id="@+id/Notification"
+            android:icon="@drawable/notification"
+            android:title="Notification"
+            android:textSize="22sp"
+            android:textColor="@color/textcolor"
+            android:textStyle="normal|bold" />
+
+        <item
+            android:id="@+id/Awareness"
+            android:icon="@drawable/awareness"
+            android:title="Awareness"
+            android:textSize="22sp"
+            android:textColor="@color/textcolor"
+            android:textStyle="normal|bold" />
+
+        <item
             android:id="@+id/Calulator"
             android:icon="@drawable/calculatoricon"
             android:title="Loan Calculator"
