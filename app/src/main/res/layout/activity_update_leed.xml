@@ -162,7 +162,6 @@
                                 android:drawableLeft="@drawable/address"
                                 android:gravity="center_horizontal"
                                 android:hint="Address"
-                                android:maxLength="50"
                                 android:padding="10sp"
                                 android:paddingLeft="4dp"
                                 android:textSize="15sp" />
